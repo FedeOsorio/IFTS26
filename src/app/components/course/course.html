@@ -1,0 +1,19 @@
+<div class="carouselContainer">
+    <c-carousel [dark]="true">
+        <c-carousel-inner>
+            @for (slide of slides; track slide.src) {
+            <c-carousel-item>
+                <img alt="{{slide.title}}" class="d-block w-75 m-auto" src="{{slide.src}}" />
+                <c-carousel-caption class="d-none d-md-block">
+                    <h5 class="fs-5 w-75 m-auto mb-4">{{ slide.title }}</h5>
+                    <p>{{ slide.subtitle }}</p>
+                </c-carousel-caption>
+            </c-carousel-item>
+            }
+        </c-carousel-inner>
+
+        <c-carousel-control caption="Previous" direction="prev" />
+        <c-carousel-control caption="Next" direction="next" />
+
+    </c-carousel>
+</div>

@@ -171,3 +171,23 @@ h3{
         margin-block: 1.5rem;
     }
 }
+
+// ESTILOS PERSONALIZADOS
+
+.banner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 240px;
+    background-image: url(/assets/img/banner.jpg);
+    background-size: cover;
+    justify-content: center;
+    padding: 0 80px;
+
+    .bannerDesc{
+        width: 420px;
+        background-color: #1c72a3a2;
+        color: white;
+        padding: 25px;
+    }
+}
