@@ -7,16 +7,22 @@
             <h3>Tecnicatura Superior en Higiene y Seguridad en el Trabajo</h3>
         </div>
     </div>
-    <ul class="navList">
-        <li>Inicio</li>
-        <li>Pre-Inscripción</li>
-        <li>Institucional</li>
-        <li>Carreras</li>
-        <li>Docentes</li>
-        <li>Alumnos</li>
-        <li>Tutorías</li>
-        <li>SIU Guaraní/Moodle</li>
-        <li>Novedades</li>
-        <li>Contácto</li>
-    </ul>
+    <div class="navList">
+        @for (button of navButtons; track button.label) {
+        <c-dropdown variant="btn-group" class="m-1">
+            <button cButton cDropdownToggle>
+                {{ button.label }}
+            </button>
+            <ul cDropdownMenu class="ulMenu">
+                @for (item of button.items; track item.text) {
+                <li>
+                    <button class="secButton" [routerLink]="item.route" cDropdownItem>{{ item.text }}</button>
+                </li>
+                }
+            </ul>
+        </c-dropdown>
+        }
+    </div>
+
+
 </nav>
