@@ -2,11 +2,50 @@
     background-color: #2C3539;
     margin: 0;
     color: white;
-    padding: 10px 0;
+    padding: 15px 240px;
+    height: 200px;
     font-size: 14px;
     position: relative;
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h3{
+        margin: 0;
+        margin-bottom: 2px;
+        font-size: 27px;
+    }
+}
+
+.footer-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .gir{
+        display: flex;
+        flex-direction: column;
+
+        p{
+            margin: 0;
+        }
+    }
+
+    .hyg{
+        display: flex;
+        flex-direction: column;
+
+        p{
+            margin: 0;
+        }
+    }
 }

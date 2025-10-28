@@ -1,10 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { Header } from "../../components/header/header";
 import { Course } from "../../components/course/course";
 
 @Component({
   selector: 'app-home',
-  imports: [Header, Course],
+  imports: [Course],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
