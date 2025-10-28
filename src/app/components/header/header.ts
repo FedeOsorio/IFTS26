@@ -19,77 +19,63 @@ export class Header {
   public navButtons = [
     {
       label: 'Inicio',
-      items: [{ text: 'Página Principal', route: '/' }, { text: 'Noticias Destacadas', route: '/noticias' },]
+      route: '/'
     },
     {
       label: 'Pre-Inscripción',
-      items: [{ text: 'Ver Instructivo', route: '/preinscripcion/instructivo' }, { text: 'Formulario de Inscripción', route: '/preinscripcion/formulario' }, { text: 'Consultar Estado', route: '/preinscripcion/estado' }]
+      items: [{ text: 'Curso Pre-Ingreso', route: '/pre-inscripcion/curso' }]
     },
     {
       label: 'Institucional',
       items: [
-        { text: 'Nuestra Historia', route: '/institucional/historia' },
-        { text: 'Autoridades', route: '/institucional/autoridades' },
-        { text: 'Misión y Visión', route: '/institucional/mision' },
-        { text: 'Normativas', route: '/institucional/normativas' }
+        { text: 'Calendario Académico', route: '/institucional/calendario-academico' },
+        { text: 'Datos Institucionales', route: '/institucional/autoridades' },
+        { text: 'Reglamento Orgánico', route: '/institucional/reglamento-organico' },
+        { text: 'Repositorio', route: '/institucional/repositorio' },
+        { text: 'Plano de Evacuación', route: '/institucional/evacuacion' }
       ]
     },
     {
       label: 'Carreras',
       items: [
-        { text: 'Oferta Académica de Grado', route: '/carreras/grado' },
-        { text: 'Oferta de Posgrado', route: '/carreras/posgrado' },
-        { text: 'Planes de Estudio', route: '/carreras/planes' }
+        { text: 'Gestión Integral del Riesgo', route: '/carrera/gir' },
+        { text: 'Higiene y Seguridad en el Trabajo', route: '/carrera/hys' }
       ]
     },
     {
       label: 'Docentes',
-      items: [
-        { text: 'Portal Docente', route: '/docentes/portal' },
-        { text: 'Material de Cátedra', route: '/docentes/material' },
-        { text: 'Novedades para Docentes', route: '/docentes/novedades' }
-      ]
+      route: '/docentes'
     },
     {
       label: 'Alumnos',
       items: [
-        { text: 'Portal de Alumnos', route: '/alumnos/portal' },
-        { text: 'Trámites Frecuentes', route: '/alumnos/tramites' },
-        { text: 'Calendario Académico', route: '/alumnos/calendario' },
-        { text: 'Bienestar Estudiantil', route: '/alumnos/bienestar' }
+        { text: 'Constancias', route: '/alumnos/constancias' },
+        { text: 'Becas Progresar', route: '/alumnos/becas' },
+        { text: 'Títulos Extranjeros', route: '/alumnos/titulos-extranjeros' },
+        { text: 'Matrícula Profesional', route: '/alumnos/matricula-profesional' },
+        { text: 'Horarios', route: '/alumnos/horarios' },
+        { text: 'Mesas de exámen', route: '/alumnos/mesas-examen' },
+        { text: 'Cooperadora', route: '/alumnos/cooperadora' }
       ]
     },
     {
-      label: 'Tutorías',
-      items: [
-        { text: 'Programa de Tutorías', route: '/tutorias/programa' },
-        { text: 'Solicitar un Tutor', route: '/tutorias/solicitar' },
-        { text: 'Horarios de Consulta', route: '/tutorias/horarios' }
-      ]
+      label: 'Tutoría',
+      route: '/tutoria'
     },
     {
       label: 'SIU Guaraní/Moodle',
-      items: [
-        { text: 'Acceder a SIU Guaraní', route: '/acceso/siu-guarani' },
-        { text: 'Acceder a Moodle', route: '/acceso/moodle' },
-        { text: 'Guías y Tutoriales', route: '/acceso/ayuda' }
-      ]
+      route: '/accesos'
     },
     {
-      label: 'Novedades',
+      label: 'Publicaciones',
       items: [
         { text: 'Últimas Noticias', route: '/novedades/noticias' },
-        { text: 'Eventos y Agenda', route: '/novedades/eventos' },
-        { text: 'Archivo de Novedades', route: '/novedades/archivo' }
+        { text: 'Eventos y Agenda', route: '/novedades/eventos' }
       ]
     },
     {
       label: 'Contacto',
-      items: [
-        { text: 'Formulario de Contacto', route: '/contacto/formulario' },
-        { text: 'Ubicación y Horarios', route: '/contacto/ubicacion' },
-        { text: 'Teléfonos Útiles', route: '/contacto/telefonos' }
-      ]
+      route: '/contacto'
     }
   ];
 }

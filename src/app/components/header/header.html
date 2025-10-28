@@ -9,18 +9,24 @@
     </div>
     <div class="navList">
         @for (button of navButtons; track button.label) {
-        <c-dropdown variant="btn-group" class="m-1">
-            <button cButton cDropdownToggle>
+          @if (button.items && button.items.length > 0) {
+            <c-dropdown variant="btn-group" class="m-1">
+                <button cButton cDropdownToggle>
+                    {{ button.label }}
+                </button>
+                <ul cDropdownMenu class="ulMenu">
+                    @for (item of button.items; track item.text) {
+                    <li>
+                        <button class="secButton" [routerLink]="item.route" cDropdownItem>{{ item.text }}</button>
+                    </li>
+                    }
+                </ul>
+            </c-dropdown>
+          } @else {
+            <button cButton class="m-1" [routerLink]="button.route">
                 {{ button.label }}
             </button>
-            <ul cDropdownMenu class="ulMenu">
-                @for (item of button.items; track item.text) {
-                <li>
-                    <button class="secButton" [routerLink]="item.route" cDropdownItem>{{ item.text }}</button>
-                </li>
-                }
-            </ul>
-        </c-dropdown>
+          }
         }
     </div>
 
