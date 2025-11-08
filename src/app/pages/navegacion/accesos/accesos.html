@@ -1,1 +1,150 @@
-<p>accesos works!</p>
+<div class="access-container">
+    <p class="intro-text">
+        Accedé a las plataformas educativas del IFTS Nº26: SIU Guaraní para gestión académica
+        y Moodle para las aulas virtuales de tus materias.
+    </p>
+    <section class="access-systems">
+        <h2>Acceso a los Sistemas</h2>
+        <div class="access-flex-container">
+            <article class="access-card">
+                <div class="card-header">
+                    <fa-icon [icon]="iconoSiu"></fa-icon>
+                    <h3>SIU Guaraní</h3>
+                </div>
+                <p>Sistema de gestión de alumnos para trámites académicos</p>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    Ingresar al Sistema <fa-icon [icon]="iconoTarget"/>
+                </a>
+
+                <div class="info-box">
+                    <fa-icon [icon]="iconoInfo"/>
+                    <div class="info-content">
+                        <strong>Datos de Acceso</strong>
+                        <p><strong>Usuario:</strong> Número de DNI</p>
+                        <p><strong>Contraseña:</strong> La creada para el pre-ingreso a la carrera</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="access-card">
+                <div class="card-header">
+                    <fa-icon [icon]="iconoMoodle"></fa-icon>
+                    <h3>Moodle (Aulas Virtuales)</h3>
+                </div>
+                <p>Plataforma de aprendizaje virtual para el seguimiento de clases</p>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    Ingresar a Moodle <fa-icon [icon]="iconoTarget"/>
+                </a>
+
+                <div class="info-box">
+                    <fa-icon [icon]="iconoInfo"/>
+                    <div class="info-content">
+                        <strong>Datos de Acceso</strong>
+                        <p><strong>Nombre de usuario:</strong> Número de DNI</p>
+                        <p><strong>Contraseña:</strong> Probar123</p>
+                        <small>O la contraseña creada para el pre-ingreso a la carrera</small>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="alert-box alert-danger">
+        <fa-icon [icon]="iconoAlerta"></fa-icon>
+        <div class="alert-content">
+            <strong>¿Tenés problemas para acceder?</strong>
+            <p>Aquellos alumnos que tengan inconvenientes deberán completar el formulario de mesa de ayuda para que los
+                técnicos revisen el problema.</p>
+        </div>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            Completar Formulario Mesa de Ayuda <i class="icon-external"></i>
+        </a>
+    </section>
+
+    <section class="tutorials-section">
+        <h2>Tutoriales SIU</h2>
+        <p class="intro-text">
+            Descargá los instructivos paso a paso para realizar trámites en el sistema SIU Guaraní
+        </p>
+
+        <div class="tutorials-flex-container">
+            <article class="tutorial-card">
+                <fa-icon [icon]="iconoDoc"/>
+                <div class="tutorial-content">
+                    <h3>Certificado de Alumno Regular</h3>
+                    <p>Instructivo para descargar el Certificado de Alumno Regular desde el sistema.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                        Descargar instructivo <fa-icon [icon]="iconoDownload"/>
+                    </a>
+                </div>
+            </article>
+
+            <article class="tutorial-card">
+                <fa-icon [icon]="iconoCalendar"/>
+                <div class="tutorial-content">
+                    <h3>Inscripción a Mesas de Examen</h3>
+                    <p>Instructivo para inscribirse a Mesas de Exámenes Finales.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                        Descargar instructivo <fa-icon [icon]="iconoDownload"/>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="alert-box alert-info">
+        <fa-icon [icon]="iconoTip"/>
+        <p><strong>Tip:</strong> Guardá estos instructivos en tu dispositivo para consultarlos cuando los necesites.
+            También podés compartirlos con tus compañeros.</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <div class="faq-simple-item">
+        <h4>¿El sistema está disponible las 24 horas?</h4>
+        <p>Sí, podés acceder al sistema en cualquier momento. Sin embargo, puede haber mantenimientos programados que se
+            informan con anticipación.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <section class="help-box">
+        <div class="help-content">
+            <h3>¿Necesitás Ayuda con el Sistema?</h3>
+            <p>Si tenés problemas técnicos o dudas sobre cómo usar el sistema</p>
+        </div>
+        <div class="help-contact">
+            <div>
+                <strong>Soporte técnico:</strong>
+                <a href="mailto:soporte@ifts26.edu.ar">soporte&#64;ifts26.edu.ar</a>
+            </div>
+            <div>
+                <strong>Secretaría:</strong>
+                <span>4961-4644 / 4962-1716</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2>Preguntas Frecuentes</h2>
+
+        <div class="faq-list">
+
+            @for (faq of faqs; track faq.id) {
+            <div class="faq-item">
+
+                <button class="faq-question" (click)="toggleFaq(faq)" [attr.aria-expanded]="faq.open">
+                    {{ faq.question }}
+                    <span class="faq-icon">{{ faq.open ? '−' : '+' }}</span>
+                </button>
+
+                <div class="faq-answer" [class.open]="faq.open">
+                    <p [innerHTML]="faq.answer"></p>
+                </div>
+            </div>
+            }
+
+        </div>
+    </section>
+
+</div>

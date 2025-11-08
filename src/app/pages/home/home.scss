@@ -48,13 +48,13 @@ p {
     color: var(--gray-700);
 }
 
-main {
+.main {
     width: 100%;
-    min-height: 100%;
     display: flex;
-    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
     box-sizing: inherit;
-    position: relative;
 }
 
 .angular-logo {

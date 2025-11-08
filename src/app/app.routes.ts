@@ -42,7 +42,7 @@ export const routes: Routes = [
     { path: 'alumnos/horarios', component: Horarios },
     { path: 'alumnos/mesas-examen', component: MesasExamen },
     { path: 'alumnos/cooperadora', component: Cooperadora },
-    { path: 'tutorias', component: Tutoria },
+    { path: 'tutoria', component: Tutoria },
     { path: 'accesos', component: Accesos },
     { path: 'novedades/noticias', component: Publicaciones },
     { path: 'novedades/eventos', component: Publicaciones },

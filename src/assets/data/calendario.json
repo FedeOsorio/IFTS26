@@ -1,0 +1,56 @@
+{
+  "primerCuatrimestre": [
+    {
+      "titulo": "Inscripción",
+      "descripcion": "Período de inscripción a materias",
+      "fecha": "1 al 15 de febrero"
+    },
+    {
+      "titulo": "Inicio de Clases",
+      "descripcion": "Comienzo del ciclo lectivo",
+      "fecha": "3 de marzo"
+    },
+    {
+      "titulo": "Receso Invernal",
+      "descripcion": "Vacaciones de invierno",
+      "fecha": "14 al 25 de julio"
+    },
+    {
+      "titulo": "Exámenes Parciales",
+      "descripcion": "Período de evaluaciones parciales",
+      "fecha": "Mayo - Junio"
+    },
+    {
+      "titulo": "Finalización",
+      "descripcion": "Fin del primer cuatrimestre",
+      "fecha": "30 de junio"
+    }
+  ],
+  "segundoCuatrimestre": [
+    {
+      "titulo": "Inscripción",
+      "descripcion": "Período de inscripción a materias",
+      "fecha": "1 al 10 de agosto"
+    },
+    {
+      "titulo": "Inicio de Clases",
+      "descripcion": "Comienzo del segundo cuatrimestre",
+      "fecha": "12 de agosto"
+    },
+    {
+      "titulo": "Exámenes Parciales",
+      "descripcion": "Período de evaluaciones parciales",
+      "fecha": "Octubre - Noviembre"
+    },
+    {
+      "titulo": "Finalización",
+      "descripcion": "Fin del año lectivo",
+      "fecha": "15 de diciembre"
+    },
+    {
+      "titulo": "Exámenes Finales",
+      "descripcion": "Mesa de exámenes finales diciembre",
+      "fecha": "16 al 22 de diciembre"
+    }
+  ]
+}

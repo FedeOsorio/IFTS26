@@ -1,1 +1,105 @@
-<p>contacto works!</p>
+<div class="contact-container">
+
+  <aside class="contact-info">
+    <h2>Información de Contacto</h2>
+
+    <ul class="info-list">
+      <li class="info-item">
+        <div class="info-icon">
+          <fa-icon [icon]="iconoMapa"></fa-icon>
+        </div>
+        <div class="info-text">
+          <strong>Dirección</strong>
+          <p>Av. Córdoba 3030<br>C1187AAP - Ciudad Autónoma de Buenos Aires</p>
+        </div>
+      </li>
+      <li class="info-item">
+        <div class="info-icon">
+          <fa-icon [icon]="iconoTelefono"></fa-icon>
+        </div>
+        <div class="info-text">
+          <strong>Teléfono</strong>
+          <p>4961-4644<br>4962-1716</p>
+        </div>
+      </li>
+      <li class="info-item">
+        <div class="info-icon">
+          <fa-icon [icon]="iconoEmail"></fa-icon>
+        </div>
+        <div class="info-text">
+          <strong>Email</strong>
+          <p>ifts26@bue.edu.ar</p>
+        </div>
+      </li>
+      <li class="info-item">
+        <div class="info-icon">
+          <fa-icon [icon]="iconoHorario"></fa-icon>
+        </div>
+        <div class="info-text">
+          <strong>Horarios de Atención</strong>
+          <p>Lunes a Viernes: 9:00 a 21:00hs<br>Sábados: 9:00 a 13:00hs</p>
+        </div>
+      </li>
+    </ul>
+
+    <h3>Seguinos en Redes Sociales</h3>
+    <div class="social-icons">
+      <a href="#" target="_blank" aria-label="Facebook" class="social-icon">
+        <fa-icon [icon]="iconoFacebook"></fa-icon>
+      </a>
+      <a href="#" target="_blank" aria-label="Instagram" class="social-icon">
+        <fa-icon [icon]="iconoInstagram"></fa-icon>
+      </a>
+    </div>
+
+    <h3>Ubicación</h3>
+    <div class="map-placeholder">
+      <fa-icon [icon]="iconoMapaMarcador"></fa-icon>
+      <span>Mapa embebido<br>Av. Córdoba 3030, CABA</span>
+    </div>
+
+  </aside>
+
+  <main class="contact-form">
+    <h2>Envianos tu Consulta</h2>
+
+    <form [formGroup]="consultaForm" (ngSubmit)="enviarConsulta()">
+      
+      <div class="form-group">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" formControlName="nombre" placeholder="Tu nombre">
+        </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" placeholder="tu@email.com">
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" formControlName="telefono" placeholder="Tu teléfono">
+      </div>
+
+      <div class="form-group">
+        <label for="asunto">Asunto</label>
+        <input type="text" id="asunto" formControlName="asunto" placeholder="Motivo de tu consulta">
+      </div>
+
+      <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" formControlName="mensaje" rows="6" placeholder="Escribe tu consulta aquí..."></textarea>
+      </div>
+
+      <p class="form-note">
+        * Campos obligatorios. Tus datos serán utilizados únicamente para responder tu 
+        consulta y no serán compartidos con terceros.
+      </p>
+
+      <button type="submit" class="btn-submit" [disabled]="consultaForm.invalid">
+        Enviar Consulta
+      </button>
+
+    </form>
+  </main>
+
+</div>

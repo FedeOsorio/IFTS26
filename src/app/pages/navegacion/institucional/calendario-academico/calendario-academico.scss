@@ -1,0 +1,88 @@
+:host {
+  --color-primary: #3f51b5;
+  --color-text-dark: #212529;
+  --color-text-light: #5a5a5a;
+  --color-border: #e0e0e0;
+  --color-bg-light: #f7f9ff;
+}
+
+.calendar-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.semester-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-primary);
+  
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  fa-icon {
+    font-size: 1.5rem;
+  }
+}
+
+.date-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: 1.5rem;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .date-content {
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-text-dark);
+      margin: 0 0 0.25rem 0;
+    }
+    
+    p {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      margin: 0;
+    }
+  }
+
+  .date-period {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    .date-period {
+      text-align: left;
+      font-weight: 600;
+      color: var(--color-primary);
+      padding-top: 0.25rem;
+    }
+  }
+}
