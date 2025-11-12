@@ -1,5 +1,5 @@
 [build]
-  command = "ng build && ng run mi-app:server"
+  command = "ng build && ng run IFTS26:server"
   publish = "dist/IFTS26/browser"
 
 [[plugins]]
