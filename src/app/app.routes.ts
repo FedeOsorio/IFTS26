@@ -24,7 +24,6 @@ import { PreInscripcion } from './pages/navegacion/pre-inscripcion/pre-inscripci
 
 export const routes: Routes = [
     { path: '', redirectTo: '/inicio', pathMatch: 'full' },
-    { path: '/', redirectTo: '/inicio', pathMatch: 'full' },
     { path: 'inicio', component: Home },
     { path: 'pre-inscripcion', component: PreInscripcion },
     { path: 'pre-inscripcion/curso', component: Curso },
