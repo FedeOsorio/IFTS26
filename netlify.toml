@@ -2,5 +2,10 @@
   command = "ng build"
   publish = "dist/IFTS26/server/browser"
 
-[[plugins]]
-  package = "@netlify/angular-runtime"
+# AÑADE ESTA NUEVA SECCIÓN:
+# Esto le dice a Netlify: "Si alguien pide la raíz ('/'),
+# envíalo a '/inicio' antes de que Angular haga nada."
+[[redirects]]
+  from = "/"
+  to = "/inicio"
+  status = 301 # Significa "movido permanentemente"
