@@ -35,6 +35,7 @@
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
+            "outputPath": "dist/IFTS26/server",
             "ssr": {
               "entry": "src/server.ts"
             }

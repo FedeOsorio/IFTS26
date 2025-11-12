@@ -1,4 +1,5 @@
 [build]
+  command = "ng build"
   publish = "dist/IFTS26/browser"
 
 [[plugins]]
