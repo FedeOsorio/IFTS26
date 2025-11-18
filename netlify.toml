@@ -1,6 +1,6 @@
 [build]
-  command = "ng build"
-  publish = "dist/IFTS26/browser"
+  command = "ng build && cp -R src/admin dist/IFTS26/server/browser/admin"
+  publish = "dist/IFTS26/server/browser"
 
 [[redirects]]
   from = "/admin/*"
