@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ButtonDirective, DropdownComponent, DropdownItemDirective, DropdownMenuDirective, DropdownToggleDirective } from "@coreui/angular";
+import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-header',
@@ -23,6 +24,7 @@ export class Header {
     },
     {
       label: 'Pre-Inscripción',
+      routes: '/pre-inscripcion',
       items: [{ text: 'Curso Pre-Ingreso', route: '/pre-inscripcion/curso' }]
     },
     {
