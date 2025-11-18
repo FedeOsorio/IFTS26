@@ -2,9 +2,11 @@
   command = "ng build"
   publish = "dist/IFTS26/server/browser"
 
-# AÑADE ESTA NUEVA SECCIÓN:
-# Esto le dice a Netlify: "Si alguien pide la raíz ('/'),
-# envíalo a '/inicio' antes de que Angular haga nada."
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+  force = true
 [[redirects]]
   from = "/"
   to = "/inicio"
