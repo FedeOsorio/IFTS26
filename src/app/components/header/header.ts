@@ -24,7 +24,7 @@ export class Header {
     },
     {
       label: 'Pre-Inscripción',
-      routes: '/pre-inscripcion',
+      route: '/pre-inscripcion',
       items: [{ text: 'Curso Pre-Ingreso', route: '/pre-inscripcion/curso' }]
     },
     {
