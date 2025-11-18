@@ -32,7 +32,7 @@ collections:
             widget: "list"
             fields:
               - {label: "Cargo", name: "cargo", widget: "string"}
-              - {label: "Nombres", name: "nombres", widget: "list", field: {widget: "string"}}
+              - {label: "Nombres", name: "nombres", widget: "list", field: {label: "Nombre", name: "nombre_item", widget: "string"}}
 
       # Editor de Calendario Académico
       - name: "calendario"
@@ -84,14 +84,3 @@ collections:
               - {label: "Texto (Opcional)", name: "contenidoTexto", widget: "markdown", required: false}
               # Campo oculto para controlar si está abierto por defecto (opcional)
               - {label: "Abierto por defecto", name: "abierto", widget: "boolean", default: false, required: false}
-
-  # === GRUPO: ALUMNOS (Ejemplo genérico para páginas simples) ===
-  - name: "alumnos"
-    label: "Alumnos"
-    files:
-      - name: "info_general"
-        label: "Info General Alumnos"
-        file: "src/assets/data/alumnos-info.json"
-        fields:
-          - {label: "Título", name: "titulo", widget: "string"}
-          - {label: "Cuerpo del texto", name: "cuerpo", widget: "markdown"}
