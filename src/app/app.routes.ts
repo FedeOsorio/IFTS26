@@ -21,6 +21,8 @@ import { Accesos } from './pages/navegacion/accesos/accesos';
 import { Publicaciones } from './pages/navegacion/publicaciones/publicaciones';
 import { Contacto } from './pages/navegacion/contacto/contacto';
 import { PreInscripcion } from './pages/navegacion/pre-inscripcion/pre-inscripcion';
+import { Hys } from './pages/navegacion/carreras/hys/hys';
+import { Gir } from './pages/navegacion/carreras/gir/gir';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -32,8 +34,8 @@ export const routes: Routes = [
     { path: 'institucional/reglamento-organico', component: ReglamentoOrganico },
     { path: 'institucional/repositorio', component: Repositorio },
     { path: 'institucional/evacuacion', component: Evacuacion },
-    { path: 'carrera/gir', component: Carreras },
-    { path: 'carrera/hys', component: Carreras },
+    { path: 'carrera/gir', component: Gir },
+    { path: 'carrera/hys', component: Hys },
     { path: 'docentes', component: Docentes },
     { path: 'alumnos/constancias', component: Constancias },
     { path: 'alumnos/becas', component: Becas },
