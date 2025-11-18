@@ -133,7 +133,7 @@ collections:
   # === GRUPO: DOCENTES ===
   - name: "docentes"
     label: "Docentes"
-    file: "src/assets/data/docentes.json"
+    files: "src/assets/data/docentes.json"
     fields:
     - {label: "Título Principal", name: "titulo", widget: "string"}
                   
