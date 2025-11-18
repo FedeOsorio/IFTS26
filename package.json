@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:IFTS26": "node dist/IFTS26/server/server.mjs"
+    "test": "ng test"
   },
   "prettier": {
     "printWidth": 100,
@@ -30,18 +29,14 @@
     "@angular/core": "^20.3.0",
     "@angular/forms": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
-    "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.3.0",
-    "@angular/ssr": "^20.3.3",
     "@coreui/angular": "~5.5.16",
     "@coreui/coreui": "^5.4.3",
     "@coreui/icons-angular": "~5.5.16",
     "@fortawesome/angular-fontawesome": "^3.0.0",
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
-    "@netlify/angular-runtime": "^3.0.1",
     "@popperjs/core": "~2.11.8",
-    "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
