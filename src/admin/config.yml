@@ -15,6 +15,51 @@ site_url: https://ifts26.netlify.app/inicio
 
 # 4. Las Colecciones (Qué puede editar el usuario)
 collections:
+
+  # === GRUPO: INICIO ===
+  - name: "ingreso"
+    label: "Ingreso e Inscripción"
+    files:
+      - name: "pre_inscripcion"
+        label: "Pre-Inscripción"
+        file: "src/assets/data/pre-inscripcion.json"
+        fields:
+          # BLOQUE 1: BANNER
+          - label: "Banner Informativo"
+            name: "banner"
+            widget: "object"
+            fields:
+              - {label: "Título Principal", name: "titulo", widget: "string"}
+              - {label: "Subtítulo", name: "subtitulo", widget: "string"}
+              - {label: "Fecha y Hora", name: "fechaHora", widget: "string"}
+              - {label: "Información Extra", name: "infoExtra", widget: "text"}
+
+          # BLOQUE 2: CRONOGRAMA
+          - label: "Cronograma"
+            name: "cronograma"
+            widget: "object"
+            fields:
+              - {label: "Título Sección", name: "titulo", widget: "string"}
+              - {label: "Subtítulo (Cuatrimestre)", name: "subtitulo", widget: "string"}
+              - label: "Lista de Fechas"
+                name: "fechas"
+                widget: "list"
+                fields:
+                  - {label: "Nombre Etapa", name: "etapa", widget: "string"}
+                  - {label: "Detalle/Fecha", name: "detalle", widget: "string"}
+
+          # BLOQUE 3: GOOGLE SLIDES
+          - label: "Presentación Google"
+            name: "presentacion"
+            widget: "object"
+            fields:
+              - {label: "Mostrar Presentación", name: "mostrar", widget: "boolean", default: true}
+              - {label: "URL de Embed (src del iframe)", name: "url", widget: "string", hint: "Ir a Archivo > Compartir > Publicar en la web > Insertar > Copiar solo lo que está dentro de src='...'"}
+
+          # BLOQUE 4: TEXTO LIBRE
+          - label: "Instrucciones y Pasos"
+            name: "instrucciones"
+            widget: "markdown" # Permite links, negritas, listas numeradas, etc.
   
   # === GRUPO: INSTITUCIONAL ===
   - name: "institucional"
