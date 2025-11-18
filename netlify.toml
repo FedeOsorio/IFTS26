@@ -7,7 +7,13 @@
   to = "/admin/index.html"
   status = 200
   force = true
+
 [[redirects]]
   from = "/"
   to = "/inicio"
-  status = 301 # Significa "movido permanentemente"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
