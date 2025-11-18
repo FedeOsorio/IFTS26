@@ -1,10 +1,8 @@
 # 1. Configuración del Backend (Conexión con GitHub vía Netlify)
 backend:
   name: github
-  repo: FedeOsorio/IFTS26  # <--- ¡CAMBIAR ESTO!
-  branch: main              # O 'master', revisá cuál usás
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  repo: FedeOsorio/IFTS26
+  branch: main
 
 # 2. Configuración de Imágenes
 # media_folder: Dónde se guardan las fotos en tu repo (ruta real)
