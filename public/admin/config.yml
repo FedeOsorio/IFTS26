@@ -1,0 +1,99 @@
+# 1. Configuración del Backend (Conexión con GitHub vía Netlify)
+backend:
+  name: github
+  repo: FedeOsorio/IFTS26  # <--- ¡CAMBIAR ESTO!
+  branch: main              # O 'master', revisá cuál usás
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# 2. Configuración de Imágenes
+# media_folder: Dónde se guardan las fotos en tu repo (ruta real)
+# public_folder: Cómo accede Angular a las fotos (ruta relativa compilada)
+media_folder: "src/assets/images/uploads"
+public_folder: "assets/images/uploads"
+
+# 3. URL del sitio (opcional, para que el botón "Ver sitio" funcione)
+site_url: https://ifts26.netlify.app/inicio
+
+# 4. Las Colecciones (Qué puede editar el usuario)
+collections:
+  
+  # === GRUPO: INSTITUCIONAL ===
+  - name: "institucional"
+    label: "Institucional"
+    files:
+      
+      # Editor de Autoridades
+      - name: "autoridades"
+        label: "Autoridades"
+        file: "src/assets/data/autoridades.json"
+        description: "Modificar la lista de autoridades"
+        fields:
+          - label: "Lista de Cargos"
+            name: "autoridades" # Debe coincidir con tu JSON
+            widget: "list"
+            fields:
+              - {label: "Cargo", name: "cargo", widget: "string"}
+              - {label: "Nombres", name: "nombres", widget: "list", field: {widget: "string"}}
+
+      # Editor de Calendario Académico
+      - name: "calendario"
+        label: "Calendario Académico"
+        file: "src/assets/data/calendario.json"
+        fields:
+          - label: "Primer Cuatrimestre"
+            name: "primerCuatrimestre"
+            widget: "list"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string"}
+              - {label: "Descripción", name: "descripcion", widget: "string"}
+              - {label: "Fechas", name: "fecha", widget: "string"}
+          - label: "Segundo Cuatrimestre"
+            name: "segundoCuatrimestre"
+            widget: "list"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string"}
+              - {label: "Descripción", name: "descripcion", widget: "string"}
+              - {label: "Fechas", name: "fecha", widget: "string"}
+
+  # === GRUPO: CARRERAS ===
+  - name: "carreras"
+    label: "Carreras"
+    files:
+      
+      # Editor de Higiene y Seguridad
+      - name: "higiene"
+        label: "Higiene y Seguridad"
+        file: "src/assets/data/higiene-seguridad.json"
+        fields:
+          - label: "Título Principal"
+            name: "titulo"
+            widget: "string"
+          - label: "Imagen Intro"
+            name: "imgIntro"
+            widget: "image"
+          - label: "Descripción Intro"
+            name: "descripcion"
+            widget: "markdown" # Permite negritas, itálicas, etc.
+          
+          # Lista de Solapas (Plan de estudio, Perfil, etc.)
+          - label: "Solapas Informativas"
+            name: "secciones"
+            widget: "list"
+            fields:
+              - {label: "Título Solapa", name: "titulo", widget: "string"}
+              - {label: "Imagen (Opcional)", name: "imagenSrc", widget: "image", required: false}
+              - {label: "Texto (Opcional)", name: "contenidoTexto", widget: "markdown", required: false}
+              # Campo oculto para controlar si está abierto por defecto (opcional)
+              - {label: "Abierto por defecto", name: "abierto", widget: "boolean", default: false, required: false}
+
+  # === GRUPO: ALUMNOS (Ejemplo genérico para páginas simples) ===
+  - name: "alumnos"
+    label: "Alumnos"
+    files:
+      - name: "info_general"
+        label: "Info General Alumnos"
+        file: "src/assets/data/alumnos-info.json"
+        fields:
+          - {label: "Título", name: "titulo", widget: "string"}
+          - {label: "Cuerpo del texto", name: "cuerpo", widget: "markdown"}
