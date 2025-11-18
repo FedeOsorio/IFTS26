@@ -133,25 +133,30 @@ collections:
   # === GRUPO: DOCENTES ===
   - name: "docentes"
     label: "Docentes"
-    files: "src/assets/data/docentes.json"
-    fields:
-    - {label: "Título Principal", name: "titulo", widget: "string"}
-                  
-    # SECCIÓN IZQUIERDA: PDF
-    - {label: "Archivo PDF (Mesa de Ayuda)", name: "pdfSrc", widget: "file"}
+    files:
+    
+      # Editor de Docentes
+      - name: "docentes"
+        label: "Docentes"
+        file: "src/assets/data/docentes.json"
+        fields:
+        - {label: "Título Principal", name: "titulo", widget: "string"}
+                      
+        # SECCIÓN IZQUIERDA: PDF
+        - {label: "Archivo PDF (Mesa de Ayuda)", name: "pdfSrc", widget: "file"}
 
-    # SECCIÓN DERECHA: BOTONES
-    - label: "Botones de Enlaces"
-      name: "botones"
-      widget: "list"
-      fields:
-        - {label: "Texto del Botón", name: "texto", widget: "string"}
-        - {label: "Enlace (URL)", name: "url", widget: "string"}
+        # SECCIÓN DERECHA: BOTONES
+        - label: "Botones de Enlaces"
+          name: "botones"
+          widget: "list"
+          fields:
+            - {label: "Texto del Botón", name: "texto", widget: "string"}
+            - {label: "Enlace (URL)", name: "url", widget: "string"}
 
-    # SECCIÓN INFERIOR: ACORDEONES (MIA, CAPACITACIÓN, ETC)
-    - label: "Secciones Desplegables"
-      name: "secciones"
-      widget: "list"
-      fields:
-        - {label: "Título Sección", name: "titulo", widget: "string"}
-        - {label: "Contenido", name: "contenido", widget: "markdown"}
+        # SECCIÓN INFERIOR: ACORDEONES (MIA, CAPACITACIÓN, ETC)
+        - label: "Secciones Desplegables"
+          name: "secciones"
+          widget: "list"
+          fields:
+            - {label: "Título Sección", name: "titulo", widget: "string"}
+            - {label: "Contenido", name: "contenido", widget: "markdown"}
