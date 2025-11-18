@@ -1,42 +1,60 @@
-[
-  {
-    "cargo": "RECTORA",
-    "nombres": ["Lic. Valentina Picchetti"]
-  },
-  {
-    "cargo": "SECRETARIA ACADÉMICA",
-    "nombres": ["-"]
-  },
-  {
-    "cargo": "SECRETARIA ADMINISTRATIVA",
-    "nombres": ["Sec. Laura Pedernera"]
-  },
-  {
-    "cargo": "ASESORA PEDAGÓGICA",
-    "nombres": ["Lic. Silvia López"]
-  },
-  {
-    "cargo": "JEFA DE TRABAJOS PRÁCTICOS",
-    "nombres": ["Lic. Ayelén Martinetti"]
-  },
-  {
-    "cargo": "AYUDANTE DE TRABAJOS PRÁCTICOS",
-    "nombres": ["Prof. Arturo Sálico"]
-  },
-  {
-    "cargo": "TUTOR",
-    "nombres": ["Lic. Gustavo Loscri"]
-  },
-  {
-    "cargo": "BEDELES",
-    "nombres": [
-      "Lic. Emilse Mariel Pambosian",
-      "Lic. Carolina Merlo",
-      "Manuel Sancho"
-    ]
-  },
-  {
-    "cargo": "ASOCIACIÓN COOPERADORA",
-    "nombres": ["cooperradorabelgranodto6@gmail.com"]
-  }
-]
+{
+  "autoridades": [
+    {
+      "cargo": "RECTORA",
+      "nombres": [
+        "Lic. Valentina Picchetti"
+      ]
+    },
+    {
+      "cargo": "SECRETARIA ACADÉMICA",
+      "nombres": [
+        "-"
+      ]
+    },
+    {
+      "cargo": "SECRETARIA ADMINISTRATIVA",
+      "nombres": [
+        "Sec. Laura Pedernera"
+      ]
+    },
+    {
+      "cargo": "ASESORA PEDAGÓGICA",
+      "nombres": [
+        "Lic. Silvia López"
+      ]
+    },
+    {
+      "cargo": "JEFA DE TRABAJOS PRÁCTICOS",
+      "nombres": [
+        "Lic. Ayelén Martinetti"
+      ]
+    },
+    {
+      "cargo": "AYUDANTE DE TRABAJOS PRÁCTICOS",
+      "nombres": [
+        "Prof. Arturo Sálico"
+      ]
+    },
+    {
+      "cargo": "TUTOR",
+      "nombres": [
+        "Lic. Gustavo Loscri"
+      ]
+    },
+    {
+      "cargo": "BEDELES",
+      "nombres": [
+        "Lic. Emilse Mariel Pambosian",
+        "Lic. Carolina Merlo",
+        "Manuel Sancho"
+      ]
+    },
+    {
+      "cargo": "ASOCIACIÓN COOPERADORA",
+      "nombres": [
+        "cooperradorabelgranodto6@gmail.com"
+      ]
+    }
+  ]
+}

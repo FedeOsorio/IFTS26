@@ -4,7 +4,6 @@ import { faUserTie } from '@fortawesome/free-solid-svg-icons';
 import autoridadesData from '../../../../../assets/data/autoridades.json';
 import { CommonModule } from '@angular/common';
 
-
 export interface Autoridad {
   cargo: string;
   nombres: string[];
@@ -20,5 +19,5 @@ export class Autoridades {
   iconoAutoridad = faUserTie;
 
   // Datos del JSON
-  autoridades: Autoridad[] = autoridadesData;
+  autoridades: Autoridad[] = (autoridadesData as any).autoridades;
 }
