@@ -17,6 +17,12 @@ import { routes } from '../../app.routes';
   styleUrl: './header.scss'
 })
 export class Header {
+  public isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
   public navButtons = [
     {
       label: 'Inicio',
@@ -24,8 +30,7 @@ export class Header {
     },
     {
       label: 'Pre-Inscripción',
-      route: '/pre-inscripcion',
-      items: [{ text: 'Curso Pre-Ingreso', route: '/pre-inscripcion/curso' }]
+      route: '/pre-inscripcion'
     },
     {
       label: 'Institucional',
@@ -51,6 +56,7 @@ export class Header {
     {
       label: 'Alumnos',
       items: [
+        { text: 'Tutorías', route: '/tutoria'},
         { text: 'Constancias', route: '/alumnos/constancias' },
         { text: 'Becas Progresar', route: '/alumnos/becas' },
         { text: 'Títulos Extranjeros', route: '/alumnos/titulos-extranjeros' },
@@ -61,19 +67,12 @@ export class Header {
       ]
     },
     {
-      label: 'Tutoría',
-      route: '/tutoria'
-    },
-    {
       label: 'SIU Guaraní/Moodle',
       route: '/accesos'
     },
     {
       label: 'Publicaciones',
-      items: [
-        { text: 'Últimas Noticias', route: '/novedades/noticias' },
-        { text: 'Eventos y Agenda', route: '/novedades/eventos' }
-      ]
+      route: '/novedades'
     },
     {
       label: 'Contacto',

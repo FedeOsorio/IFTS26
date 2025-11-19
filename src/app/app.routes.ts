@@ -26,6 +26,7 @@ import { Gir } from './pages/navegacion/carreras/gir/gir';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+    { path: '', component: Home },
     { path: 'inicio', component: Home },
     { path: 'pre-inscripcion', component: PreInscripcion },
     { path: 'pre-inscripcion/curso', component: Curso },
@@ -46,8 +47,7 @@ export const routes: Routes = [
     { path: 'alumnos/cooperadora', component: Cooperadora },
     { path: 'tutoria', component: Tutoria },
     { path: 'accesos', component: Accesos },
-    { path: 'novedades/noticias', component: Publicaciones },
-    { path: 'novedades/eventos', component: Publicaciones },
+    { path: 'novedades', component: Publicaciones },
     { path: 'contacto', component: Contacto },
     { path: 'not-found', component: NotFound},
     { path: '**', redirectTo: '/not-found', pathMatch: 'full' }

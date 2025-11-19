@@ -13,7 +13,7 @@
 
         <div class="feature-item">
             <div class="icon-wrapper">
-                <i class="icon-placeholder"></i>
+                <fa-icon [icon]="faGraduationCap"></fa-icon>
             </div>
             <h3>Educación de Calidad</h3>
             <p>Programas académicos actualizados y alineados con las demandas del mercado laboral.</p>
@@ -21,7 +21,7 @@
 
         <div class="feature-item">
             <div class="icon-wrapper">
-                <i class="icon-placeholder"></i>
+                <fa-icon [icon]="faUsers"></fa-icon>
             </div>
             <h3>Docentes Especializados</h3>
             <p>Profesionales con amplia experiencia en el campo técnico y educativo.</p>
@@ -29,7 +29,7 @@
 
         <div class="feature-item">
             <div class="icon-wrapper">
-                <i class="icon-placeholder"></i>
+                <fa-icon [icon]="faBookOpen"></fa-icon>
             </div>
             <h3>Formación Práctica</h3>
             <p>Enfoque en el desarrollo de habilidades prácticas y aplicables.</p>
@@ -48,7 +48,7 @@
                 <h3>Gestión Integral del Trabajo</h3>
                 <p>Formación integral en desarrollo de software, análisis de sistemas, bases de datos y gestión de
                     proyectos informáticos. Duración: 3 años.</p>
-                <a href="#" class="btn-ver-mas">Ver más &rarr;</a>
+                <a [routerLink]="['/carrera/gir']" class="btn-ver-mas">Ver más &rarr;</a>
             </div>
         </article>
 
@@ -59,7 +59,7 @@
                 <h3>Higiene y Seguridad en el Trabajo</h3>
                 <p>Capacitación en gestión empresarial, administración de recursos, finanzas y dirección de
                     organizaciones. Duración: 3 años.</p>
-                <a href="#" class="btn-ver-mas">Ver más &rarr;</a>
+                <a [routerLink]="['/carrera/hys']" class="btn-ver-mas">Ver más &rarr;</a>
             </div>
         </article>
 

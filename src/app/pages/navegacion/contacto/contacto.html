@@ -53,9 +53,10 @@
     </div>
 
     <h3>Ubicación</h3>
-    <div class="map-placeholder">
-      <fa-icon [icon]="iconoMapaMarcador"></fa-icon>
-      <span>Mapa embebido<br>Av. Córdoba 3030, CABA</span>
+    <div class="map-container">
+      <iframe width="100%" height="450" style="border:0;" loading="lazy" allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/place?key=TU_API_KEY&q=Av.+C%C3%B3rdoba+3030%2C+CABA"></iframe>
     </div>
 
   </aside>
@@ -64,11 +65,11 @@
     <h2>Envianos tu Consulta</h2>
 
     <form [formGroup]="consultaForm" (ngSubmit)="enviarConsulta()">
-      
+
       <div class="form-group">
         <label for="nombre">Nombre completo</label>
         <input type="text" id="nombre" formControlName="nombre" placeholder="Tu nombre">
-        </div>
+      </div>
 
       <div class="form-group">
         <label for="email">Email</label>
@@ -91,7 +92,7 @@
       </div>
 
       <p class="form-note">
-        * Campos obligatorios. Tus datos serán utilizados únicamente para responder tu 
+        * Campos obligatorios. Tus datos serán utilizados únicamente para responder tu
         consulta y no serán compartidos con terceros.
       </p>
 

@@ -7,7 +7,10 @@
             <h3>Tecnicatura Superior en Higiene y Seguridad en el Trabajo</h3>
         </div>
     </div>
-    <div class="navList">
+    <div class="hamburger">
+        <button (click)="toggleMenu()">&#9776;</button>
+    </div>
+    <div class="navList" [class.show]="isMenuOpen">
         @for (button of navButtons; track button.label) {
           @if (button.items && button.items.length > 0) {
             <c-dropdown variant="btn-group" class="m-1">
