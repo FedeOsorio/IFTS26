@@ -1,0 +1,10 @@
+.carouselContainer {
+    overflow: hidden;
+    max-width: 600px;
+    margin: 0 auto;
+
+    img {
+               
+        object-fit: contain;
+    }
+}

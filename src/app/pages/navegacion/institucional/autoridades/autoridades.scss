@@ -1,0 +1,82 @@
+:host {
+  --color-primary: #3f51b5;
+  --color-text-dark: #212529;
+  --color-text-light: #5a5a5a;
+  --color-bg-light: #f7f9ff;
+  --color-border: #e0e0e0;
+}
+
+.authorities-container {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 1.5rem;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 2.5rem;
+}
+
+.authorities-grid {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.authority-card {
+  background-color: white;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary); // Detalle decorativo a la izquierda
+  border-radius: 8px;
+  width: 340px;
+  min-height: 194px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #f0f0f0;
+
+    fa-icon {
+      color: var(--color-primary);
+      font-size: 1.2rem;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase; // Para que coincida con la imagen (mayúsculas)
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .card-body {
+    p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--color-text-dark);
+      line-height: 1.6;
+
+      // Si hay varios nombres, agregar un pequeño espacio entre ellos
+      &:not(:last-child) {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}

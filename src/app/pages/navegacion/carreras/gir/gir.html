@@ -1,0 +1,64 @@
+<div class="career-container">
+
+  <div class="career-header">
+    <h1>Tecnicatura Superior en Gestión Integral del Riesgo</h1>
+  </div>
+
+  <section class="intro-section">
+    <div class="career-image-wrapper">
+      <img src="assets/images/gir-intro.jpg" alt="Gestión Integral del Riesgo" class="main-image">
+    </div>
+
+    <div class="career-description">
+      <h2>¿Qué es la Gestión Integral del Riesgo (GIR)?</h2>
+      <p>
+        Es una actividad destinada a la <strong>Protección Civil</strong>. Vivimos en una sociedad cuyo crecimiento productivo y demográfico origina situaciones de vulnerabilidad. El objetivo es prevenir desastres de origen natural o producto de la actividad humana mediante la preparación de la sociedad civil y las instituciones.
+      </p>
+
+      <h3>¿Qué es ser un Técnico Superior en GIR?</h3>
+      <ul class="skills-list">
+        <li>Asistir a las autoridades de protección civil (nacional, provincial y local) en la planificación estratégica.</li>
+        <li>Diseñar y conducir áreas específicas de GIR en organizaciones públicas o privadas.</li>
+        <li>Organizar y liderar equipos de análisis de riesgos y evaluación de daños.</li>
+        <li>Desarrollar estrategias de fortalecimiento comunitario y comunicación para la prevención.</li>
+        <li>Conducir el manejo operativo de emergencias y planes de evacuación.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <h3>¿Por qué estudiar esta carrera?</h3>
+        <p>
+          Es esencial para formar cuadros profesionales en la Protección Civil y asumir una tarea indelegable en la prevención de desastres, con un alcance nacional tanto en el ámbito público como privado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-accordion">
+    
+    @for (seccion of secciones; track $index) {
+      <div class="accordion-item" [class.active]="seccion.abierto">
+        
+        <button class="accordion-header" (click)="toggleSeccion(seccion)">
+          <div class="header-title">
+            <fa-icon [icon]="seccion.icono" class="section-icon"></fa-icon>
+            <span>{{ seccion.titulo }}</span>
+          </div>
+          <fa-icon [icon]="seccion.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
+        </button>
+
+        <div class="accordion-content">
+          <div class="content-inner">
+            <img [src]="seccion.imagenSrc" [alt]="seccion.titulo" class="document-image">
+            
+            <p class="download-hint">
+              * Hacé clic derecho en la imagen y seleccioná "Abrir imagen en una pestaña nueva" para verla en tamaño completo.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    }
+
+  </section>
+
+</div>

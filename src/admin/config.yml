@@ -1,0 +1,162 @@
+# 1. Configuración del Backend (Conexión con GitHub vía Netlify)
+backend:
+  name: github
+  repo: FedeOsorio/IFTS26
+  branch: main
+
+# 2. Configuración de Imágenes
+# media_folder: Dónde se guardan las fotos en tu repo (ruta real)
+# public_folder: Cómo accede Angular a las fotos (ruta relativa compilada)
+media_folder: "src/assets/images/uploads"
+public_folder: "assets/images/uploads"
+
+# 3. URL del sitio (opcional, para que el botón "Ver sitio" funcione)
+site_url: https://ifts26.netlify.app/inicio
+
+# 4. Las Colecciones (Qué puede editar el usuario)
+collections:
+
+  # === GRUPO: INICIO ===
+  - name: "ingreso"
+    label: "Ingreso e Inscripción"
+    files:
+      - name: "pre_inscripcion"
+        label: "Pre-Inscripción"
+        file: "src/assets/data/pre-inscripcion.json"
+        fields:
+          # BLOQUE 1: BANNER
+          - label: "Banner Informativo"
+            name: "banner"
+            widget: "object"
+            fields:
+              - {label: "Título Principal", name: "titulo", widget: "string"}
+              - {label: "Subtítulo", name: "subtitulo", widget: "string"}
+              - {label: "Fecha y Hora", name: "fechaHora", widget: "string"}
+              - {label: "Información Extra", name: "infoExtra", widget: "text"}
+
+          # BLOQUE 2: CRONOGRAMA
+          - label: "Cronograma"
+            name: "cronograma"
+            widget: "object"
+            fields:
+              - {label: "Título Sección", name: "titulo", widget: "string"}
+              - {label: "Subtítulo (Cuatrimestre)", name: "subtitulo", widget: "string"}
+              - label: "Lista de Fechas"
+                name: "fechas"
+                widget: "list"
+                fields:
+                  - {label: "Nombre Etapa", name: "etapa", widget: "string"}
+                  - {label: "Detalle/Fecha", name: "detalle", widget: "string"}
+
+          # BLOQUE 3: GOOGLE SLIDES
+          - label: "Presentación Google"
+            name: "presentacion"
+            widget: "object"
+            fields:
+              - {label: "Mostrar Presentación", name: "mostrar", widget: "boolean", default: true}
+              - {label: "URL de Embed (src del iframe)", name: "url", widget: "string", hint: "Ir a Archivo > Compartir > Publicar en la web > Insertar > Copiar solo lo que está dentro de src='...'"}
+
+          # BLOQUE 4: TEXTO LIBRE
+          - label: "Instrucciones y Pasos"
+            name: "instrucciones"
+            widget: "markdown" # Permite links, negritas, listas numeradas, etc.
+  
+  # === GRUPO: INSTITUCIONAL ===
+  - name: "institucional"
+    label: "Institucional"
+    files:
+      
+      # Editor de Autoridades
+      - name: "autoridades"
+        label: "Autoridades"
+        file: "src/assets/data/autoridades.json"
+        description: "Modificar la lista de autoridades"
+        fields:
+          - label: "Lista de Cargos"
+            name: "autoridades" # Debe coincidir con tu JSON
+            widget: "list"
+            fields:
+              - {label: "Cargo", name: "cargo", widget: "string"}
+              - {label: "Nombres", name: "nombres", widget: "list", field: {label: "Nombre", name: "nombre_item", widget: "string"}}
+
+      # Editor de Calendario Académico
+      - name: "calendario"
+        label: "Calendario Académico"
+        file: "src/assets/data/calendario.json"
+        fields:
+          - label: "Primer Cuatrimestre"
+            name: "primerCuatrimestre"
+            widget: "list"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string"}
+              - {label: "Descripción", name: "descripcion", widget: "string"}
+              - {label: "Fechas", name: "fecha", widget: "string"}
+          - label: "Segundo Cuatrimestre"
+            name: "segundoCuatrimestre"
+            widget: "list"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string"}
+              - {label: "Descripción", name: "descripcion", widget: "string"}
+              - {label: "Fechas", name: "fecha", widget: "string"}
+
+  # === GRUPO: CARRERAS ===
+  - name: "carreras"
+    label: "Carreras"
+    files:
+      
+      # Editor de Higiene y Seguridad
+      - name: "higiene"
+        label: "Higiene y Seguridad"
+        file: "src/assets/data/higiene-seguridad.json"
+        fields:
+          - label: "Título Principal"
+            name: "titulo"
+            widget: "string"
+          - label: "Imagen Intro"
+            name: "imgIntro"
+            widget: "image"
+          - label: "Descripción Intro"
+            name: "descripcion"
+            widget: "markdown" # Permite negritas, itálicas, etc.
+          
+          # Lista de Solapas (Plan de estudio, Perfil, etc.)
+          - label: "Solapas Informativas"
+            name: "secciones"
+            widget: "list"
+            fields:
+              - {label: "Título Solapa", name: "titulo", widget: "string"}
+              - {label: "Imagen (Opcional)", name: "imagenSrc", widget: "image", required: false}
+              - {label: "Texto (Opcional)", name: "contenidoTexto", widget: "markdown", required: false}
+              # Campo oculto para controlar si está abierto por defecto (opcional)
+              - {label: "Abierto por defecto", name: "abierto", widget: "boolean", default: false, required: false}
+  
+  # === GRUPO: DOCENTES ===
+  - name: "docentes"
+    label: "Docentes"
+    files:
+    
+      # Editor de Docentes
+      - name: "docentes"
+        label: "Docentes"
+        file: "src/assets/data/docentes.json"
+        fields:
+        - {label: "Título Principal", name: "titulo", widget: "string"}
+                      
+        # SECCIÓN IZQUIERDA: PDF
+        - {label: "Archivo PDF (Mesa de Ayuda)", name: "pdfSrc", widget: "file"}
+
+        # SECCIÓN DERECHA: BOTONES
+        - label: "Botones de Enlaces"
+          name: "botones"
+          widget: "list"
+          fields:
+            - {label: "Texto del Botón", name: "texto", widget: "string"}
+            - {label: "Enlace (URL)", name: "url", widget: "string"}
+
+        # SECCIÓN INFERIOR: ACORDEONES (MIA, CAPACITACIÓN, ETC)
+        - label: "Secciones Desplegables"
+          name: "secciones"
+          widget: "list"
+          fields:
+            - {label: "Título Sección", name: "titulo", widget: "string"}
+            - {label: "Contenido", name: "contenido", widget: "markdown"}

@@ -1,0 +1,49 @@
+<div class="docentes-container">
+
+    <h1 class="page-title">{{ data.titulo }}</h1>
+
+    <div class="top-grid">
+
+        <div class="pdf-viewer-container">
+            @if (data.pdfSrc) {
+            <div class="iframe-wrapper">
+                <iframe [src]="getSafeUrl(data.pdfSrc)" type="application/pdf" width="100%" height="100%">
+                </iframe>
+            </div>
+            <div class="pdf-fallback">
+                <a [href]="data.pdfSrc" target="_blank" download class="btn-download">
+                    <fa-icon [icon]="iconoPdf"></fa-icon> Descargar PDF
+                </a>
+            </div>
+            }
+        </div>
+
+        <div class="buttons-list">
+            @for (boton of data.botones; track $index) {
+            <a [href]="boton.url" target="_blank" rel="noopener noreferrer" class="action-btn">
+                {{ boton.texto }}
+                <fa-icon [icon]="iconoLink" class="icon-end"></fa-icon>
+            </a>
+            }
+        </div>
+
+    </div>
+
+    <div class="accordions-section">
+        <hr class="divider">
+
+        @for (seccion of data.secciones; track $index) {
+        <div class="accordion-item">
+            <button class="accordion-header" (click)="toggleSeccion(seccion)">
+                <h2>{{ seccion.titulo }}</h2>
+                <fa-icon [icon]="seccion.abierto ? iconoContraer : iconoExpandir"></fa-icon>
+            </button>
+
+            <div class="accordion-content" [class.open]="seccion.abierto">
+                <div class="content-body" [innerHTML]="seccion.contenido"></div>
+            </div>
+        </div>
+        }
+    </div>
+
+</div>

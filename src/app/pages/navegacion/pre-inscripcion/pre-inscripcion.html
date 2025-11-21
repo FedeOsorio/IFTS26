@@ -1,0 +1,57 @@
+<div class="inscripcion-container">
+
+    <section class="info-banner">
+        <div class="banner-content">
+            <h2>{{ data.banner.titulo }}</h2>
+            <h3 class="highlight">{{ data.banner.subtitulo }}</h3>
+
+            <div class="banner-details">
+                <div class="detail-item date">
+                    <fa-icon [icon]="iconoCalendario"></fa-icon>
+                    <span>{{ data.banner.fechaHora }}</span>
+                </div>
+            </div>
+
+            <p class="location-text">
+                <fa-icon [icon]="iconoUbicacion"></fa-icon>
+                {{ data.banner.infoExtra }}
+            </p>
+        </div>
+    </section>
+
+    <section class="cronograma-section">
+        <div class="section-header">
+            <h3>{{ data.cronograma.titulo }}</h3>
+            <h2 class="term-title">{{ data.cronograma.subtitulo }}</h2>
+        </div>
+
+        <div class="timeline-list">
+            @for (item of data.cronograma.fechas; track $index) {
+            <div class="timeline-item">
+                <span class="timeline-label">{{ item.etapa }}:</span>
+                <span class="timeline-value">{{ item.detalle }}</span>
+            </div>
+            }
+        </div>
+
+        <div class="contact-support">
+            <p>MAIL ASISTENCIA ASPIRANTES: <a href="mailto:preingreso.ifts@bue.edu.ar">preingreso.ifts@bue.edu.ar</a>
+            </p>
+        </div>
+    </section>
+
+    @if (data.presentacion.mostrar && data.presentacion.url) {
+    <section class="google-slides-section">
+        <div class="slides-wrapper">
+            <iframe [src]="getSafeUrl(data.presentacion.url)" frameborder="0" width="100%" height="100%"
+                allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+            </iframe>
+        </div>
+    </section>
+    }
+
+    <section class="instructions-content">
+        <div class="rich-text" [innerHTML]="data.instrucciones"></div>
+    </section>
+
+</div>

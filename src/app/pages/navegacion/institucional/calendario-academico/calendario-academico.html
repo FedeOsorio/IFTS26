@@ -1,0 +1,41 @@
+<div class="calendar-container">
+
+  <section class="semester-section">
+    <h3 class="section-title">
+      <fa-icon [icon]="iconoCalendario"></fa-icon>
+      Primer Cuatrimestre
+    </h3>
+
+    <div class="date-list">
+      @for (evento of primerCuatrimestre; track $index) {
+        <div class="date-item">
+          <div class="date-content">
+            <h4>{{ evento.titulo }}</h4>
+            <p>{{ evento.descripcion }}</p>
+          </div>
+          <span class="date-period">{{ evento.fecha }}</span>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="semester-section">
+    <h3 class="section-title">
+      <fa-icon [icon]="iconoCalendario"></fa-icon>
+      Segundo Cuatrimestre
+    </h3>
+
+    <div class="date-list">
+      @for (evento of segundoCuatrimestre; track $index) {
+        <div class="date-item">
+          <div class="date-content">
+            <h4>{{ evento.titulo }}</h4>
+            <p>{{ evento.descripcion }}</p>
+          </div>
+          <span class="date-period">{{ evento.fecha }}</span>
+        </div>
+      }
+    </div>
+  </section>
+  
+</div>

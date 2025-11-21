@@ -1,0 +1,17 @@
+{
+  "titulo": "Tecnicatura Superior en Higiene y Seguridad",
+  "imgIntro": "assets/images/uploads/unnamed.jpg",
+  "descripcion": "La Higiene y Seguridad es...",
+  "secciones": [
+    {
+      "titulo": "Plan de Estudios",
+      "tipo": "imagen",
+      "imagenSrc": "assets/images/uploads/plan-nuevo.jpg"
+    },
+    {
+      "titulo": "Perfil del Egresado",
+      "tipo": "texto",
+      "contenidoTexto": "El egresado podrá..."
+    }
+  ]
+}

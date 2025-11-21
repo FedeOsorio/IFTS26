@@ -1,0 +1,23 @@
+<div class="authorities-container">
+  
+  <h2 class="main-title">Autoridades</h2>
+
+  <div class="authorities-grid">
+    
+    @for (item of autoridades; track $index) {
+      <div class="authority-card">
+        <div class="card-header">
+          <fa-icon [icon]="iconoAutoridad"></fa-icon>
+          <h3>{{ item.cargo }}</h3>
+        </div>
+        
+        <div class="card-body">
+          @for (nombre of item.nombres; track $index) {
+            <p>{{ nombre }}</p>
+          }
+        </div>
+      </div>
+    }
+
+  </div>
+</div>
