@@ -14,14 +14,26 @@ import { CommonModule } from '@angular/common';
 export class FooterComponent {
   // Datos de contacto del instituto
   contactInfo = {
-    name: 'Instituto de Formación Técnica Superior N°26',
     address: 'Av. Córdoba 3030',
     postalCode: 'C1187AAP - Ciudad Autónoma de Buenos Aires',
     phones: '4961-4644 / 4962-1716',
-    email: 'ifts26@bue.edu.ar',
+    schedule: 'Horario de atención al público: 18:30 a 21:00 hs',
     facebook: 'https://www.facebook.com/ifts26',
     instagram: 'https://www.instagram.com/ifts26'
   };
+
+  careers = [
+    {
+      name: 'Gestión Integral de Riesgo',
+      email: 'tecnicaturagir@yahoo.com',
+      label: 'Gestión Integral de Riesgo:'
+    },
+    {
+      name: 'Higiene y Seguridad en el Trabajo',
+      email: 'tecnicaturaenseguridadhigiene@yahoo.com.ar',
+      label: 'Higiene y Seguridad en el Trabajo:'
+    }
+  ];
 
   currentYear = new Date().getFullYear();
 }

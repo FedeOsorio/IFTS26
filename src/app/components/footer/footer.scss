@@ -1,170 +1,315 @@
 // Estilos del Footer
-// Mantengo el diseño original convertido a SCSS.
-
+// ============================================
 .footer {
-  background: #2c3539 !important ;
+  background: #2c3539;
   color: white;
   margin-top: 80px;
-}
+  overflow-x: hidden;
 
-.footer-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 48px 80px;
-  
-  @media (max-width: 1024px) {
-    padding: 48px 40px;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 48px 20px;
-  }
-}
-
-// ============================================
-// Grid principal
-// ============================================
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// ============================================
-// Sección de contacto
-// ============================================
-
-.contact-section {
-  .footer-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 24px;
-  }
-}
-
-.contact-items {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  
-  i {
-    font-size: 20px;
-    margin-top: 4px;
-    flex-shrink: 0;
-  }
-  
-  p {
-    font-size: 16px;
-    margin: 0;
-  }
-}
-
-.email-link {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.2s;
-  
-  &:hover {
-    color: #3F7FBF;
-  }
-}
-
-// ============================================
-// Redes sociales
-// ============================================
-
-.social-links {
-  display: flex;
-  gap: 16px;
-  margin-top: 24px;
-}
-
-.social-link {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  transition: background 0.2s;
-  
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  i {
-    font-size: 20px;
-  }
-}
-
-// ============================================
-// Sección del mapa
-// ============================================
-
-.map-section {
-  .map-title {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-}
-
-.map-placeholder {
-  width: 100%;
-  background: #E0E0E0;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1C1C1C;
-  overflow: hidden;
-
-  /* Contenedor responsive para el iframe */
-  .map-responsive {
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  // Contenedor full-bleed
+  .footer-container {
     position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
   }
 
-  .map-responsive iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    border-radius: 8px;
-  }
-}
+  // Contenedor interno con padding
+  .footer-inner {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 40px 80px 32px;
 
-// ============================================
-// Copyright
-// ============================================
+    @media (max-width: 1200px) {
+      padding: 36px 40px 28px;
+    }
+    @media (max-width: 768px) {
+      padding: 32px 20px 24px;
+    }
 
-.copyright {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 32px;
-  padding-top: 24px;
-  text-align: center;
-  
-  p {
-    font-size: 14px;
-    margin: 0;
+    // Grid principal del footer
+    .footer-main-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 32px;
+      align-content: center;
+
+      // Tablet: 1fr | 1fr
+      @media (min-width: 768px) and (max-width: 1023px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      // Desktop: 2fr | 1fr
+      @media (min-width: 1024px) {
+        grid-template-columns: 2fr 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+
+      // Columna izquierda
+      .left-column {
+        display: flex;
+        flex-direction: column;
+        padding: 0 12px; // mobile por defecto
+        gap: 32px;
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+          padding-left: 28px; // desplaza un poco a la derecha en tablet
+        }
+
+        @media (min-width: 1024px) {
+          padding-left: 48px; // más espacio en desktop para centrar visualmente
+        }
+
+        @media (min-width: 440px) and (max-width: 763px) {
+          padding-left: 40px;
+        }
+
+        @media (max-width: 439px) {
+          padding-left: 20px;
+        }
+
+        // Título principal
+        .footer-main-title {
+          font-size: 18px;
+          font-weight: 600;
+          margin: 0;
+
+          letter-spacing: 0.5px;
+
+          @media (min-width: 768px) {
+            font-size: 20px;
+          }
+
+          @media (min-width: 768px) and (max-width: 1023px) {
+
+          }
+
+          @media (min-width: 1024px) {
+            margin-bottom: 0;
+          }
+        }
+
+        // Grid de información
+        .info-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 24px;
+
+          @media (min-width: 1024px) {
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 32px;
+          }
+
+          .contact-basic-info {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+          }
+
+          .careers-emails {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+
+        // Redes sociales (siempre visible)
+        .social-links {
+          display: flex;
+          gap: 40px;
+          justify-content: center;
+
+          .social-link {
+            width: 54px;
+            height: 54px;
+            background: #1a1f23;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+
+            &:hover {
+              background: #0f1417;
+              transform: scale(1.05);
+            }
+
+            i {
+              font-size: 28px;
+            }
+          }
+        }
+      }
+
+      // Columna derecha
+      .right-column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (min-width: 768px) {
+          flex-direction: column;
+          gap: 24px;
+
+          .social-links {
+            display: flex; // Visible en tablet y desktop (debajo del mapa)
+            gap: 16px;
+          }
+        }
+
+        .map-section {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+
+          .map-placeholder {
+            width: 75%;
+            max-width: 100%;
+            background: #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+            .map-responsive {
+              width: 100%;
+              height: 0;
+              padding-bottom: 85%; // Ratio para Desktop
+              position: relative;
+
+              iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                border-radius: 8px;
+              }
+            }
+
+            @media (max-width: 767px) {
+              max-width: 600px;
+              .map-responsive {
+                padding-bottom: 65%; // Ratio para Mobile
+              }
+            }
+
+            @media (min-width: 768px) and (max-width: 1023px) {
+              .map-responsive {
+                padding-bottom: 75%; // Ratio para Tablet
+              }
+              align-content: center;
+            }
+          }
+          @media (min-width: 768px) and (max-width: 1023px) {
+              padding-top: 100px;
+            }
+        }
+      }
+    }
+
+    // Items de información con ícono
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+
+      .icon {
+        font-size: 20px;
+        color: white;
+        flex-shrink: 0;
+        margin-top: 2px;
+
+        @media (min-width: 768px) {
+          font-size: 22px;
+        }
+      }
+
+      .info-text {
+        flex: 1;
+
+        p {
+          margin: 0;
+          font-size: 15px;
+          line-height: 1.5;
+
+          @media (min-width: 768px) {
+            font-size: 16px;
+          }
+
+          & + p {
+            margin-top: 2px;
+          }
+        }
+      }
+
+      // Estilos específicos para el grupo de emails
+      &.emails-group .info-text {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+    }
+    
+    .career-email-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    
+      .career-label {
+        font-size: 15px;
+        font-weight: 500;
+    
+        @media (min-width: 768px) {
+          font-size: 16px;
+        }
+      }
+    }
+    
+    .career-email {
+      color: #5fb3f6;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-block;
+      transition: color 0.2s;
+      word-break: break-all;
+    
+      &:hover {
+        color: #89c9ff;
+        text-decoration: underline;
+      }
+    
+      @media (min-width: 768px) {
+        font-size: 15px;
+      }
+    }
+
+    // Copyright
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      margin-top: 32px;
+      padding-top: 20px;
+      text-align: center;
+
+      p {
+        font-size: 13px;
+        margin: 0;
+        opacity: 0.85;
+
+        @media (min-width: 768px) {
+          font-size: 14px;
+        }
+      }
+    }
   }
 }
