@@ -5,7 +5,6 @@ import { Curso } from './pages/navegacion/pre-inscripcion/curso/curso';
 import { CalendarioAcademico } from './pages/navegacion/institucional/calendario-academico/calendario-academico';
 import { Autoridades } from './pages/navegacion/institucional/autoridades/autoridades';
 import { ReglamentoOrganico } from './pages/navegacion/institucional/reglamento-organico/reglamento-organico';
-import { Repositorio } from './pages/navegacion/institucional/repositorio/repositorio';
 import { Evacuacion } from './pages/navegacion/institucional/evacuacion/evacuacion';
 import { Carreras } from './pages/navegacion/carreras/carreras';
 import { Docentes } from './pages/navegacion/docentes/docentes';
@@ -16,13 +15,19 @@ import { MatriculaProfesional } from './pages/navegacion/alumnos/matricula-profe
 import { Horarios } from './pages/navegacion/alumnos/horarios/horarios';
 import { MesasExamen } from './pages/navegacion/alumnos/mesas-examen/mesas-examen';
 import { Cooperadora } from './pages/navegacion/alumnos/cooperadora/cooperadora';
+import { Equivalencias } from './pages/navegacion/alumnos/equivalencias/equivalencias';
 import { Tutoria } from './pages/navegacion/tutoria/tutoria';
 import { Accesos } from './pages/navegacion/accesos/accesos';
+import { Finales } from './pages/navegacion/accesos/finales/finales';
 import { Publicaciones } from './pages/navegacion/publicaciones/publicaciones';
 import { Contacto } from './pages/navegacion/contacto/contacto';
 import { PreInscripcion } from './pages/navegacion/pre-inscripcion/pre-inscripcion';
 import { Hys } from './pages/navegacion/carreras/hys/hys';
 import { Gir } from './pages/navegacion/carreras/gir/gir';
+import { GirHorarios } from './pages/navegacion/carreras/gir/horarios/horarios';
+import { GirPerfilEgresado } from './pages/navegacion/carreras/gir/perfil-egresado/perfil-egresado';
+import { HysHorarios } from './pages/navegacion/carreras/hys/horarios/horarios';
+import { HysPerfilEgresado } from './pages/navegacion/carreras/hys/perfil-egresado/perfil-egresado';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -33,10 +38,13 @@ export const routes: Routes = [
     { path: 'institucional/calendario-academico', component: CalendarioAcademico },
     { path: 'institucional/autoridades', component: Autoridades },
     { path: 'institucional/reglamento-organico', component: ReglamentoOrganico },
-    { path: 'institucional/repositorio', component: Repositorio },
     { path: 'institucional/evacuacion', component: Evacuacion },
     { path: 'carrera/gir', component: Gir },
+    { path: 'carrera/gir/horarios', component: GirHorarios },
+    { path: 'carrera/gir/perfil-egresado', component: GirPerfilEgresado },
     { path: 'carrera/hys', component: Hys },
+    { path: 'carrera/hys/horarios', component: HysHorarios },
+    { path: 'carrera/hys/perfil-egresado', component: HysPerfilEgresado },
     { path: 'docentes', component: Docentes },
     { path: 'alumnos/constancias', component: Constancias },
     { path: 'alumnos/becas', component: Becas },
@@ -45,8 +53,10 @@ export const routes: Routes = [
     { path: 'alumnos/horarios', component: Horarios },
     { path: 'alumnos/mesas-examen', component: MesasExamen },
     { path: 'alumnos/cooperadora', component: Cooperadora },
+    { path: 'alumnos/equivalencias', component: Equivalencias },
     { path: 'tutoria', component: Tutoria },
     { path: 'accesos', component: Accesos },
+    { path: 'accesos/finales', component: Finales },
     { path: 'novedades', component: Publicaciones },
     { path: 'contacto', component: Contacto },
     { path: 'not-found', component: NotFound},

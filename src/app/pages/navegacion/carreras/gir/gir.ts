@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PageBannerComponent } from '../../../../components/page-banner/page-banner';
 import {
   faChevronDown,
   faChevronUp,
@@ -17,7 +18,7 @@ interface SeccionExpandible {
 
 @Component({
   selector: 'app-gir',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, PageBannerComponent],
   templateUrl: './gir.html',
   styleUrl: './gir.scss'
 })
@@ -30,14 +31,13 @@ export class Gir {
     {
       titulo: 'Plan de Estudios y Carga Horaria',
       icono: faTableList,
-      // Esta imagen la subirá el admin. De momento usamos un placeholder.
-      imagenSrc: 'assets/images/plan-estudios-gir.jpg',
+      imagenSrc: '/assets/pdf/plan-gir.pdf',
       abierto: false
     },
     {
       titulo: 'Régimen de Correlatividades',
       icono: faDiagramProject,
-      imagenSrc: 'assets/images/correlatividades-gir.jpg',
+      imagenSrc: '/assets/img/correlatividades-git.png',
       abierto: false
     }
   ];

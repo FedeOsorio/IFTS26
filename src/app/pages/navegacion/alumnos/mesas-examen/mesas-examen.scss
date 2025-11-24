@@ -1,0 +1,97 @@
+.mesas-container { width: 100%; min-height: 100vh; }
+
+.content-wrapper {
+  max-width: 1400px; margin: 0 auto; padding: 60px 24px;
+  @media (min-width: 768px) { padding: 80px 40px; }
+  @media (min-width: 1024px) { padding: 100px 60px; }
+}
+
+.info-section {
+  margin-bottom: 48px; text-align: center;
+}
+
+.info-card {
+  display: inline-flex; align-items: center; gap: 16px; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  padding: 20px 32px; border-radius: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+  i { font-size: 32px; color: #2e7d32; }
+  p { font-size: 17px; color: #1b5e20; margin: 0; font-weight: 500; }
+}
+
+.requisitos-section {
+  margin-bottom: 60px;
+  h2 {
+    font-size: 32px; font-weight: 700; color: #1E6C93; margin-bottom: 32px; text-align: center;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    i { font-size: 36px; }
+  }
+}
+
+.requisitos-grid {
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+  @media (min-width: 768px) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 1024px) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.requisito-card {
+  background: white; padding: 20px 24px; border-radius: 12px; display: flex; align-items: center; gap: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); border-left: 4px solid #4caf50; transition: all 0.3s ease;
+  &:hover { transform: translateX(4px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12); }
+  i { font-size: 24px; color: #4caf50; flex-shrink: 0; }
+  span { font-size: 15px; color: #333; line-height: 1.5; }
+}
+
+.carrera-section {
+  margin-bottom: 60px;
+  h2 {
+    font-size: 32px; font-weight: 700; color: #1E6C93; margin-bottom: 32px; display: flex; align-items: center; gap: 16px;
+    i { font-size: 36px; }
+  }
+}
+
+.turno-grupo {
+  margin-bottom: 40px; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.turno-header {
+  background: linear-gradient(135deg, #1E6C93 0%, #5fb3f6 100%); padding: 24px 28px; color: white;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  h3 { font-size: 24px; font-weight: 700; margin: 0; }
+  .turno-mes { font-size: 18px; font-weight: 500; opacity: 0.95; }
+}
+
+.tabla-wrapper {
+  overflow-x: auto; padding: 28px;
+}
+
+.tabla-mesas {
+  width: 100%; border-collapse: collapse; font-size: 15px;
+  thead {
+    background: #f8f9fa; border-bottom: 2px solid #1E6C93;
+    tr th {
+      padding: 14px 16px; text-align: left; color: #1E6C93; font-weight: 600; font-size: 15px;
+    }
+  }
+  tbody {
+    tr {
+      border-bottom: 1px solid #e0e0e0; transition: background 0.2s ease;
+      &:hover { background: #f8f9fa; }
+      &:last-child { border-bottom: none; }
+      td {
+        padding: 16px; color: #333;
+        &.materia-nombre { font-weight: 600; color: #1E6C93; }
+      }
+    }
+  }
+}
+
+.nota-section {
+  margin-bottom: 40px;
+}
+
+.nota-card {
+  background: #fff3cd; padding: 24px 32px; border-radius: 12px; border-left: 5px solid #ffc107;
+  display: flex; align-items: center; gap: 20px; box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+  i { font-size: 40px; color: #ff9800; flex-shrink: 0; }
+  p { font-size: 16px; color: #856404; line-height: 1.6; margin: 0; }
+  @media (max-width: 768px) { flex-direction: column; text-align: center; }
+}

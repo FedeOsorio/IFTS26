@@ -1,52 +1,118 @@
 :host {
-    --color-primary: #206a8e; // Un azul petróleo similar a la imagen
-    --color-primary-dark: #164e6b;
-    --color-text: #333;
-    --color-bg-light: #f4f7f9;
-    --color-border: #ddd;
+    --color-primary: #1E6C93;
+    --color-primary-dark: #155a7a;
+    --color-secondary: #5fb3f6;
+    --color-text: #2c3539;
+    --color-text-light: #666;
+    --color-bg-light: #f8f9fa;
+    --color-border: #e0e0e0;
 }
 
 .docentes-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 24px;
+
+    @media (max-width: 768px) {
+        padding: 40px 16px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 30px 12px;
+    }
 }
 
 .page-title {
     text-align: center;
-    font-size: 2.5rem;
-    color: #fff; // Asumiendo que el fondo general es oscuro o imagen, sino cambiar a color oscuro
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); // Sombra para leer sobre fondo
-    margin-bottom: 3rem;
+    font-size: 48px;
+    color: var(--color-primary);
+    margin-bottom: 60px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 20px;
 
-    // Si el fondo es blanco, descomentar esto:
-    color: #333;
-    text-shadow: none;
-}
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        border-radius: 2px;
+    }
 
-/* --- GRILLA SUPERIOR --- */
-.top-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; // Izquierda (PDF) un poco más ancha
-    gap: 2rem;
-    margin-bottom: 4rem;
+    @media (max-width: 768px) {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
 
-    @media (max-width: 992px) {
-        grid-template-columns: 1fr; // Una columna en tablet/móvil
+    @media (max-width: 480px) {
+        font-size: 28px;
+        margin-bottom: 30px;
     }
 }
 
-/* --- VISOR PDF --- */
+// ============================================
+// GRILLA SUPERIOR
+// ============================================
+.top-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 40px;
+    margin-bottom: 80px;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 60px;
+    }
+
+    @media (max-width: 768px) {
+        gap: 24px;
+        margin-bottom: 40px;
+    }
+}
+
+// ============================================
+// VISOR PDF
+// ============================================
 .pdf-viewer-container {
-    background: #fff;
+    background: white;
     border: 1px solid var(--color-border);
-    padding: 0.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: 
+            0 12px 40px rgba(30, 108, 147, 0.15),
+            0 0 0 1px rgba(30, 108, 147, 0.1);
+    }
 
     .iframe-wrapper {
         width: 100%;
-        height: 500px; // Altura fija para el visor
+        height: 700px;
+        border-radius: 12px;
+        overflow: hidden;
+
+        @media (max-width: 1024px) {
+            height: 600px;
+        }
+
+        @media (max-width: 768px) {
+            height: 500px;
+        }
+
+        @media (max-width: 480px) {
+            height: 400px;
+        }
 
         iframe {
             border: none;
@@ -56,120 +122,299 @@
 
     .pdf-fallback {
         text-align: center;
-        margin-top: 0.5rem;
+        margin-top: 16px;
 
         .btn-download {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: #f0f0f0;
-            color: #333;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: var(--color-bg-light);
+            color: var(--color-text);
             text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
             &:hover {
-                background-color: #e0e0e0;
+                background: var(--color-primary);
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(30, 108, 147, 0.3);
+            }
+
+            fa-icon {
+                font-size: 18px;
             }
         }
     }
 }
 
-/* --- BOTONERA --- */
+// ============================================
+// BOTONERA
+// ============================================
 .buttons-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 16px;
+
+    @media (max-width: 1024px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+    }
 
     .action-btn {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: var(--color-primary);
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
         color: white;
-        padding: 1rem 1.5rem;
+        padding: 20px 28px;
         text-decoration: none;
-        border-radius: 4px; // Bordes rectos pero suaves, como la imagen
+        border-radius: 12px;
         font-weight: 600;
-        font-size: 1rem;
-        transition: transform 0.2s, background-color 0.2s;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        font-size: 17px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 16px rgba(30, 108, 147, 0.3);
+        position: relative;
+        overflow: hidden;
+
+        // Efecto hover con overlay
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
         &:hover {
-            background-color: var(--color-primary-dark);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(30, 108, 147, 0.4);
+
+            &::before {
+                opacity: 1;
+            }
+
+            .icon-end {
+                transform: translateX(4px);
+            }
+        }
+
+        &:active {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 1024px) {
+            flex: 1 1 calc(50% - 8px);
+        }
+
+        @media (max-width: 640px) {
+            flex: 1 1 100%;
         }
 
         .icon-end {
-            opacity: 0.7;
-            font-size: 0.9rem;
+            font-size: 18px;
+            transition: transform 0.3s ease;
         }
     }
 }
 
-/* --- ACORDEONES INFERIORES --- */
+// ============================================
+// ACORDEONES INFERIORES
+// ============================================
 .accordions-section {
     .divider {
         border: 0;
-        border-top: 2px solid var(--color-primary); // Línea separadora estilo "MIA"
-        margin-bottom: 2rem;
+        border-top: 3px solid var(--color-primary);
+        margin-bottom: 40px;
         opacity: 0.3;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: var(--color-secondary);
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 480px) {
+            margin-bottom: 24px;
+        }
     }
 
     .accordion-item {
-        margin-bottom: 1rem;
-        border-bottom: 1px solid var(--color-border);
+        margin-bottom: 16px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: all 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 6px 24px rgba(30, 108, 147, 0.12);
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 12px;
+            border-radius: 12px;
+        }
     }
 
     .accordion-header {
         width: 100%;
-        background: none;
+        background: linear-gradient(135deg, rgba(30, 108, 147, 0.05) 0%, transparent 100%);
         border: none;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 0;
+        padding: 24px 28px;
         cursor: pointer;
         color: var(--color-primary);
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: linear-gradient(135deg, rgba(30, 108, 147, 0.08) 0%, rgba(95, 179, 246, 0.05) 100%);
+
+            h2 {
+                color: var(--color-secondary);
+            }
+
+            fa-icon {
+                transform: scale(1.1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            padding: 20px 20px;
+        }
+
+        @media (max-width: 480px) {
+            padding: 16px 16px;
+        }
 
         h2 {
             margin: 0;
-            font-size: 1.5rem;
-            text-transform: uppercase; // Estilo "MIA" / "CAPACITACION"
-            font-weight: 500;
+            font-size: 26px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+
+            @media (max-width: 768px) {
+                font-size: 22px;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 18px;
+            }
         }
 
         fa-icon {
-            font-size: 1.2rem;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+
+            @media (max-width: 768px) {
+                font-size: 20px;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 18px;
+            }
         }
     }
 
     .accordion-content {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease-out;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
         &.open {
-            max-height: 1000px; // Valor suficiente para texto largo
+            max-height: 2000px;
         }
 
         .content-body {
-            padding: 1rem 0 2rem 0;
+            padding: 24px 28px 32px 28px;
             color: var(--color-text);
-            line-height: 1.6;
+            line-height: 1.8;
+            font-size: 16px;
 
-            /* Estilos para el markdown injectado */
-            ::ng-deep p {
-                margin-bottom: 1rem;
+            @media (max-width: 768px) {
+                padding: 20px 20px 24px 20px;
+                font-size: 15px;
             }
 
-            ::ng-deep ul {
-                padding-left: 1.5rem;
-                margin-bottom: 1rem;
+            @media (max-width: 480px) {
+                padding: 16px 16px 20px 16px;
+                font-size: 14px;
             }
 
-            ::ng-deep a {
-                color: var(--color-primary);
-                text-decoration: underline;
+            // Estilos para contenido HTML inyectado
+            ::ng-deep {
+                p {
+                    margin-bottom: 16px;
+                    color: var(--color-text-light);
+                }
+
+                ul, ol {
+                    padding-left: 24px;
+                    margin-bottom: 16px;
+
+                    li {
+                        margin-bottom: 8px;
+                        color: var(--color-text-light);
+                    }
+                }
+
+                a {
+                    color: var(--color-primary);
+                    text-decoration: none;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        color: var(--color-secondary);
+                        text-decoration: underline;
+                    }
+                }
+
+                strong, b {
+                    color: var(--color-text);
+                    font-weight: 700;
+                }
+
+                h3, h4, h5 {
+                    color: var(--color-primary);
+                    margin-top: 24px;
+                    margin-bottom: 12px;
+                    font-weight: 700;
+                }
+
+                code {
+                    background: var(--color-bg-light);
+                    padding: 2px 8px;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    color: var(--color-primary);
+                }
             }
         }
     }

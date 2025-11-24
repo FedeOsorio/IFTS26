@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { faFileDownload, faCalendar, faShareFromSquare, faGraduationCap, faArrowRightToBracket, faCircleInfo, faTriangleExclamation, faFileLines, faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PageBannerComponent } from '../../../components/page-banner/page-banner';
 
 interface FaqItem {
   id: number;
@@ -12,7 +13,7 @@ interface FaqItem {
 
 @Component({
   selector: 'app-accesos',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, PageBannerComponent],
   templateUrl: './accesos.html',
   styleUrl: './accesos.scss'
 })

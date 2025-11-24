@@ -1,0 +1,59 @@
+.reglamento-container { width: 100%; min-height: 100vh; }
+
+.content-wrapper {
+  max-width: 1200px; margin: 0 auto; padding: 60px 24px;
+  @media (min-width: 768px) { padding: 80px 40px; }
+  @media (min-width: 1024px) { padding: 100px 60px; }
+}
+
+.header-section {
+  text-align: center; margin-bottom: 60px;
+  .intro-text { font-size: 18px; color: #555; line-height: 1.8; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; }
+}
+
+.download-btn {
+  display: inline-flex; align-items: center; gap: 12px; padding: 16px 32px; background: #1E6C93; color: white;
+  font-size: 18px; font-weight: 600; border: none; border-radius: 50px; cursor: pointer;
+  transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(30, 108, 147, 0.3);
+  i { font-size: 24px; }
+  &:hover { background: #155a7a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(30, 108, 147, 0.4); }
+  &:active { transform: translateY(0); }
+}
+
+.reglamento-content { margin-bottom: 60px; }
+
+.reglamento-section {
+  margin-bottom: 50px; padding-bottom: 40px; border-bottom: 2px solid #e0e0e0;
+  &:last-child { border-bottom: none; }
+}
+
+.section-title {
+  font-size: 28px; font-weight: 700; color: #1E6C93; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 3px solid #5fb3f6;
+  @media (min-width: 768px) { font-size: 32px; }
+}
+
+.articulos-list { display: flex; flex-direction: column; gap: 25px; }
+
+.articulo-item {
+  background: #f8f9fa; padding: 24px; border-radius: 12px; border-left: 4px solid #1E6C93;
+  transition: all 0.3s ease;
+  &:hover { background: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); transform: translateX(4px); }
+}
+
+.articulo-numero {
+  font-size: 20px; font-weight: 700; color: #1E6C93; margin-bottom: 12px;
+  @media (min-width: 768px) { font-size: 22px; }
+}
+
+.articulo-contenido {
+  font-size: 16px; line-height: 1.8; color: #333; margin: 0;
+  @media (min-width: 768px) { font-size: 17px; }
+}
+
+.footer-info {
+  background: #fff3cd; padding: 24px; border-radius: 12px; border-left: 4px solid #ffc107;
+  .disclaimer {
+    display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #856404; margin: 0; line-height: 1.6;
+    i { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  }
+}

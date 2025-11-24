@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronDown, faChevronUp, faHelmetSafety, faClipboardList, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
 import datosHigiene from '../../../../../assets/data/higiene-seguridad.json'
+import { PageBannerComponent } from '../../../../components/page-banner/page-banner';
 
 interface SeccionExpandible {
   titulo: string;
@@ -13,7 +14,7 @@ interface SeccionExpandible {
 
 @Component({
   selector: 'app-hys',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, PageBannerComponent],
   templateUrl: './hys.html',
   styleUrl: './hys.scss'
 })
@@ -29,7 +30,7 @@ export class Hys {
     {
       titulo: 'Plan de Estudio (Nuevo Plan)',
       icono: faClipboardList,
-      imagenSrc: 'assets/images/plan-estudios-his.jpg',
+      imagenSrc: '/assets/pdf/plan-hyst.pdf',
       abierto: false
     }
   ];

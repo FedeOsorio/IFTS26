@@ -1,88 +1,195 @@
 :host {
-  --color-primary: #3f51b5;
-  --color-text-dark: #212529;
-  --color-text-light: #5a5a5a;
+  --color-primary: #1E6C93;
+  --color-primary-dark: #155a7a;
+  --color-secondary: #5fb3f6;
+  --color-text-dark: #2c3539;
+  --color-text-light: #666;
   --color-border: #e0e0e0;
-  --color-bg-light: #f7f9ff;
+  --color-bg-light: #f8f9fa;
 }
 
 .calendar-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 24px;
 
-.semester-section {
-  margin-bottom: 3rem;
-}
+  @media (max-width: 768px) {
+    padding: 40px 16px;
+  }
 
-.section-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--color-primary);
-  
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  fa-icon {
-    font-size: 1.5rem;
+  @media (max-width: 480px) {
+    padding: 30px 12px;
   }
 }
 
+// ============================================
+// SECCIÓN DE SEMESTRE
+// ============================================
+.semester-section {
+  margin-bottom: 60px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 48px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 40px;
+  }
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 120px;
+    height: 3px;
+    background: var(--color-secondary);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    gap: 10px;
+  }
+
+  fa-icon {
+    font-size: 32px;
+    color: var(--color-secondary);
+
+    @media (max-width: 768px) {
+      font-size: 26px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 22px;
+    }
+  }
+}
+
+// ============================================
+// LISTA DE EVENTOS
+// ============================================
 .date-list {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
 }
 
 .date-item {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--color-border);
-  gap: 1.5rem;
+  gap: 24px;
+  background: white;
+  padding: 24px 28px;
+  border-radius: 16px;
+  border-left: 4px solid var(--color-primary);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
 
-  &:last-child {
-    border-bottom: none;
+  &:hover {
+    border-left-color: var(--color-secondary);
+    box-shadow: 0 8px 24px rgba(30, 108, 147, 0.12);
+    transform: translateX(4px);
   }
 
-  .date-content {
-    h4 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--color-text-dark);
-      margin: 0 0 0.25rem 0;
-    }
-    
-    p {
-      font-size: 0.95rem;
-      color: var(--color-text-light);
-      margin: 0;
-    }
-  }
-
-  .date-period {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--color-text-dark);
-    text-align: right;
-    white-space: nowrap;
-  }
-
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+    gap: 12px;
+    padding: 20px 20px;
+  }
 
-    .date-period {
-      text-align: left;
-      font-weight: 600;
-      color: var(--color-primary);
-      padding-top: 0.25rem;
+  @media (max-width: 480px) {
+    padding: 16px 16px;
+    gap: 10px;
+  }
+}
+
+.date-content {
+  flex: 1;
+
+  h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin: 0 0 8px 0;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
     }
+
+    @media (max-width: 480px) {
+      font-size: 16px;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    margin: 0;
+    line-height: 1.6;
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.date-period {
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: rgba(30, 108, 147, 0.08);
+  padding: 8px 20px;
+  border-radius: 50px;
+  white-space: nowrap;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 6px 16px;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 13px;
+    padding: 6px 14px;
   }
 }

@@ -1,0 +1,339 @@
+.tutoria-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+
+    @media (min-width: 768px) {
+        padding: 80px 40px;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 100px 60px;
+    }
+}
+
+.tutor-section {
+    margin-bottom: 60px;
+}
+
+.tutor-card {
+    background: linear-gradient(135deg, #1E6C93 0%, #5fb3f6 100%);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    color: white;
+    box-shadow: 0 8px 32px rgba(30, 108, 147, 0.3);
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+    }
+}
+
+.tutor-avatar {
+    flex-shrink: 0;
+
+    i {
+        font-size: 120px;
+        opacity: 0.95;
+    }
+}
+
+.tutor-info {
+    h2 {
+        font-size: 36px;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+    }
+
+    .cargo {
+        font-size: 20px;
+        font-weight: 500;
+        margin: 0 0 16px 0;
+        opacity: 0.95;
+    }
+
+    .descripcion {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+        opacity: 0.9;
+    }
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+
+    @media (min-width: 1024px) {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+
+.servicios-section {
+    h2 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1E6C93;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        i {
+            font-size: 32px;
+        }
+    }
+}
+
+.servicios-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        background: white;
+        padding: 20px 24px;
+        margin-bottom: 12px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 16px;
+        color: #333;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        i {
+            font-size: 24px;
+            color: #1E6C93;
+            flex-shrink: 0;
+        }
+    }
+}
+
+.info-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.info-card {
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    h3 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1E6C93;
+        margin: 0 0 20px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        i {
+            font-size: 26px;
+        }
+    }
+}
+
+.horarios-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.horario-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #1E6C93;
+
+    .dia {
+        font-weight: 600;
+        color: #1E6C93;
+        font-size: 15px;
+    }
+
+    .hora {
+        font-size: 14px;
+        color: #666;
+    }
+}
+
+.contactos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contacto-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 10px;
+
+    i {
+        font-size: 24px;
+        color: #5fb3f6;
+        flex-shrink: 0;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        strong {
+            font-size: 14px;
+            color: #1E6C93;
+            font-weight: 600;
+        }
+
+        span {
+            font-size: 15px;
+            color: #333;
+        }
+    }
+}
+
+.mensaje-section {
+    margin-bottom: 40px;
+}
+
+.mensaje-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 32px 40px;
+    border-radius: 16px;
+    border-left: 6px solid #1E6C93;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 24px;
+    }
+
+    i {
+        font-size: 48px;
+        color: #1E6C93;
+        flex-shrink: 0;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.7;
+        color: #333;
+        margin: 0;
+        font-style: italic;
+    }
+}
+
+.page-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+        padding: 40px 16px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 30px 12px;
+    }
+}
+
+.coming-soon {
+    text-align: center;
+    padding: 60px 40px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        padding: 48px 32px;
+        border-radius: 20px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 40px 24px;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 48px;
+        font-weight: 800;
+        color: var(--color-primary);
+        margin-bottom: 20px;
+
+        @media (max-width: 768px) {
+            font-size: 36px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 28px;
+        }
+    }
+
+    p {
+        font-size: 18px;
+        color: var(--color-text-light);
+        line-height: 1.7;
+        margin-bottom: 32px;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .icon {
+        font-size: 80px;
+        color: var(--color-secondary);
+        margin-bottom: 24px;
+
+        @media (max-width: 768px) {
+            font-size: 64px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 56px;
+        }
+    }
+}

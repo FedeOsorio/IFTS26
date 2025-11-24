@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import { PageBannerComponent } from '../../../../components/page-banner/page-banner';
 
 export interface EventoCalendario {
   titulo: string;
@@ -17,7 +18,7 @@ export interface CalendarioData {
 
 @Component({
   selector: 'app-calendario-academico',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, PageBannerComponent],
   templateUrl: './calendario-academico.html',
   styleUrl: './calendario-academico.scss'
 })

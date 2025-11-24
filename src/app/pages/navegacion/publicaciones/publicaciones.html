@@ -1,1 +1,117 @@
-<p>publicaciones works!</p>
+<div class="publicaciones-container">
+
+  <app-page-banner 
+      backgroundImage="/assets/img/banner.jpg"
+      title="Novedades y Publicaciones"
+      subtitle="Mantente Informado">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <section class="descripcion-section">
+      <div class="descripcion-card">
+        <i class="bi bi-megaphone"></i>
+        <p>{{ descripcion }}</p>
+      </div>
+    </section>
+
+    <!-- Filtros por categoría -->
+    <section class="filtros-section">
+      <h2>Filtrar por Categoría</h2>
+      <div class="filtros-buttons">
+        @for (categoria of categorias; track categoria) {
+          <button 
+              class="filtro-btn"
+              [class.active]="categoriaSeleccionada === categoria"
+              (click)="seleccionarCategoria(categoria)">
+            {{ categoria }}
+          </button>
+        }
+      </div>
+    </section>
+
+    <!-- Publicaciones destacadas -->
+    @if (publicacionesDestacadas.length > 0 && categoriaSeleccionada === 'Todas') {
+      <section class="destacadas-section">
+        <h2>
+          <i class="bi bi-star-fill"></i>
+          Publicaciones Destacadas
+        </h2>
+        <div class="destacadas-grid">
+          @for (pub of publicacionesDestacadas; track pub.id) {
+            <article class="publicacion-destacada">
+              @if (pub.imagen) {
+                <div class="publicacion-imagen" [style.backgroundImage]="'url(' + pub.imagen + ')'"></div>
+              }
+              <div class="publicacion-content">
+                <span class="publicacion-categoria" [attr.data-categoria]="pub.categoria">{{ pub.categoria }}</span>
+                <h3>{{ pub.titulo }}</h3>
+                <p class="publicacion-fecha">
+                  <i class="bi bi-calendar3"></i>
+                  {{ formatearFecha(pub.fecha) }}
+                </p>
+                <p class="publicacion-resumen">{{ pub.resumen }}</p>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- Todas las publicaciones -->
+    <section class="publicaciones-section">
+      <h2>
+        @if (categoriaSeleccionada === 'Todas') {
+          Todas las Publicaciones
+        } @else {
+          {{ categoriaSeleccionada }}
+        }
+      </h2>
+      
+      @if (publicacionesFiltradas.length > 0) {
+        <div class="publicaciones-grid">
+          @for (pub of publicacionesFiltradas; track pub.id) {
+            <article class="publicacion-card">
+              <div class="card-header">
+                <span class="publicacion-categoria" [attr.data-categoria]="pub.categoria">{{ pub.categoria }}</span>
+                <p class="publicacion-fecha">
+                  <i class="bi bi-calendar3"></i>
+                  {{ formatearFecha(pub.fecha) }}
+                </p>
+              </div>
+              <h3>{{ pub.titulo }}</h3>
+              <p class="publicacion-resumen">{{ pub.resumen }}</p>
+              <div class="card-footer">
+                <span class="leer-mas">
+                  Leer más
+                  <i class="bi bi-arrow-right"></i>
+                </span>
+              </div>
+            </article>
+          }
+        </div>
+      } @else {
+        <div class="sin-publicaciones">
+          <i class="bi bi-inbox"></i>
+          <p>No hay publicaciones en esta categoría</p>
+        </div>
+      }
+    </section>
+
+    <!-- Nota sobre CMS -->
+    <section class="cms-note">
+      <div class="cms-note-card">
+        <i class="bi bi-info-circle-fill"></i>
+        <div>
+          <h3>Sistema de Gestión de Contenidos</h3>
+          <p>
+            Esta sección está diseñada para integrarse con un sistema CMS en el futuro.
+            Las publicaciones podrán gestionarse dinámicamente desde un panel administrativo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>

@@ -1,5 +1,13 @@
 <div class="inscripcion-container">
 
+    <!-- Banner Hero -->
+    <app-page-banner 
+        backgroundImage="/assets/img/banner-virtual.jpg"
+        title="Pre-Inscripción"
+        subtitle="Instituto de Formación Técnica Superior N°26"
+        height="300px">
+    </app-page-banner>
+
     <section class="info-banner">
         <div class="banner-content">
             <h2>{{ data.banner.titulo }}</h2>
@@ -19,7 +27,7 @@
         </div>
     </section>
 
-    <section class="cronograma-section">
+    <!-- <section class="cronograma-section">
         <div class="section-header">
             <h3>{{ data.cronograma.titulo }}</h3>
             <h2 class="term-title">{{ data.cronograma.subtitulo }}</h2>
@@ -38,9 +46,9 @@
             <p>MAIL ASISTENCIA ASPIRANTES: <a href="mailto:preingreso.ifts@bue.edu.ar">preingreso.ifts@bue.edu.ar</a>
             </p>
         </div>
-    </section>
+    </section> -->
 
-    @if (data.presentacion.mostrar && data.presentacion.url) {
+    <!-- @if (data.presentacion.mostrar && data.presentacion.url) {
     <section class="google-slides-section">
         <div class="slides-wrapper">
             <iframe [src]="getSafeUrl(data.presentacion.url)" frameborder="0" width="100%" height="100%"
@@ -48,10 +56,41 @@
             </iframe>
         </div>
     </section>
-    }
+    } -->
 
-    <section class="instructions-content">
-        <div class="rich-text" [innerHTML]="data.instrucciones"></div>
+    <!-- Nueva sección: Inscripciones Abiertas -->
+    <section class="enrollment-section">
+        <div class="enrollment-card">
+            <div class="enrollment-header">
+                <fa-icon [icon]="iconoCalendario" class="enrollment-icon"></fa-icon>
+                <h2>INSCRIPCIONES ABIERTAS PARA COMENZAR EL 2DO CUATRIMESTRE</h2>
+            </div>
+            <p class="enrollment-text">Inscribite en el siguiente enlace:</p>
+            <a href="https://buenosaires.gob.ar/educacion/agencia-de-habilidades-para-el-futuro/catalogo-de-oferta-educativa-seguridad-e-higiene" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="enrollment-button">
+                Ir al Formulario de Inscripción
+                <i class="bi bi-arrow-right-circle"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Nueva sección: Tutorial Pre-Ingreso -->
+    <section class="tutorial-section">
+        <div class="tutorial-header">
+            <h2>TUTORIAL DE CURSO DE PRE INGRESO EN AULAS VIRTUALES</h2>
+            <p>Mirá este video explicativo para conocer cómo acceder al curso de pre-ingreso:</p>
+        </div>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://drive.google.com/file/d/1cEPwRjfDtrECwIdh71_hWB8E50tk8xzr/preview" 
+                width="100%" 
+                height="100%" 
+                allow="autoplay"
+                allowfullscreen>
+            </iframe>
+        </div>
     </section>
 
 </div>

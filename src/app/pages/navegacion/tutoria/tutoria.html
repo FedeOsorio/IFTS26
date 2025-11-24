@@ -1,1 +1,97 @@
-<p>tutoria works!</p>
+<div class="tutoria-container">
+
+    <!-- Banner Hero -->
+    <app-page-banner backgroundImage="/assets/img/banner.jpg" title="Tutoría Institucional"
+        subtitle="Orientación y Acompañamiento Académico">
+    </app-page-banner>
+
+    <div class="content-wrapper">
+
+        <!-- Información del tutor -->
+        <section class="tutor-section">
+            <div class="tutor-card">
+                <div class="tutor-avatar">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="tutor-info">
+                    <h2>{{ tutorNombre }}</h2>
+                    <p class="cargo">{{ tutorCargo }}</p>
+                    <p class="descripcion">{{ tutorDescripcion }}</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="two-columns">
+
+            <!-- Servicios de tutoría -->
+            <section class="servicios-section">
+                <h2>
+                    <i class="bi bi-list-check"></i>
+                    Servicios de Tutoría
+                </h2>
+                <ul class="servicios-list">
+                    @for (servicio of servicios; track servicio) {
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        {{ servicio }}
+                    </li>
+                    }
+                </ul>
+            </section>
+
+            <!-- Horarios y contacto -->
+            <aside class="info-sidebar">
+
+                <!-- Horarios de atención -->
+                <div class="info-card">
+                    <h3>
+                        <i class="bi bi-clock"></i>
+                        Horarios de Atención
+                    </h3>
+                    <div class="horarios-list">
+                        @for (horario of horariosAtencion; track horario.dia) {
+                        <div class="horario-item">
+                            <span class="dia">{{ horario.dia }}</span>
+                            <span class="hora">{{ horario.horario }}</span>
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Contacto -->
+                <div class="info-card">
+                    <h3>
+                        <i class="bi bi-envelope"></i>
+                        Contacto
+                    </h3>
+                    <div class="contactos-list">
+                        @for (contacto of contactosTutoria; track contacto.tipo) {
+                        <div class="contacto-item">
+                            <i class="bi" [class]="contacto.icono"></i>
+                            <div>
+                                <strong>{{ contacto.tipo }}</strong>
+                                <span>{{ contacto.valor }}</span>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- Mensaje motivacional -->
+        <section class="mensaje-section">
+            <div class="mensaje-card">
+                <i class="bi bi-chat-heart"></i>
+                <p>
+                    Recordá que el servicio de tutoría está para acompañarte en tu recorrido académico.
+                    No dudes en consultarnos ante cualquier duda o dificultad.
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+</div>

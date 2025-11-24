@@ -1,0 +1,100 @@
+<div class="finales-container">
+
+  <app-page-banner 
+      backgroundImage="/assets/img/banner-virtual.jpg"
+      title="Inscripción a Exámenes Finales"
+      subtitle="Sistema SIU Guaraní">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <section class="descripcion-section">
+      <div class="descripcion-card">
+        <i class="bi bi-clipboard-check"></i>
+        <p>{{ descripcion }}</p>
+      </div>
+    </section>
+
+    <!-- Pasos para inscribirse -->
+    <section class="pasos-section">
+      <h2>Pasos para Inscribirse a Finales</h2>
+      
+      <div class="pasos-timeline">
+        @for (paso of pasos; track paso.numero) {
+          <div class="paso-item">
+            <div class="paso-numero">{{ paso.numero }}</div>
+            <div class="paso-content">
+              <h3>{{ paso.titulo }}</h3>
+              <p>{{ paso.descripcion }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Requisitos para rendir -->
+    <section class="requisitos-section">
+      <h2>
+        <i class="bi bi-list-check"></i>
+        Requisitos para Rendir Exámenes
+      </h2>
+      
+      <div class="requisitos-grid">
+        @for (requisito of requisitos; track requisito.titulo) {
+          <div class="requisito-card">
+            <i class="bi" [class]="requisito.icono"></i>
+            <h3>{{ requisito.titulo }}</h3>
+            <p>{{ requisito.descripcion }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Fechas importantes -->
+    <section class="fechas-section">
+      <h2>
+        <i class="bi bi-calendar-event"></i>
+        Fechas Importantes
+      </h2>
+      <div class="fechas-list">
+        @for (fecha of fechasImportantes; track fecha) {
+          <div class="fecha-item">
+            <i class="bi bi-clock-fill"></i>
+            <span>{{ fecha }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Nota importante -->
+    <section class="nota-section">
+      <div class="nota-card">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <div>
+          <h3>Importante</h3>
+          <p>{{ notaImportante }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acceso a SIU -->
+    <section class="acceso-section">
+      <div class="acceso-card">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <div>
+          <h3>Accedé al Sistema SIU Guaraní</h3>
+          <p>
+            Hacé click en el botón para acceder al sistema de gestión académica
+            donde podrás inscribirte a los exámenes finales.
+          </p>
+          <a [href]="enlaceSIU" target="_blank" rel="noopener noreferrer" class="btn-siu">
+            <i class="bi bi-box-arrow-up-right"></i>
+            Ir a SIU Guaraní
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>

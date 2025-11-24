@@ -1,1 +1,66 @@
-<p>evacuacion works!</p>
+<div class="evacuacion-container">
+
+  <!-- Banner Hero -->
+  <app-page-banner 
+      backgroundImage="/assets/img/banner.jpg"
+      title="Plan de Evacuación"
+      subtitle="Información de Seguridad y Procedimientos de Emergencia">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <!-- Alerta informativa -->
+    <div class="alert-info">
+      <i class="bi bi-exclamation-triangle"></i>
+      <div>
+        <h3>Información Importante</h3>
+        <p>
+          En caso de emergencia, mantené la calma y seguí las indicaciones del personal 
+          de seguridad y las autoridades del instituto.
+        </p>
+      </div>
+    </div>
+
+    <!-- Instrucciones de evacuación -->
+    <section class="instrucciones-section">
+      <h2>Instrucciones de Evacuación</h2>
+      <div class="instrucciones-grid">
+        @for (instruccion of instrucciones; track instruccion.numero) {
+          <div class="instruccion-card">
+            <div class="instruccion-numero">{{ instruccion.numero }}</div>
+            <h3>{{ instruccion.titulo }}</h3>
+            <p>{{ instruccion.descripcion }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Plano de evacuación -->
+    <section class="plano-section">
+      <h2>Plano de Evacuación</h2>
+      <div class="plano-container">
+        <img [src]="planoImageUrl" alt="Plano de evacuación del IFTS N°26" class="plano-image">
+      </div>
+      <p class="plano-description">
+        <i class="bi bi-info-circle"></i>
+        El plano muestra las rutas de escape, salidas de emergencia y puntos de encuentro del edificio.
+      </p>
+    </section>
+
+    <!-- Números de emergencia -->
+    <section class="contactos-section">
+      <h2>Números de Emergencia</h2>
+      <div class="contactos-grid">
+        @for (contacto of contactosEmergencia; track contacto.numero) {
+          <div class="contacto-card">
+            <i class="bi" [class]="contacto.icono"></i>
+            <h3>{{ contacto.titulo }}</h3>
+            <p class="numero">{{ contacto.numero }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+  </div>
+
+</div>

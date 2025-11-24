@@ -1,10 +1,30 @@
-// Estilos del Footer
+// Estilos del Footer mejorado
 // ============================================
 .footer {
-  background: #2c3539;
+  background: linear-gradient(180deg, #2c3539 0%, #1a1f23 100%);
   color: white;
-  margin-top: 80px;
+  margin-top: 0;
   overflow-x: hidden;
+  position: relative;
+
+  // Decoración superior
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2c3539 0%, #5fb3f6 50%, #2c3539 100%);
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 80px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 60px;
+  }
 
   // Contenedor full-bleed
   .footer-container {
@@ -20,9 +40,9 @@
 
   // Contenedor interno con padding
   .footer-inner {
-    max-width: 1500px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 40px 80px 32px;
+    padding: 50px 80px 40px;
 
     @media (max-width: 1200px) {
       padding: 36px 40px 28px;
@@ -57,8 +77,16 @@
       .left-column {
         display: flex;
         flex-direction: column;
-        padding: 0 12px; // mobile por defecto
+        padding: 0 12px;
         gap: 32px;
+
+        @media (max-width: 768px) {
+          gap: 24px;
+        }
+
+        @media (max-width: 480px) {
+          gap: 20px;
+        }
 
         @media (min-width: 768px) and (max-width: 1023px) {
           padding-left: 28px; // desplaza un poco a la derecha en tablet
@@ -76,24 +104,34 @@
           padding-left: 20px;
         }
 
-        // Título principal
+        // Título principal mejorado
         .footer-main-title {
-          font-size: 18px;
-          font-weight: 600;
-          margin: 0;
-
-          letter-spacing: 0.5px;
-
-          @media (min-width: 768px) {
-            font-size: 20px;
+          font-size: 20px;
+          font-weight: 700;
+          margin: 0 0 8px 0;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
+          position: relative;
+          padding-bottom: 12px;
+          
+          // Línea decorativa
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #5fb3f6 0%, transparent 100%);
+            border-radius: 2px;
           }
 
-          @media (min-width: 768px) and (max-width: 1023px) {
-
+          @media (min-width: 768px) {
+            font-size: 22px;
           }
 
           @media (min-width: 1024px) {
-            margin-bottom: 0;
+            font-size: 24px;
           }
         }
 
@@ -120,15 +158,15 @@
           }
         }
 
-        // Redes sociales (siempre visible)
+        // Redes sociales mejoradas
         .social-links {
           display: flex;
-          gap: 40px;
+          gap: 24px;
           justify-content: center;
 
           .social-link {
-            width: 54px;
-            height: 54px;
+            width: 56px;
+            height: 56px;
             background: #1a1f23;
             border-radius: 50%;
             display: flex;
@@ -136,15 +174,38 @@
             justify-content: center;
             color: white;
             text-decoration: none;
-            transition: background 0.2s, transform 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            
+            &::before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 0;
+              height: 0;
+              border-radius: 50%;
+              background: rgba(95, 179, 246, 0.3);
+              transform: translate(-50%, -50%);
+              transition: width 0.4s ease, height 0.4s ease;
+            }
 
             &:hover {
-              background: #0f1417;
-              transform: scale(1.05);
+              background: #5fb3f6;
+              transform: translateY(-4px) scale(1.1);
+              box-shadow: 0 8px 16px rgba(95, 179, 246, 0.3);
+              
+              &::before {
+                width: 100%;
+                height: 100%;
+              }
             }
 
             i {
               font-size: 28px;
+              position: relative;
+              z-index: 1;
             }
           }
         }
@@ -176,9 +237,15 @@
             width: 75%;
             max-width: 100%;
             background: #e0e0e0;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            
+            &:hover {
+              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+              transform: scale(1.02);
+            }
 
             .map-responsive {
               width: 100%;
@@ -218,20 +285,30 @@
       }
     }
 
-    // Items de información con ícono
+    // Items de información con ícono mejorados
     .info-item {
       display: flex;
       align-items: flex-start;
       gap: 16px;
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: translateX(4px);
+        
+        .icon {
+          color: #5fb3f6;
+        }
+      }
 
       .icon {
-        font-size: 20px;
+        font-size: 22px;
         color: white;
         flex-shrink: 0;
         margin-top: 2px;
+        transition: color 0.3s ease;
 
         @media (min-width: 768px) {
-          font-size: 22px;
+          font-size: 24px;
         }
       }
 
@@ -281,12 +358,28 @@
       text-decoration: none;
       font-size: 14px;
       display: inline-block;
-      transition: color 0.2s;
+      transition: all 0.3s ease;
       word-break: break-all;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #89c9ff;
+        transition: width 0.3s ease;
+      }
     
       &:hover {
         color: #89c9ff;
-        text-decoration: underline;
+        transform: translateX(4px);
+        
+        &::after {
+          width: 100%;
+        }
       }
     
       @media (min-width: 768px) {
@@ -294,22 +387,35 @@
       }
     }
 
-    // Copyright
+    // Copyright mejorado
     .copyright {
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      margin-top: 32px;
-      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 40px;
+      padding-top: 24px;
       text-align: center;
 
       p {
-        font-size: 13px;
+        font-size: 14px;
         margin: 0;
-        opacity: 0.85;
+        opacity: 0.9;
+        letter-spacing: 0.3px;
 
         @media (min-width: 768px) {
-          font-size: 14px;
+          font-size: 15px;
         }
       }
     }
+  }
+}
+
+// Animación de entrada para footer
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

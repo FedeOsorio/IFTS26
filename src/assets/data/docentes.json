@@ -1,21 +1,26 @@
 {
   "titulo": "Docentes",
-  "pdfSrc": "/assets/images/uploads/mesa-ayuda-ejemplo.pdf",
+  "pdfSrc": "/assets/pdf/Mesa de ayuda - DOCENTES.pdf",
   "botones": [
-    { "texto": "Instructivo Declaración Jurada", "url": "https://google.com" },
-    { "texto": "Bonificación de Antigüedad", "url": "https://google.com" },
-    { "texto": "Oferta de Cargos", "url": "https://google.com" },
-    { "texto": "Ficha Censal", "url": "https://google.com" },
-    { "texto": "Biblioteca Digital", "url": "https://google.com" }
+    { "texto": "Instructivo Declaración Jurada", "url": "/assets/pdf/Declaración Jurada en Línea de Actividades, Cargos, Módulos y Horas_Junio2023.pdf" },
+    { "texto": "Oferta de Cargos", "url": "https://buenosaires.gob.ar/educacion/docentes-de-la-ciudad/formacion-tecnica-superior" },
+    { "texto": "Ficha Censal", "url": "/assets/pdf/Ficha Censal.pdf" },
+    { "texto": "Biblioteca Digital", "url": "https://biblioteca-digital.bue.edu.ar/" },
+    { "texto": "Régimen de Asignaciones Familiares", "url": "/assets/pdf/Régimen de Asignaciones Familiares (docentes y no-docentes).pdf" },
+    { "texto": "Adicional por Titulo de Grado", "url": "/assets/pdf/Adicional por Título de Grado, Maestría o Doctorado.pdf" }
   ],
   "secciones": [
     { 
       "titulo": "MIA", 
-      "contenido": "Información sobre el Módulo de Información Administrativa..." 
+      "contenido": "<ul><li><a href='/assets/pdf/MIA preguntas frecuentes total - con link.pdf' target='_blank'>MIA preguntas frecuentes</a></li><li><a href='/assets/pdf/Instructivo para descargar MIA en iOS linkeado.pdf' target='_blank'>MIA autogestion iOS</a></li><li><a href='/assets/pdf/Manual 1 - Lic. Médicas - Escalafón Docente v01.12.20.pdf' target='_blank'>Mi autogestion - Módulo 1</a></li><li><a href='/assets/pdf/Preguntas Frecuentes - Lic. Administrativas 191121.pdf' target='_blank'>Mi autogestion - Módulo 3</a></li></ul>" 
     },
     { 
       "titulo": "CAPACITACION", 
-      "contenido": "Listado de cursos disponibles para docentes..." 
+      "contenido": "<ul><li><a href='https://buenosaires.gob.ar/educacion/escuela-de-maestros' target='_blank'>Escuela de Maestros</a></li><li><a href='https://isc.buenosaires.gob.ar/' target='_blank'>ISC Buenos Aires</a></li></ul>" 
+    },
+    { 
+      "titulo": "RECURSOS ADICIONALES", 
+      "contenido": "<ul><li><a href='https://drive.google.com/file/d/1YCMIn3lgE8zEQh7BmY2I2e3u9pbFobkG/view' target='_blank'>Documento 1</a></li><li><a href='https://drive.google.com/file/d/124ApJfIM9C9aRnMdRNqzA48PLojs3ow6/view' target='_blank'>Documento 2</a></li><li><a href='https://drive.google.com/file/d/1ZpJS78sY8GWrUSe4cFN8xs0QoLaz6N_e/view' target='_blank'>Documento 3</a></li></ul>" 
     }
   ]
 }

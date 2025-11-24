@@ -1,1 +1,70 @@
-<p>matricula-profesional works!</p>
+<div class="matricula-container">
+
+  <app-page-banner 
+      backgroundImage="/assets/img/banner-virtual.jpg"
+      title="Matriculación Profesional"
+      subtitle="Información para Egresados">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <section class="descripcion-section">
+      <div class="descripcion-card">
+        <i class="bi bi-award"></i>
+        <p>{{ descripcion }}</p>
+      </div>
+    </section>
+
+    <section class="organismos-section">
+      <h2>Organismos de Matriculación</h2>
+      
+      <div class="organismos-grid">
+        @for (org of organismos; track org.nombre) {
+          <div class="organismo-card">
+            <div class="organismo-header">
+              <i class="bi" [class]="org.icono"></i>
+            </div>
+            <div class="organismo-body">
+              <h3>{{ org.nombre }}</h3>
+              <p class="carrera">{{ org.carrera }}</p>
+              <a [href]="org.enlace" target="_blank" class="btn-enlace">
+                <i class="bi bi-box-arrow-up-right"></i>
+                Visitar sitio web
+              </a>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="pasos-section">
+      <h2>Pasos para la Matriculación</h2>
+      
+      <div class="pasos-timeline">
+        @for (paso of pasos; track paso.numero) {
+          <div class="paso-item">
+            <div class="paso-numero">{{ paso.numero }}</div>
+            <div class="paso-content">
+              <h3>{{ paso.titulo }}</h3>
+              <p>{{ paso.descripcion }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="beneficios-section">
+      <h2>Beneficios de la Matriculación</h2>
+      <div class="beneficios-grid">
+        @for (beneficio of beneficios; track beneficio) {
+          <div class="beneficio-card">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>{{ beneficio }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+  </div>
+
+</div>

@@ -1,0 +1,84 @@
+<div class="perfil-container">
+
+  <app-page-banner 
+      backgroundImage="/assets/img/banner-hys.jpg"
+      title="Perfil del Egresado"
+      subtitle="Higiene y Seguridad en el Trabajo">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <section class="descripcion-section">
+      <div class="descripcion-card">
+        <i class="bi bi-person-badge"></i>
+        <p>{{ descripcionPerfil }}</p>
+      </div>
+    </section>
+
+    <!-- Áreas de conocimiento -->
+    <section class="areas-section">
+      <h2>Áreas de Conocimiento</h2>
+      
+      <div class="areas-grid">
+        @for (area of areasConocimiento; track area.titulo) {
+          <div class="area-card">
+            <i class="bi" [class]="area.icono"></i>
+            <h3>{{ area.titulo }}</h3>
+            <p>{{ area.descripcion }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Competencias profesionales -->
+    <section class="competencias-section">
+      <h2>
+        <i class="bi bi-clipboard-check"></i>
+        Competencias Profesionales
+      </h2>
+      
+      <div class="competencias-list">
+        @for (competencia of competencias; track competencia.titulo) {
+          <div class="competencia-item">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h3>{{ competencia.titulo }}</h3>
+              <p>{{ competencia.descripcion }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Salidas laborales -->
+    <section class="salidas-section">
+      <h2>Salidas Laborales</h2>
+      
+      <div class="salidas-grid">
+        @for (salida of salidasLaborales; track salida.titulo) {
+          <div class="salida-card">
+            <i class="bi" [class]="salida.icono"></i>
+            <h3>{{ salida.titulo }}</h3>
+            <p>{{ salida.descripcion }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Matriculación -->
+    <section class="matriculacion-section">
+      <div class="matriculacion-card">
+        <i class="bi bi-award"></i>
+        <div>
+          <h3>Matriculación Profesional</h3>
+          <p>{{ infoMatriculacion }}</p>
+          <a routerLink="/alumnos/matricula-profesional" class="btn-matricula">
+            Más información sobre matrícula
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>

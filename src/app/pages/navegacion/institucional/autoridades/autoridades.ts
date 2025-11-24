@@ -3,6 +3,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUserTie } from '@fortawesome/free-solid-svg-icons';
 import autoridadesData from '../../../../../assets/data/autoridades.json';
 import { CommonModule } from '@angular/common';
+import { PageBannerComponent } from '../../../../components/page-banner/page-banner';
 
 export interface Autoridad {
   cargo: string;
@@ -11,7 +12,7 @@ export interface Autoridad {
 
 @Component({
   selector: 'app-autoridades',
-  imports: [FontAwesomeModule, CommonModule],
+  imports: [FontAwesomeModule, CommonModule, PageBannerComponent],
   templateUrl: './autoridades.html',
   styleUrl: './autoridades.scss'
 })

@@ -1,1 +1,99 @@
-<p>constancias works!</p>
+<div class="constancias-container">
+
+    <!-- Banner Hero -->
+    <app-page-banner backgroundImage="/assets/img/banner-virtual.jpg" title="Constancias"
+        subtitle="Documentación Oficial para Estudiantes">
+    </app-page-banner>
+
+    <div class="content-wrapper">
+
+        <!-- Información general -->
+        <section class="info-general">
+            <div class="info-card">
+                <i class="bi bi-info-circle"></i>
+                <p>{{ infoGeneral }}</p>
+            </div>
+        </section>
+
+        <!-- Tipos de constancias -->
+        <section class="tipos-section">
+            <h2>Tipos de Constancias Disponibles</h2>
+
+            <div class="constancias-grid">
+                @for (constancia of tiposConstancias; track constancia.titulo) {
+                <div class="constancia-card">
+                    <div class="card-header">
+                        <i class="bi" [class]="constancia.icono"></i>
+                        <h3>{{ constancia.titulo }}</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <p class="descripcion">{{ constancia.descripcion }}</p>
+
+                        <div class="imagen-wrapper">
+                            <img [src]="constancia.imagen" [alt]="constancia.titulo" class="constancia-preview">
+                        </div>
+
+                        <div class="requisitos-section">
+                            <h4>
+                                <i class="bi bi-clipboard-check"></i>
+                                Requisitos
+                            </h4>
+                            <ul class="requisitos-list">
+                                @for (requisito of constancia.requisitos; track requisito) {
+                                <li>
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    {{ requisito }}
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </section>
+
+        <!-- Información de trámite -->
+        <section class="tramite-section">
+            <h2>Información del Trámite</h2>
+
+            <div class="tramite-cards">
+                <div class="tramite-card">
+                    <i class="bi bi-clock"></i>
+                    <h3>Horario de Atención</h3>
+                    <p>{{ horarioAtencion }}</p>
+                </div>
+
+                <div class="tramite-card">
+                    <i class="bi bi-geo-alt"></i>
+                    <h3>Lugar de Trámite</h3>
+                    <p>{{ lugarTramite }}</p>
+                </div>
+
+                <div class="tramite-card">
+                    <i class="bi bi-hourglass-split"></i>
+                    <h3>Tiempo de Entrega</h3>
+                    <p>{{ tiempoEntrega }}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nota importante -->
+        <section class="nota-importante">
+            <div class="nota-card">
+                <i class="bi bi-exclamation-triangle"></i>
+                <div>
+                    <h3>Nota Importante</h3>
+                    <p>
+                        Todas las constancias son gratuitas. No se requiere abonar arancel alguno para su emisión.
+                        Para consultas adicionales, comunicate con Bedelía o envianos un email a
+                        <strong>bedelia&#64;ifts26.edu.ar</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</div>

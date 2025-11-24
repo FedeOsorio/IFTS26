@@ -1,0 +1,93 @@
+:host {
+  --color-primary: #1E6C93;
+  --color-primary-dark: #155a7a;
+  --color-secondary: #5fb3f6;
+  --color-text-dark: #2c3539;
+  --color-text-light: #666;
+  --color-bg-light: #f8f9fa;
+}
+
+// Página base con diseño moderno
+.page-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 40px 16px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 30px 12px;
+  }
+}
+
+.coming-soon {
+  text-align: center;
+  padding: 60px 40px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 48px 32px;
+    border-radius: 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 24px;
+    border-radius: 16px;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 32px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .icon {
+    font-size: 80px;
+    color: var(--color-secondary);
+    margin-bottom: 24px;
+
+    @media (max-width: 768px) {
+      font-size: 64px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 56px;
+    }
+  }
+}

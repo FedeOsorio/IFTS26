@@ -1,0 +1,67 @@
+<div class="horarios-container">
+
+  <app-page-banner 
+      backgroundImage="/assets/img/banner-hys.jpg"
+      title="Horarios - Higiene y Seguridad en el Trabajo"
+      [subtitle]="'Ciclo Lectivo ' + cicloLectivo">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <section class="info-section">
+      <div class="info-card">
+        <i class="bi bi-calendar3"></i>
+        <div>
+          <h3>{{ actualizacion }}</h3>
+          <p>
+            Los horarios se encuentran organizados por año de cursada. Todas las clases se dictan
+            en modalidad presencial en el Instituto IFTS Nº26.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horarios por año -->
+    @for (horario of horarios; track horario.anio) {
+      <section class="horario-anio">
+        <h2>{{ horario.anio }}º Año</h2>
+        
+        <div class="tabla-horarios-wrapper">
+          <table class="tabla-horarios">
+            <thead>
+              <tr>
+                <th>Materia</th>
+                <th>Día</th>
+                <th>Horario</th>
+                <th>Aula</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (materia of horario.materias; track materia.nombre) {
+                <tr>
+                  <td class="materia-nombre">{{ materia.nombre }}</td>
+                  <td>{{ materia.dia }}</td>
+                  <td>{{ materia.horario }}</td>
+                  <td>{{ materia.aula || 'A confirmar' }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+    }
+
+    <!-- Nota importante -->
+    <section class="nota-section">
+      <div class="nota-card">
+        <i class="bi bi-info-circle-fill"></i>
+        <div>
+          <h3>Importante</h3>
+          <p>{{ notaImportante }}</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>

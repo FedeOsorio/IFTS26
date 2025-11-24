@@ -1,0 +1,9 @@
+<section class="page-banner" [style.background-image]="'url(' + backgroundImage + ')'" [style.min-height]="height">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+        <h1 class="banner-title">{{ title }}</h1>
+        @if (subtitle) {
+            <p class="banner-subtitle">{{ subtitle }}</p>
+        }
+    </div>
+</section>

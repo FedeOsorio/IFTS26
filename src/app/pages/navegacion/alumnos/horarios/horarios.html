@@ -1,1 +1,99 @@
-<p>horarios works!</p>
+<div class="horarios-container">
+
+  <app-page-banner 
+      backgroundImage="/assets/img/banner-virtual.jpg"
+      title="Horarios de Cursada {{ cicloLectivo }}"
+      subtitle="Organización de Clases por Carrera">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <section class="info-section">
+      <div class="info-card">
+        <i class="bi bi-calendar-week"></i>
+        <p>{{ actualizacion }}</p>
+      </div>
+    </section>
+
+    <!-- Horarios GIR -->
+    <section class="carrera-section">
+      <h2>
+        <i class="bi bi-clipboard-data"></i>
+        Gestión Integral del Riesgo
+      </h2>
+      
+      @for (grupo of horariosGIR; track grupo.anio) {
+        <div class="horario-grupo">
+          <h3>{{ grupo.anio }}</h3>
+          <div class="tabla-wrapper">
+            <table class="tabla-horarios">
+              <thead>
+                <tr>
+                  <th>Materia</th>
+                  <th>Día</th>
+                  <th>Horario</th>
+                  <th>Aula</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (materia of grupo.materias; track materia.nombre) {
+                  <tr>
+                    <td class="materia-nombre">{{ materia.nombre }}</td>
+                    <td>{{ materia.dia }}</td>
+                    <td>{{ materia.horario }}</td>
+                    <td>{{ materia.aula }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+    </section>
+
+    <!-- Horarios HyS -->
+    <section class="carrera-section">
+      <h2>
+        <i class="bi bi-shield-check"></i>
+        Higiene y Seguridad en el Trabajo
+      </h2>
+      
+      @for (grupo of horariosHYS; track grupo.anio) {
+        <div class="horario-grupo">
+          <h3>{{ grupo.anio }}</h3>
+          <div class="tabla-wrapper">
+            <table class="tabla-horarios">
+              <thead>
+                <tr>
+                  <th>Materia</th>
+                  <th>Día</th>
+                  <th>Horario</th>
+                  <th>Aula</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (materia of grupo.materias; track materia.nombre) {
+                  <tr>
+                    <td class="materia-nombre">{{ materia.nombre }}</td>
+                    <td>{{ materia.dia }}</td>
+                    <td>{{ materia.horario }}</td>
+                    <td>{{ materia.aula }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+    </section>
+
+    <section class="nota-section">
+      <div class="nota-card">
+        <i class="bi bi-exclamation-circle"></i>
+        <p>{{ notaImportante }}</p>
+      </div>
+    </section>
+
+  </div>
+
+</div>

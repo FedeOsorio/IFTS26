@@ -1,1 +1,62 @@
-<p>titulos-extranjeros works!</p>
+<div class="titulos-container">
+
+  <app-page-banner 
+      backgroundImage="/assets/img/banner-virtual.jpg"
+      title="Convalidación de Títulos Extranjeros"
+      subtitle="Información para Estudiantes con Títulos del Exterior">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <section class="descripcion-section">
+      <div class="descripcion-card">
+        <i class="bi bi-globe-americas"></i>
+        <p>{{ descripcion }}</p>
+      </div>
+    </section>
+
+    <section class="pasos-section">
+      <h2>Pasos para la Convalidación</h2>
+      
+      <div class="pasos-timeline">
+        @for (paso of pasos; track paso.numero) {
+          <div class="paso-item">
+            <div class="paso-numero">{{ paso.numero }}</div>
+            <div class="paso-content">
+              <h3>{{ paso.titulo }}</h3>
+              <p>{{ paso.descripcion }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="documentos-section">
+      <h2>Documentación Requerida</h2>
+      <div class="documentos-list">
+        @for (doc of documentosRequeridos; track doc) {
+          <div class="documento-item">
+            <i class="bi bi-file-earmark-check"></i>
+            <span>{{ doc }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="contacto-section">
+      <div class="contacto-card">
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <h3>Más Información</h3>
+          <p>Para consultas sobre el trámite de convalidación, visitá el sitio web del Ministerio de Educación de CABA o comunicate con Bedelía del IFTS N°26.</p>
+          <a [href]="enlaceMinisterio" target="_blank" class="btn-enlace">
+            <i class="bi bi-box-arrow-up-right"></i>
+            Ministerio de Educación CABA
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>

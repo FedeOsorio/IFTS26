@@ -1,65 +1,96 @@
 <div class="info-container">
 
     <section class="welcome-text">
-        <h2>BIENVENIDOS AL IFTS Nº26</h2>
+        <h2>Bienvenidos al IFTS N°26</h2>
         <p>
-            Somos un instituto de formación técnica superior que brinda educación de calidad en el
-            ámbito de la tecnología y la administración. Nuestro compromiso es formar profesionales
-            capacitados para enfrentar los desafíos del mundo actual.
+            Somos un instituto de formación técnica superior comprometido con la excelencia educativa.
+            Formamos profesionales capacitados para enfrentar los desafíos del mundo laboral actual
+            con una sólida base técnica y valores institucionales.
         </p>
     </section>
 
     <section class="features-grid">
 
-        <div class="feature-item">
+        <div class="feature-item animate-card">
             <div class="icon-wrapper">
                 <fa-icon [icon]="faGraduationCap"></fa-icon>
             </div>
             <h3>Educación de Calidad</h3>
-            <p>Programas académicos actualizados y alineados con las demandas del mercado laboral.</p>
+            <p>Programas académicos actualizados, alineados con las demandas del mercado laboral y certificados por el Ministerio de Educación.</p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item animate-card">
             <div class="icon-wrapper">
                 <fa-icon [icon]="faUsers"></fa-icon>
             </div>
             <h3>Docentes Especializados</h3>
-            <p>Profesionales con amplia experiencia en el campo técnico y educativo.</p>
+            <p>Profesionales con amplia trayectoria y experiencia activa en el campo técnico, que comparten sus conocimientos prácticos.</p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item animate-card">
             <div class="icon-wrapper">
                 <fa-icon [icon]="faBookOpen"></fa-icon>
             </div>
             <h3>Formación Práctica</h3>
-            <p>Enfoque en el desarrollo de habilidades prácticas y aplicables.</p>
+            <p>Enfoque integral que combina teoría con práctica intensiva, preparando para el desempeño profesional inmediato.</p>
         </div>
 
     </section>
 </div>
 
 <section class="careers-section">
+    <div class="careers-header">
+        <h2>Nuestras Carreras</h2>
+        <p>Elegí tu camino profesional en tecnología y seguridad laboral</p>
+    </div>
+    
     <div class="careers-grid">
 
         <article class="career-card">
-            <img src="assets/images/analisis-sistemas.jpg"
-                alt="Persona programando en un escritorio con múltiples monitores">
+            <div class="career-image">
+                <img src="assets/images/analisis-sistemas.jpg"
+                    alt="Gestión Integral del Riesgo">
+                <div class="career-badge">3 Años</div>
+            </div>
             <div class="card-content">
-                <h3>Gestión Integral del Trabajo</h3>
-                <p>Formación integral en desarrollo de software, análisis de sistemas, bases de datos y gestión de
-                    proyectos informáticos. Duración: 3 años.</p>
-                <a [routerLink]="['/carrera/gir']" class="btn-ver-mas">Ver más &rarr;</a>
+                <h3>Gestión Integral del Riesgo</h3>
+                <p class="career-description">
+                    Formación especializada en identificación, evaluación y tratamiento de riesgos.
+                    Aprendé a desarrollar estrategias de prevención y gestión de crisis en organizaciones.
+                </p>
+                <ul class="career-highlights">
+                    <li><i class="bi bi-check-circle-fill"></i> Análisis de Riesgos</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Gestión de Crisis</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Planes de Contingencia</li>
+                </ul>
+                <a [routerLink]="['/carrera/gir']" class="btn-ver-mas">
+                    Ver Más Información
+                    <i class="bi bi-arrow-right"></i>
+                </a>
             </div>
         </article>
 
         <article class="career-card">
-            <img src="assets/images/administracion.jpg"
-                alt="Profesor escribiendo fórmulas matemáticas complejas en una pizarra">
+            <div class="career-image">
+                <img src="assets/images/administracion.jpg"
+                    alt="Higiene y Seguridad en el Trabajo">
+                <div class="career-badge">3 Años</div>
+            </div>
             <div class="card-content">
                 <h3>Higiene y Seguridad en el Trabajo</h3>
-                <p>Capacitación en gestión empresarial, administración de recursos, finanzas y dirección de
-                    organizaciones. Duración: 3 años.</p>
-                <a [routerLink]="['/carrera/hys']" class="btn-ver-mas">Ver más &rarr;</a>
+                <p class="career-description">
+                    Capacitación integral en prevención de riesgos laborales y mejora de condiciones de trabajo.
+                    Conviertete en un profesional clave para la seguridad empresarial.
+                </p>
+                <ul class="career-highlights">
+                    <li><i class="bi bi-check-circle-fill"></i> Prevención de Riesgos</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Seguridad Industrial</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Legislación Laboral</li>
+                </ul>
+                <a [routerLink]="['/carrera/hys']" class="btn-ver-mas">
+                    Ver Más Información
+                    <i class="bi bi-arrow-right"></i>
+                </a>
             </div>
         </article>
 

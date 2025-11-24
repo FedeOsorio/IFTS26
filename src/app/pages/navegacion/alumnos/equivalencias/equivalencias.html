@@ -1,0 +1,101 @@
+<div class="equivalencias-container">
+
+  <app-page-banner 
+      backgroundImage="/assets/img/banner-virtual.jpg"
+      title="Equivalencias"
+      subtitle="Reconocimiento de Estudios Previos">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <section class="descripcion-section">
+      <div class="descripcion-card">
+        <i class="bi bi-arrow-left-right"></i>
+        <p>{{ descripcion }}</p>
+      </div>
+    </section>
+
+    <!-- Tipos de equivalencias -->
+    <section class="tipos-section">
+      <h2>Tipos de Equivalencias</h2>
+      
+      <div class="tipos-grid">
+        @for (tipo of tiposEquivalencias; track tipo.titulo) {
+          <div class="tipo-card">
+            <i class="bi" [class]="tipo.icono"></i>
+            <h3>{{ tipo.titulo }}</h3>
+            <p>{{ tipo.descripcion }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Pasos del trámite -->
+    <section class="pasos-section">
+      <h2>Pasos para Solicitar Equivalencias</h2>
+      
+      <div class="pasos-timeline">
+        @for (paso of pasos; track paso.numero) {
+          <div class="paso-item">
+            <div class="paso-numero">{{ paso.numero }}</div>
+            <div class="paso-content">
+              <h3>{{ paso.titulo }}</h3>
+              <p>{{ paso.descripcion }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Documentación requerida -->
+    <section class="documentos-section">
+      <h2>
+        <i class="bi bi-file-earmark-text"></i>
+        Documentación Requerida
+      </h2>
+      <div class="documentos-grid">
+        @for (doc of documentosRequeridos; track doc) {
+          <div class="documento-item">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>{{ doc }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Consideraciones importantes -->
+    <section class="consideraciones-section">
+      <h2>
+        <i class="bi bi-lightbulb"></i>
+        Consideraciones Importantes
+      </h2>
+      <div class="consideraciones-list">
+        @for (consideracion of consideraciones; track consideracion) {
+          <div class="consideracion-item">
+            <i class="bi bi-exclamation-circle"></i>
+            <span>{{ consideracion }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto-section">
+      <div class="contacto-card">
+        <i class="bi bi-envelope"></i>
+        <div>
+          <h3>Consultas sobre Equivalencias</h3>
+          <p>
+            Para más información sobre el trámite de equivalencias o resolver dudas específicas,
+            comunicate con Bedelía del instituto.
+          </p>
+          <a href="mailto:bedelia@ifts26.edu.ar" class="email-link">
+            bedelia&#64;ifts26.edu.ar
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>

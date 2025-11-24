@@ -1,1 +1,125 @@
-<p>mesas-examen works!</p>
+<div class="mesas-container">
+
+  <app-page-banner 
+      backgroundImage="/assets/img/banner-virtual.jpg"
+      title="Mesas de Exámenes {{ cicloLectivo }}"
+      subtitle="Calendario de Exámenes Finales">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <section class="info-section">
+      <div class="info-card">
+        <i class="bi bi-calendar-check"></i>
+        <p>{{ actualizacion }}</p>
+      </div>
+    </section>
+
+    <!-- Requisitos -->
+    <section class="requisitos-section">
+      <h2>
+        <i class="bi bi-clipboard-check"></i>
+        Requisitos para Rendir
+      </h2>
+      <div class="requisitos-grid">
+        @for (requisito of requisitos; track requisito) {
+          <div class="requisito-card">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>{{ requisito }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Mesas GIR -->
+    <section class="carrera-section">
+      <h2>
+        <i class="bi bi-clipboard-data"></i>
+        Gestión Integral del Riesgo
+      </h2>
+      
+      @for (turno of mesasGIR; track turno.turno) {
+        <div class="turno-grupo">
+          <div class="turno-header">
+            <h3>{{ turno.turno }}</h3>
+            <span class="turno-mes">{{ turno.mes }}</span>
+          </div>
+          <div class="tabla-wrapper">
+            <table class="tabla-mesas">
+              <thead>
+                <tr>
+                  <th>Materia</th>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Aula</th>
+                  <th>Presidente</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (mesa of turno.mesas; track mesa.materia) {
+                  <tr>
+                    <td class="materia-nombre">{{ mesa.materia }}</td>
+                    <td>{{ mesa.fecha }}</td>
+                    <td>{{ mesa.hora }}</td>
+                    <td>{{ mesa.aula }}</td>
+                    <td>{{ mesa.presidente }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+    </section>
+
+    <!-- Mesas HyS -->
+    <section class="carrera-section">
+      <h2>
+        <i class="bi bi-shield-check"></i>
+        Higiene y Seguridad en el Trabajo
+      </h2>
+      
+      @for (turno of mesasHYS; track turno.turno) {
+        <div class="turno-grupo">
+          <div class="turno-header">
+            <h3>{{ turno.turno }}</h3>
+            <span class="turno-mes">{{ turno.mes }}</span>
+          </div>
+          <div class="tabla-wrapper">
+            <table class="tabla-mesas">
+              <thead>
+                <tr>
+                  <th>Materia</th>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Aula</th>
+                  <th>Presidente</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (mesa of turno.mesas; track mesa.materia) {
+                  <tr>
+                    <td class="materia-nombre">{{ mesa.materia }}</td>
+                    <td>{{ mesa.fecha }}</td>
+                    <td>{{ mesa.hora }}</td>
+                    <td>{{ mesa.aula }}</td>
+                    <td>{{ mesa.presidente }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+    </section>
+
+    <section class="nota-section">
+      <div class="nota-card">
+        <i class="bi bi-exclamation-triangle"></i>
+        <p>{{ notaImportante }}</p>
+      </div>
+    </section>
+
+  </div>
+
+</div>

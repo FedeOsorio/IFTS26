@@ -1,1 +1,82 @@
-<p>becas works!</p>
+<div class="becas-container">
+
+  <!-- Banner Hero -->
+  <app-page-banner 
+      backgroundImage="/assets/img/banner-virtual.jpg"
+      title="Becas y Programas de Ayuda"
+      subtitle="Apoyo Económico para tu Trayectoria Académica">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <!-- Banner Progresar -->
+    <section class="progresar-banner">
+      <img [src]="progresarBanner" alt="Programa Progresar" class="banner-image">
+    </section>
+
+    <!-- Información general -->
+    <section class="info-general">
+      <div class="info-card">
+        <i class="bi bi-info-circle"></i>
+        <p>{{ infoGeneral }}</p>
+      </div>
+    </section>
+
+    <!-- Becas disponibles -->
+    <section class="becas-section">
+      <h2>Programas de Becas Disponibles</h2>
+      
+      <div class="becas-list">
+        @for (beca of becasDisponibles; track beca.nombre) {
+          <div class="beca-card">
+            <div class="beca-header">
+              <i class="bi" [class]="beca.icono"></i>
+              <h3>{{ beca.nombre }}</h3>
+            </div>
+            
+            <div class="beca-body">
+              <p class="descripcion">{{ beca.descripcion }}</p>
+              
+              <div class="requisitos-section">
+                <h4>
+                  <i class="bi bi-clipboard-check"></i>
+                  Requisitos
+                </h4>
+                <ul class="requisitos-list">
+                  @for (requisito of beca.requisitos; track requisito) {
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i>
+                      {{ requisito }}
+                    </li>
+                  }
+                </ul>
+              </div>
+
+              @if (beca.enlace) {
+                <div class="enlace-section">
+                  <a [href]="beca.enlace" target="_blank" class="btn-enlace">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    Más información
+                  </a>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto-section">
+      <div class="contacto-card">
+        <i class="bi bi-chat-dots"></i>
+        <div>
+          <h3>Necesitás ayuda?</h3>
+          <p>{{ contactoBecas }}</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>

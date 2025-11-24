@@ -1,12 +1,16 @@
 <div class="career-container">
 
-    <div class="career-header">
-        <h1>{{ data.titulo }}</h1>
-    </div>
+    <!-- Banner Hero -->
+    <app-page-banner 
+        backgroundImage="/assets/img/banner-hys.jpg"
+        title="{{ data.titulo }}"
+        subtitle="Formando profesionales para la prevención de riesgos laborales"
+        height="300px">
+    </app-page-banner>
 
     <section class="intro-section">
         <div class="career-image-wrapper">
-            <img [src]="data.imgIntro" alt="Intro" class="main-image">
+            <img src="/assets/img/hst.png" alt="Higiene y Seguridad en el Trabajo" class="main-image">
         </div>
 
         <div class="career-description" [innerHTML]="data.descripcion"></div>

@@ -1,1 +1,55 @@
-<p>reglamento-organico works!</p>
+<div class="reglamento-container">
+  
+  <!-- Banner Hero -->
+  <app-page-banner 
+      backgroundImage="/assets/img/banner.jpg"
+      title="Reglamento Orgánico"
+      subtitle="Instituto de Formación Técnica Superior N°26">
+  </app-page-banner>
+
+  <div class="content-wrapper">
+    
+    <!-- Encabezado con botón de descarga -->
+    <section class="header-section">
+      <div class="intro-text">
+        <p>El Reglamento Orgánico establece las normas que rigen el funcionamiento del Instituto, 
+           define la estructura organizativa, las funciones del personal y los derechos y obligaciones 
+           de estudiantes y docentes.</p>
+      </div>
+      
+      <button class="download-btn" (click)="downloadPDF()">
+        <i class="bi bi-file-pdf"></i>
+        Descargar Reglamento Completo (PDF)
+      </button>
+    </section>
+
+    <!-- Contenido del reglamento -->
+    <section class="reglamento-content">
+      @for (seccion of reglamento; track $index) {
+        <div class="reglamento-section">
+          <h2 class="section-title">{{ seccion.titulo }}</h2>
+          
+          <div class="articulos-list">
+            @for (articulo of seccion.articulos; track articulo.numero) {
+              <div class="articulo-item">
+                <h3 class="articulo-numero">{{ articulo.numero }}</h3>
+                <p class="articulo-contenido">{{ articulo.contenido }}</p>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </section>
+
+    <!-- Footer informativo -->
+    <section class="footer-info">
+      <p class="disclaimer">
+        <i class="bi bi-info-circle"></i>
+        Este documento tiene carácter informativo. Para consultas específicas sobre 
+        el reglamento, dirigirse a Secretaría Académica.
+      </p>
+    </section>
+
+  </div>
+
+</div>

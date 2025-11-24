@@ -1,8 +1,41 @@
-<section class="main">
-  <section class="banner">
-    <div class="bannerDesc">
-      <h3>CARRERAS DE FORMACIÓN TÉCNICO PROFESIONAL</h3>
+<section class="home-page">
+  <!-- Hero Banner mejorado -->
+  <section class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title animate-fade-in-up">IFTS N°26</h1>
+      <p class="hero-subtitle animate-fade-in-up animate-delay-1">
+        Instituto de Formación Técnica Superior
+      </p>
+      <p class="hero-description animate-fade-in-up animate-delay-2">
+        Formando profesionales capacitados para los desafíos del futuro
+      </p>
+      <div class="hero-actions animate-fade-in-up animate-delay-3">
+        <a routerLink="/pre-inscripcion" class="btn-primary">
+          Inscribite Ahora
+          <i class="bi bi-arrow-right"></i>
+        </a>
+        <button (click)="scrollToCarreras()" class="btn-secondary">
+          Ver Carreras
+        </button>
+      </div>
     </div>
   </section>
+
+  <!-- Info Cards Component -->
   <app-info-cards></app-info-cards>
+
+  <!-- Call to action -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-title">¿Listo para comenzar tu futuro profesional?</h2>
+      <p class="cta-text">
+        Descubrí nuestras carreras y formá parte de la comunidad IFTS N°26
+      </p>
+      <a routerLink="/pre-inscripcion" class="btn-cta">
+        Comenzar Inscripción
+        <i class="bi bi-arrow-right-circle"></i>
+      </a>
+    </div>
+  </section>
 </section>
