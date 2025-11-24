@@ -1,1 +1,49 @@
-<p>reglamento-organico works!</p>
+<div class="reglamento-container">
+  
+  <header class="page-header">
+    <h1>{{ data.titulo }}</h1>
+    <p>{{ data.descripcion }}</p>
+  </header>
+
+  <div class="accordions-section">
+    
+    @for (documento of data.documentos; track $index) {
+      <div class="accordion-item">
+        
+        <button class="accordion-header" (click)="toggleDocumento(documento)">
+          <h2>
+            <fa-icon [icon]="iconoPdf" class="pdf-icon"></fa-icon>
+            {{ documento.titulo }}
+          </h2>
+          <fa-icon [icon]="documento.abierto ? iconoContraer : iconoExpandir"></fa-icon>
+        </button>
+        
+        <div class="accordion-content" [class.open]="documento.abierto">
+          <div class="pdf-viewer">
+            
+            @if (documento.pdfUrl) {
+              <div class="iframe-wrapper">
+                <iframe 
+                  [src]="getSafeUrl(documento.pdfUrl)" 
+                  type="application/pdf" 
+                  width="100%" 
+                  height="100%" 
+                  title="{{ documento.titulo }}">
+                </iframe>
+              </div>
+              
+              <div class="download-link">
+                <a [href]="documento.pdfUrl" target="_blank" download>
+                  <fa-icon [icon]="iconoDescarga"></fa-icon> Descargar archivo (PDF)
+                </a>
+              </div>
+            } @else {
+              <p class="no-content">Documento en preparación.</p>
+            }
+          </div>
+        </div>
+      </div>
+    }
+
+  </div>
+</div>

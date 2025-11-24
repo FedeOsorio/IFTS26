@@ -1,0 +1,18 @@
+{
+  "titulo": "Reglamento Orgánico",
+  "descripcion": "Encuentre aquí la documentación oficial y reglamentaria que rige la actividad institucional y académica del IFTS N°26.",
+  "documentos": [
+    { 
+      "titulo": "Reglamento General (Resolución 6499)", 
+      "pdfUrl": "/assets/uploads/reglamento_general.pdf" 
+    },
+    { 
+      "titulo": "Reglamento de Cursada y Exámenes", 
+      "pdfUrl": "/assets/uploads/reglamento_cursada.pdf" 
+    },
+    { 
+      "titulo": "Estatuto Orgánico", 
+      "pdfUrl": "/assets/uploads/estatuto_organico.pdf" 
+    }
+  ]
+}

@@ -38,7 +38,7 @@ export class Header {
         { text: 'Calendario Académico', route: '/institucional/calendario-academico' },
         { text: 'Datos Institucionales', route: '/institucional/autoridades' },
         { text: 'Reglamento Orgánico', route: '/institucional/reglamento-organico' },
-        { text: 'Repositorio', route: '/institucional/repositorio' },
+      //  { text: 'Repositorio', route: '/institucional/repositorio' },
         { text: 'Plano de Evacuación', route: '/institucional/evacuacion' }
       ]
     },

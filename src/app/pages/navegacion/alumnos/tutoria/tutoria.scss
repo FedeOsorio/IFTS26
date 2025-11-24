@@ -1,0 +1,112 @@
+:host {
+    --color-dark-bg: #2c3e50; // Fondo oscuro de la imagen
+    --color-primary: #3498db; // Azul claro para los links
+    --color-text-light: #ecf0f1; // Gris muy claro para el texto
+    --color-text-highlight: #fcfcfc; // Blanco puro
+    --color-border: #4a6682;
+}
+
+.tutoria-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem 1.5rem;
+    background-color: var(--color-dark-bg); // Fondo para el componente
+    color: var(--color-text-light);
+    min-height: 500px;
+}
+
+.page-header {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--color-text-highlight);
+    }
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.tutor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.tutor-card {
+    background-color: #3b5066; // Un tono más claro que el fondo
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    .tutor-header {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .tutor-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-text-highlight);
+        margin: 0 0 0.5rem 0;
+
+        fa-icon {
+            margin-right: 0.5rem;
+            color: var(--color-primary);
+        }
+    }
+
+    .tutor-email {
+        display: inline-block;
+        color: var(--color-primary);
+        font-size: 1rem;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        fa-icon {
+            margin-right: 0.25rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    .tutor-body {
+        .markdown-content {
+            font-size: 1rem;
+            line-height: 1.7;
+
+            /* Estilos para el contenido inyectado */
+            ::ng-deep p,
+            ::ng-deep ul {
+                margin-bottom: 1rem;
+            }
+
+            ::ng-deep ul {
+                padding-left: 1.5rem;
+                list-style: square;
+            }
+
+            ::ng-deep a {
+                color: var(--color-primary);
+                font-weight: 600;
+            }
+
+            ::ng-deep code {
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 2px 4px;
+                border-radius: 3px;
+                color: var(--color-text-highlight);
+            }
+        }
+    }
+}

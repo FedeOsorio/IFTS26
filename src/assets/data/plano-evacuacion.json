@@ -1,0 +1,18 @@
+{
+  "titulo": "Plano de Evacuación y Seguridad",
+  "descripcion": "Encuentre aquí los planos de emergencia y los procedimientos a seguir ante situaciones críticas.",
+  "documentos": [
+    { 
+      "titulo": "Plano General del Edificio (Planta Baja y 1° Piso)", 
+      "pdfUrl": "/assets/uploads/plano_general.pdf" 
+    },
+    { 
+      "titulo": "Procedimiento ante Incendios", 
+      "pdfUrl": "/assets/uploads/procedimiento_incendio.pdf" 
+    },
+    { 
+      "titulo": "Rutas de Evacuación", 
+      "pdfUrl": "/assets/uploads/rutas_evacuacion.pdf" 
+    }
+  ]
+}

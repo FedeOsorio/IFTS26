@@ -99,6 +99,38 @@ collections:
               - {label: "Descripción", name: "descripcion", widget: "string"}
               - {label: "Fechas", name: "fecha", widget: "string"}
 
+      # Reglamento Orgánico
+      - name: "reglamento_organico"
+        label: "Reglamento Orgánico"
+        file: "src/assets/data/reglamento-organico.json"
+        fields:
+          - {label: "Título de la Página", name: "titulo", widget: "string", default: "Reglamento Orgánico"}
+          - {label: "Subtítulo/Descripción", name: "descripcion", widget: "text"}
+          
+          # SECCIÓN DE REGLAMENTOS DESPLEGABLES
+          - label: "Reglamentos y Documentos"
+            name: "documentos"
+            widget: "list"
+            fields:
+              - {label: "Título de la Solapa", name: "titulo", widget: "string"}
+              - {label: "Archivo PDF", name: "pdfUrl", widget: "file", hint: "Seleccionar el archivo PDF"}
+
+      # Plano de evacuación
+      - name: "plano_evacuacion" # <--- Nuevo archivo
+        label: "Planes de Evacuación"
+        file: "src/assets/data/plano-evacuacion.json"
+        fields:
+          - {label: "Título de la Página", name: "titulo", widget: "string", default: "Plano de Evacuación y Seguridad"}
+          - {label: "Subtítulo/Descripción", name: "descripcion", widget: "text"}
+          
+          # SECCIÓN DE PLANOS DESPLEGABLES
+          - label: "Planos y Procedimientos"
+            name: "documentos"
+            widget: "list"
+            fields:
+              - {label: "Título del Plano", name: "titulo", widget: "string"}
+              - {label: "Archivo (PDF o Imagen)", name: "pdfUrl", widget: "file", hint: "Subir el archivo del plano"}
+
   # === GRUPO: CARRERAS ===
   - name: "carreras"
     label: "Carreras"
@@ -160,3 +192,25 @@ collections:
           fields:
             - {label: "Título Sección", name: "titulo", widget: "string"}
             - {label: "Contenido", name: "contenido", widget: "markdown"}
+
+
+  # == GRUPO: Alumnos == 
+  - name: "alumnos"
+    label: "Alumnos"
+    files:  
+
+      - name: "tutorias"
+        label: "Página de Tutorías"
+        file: "src/assets/data/tutorias.json"
+        fields:
+          - {label: "Título Principal", name: "titulo", widget: "string", default: "Tutoría"}
+          - {label: "Texto Introductorio", name: "introduccion", widget: "markdown", required: false}
+          
+          # Lista de Tutores
+          - label: "Lista de Tutores y Contacto"
+            name: "tutores"
+            widget: "list"
+            fields:
+              - {label: "Nombre del Profesor", name: "nombre", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Descripción y Links", name: "texto", widget: "markdown", hint: "Material de interés, link de acceso y código."}

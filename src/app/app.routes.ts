@@ -16,7 +16,7 @@ import { MatriculaProfesional } from './pages/navegacion/alumnos/matricula-profe
 import { Horarios } from './pages/navegacion/alumnos/horarios/horarios';
 import { MesasExamen } from './pages/navegacion/alumnos/mesas-examen/mesas-examen';
 import { Cooperadora } from './pages/navegacion/alumnos/cooperadora/cooperadora';
-import { Tutoria } from './pages/navegacion/tutoria/tutoria';
+import { Tutoria } from './pages/navegacion/alumnos/tutoria/tutoria';
 import { Accesos } from './pages/navegacion/accesos/accesos';
 import { Publicaciones } from './pages/navegacion/publicaciones/publicaciones';
 import { Contacto } from './pages/navegacion/contacto/contacto';
