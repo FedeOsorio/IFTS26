@@ -13,6 +13,24 @@
 </div>
 
 ---
+## 👥 Trabajo Colaborativo
+
+Este proyecto fue desarrollado en equipo por:
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <sub><b>Federico Osorio</b></sub><br />
+      <a href="https://www.linkedin.com/in/fedeosorio/">LinkedIn</a>
+    </td>
+    <td align="center">
+      <sub><b>Marcos Toledo</b></sub><br />
+      <a href="https://www.linkedin.com/in/marcos-ezequiel-toledo/">LinkedIn</a>
+    </td>
+  </tr>
+</table>
+
+---
 
 ## 📋 Descripción del Proyecto
 
@@ -84,60 +102,6 @@ El sitio centraliza toda la información relevante sobre:
 ### Deployment
 - **[Netlify](https://www.netlify.com/)** - Hosting y despliegue continuo
 - **CI/CD** - Despliegue automático desde GitHub
-
----
-
-## 👥 Trabajo Colaborativo
-
-Este proyecto fue desarrollado en equipo por:
-
-<table align="center">
-  <tr>
-    <td align="center">
-      <img src="https://via.placeholder.com/100" width="100px;" alt="Federico Osorio"/><br />
-      <sub><b>Federico Osorio</b></sub><br />
-      <a href="https://www.linkedin.com/in/fedeosorio/">LinkedIn</a>
-    </td>
-    <td align="center">
-      <img src="https://via.placeholder.com/100" width="100px;" alt="Marcos Toledo"/><br />
-      <sub><b>Marcos Toledo</b></sub><br />
-      <a href="https://www.linkedin.com/in/marcos-ezequiel-toledo/">LinkedIn</a>
-    </td>
-  </tr>
-</table>
-
-### 🤝 División de Tareas
-
-**Federico Osorio:**
-- Arquitectura inicial del proyecto
-- Diseño de componentes reutilizables (header, footer, banners)
-- Sistema de navegación responsive
-- Integración de estilos globales y variables SCSS
-- Páginas de carreras (GIR y HyS) con secciones expandibles
-
-**Marcos Toledo:**
-- Configuración de rutas y routing
-- Páginas de alumnos (horarios, mesas de examen, trámites)
-- Formulario de contacto con validaciones
-- Integración de contenido desde JSON
-- Sección de docentes con documentos embebidos
-- Optimización de estilos y responsive design
-
-**Trabajo Conjunto:**
-- Planificación de estructura de carpetas
-- Definición de convenciones de código
-- Testing y corrección de bugs
-- Documentación del proyecto (README y GUIA.md)
-- Revisión de código y mejoras de accesibilidad
-- Deployment y configuración de Netlify
-
-### 📝 Metodología de Trabajo
-
-1. **Planificación:** Reuniones iniciales para definir alcance, estructura y tecnologías
-2. **Desarrollo por sprints:** División del trabajo en tareas específicas con revisión cruzada
-3. **Revisión de código:** Pull requests y feedback mutuo antes de integrar cambios
-4. **Testing colaborativo:** Pruebas en diferentes dispositivos y navegadores
-5. **Documentación continua:** Comentarios en código y guías para facilitar mantenimiento futuro
 
 ---
 
@@ -223,7 +187,6 @@ npm test               # Ejecuta tests
 ng generate component pages/nueva-pagina
 ng generate service services/nuevo-servicio
 ```
-
 ---
 
 ## 📖 Documentación para Desarrolladores
