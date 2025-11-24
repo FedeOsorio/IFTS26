@@ -1,13 +1,10 @@
+<!-- Banner Hero -->
+<app-page-banner backgroundImage="/assets/img/banner-gestion.png"
+  title="Tecnicatura Superior en Gestión Integral del Riesgo"
+  subtitle="Formando profesionales en Protección Civil y Gestión de Emergencias" height="300px">
+</app-page-banner>
+
 <div class="career-container">
-
-  <!-- Banner Hero -->
-  <app-page-banner 
-      backgroundImage="/assets/img/banner-gestion.png"
-      title="Tecnicatura Superior en Gestión Integral del Riesgo"
-      subtitle="Formando profesionales en Protección Civil y Gestión de Emergencias"
-      height="300px">
-  </app-page-banner>
-
   <section class="intro-section">
     <div class="career-image-wrapper">
       <img src="/assets/img/gir.png" alt="Gestión Integral del Riesgo" class="main-image">
@@ -16,12 +13,15 @@
     <div class="career-description">
       <h2>¿Qué es la Gestión Integral del Riesgo (GIR)?</h2>
       <p>
-        Es una actividad destinada a la <strong>Protección Civil</strong>. Vivimos en una sociedad cuyo crecimiento productivo y demográfico origina situaciones de vulnerabilidad. El objetivo es prevenir desastres de origen natural o producto de la actividad humana mediante la preparación de la sociedad civil y las instituciones.
+        Es una actividad destinada a la <strong>Protección Civil</strong>. Vivimos en una sociedad cuyo crecimiento
+        productivo y demográfico origina situaciones de vulnerabilidad. El objetivo es prevenir desastres de origen
+        natural o producto de la actividad humana mediante la preparación de la sociedad civil y las instituciones.
       </p>
 
       <h3>¿Qué es ser un Técnico Superior en GIR?</h3>
       <ul class="skills-list">
-        <li>Asistir a las autoridades de protección civil (nacional, provincial y local) en la planificación estratégica.</li>
+        <li>Asistir a las autoridades de protección civil (nacional, provincial y local) en la planificación
+          estratégica.</li>
         <li>Diseñar y conducir áreas específicas de GIR en organizaciones públicas o privadas.</li>
         <li>Organizar y liderar equipos de análisis de riesgos y evaluación de daños.</li>
         <li>Desarrollar estrategias de fortalecimiento comunitario y comunicación para la prevención.</li>
@@ -31,36 +31,67 @@
       <div class="highlight-box">
         <h3>¿Por qué estudiar esta carrera?</h3>
         <p>
-          Es esencial para formar cuadros profesionales en la Protección Civil y asumir una tarea indelegable en la prevención de desastres, con un alcance nacional tanto en el ámbito público como privado.
+          Es esencial para formar cuadros profesionales en la Protección Civil y asumir una tarea indelegable en la
+          prevención de desastres, con un alcance nacional tanto en el ámbito público como privado.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="info-accordion">
-    
-    @for (seccion of secciones; track $index) {
-      <div class="accordion-item" [class.active]="seccion.abierto">
-        
-        <button class="accordion-header" (click)="toggleSeccion(seccion)">
-          <div class="header-title">
-            <fa-icon [icon]="seccion.icono" class="section-icon"></fa-icon>
-            <span>{{ seccion.titulo }}</span>
-          </div>
-          <fa-icon [icon]="seccion.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
-        </button>
-
-        <div class="accordion-content">
-          <div class="content-inner">
-            <img [src]="seccion.imagenSrc" [alt]="seccion.titulo" class="document-image">
-            
-            <p class="download-hint">
-              * Hacé clic derecho en la imagen y seleccioná "Abrir imagen en una pestaña nueva" para verla en tamaño completo.
-            </p>
-          </div>
-        </div>
-
+  <section class="info-details">
+    <div class="info-boxes">
+      <div class="info-box">
+        <strong>Duración:</strong> 3 años (6 cuatrimestres)
       </div>
+      <div class="info-box">
+        <strong>Modalidad de Cursada:</strong> Presencial
+      </div>
+      <div class="info-box">
+        <strong>Requisitos:</strong> Secundario completo
+      </div>
+    </div>
+    
+    <!-- Botones de navegación rápida a secciones relacionadas -->
+    <div class="quick-links">
+      <a [routerLink]="['/carrera/gir/horarios']" class="quick-link-btn">
+        <fa-icon [icon]="iconoClock"></fa-icon>
+        Ver Horarios
+      </a>
+      <a [routerLink]="['/carrera/gir/perfil-egresado']" class="quick-link-btn">
+        <fa-icon [icon]="iconoGraduate"></fa-icon>
+        Perfil del Egresado
+      </a>
+    </div>
+  </section>
+
+  <section class="info-accordion">
+
+    @for (seccion of secciones; track $index) {
+    <div class="accordion-item" [class.active]="seccion.abierto">
+
+      <button class="accordion-header" (click)="toggleSeccion(seccion)">
+        <div class="header-title">
+          <fa-icon [icon]="seccion.icono" class="section-icon"></fa-icon>
+          <span>{{ seccion.titulo }}</span>
+        </div>
+        <fa-icon [icon]="seccion.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
+      </button>
+
+      <div class="accordion-content">
+        <div class="content-inner">
+          <img [src]="seccion.imagenSrc" [alt]="seccion.titulo" class="document-image">
+
+          <p class="download-hint">
+            * Hacé clic derecho en la imagen y seleccioná "Abrir imagen en una pestaña nueva" para verla en tamaño
+            completo.
+          </p>
+          <a [href]="seccion.imagenSrc" target="_blank" download class="download-button">
+            <fa-icon [icon]="iconoExpandir"></fa-icon> Descargar {{ seccion.titulo }}
+          </a>
+        </div>
+      </div>
+
+    </div>
     }
 
   </section>

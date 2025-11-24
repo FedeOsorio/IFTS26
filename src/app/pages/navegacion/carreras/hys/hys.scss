@@ -1,3 +1,15 @@
+/**
+ * Estilos para la página de la carrera Higiene y Seguridad en el Trabajo (HyS)
+ * 
+ * Define los estilos visuales para:
+ * - Encabezado de la carrera
+ * - Información de duración, modalidad y requisitos
+ * - Botones de navegación a secciones relacionadas
+ * - Lista de habilidades que desarrolla la carrera
+ * - Acordeón con plan de estudios y perfil profesional
+ * - Adaptaciones para dispositivos móviles y tablets
+ */
+
 :host {
   --color-primary: #1E6C93;
   --color-primary-dark: #155a7a;
@@ -281,6 +293,125 @@
 
     @media (max-width: 480px) {
       font-size: 15px;
+    }
+  }
+}
+
+// ============================================
+// INFO BOXES Y DETALLES
+// ============================================
+.info-details {
+  margin-bottom: 60px;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
+}
+
+.info-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+}
+
+.info-box {
+  background: white;
+  padding: 20px 24px;
+  border-radius: 12px;
+  border: 2px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  
+  strong {
+    display: block;
+    color: var(--color-primary);
+    font-size: 14px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(30, 108, 147, 0.15);
+    border-color: var(--color-secondary);
+  }
+
+  @media (max-width: 768px) {
+    padding: 16px 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 14px 18px;
+  }
+}
+
+// ============================================
+// BOTONES DE NAVEGACIÓN RÁPIDA
+// ============================================
+.quick-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+  }
+}
+
+.quick-link-btn {
+  flex: 1;
+  min-width: 200px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 108, 147, 0.3);
+
+  fa-icon {
+    font-size: 20px;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(30, 108, 147, 0.4);
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, #0d3f56 100%);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px 20px;
+    font-size: 14px;
+    
+    fa-icon {
+      font-size: 18px;
     }
   }
 }

@@ -1,7 +1,34 @@
+/**
+ * Componente TitulosExtranjeros - Convalidación de títulos secundarios extranjeros
+ * 
+ * Desarrollé esta página para guiar a estudiantes extranjeros o argentinos
+ * que cursaron el secundario en otro país sobre el trámite de convalidación
+ * de su título para poder inscribirse en el IFTS N°26.
+ * 
+ * El proceso de convalidación es requisito obligatorio del Ministerio de
+ * Educación para que títulos extranjeros tengan validez en Argentina.
+ * 
+ * Información incluida:
+ * - Pasos del trámite de convalidación
+ * - Legalización y apostilla
+ * - Traducción oficial si corresponde
+ * - Documentación requerida
+ * - Enlaces al Ministerio de Educación CABA
+ * 
+ * @author Marcos - IFTS N°26
+ */
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageBannerComponent } from '../../../../components/page-banner/page-banner';
 
+/**
+ * Interfaz que define un paso del trámite de convalidación
+ * 
+ * @property numero - Número de orden del paso
+ * @property titulo - Nombre descriptivo del paso
+ * @property descripcion - Explicación detallada del paso
+ */
 interface PasoConvalidacion {
   numero: number;
   titulo: string;
@@ -15,10 +42,22 @@ interface PasoConvalidacion {
   styleUrl: './titulos-extranjeros.scss'
 })
 export class TitulosExtranjeros {
-  // Información general
+  /**
+   * Descripción general del trámite de convalidación
+   * 
+   * Explico brevemente qué es la convalidación y para qué sirve,
+   * para que los estudiantes extranjeros entiendan la importancia
+   * de este trámite previo a la inscripción.
+   */
   descripcion: string = 'Si tenés un título secundario obtenido en el extranjero, podés realizar el trámite de convalidación para ingresar a una carrera de nivel superior en Argentina.';
 
-  // Pasos del trámite
+  /**
+   * Pasos del trámite de convalidación
+   * 
+   * Estructuré una guía paso a paso del proceso completo: desde la legalización
+   * en el país de origen hasta la presentación en Bedelía del IFTS con el
+   * certificado de convalidación emitido por el Ministerio.
+   */
   pasos: PasoConvalidacion[] = [
     {
       numero: 1,
@@ -47,7 +86,13 @@ export class TitulosExtranjeros {
     }
   ];
 
-  // Documentación requerida
+  /**
+   * Lista completa de documentos requeridos
+   * 
+   * Enumero todos los documentos que el estudiante debe presentar
+   * ante el Ministerio de Educación para iniciar el trámite de
+   * convalidación de su título secundario extranjero.
+   */
   documentosRequeridos: string[] = [
     'Título secundario original y copia',
     'Legalización del Ministerio de Relaciones Exteriores del país de origen',
@@ -57,6 +102,11 @@ export class TitulosExtranjeros {
     'Certificado analítico de estudios secundarios'
   ];
 
-  // Información de contacto
+  /**
+   * Enlace al Ministerio de Educación CABA
+   * 
+   * URL oficial donde los estudiantes pueden obtener más información
+   * sobre el trámite de convalidación y gestionar su solicitud.
+   */
   enlaceMinisterio: string = 'https://www.buenosaires.gob.ar/educacion';
 }

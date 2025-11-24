@@ -289,7 +289,7 @@
     .info-item {
       display: flex;
       align-items: flex-start;
-      gap: 16px;
+      gap: 14px;
       transition: transform 0.3s ease;
       
       &:hover {
@@ -301,40 +301,54 @@
       }
 
       .icon {
-        font-size: 22px;
+        font-size: 20px;
         color: white;
         flex-shrink: 0;
-        margin-top: 2px;
+        margin-top: 3px;
+        width: 24px;
+        text-align: center;
         transition: color 0.3s ease;
+        line-height: 1.5;
 
         @media (min-width: 768px) {
-          font-size: 24px;
+          font-size: 22px;
+          width: 26px;
         }
       }
 
       .info-text {
         flex: 1;
+        padding-top: 1px;
 
         p {
           margin: 0;
           font-size: 15px;
-          line-height: 1.5;
+          line-height: 1.6;
 
           @media (min-width: 768px) {
             font-size: 16px;
+            line-height: 1.6;
           }
 
           & + p {
-            margin-top: 2px;
+            margin-top: 4px;
           }
         }
       }
 
       // Estilos específicos para el grupo de emails
-      &.emails-group .info-text {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
+      &.emails-group {
+        align-items: flex-start;
+        
+        .icon {
+          margin-top: 4px;
+        }
+        
+        .info-text {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
       }
     }
     

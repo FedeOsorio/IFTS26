@@ -10,66 +10,13 @@
     
     <section class="descripcion-section">
       <div class="descripcion-card">
-        <i class="bi bi-people"></i>
-        <p>{{ descripcion }}</p>
+        <i class="bi bi-cash-coin"></i>
+        <p [innerHTML]="descripcion"></p>
       </div>
     </section>
 
     <section class="imagen-section">
       <img [src]="imagenCooperadora" alt="Cooperadora IFTS 26" class="cooperadora-img">
-    </section>
-
-    <section class="objetivos-section">
-      <h2>Nuestros Objetivos</h2>
-      <div class="objetivos-grid">
-        @for (objetivo of objetivos; track objetivo) {
-          <div class="objetivo-card">
-            <i class="bi bi-check-circle-fill"></i>
-            <span>{{ objetivo }}</span>
-          </div>
-        }
-      </div>
-    </section>
-
-    <section class="proyectos-section">
-      <h2>Proyectos Recientes</h2>
-      <div class="proyectos-grid">
-        @for (proyecto of proyectos; track proyecto.titulo) {
-          <div class="proyecto-card">
-            <i class="bi" [class]="proyecto.icono"></i>
-            <h3>{{ proyecto.titulo }}</h3>
-            <p>{{ proyecto.descripcion }}</p>
-          </div>
-        }
-      </div>
-    </section>
-
-    <section class="colaborar-section">
-      <h2>Cómo Colaborar</h2>
-      <div class="colaborar-card">
-        <p class="intro">Tu colaboración es fundamental para seguir mejorando nuestra institución. Podés ayudarnos de las siguientes formas:</p>
-        <ul class="formas-list">
-          @for (forma of formasColaboracion; track forma) {
-            <li>
-              <i class="bi bi-heart-fill"></i>
-              {{ forma }}
-            </li>
-          }
-        </ul>
-      </div>
-    </section>
-
-    <section class="contacto-section">
-      <div class="contacto-card">
-        <i class="bi bi-envelope"></i>
-        <div>
-          <h3>Contáctanos</h3>
-          <p>Para más información sobre la Cooperadora o cómo colaborar, escribí a:</p>
-          <a href="mailto:cooperadora@ifts26.edu.ar" class="email-link">
-            cooperadora&#64;ifts26.edu.ar
-          </a>
-        </div>
-      </div>
     </section>
 
   </div>

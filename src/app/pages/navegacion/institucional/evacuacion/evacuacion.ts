@@ -1,13 +1,47 @@
+/**
+ * Componente Evacuacion - Protocolo de evacuación y emergencias
+ * 
+ * Desarrollé esta página para informar a toda la comunidad educativa sobre
+ * los procedimientos de seguridad en caso de emergencia. Es fundamental que
+ * estudiantes, docentes y personal conozcan cómo actuar ante situaciones
+ * de riesgo (incendio, sismo, amenaza, etc.).
+ * 
+ * Información incluida:
+ * - Instrucciones paso a paso de evacuación
+ * - Teléfonos de emergencia (911, bomberos, SAME, Defensa Civil)
+ * - Plano de evacuación del edificio
+ * - Ubicación de salidas de emergencia
+ * - Punto de encuentro exterior
+ * 
+ * La seguridad es prioritaria y esta información puede salvar vidas.
+ * 
+ * @author Marcos - IFTS N°26
+ */
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageBannerComponent } from '../../../../components/page-banner/page-banner';
 
+/**
+ * Interfaz que define una instrucción del protocolo de evacuación
+ * 
+ * @property numero - Número de orden de la instrucción
+ * @property titulo - Acción principal de la instrucción
+ * @property descripcion - Explicación detallada de qué hacer
+ */
 interface Instruccion {
   numero: number;
   titulo: string;
   descripcion: string;
 }
 
+/**
+ * Interfaz que define un contacto de emergencia
+ * 
+ * @property icono - Clase CSS del icono Bootstrap Icons
+ * @property titulo - Nombre del servicio de emergencia
+ * @property numero - Teléfono de contacto
+ */
 interface ContactoEmergencia {
   icono: string;
   titulo: string;
@@ -21,6 +55,13 @@ interface ContactoEmergencia {
   styleUrl: './evacuacion.scss'
 })
 export class Evacuacion {
+  /**
+   * Instrucciones del protocolo de evacuación
+   * 
+   * Estructuré las instrucciones en orden secuencial para que en una
+   * emergencia las personas sepan exactamente qué hacer en cada paso.
+   * La claridad y el orden son cruciales en situaciones de estrés.
+   */
   instrucciones: Instruccion[] = [
     {
       numero: 1,
@@ -54,6 +95,12 @@ export class Evacuacion {
     }
   ];
 
+  /**
+   * Teléfonos de emergencia importantes
+   * 
+   * Listo los números de emergencia que deben estar siempre accesibles:
+   * servicios de urgencia, bomberos, asistencia médica y defensa civil.
+   */
   contactosEmergencia: ContactoEmergencia[] = [
     { icono: 'bi-telephone-fill', titulo: 'Emergencias', numero: '911' },
     { icono: 'bi-fire', titulo: 'Bomberos', numero: '100' },
@@ -61,5 +108,12 @@ export class Evacuacion {
     { icono: 'bi-shield-fill-check', titulo: 'Defensa Civil', numero: '103' }
   ];
 
+  /**
+   * Imagen del plano de evacuación del edificio
+   * 
+   * Muestro el plano oficial con las salidas de emergencia, rutas de
+   * evacuación y punto de encuentro para que todos conozcan las vías
+   * de escape desde cualquier sector del instituto.
+   */
   planoImageUrl = '/assets/img/plano.jpg';
 }

@@ -8,89 +8,35 @@
 
   <div class="content-wrapper">
     
+    @for (horario of horarios; track horario.titulo) {
+      <section class="horario-section">
+        <h2>
+          <i class="bi bi-calendar-week"></i>
+          {{ horario.titulo }}
+        </h2>
+        
+        <div class="iframe-container">
+          <iframe 
+            [src]="getSafeUrl(horario.url)" 
+            width="100%" 
+            height="600" 
+            frameborder="0">
+          </iframe>
+        </div>
+
+        <div class="actions">
+          <a [href]="getDownloadUrl(horario)" target="_blank" class="btn-download">
+            <i class="bi bi-box-arrow-up-right"></i>
+            Abrir en nueva pestaña
+          </a>
+        </div>
+      </section>
+    }
+
     <section class="info-section">
       <div class="info-card">
-        <i class="bi bi-calendar-week"></i>
-        <p>{{ actualizacion }}</p>
-      </div>
-    </section>
-
-    <!-- Horarios GIR -->
-    <section class="carrera-section">
-      <h2>
-        <i class="bi bi-clipboard-data"></i>
-        Gestión Integral del Riesgo
-      </h2>
-      
-      @for (grupo of horariosGIR; track grupo.anio) {
-        <div class="horario-grupo">
-          <h3>{{ grupo.anio }}</h3>
-          <div class="tabla-wrapper">
-            <table class="tabla-horarios">
-              <thead>
-                <tr>
-                  <th>Materia</th>
-                  <th>Día</th>
-                  <th>Horario</th>
-                  <th>Aula</th>
-                </tr>
-              </thead>
-              <tbody>
-                @for (materia of grupo.materias; track materia.nombre) {
-                  <tr>
-                    <td class="materia-nombre">{{ materia.nombre }}</td>
-                    <td>{{ materia.dia }}</td>
-                    <td>{{ materia.horario }}</td>
-                    <td>{{ materia.aula }}</td>
-                  </tr>
-                }
-              </tbody>
-            </table>
-          </div>
-        </div>
-      }
-    </section>
-
-    <!-- Horarios HyS -->
-    <section class="carrera-section">
-      <h2>
-        <i class="bi bi-shield-check"></i>
-        Higiene y Seguridad en el Trabajo
-      </h2>
-      
-      @for (grupo of horariosHYS; track grupo.anio) {
-        <div class="horario-grupo">
-          <h3>{{ grupo.anio }}</h3>
-          <div class="tabla-wrapper">
-            <table class="tabla-horarios">
-              <thead>
-                <tr>
-                  <th>Materia</th>
-                  <th>Día</th>
-                  <th>Horario</th>
-                  <th>Aula</th>
-                </tr>
-              </thead>
-              <tbody>
-                @for (materia of grupo.materias; track materia.nombre) {
-                  <tr>
-                    <td class="materia-nombre">{{ materia.nombre }}</td>
-                    <td>{{ materia.dia }}</td>
-                    <td>{{ materia.horario }}</td>
-                    <td>{{ materia.aula }}</td>
-                  </tr>
-                }
-              </tbody>
-            </table>
-          </div>
-        </div>
-      }
-    </section>
-
-    <section class="nota-section">
-      <div class="nota-card">
-        <i class="bi bi-exclamation-circle"></i>
-        <p>{{ notaImportante }}</p>
+        <i class="bi bi-info-circle"></i>
+        <p>Los horarios pueden estar sujetos a modificaciones. Consultá regularmente en Bedelía o en el sistema SIU Guaraní.</p>
       </div>
     </section>
 

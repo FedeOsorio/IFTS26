@@ -1,14 +1,28 @@
+/**
+ * Componente para la página de Accesos al Sistema
+ * 
+ * Proporciona información y acceso a los sistemas principales del instituto:
+ * - SIU Guaraní (gestión académica)
+ * - Moodle (plataforma educativa)
+ * - Tutoriales paso a paso
+ * - Sección de ayuda y contacto
+ * - Preguntas frecuentes (FAQ)
+ */
+
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { faFileDownload, faCalendar, faShareFromSquare, faGraduationCap, faArrowRightToBracket, faCircleInfo, faTriangleExclamation, faFileLines, faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PageBannerComponent } from '../../../components/page-banner/page-banner';
 
+/**
+ * Interfaz para los elementos del FAQ (Preguntas Frecuentes)
+ */
 interface FaqItem {
-  id: number;
-  question: string;
-  answer: string;
-  open: boolean;
+  id: number;         // Identificador único
+  question: string;   // Pregunta a mostrar
+  answer: string;     // Respuesta con el texto explicativo
+  open: boolean;      // Estado de apertura del accordion
 }
 
 @Component({
@@ -18,6 +32,7 @@ interface FaqItem {
   styleUrl: './accesos.scss'
 })
 export class Accesos {
+  // Lista de preguntas frecuentes sobre los sistemas
   faqs: FaqItem[] = [
     {
       id: 1,
@@ -45,18 +60,28 @@ export class Accesos {
     }
   ];
 
-  iconoSiu = faArrowRightToBracket;
-  iconoMoodle = faGraduationCap;
-  iconoInfo = faCircleInfo;
-  iconoAlerta = faTriangleExclamation;
-  iconoDoc = faFileLines;
-  iconoTip = faLightbulb;
-  iconoTarget = faShareFromSquare;
-  iconoCalendar = faCalendar;
-  iconoDownload = faFileDownload;
+  // Iconos utilizados en el componente
+  iconoSiu = faArrowRightToBracket;      // Ícono para acceso SIU Guaraní
+  iconoMoodle = faGraduationCap;         // Ícono para acceso Moodle
+  iconoInfo = faCircleInfo;              // Ícono informativo
+  iconoAlerta = faTriangleExclamation;   // Ícono de alerta
+  iconoDoc = faFileLines;                // Ícono de documento
+  iconoTip = faLightbulb;                // Ícono de sugerencia
+  iconoTarget = faShareFromSquare;       // Ícono de redirección
+  iconoCalendar = faCalendar;            // Ícono de calendario
+  iconoDownload = faFileDownload;        // Ícono de descarga
 
   constructor() { }
 
+  /**
+   * Alterna el estado de apertura de una pregunta frecuente
+   * 
+   * Método que controla el acordeón del FAQ: cierra todas las preguntas
+   * excepto la seleccionada, proporcionando una experiencia de usuario
+   * limpia donde solo una pregunta está expandida a la vez.
+   * 
+   * @param selectedFaq - El ítem del FAQ a expandir o contraer
+   */
   toggleFaq(selectedFaq: FaqItem): void {
     selectedFaq.open = !selectedFaq.open;
   }

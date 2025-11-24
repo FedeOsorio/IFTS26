@@ -1,5 +1,3 @@
-<div class="career-container">
-
     <!-- Banner Hero -->
     <app-page-banner 
         backgroundImage="/assets/img/banner-hys.jpg"
@@ -8,29 +6,58 @@
         height="300px">
     </app-page-banner>
 
+<div class="career-container">
     <section class="intro-section">
         <div class="career-image-wrapper">
             <img src="/assets/img/hst.png" alt="Higiene y Seguridad en el Trabajo" class="main-image">
         </div>
 
-        <div class="career-description" [innerHTML]="data.descripcion"></div>
+        <div class="career-description">
+            <h2>¿Qué es la Higiene y Seguridad en el Trabajo?</h2>
+            <p>
+                La Higiene y Seguridad en el Trabajo es una actividad que implica el uso de técnicas y herramientas necesarias para garantizar la salud, la integridad física y psicológica de los trabajadores.
+            </p>
+
+            <h3>¿Qué implica ser un Técnico Superior en Higiene y Seguridad en el trabajo?</h3>
+            <ul class="skills-list">
+                <li>Planificar, organizar, dirigir, controlar y evaluar aspectos relacionados con la higiene y seguridad en los ambientes de trabajo.</li>
+                <li>Analizar, evaluar y controlar situaciones relativas a riesgos de contaminación química, biológica, radioactiva y otros riesgos del trabajo.</li>
+                <li>Asesorar en políticas de seguridad laboral e implementar programas; capacitar en prevención y protección de riesgos laborales, accidentes y enfermedades profesionales.</li>
+                <li>Participar en la administración, entrenamiento, selección, y capacitación del personal de Higiene y Seguridad.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3>¿Por qué estudiar Higiene y Seguridad en el trabajo?</h3>
+                <p>
+                    Esta carrera brinda una formación integral para supervisar, asesorar y conducir equipos de trabajo en la promoción de la seguridad laboral y la prevención de accidentes y enfermedades profesionales, con un enfoque práctico en la gestión de riesgos y el cumplimiento de normativas de seguridad e higiene.
+                </p>
+            </div>
+        </div>
     </section>
 
-    <section class="why-study-section">
-        <div class="highlight-box">
-            <h3>¿Por qué estudiar Higiene y Seguridad en el trabajo?</h3>
-            <p>
-                Es importante estudiar esta Tecnicatura porque brinda una formación integral para asistir en la
-                supervisión, asesoramiento y conducción de equipos de trabajo para promover la seguridad, prevenir
-                accidentes y enfermedades laborales.
-            </p>
-            <p>
-                Esta formación integral se expresa en la adquisición de saberes y habilidades técnicas pertinentes para
-                la gestión de la higiene y seguridad laboral, el conocimiento profundo de los ámbitos laborales, sus
-                características y riesgos inherentes, la sensibilidad respecto del valor social de la higiene y la
-                seguridad, y la disponibilidad de herramientas conceptuales y operativas para asumir plenamente las
-                responsabilidades competentes.
-            </p>
+    <section class="info-details">
+        <div class="info-boxes">
+            <div class="info-box">
+                <strong>Duración:</strong> 3 años (6 cuatrimestres)
+            </div>
+            <div class="info-box">
+                <strong>Modalidad de Cursada:</strong> Presencial
+            </div>
+            <div class="info-box">
+                <strong>Requisitos:</strong> Secundario completo
+            </div>
+        </div>
+        
+        <!-- Botones de navegación rápida a secciones relacionadas -->
+        <div class="quick-links">
+            <a [routerLink]="['/carrera/hys/horarios']" class="quick-link-btn">
+                <fa-icon [icon]="iconoClock"></fa-icon>
+                Ver Horarios
+            </a>
+            <a [routerLink]="['/carrera/hys/perfil-egresado']" class="quick-link-btn">
+                <fa-icon [icon]="iconoGraduate"></fa-icon>
+                Perfil del Egresado
+            </a>
         </div>
     </section>
 
@@ -48,7 +75,12 @@
             <div class="accordion-content">
                 <div class="content-inner">
                     <img [src]="seccion.imagenSrc" [alt]="seccion.titulo" class="document-image">
-                    <p class="download-hint">* Clic derecho para descargar.</p>
+                    <p class="download-hint">
+                        * Hacé clic derecho en la imagen y seleccioná "Abrir imagen en una pestaña nueva" para verla en tamaño completo.
+                    </p>
+                    <a [href]="seccion.imagenSrc" target="_blank" download class="download-button">
+                        <fa-icon [icon]="iconoExpandir"></fa-icon> Descargar Plan de Estudios
+                    </a>
                 </div>
             </div>
         </div>

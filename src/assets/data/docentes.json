@@ -6,8 +6,8 @@
     { "texto": "Oferta de Cargos", "url": "https://buenosaires.gob.ar/educacion/docentes-de-la-ciudad/formacion-tecnica-superior" },
     { "texto": "Ficha Censal", "url": "/assets/pdf/Ficha Censal.pdf" },
     { "texto": "Biblioteca Digital", "url": "https://biblioteca-digital.bue.edu.ar/" },
-    { "texto": "Régimen de Asignaciones Familiares", "url": "/assets/pdf/Régimen de Asignaciones Familiares (docentes y no-docentes).pdf" },
-    { "texto": "Adicional por Titulo de Grado", "url": "/assets/pdf/Adicional por Título de Grado, Maestría o Doctorado.pdf" }
+    { "texto": "Régimen de Asignaciones Familiares", "url": "https://drive.google.com/file/d/1JJQcuGlPxQpv2ZuYxqqHDoYpb3KzW7Xi/view?usp=sharing" },
+    { "texto": "Adicional por Titulo de Grado", "url": "https://drive.google.com/file/d/16PzkJoxet510z-oFlc4Hi8DkqyggAwh-/view?usp=sharing" }
   ],
   "secciones": [
     { 
@@ -20,7 +20,7 @@
     },
     { 
       "titulo": "RECURSOS ADICIONALES", 
-      "contenido": "<ul><li><a href='https://drive.google.com/file/d/1YCMIn3lgE8zEQh7BmY2I2e3u9pbFobkG/view' target='_blank'>Documento 1</a></li><li><a href='https://drive.google.com/file/d/124ApJfIM9C9aRnMdRNqzA48PLojs3ow6/view' target='_blank'>Documento 2</a></li><li><a href='https://drive.google.com/file/d/1ZpJS78sY8GWrUSe4cFN8xs0QoLaz6N_e/view' target='_blank'>Documento 3</a></li></ul>" 
+      "contenido": "<ul><li><a href='https://drive.google.com/file/d/1YCMIn3lgE8zEQh7BmY2I2e3u9pbFobkG/view' target='_blank'>Notificaciones Electronicas</a></li><li><a href='https://drive.google.com/file/d/124ApJfIM9C9aRnMdRNqzA48PLojs3ow6/view' target='_blank'>Notificaciones Electrónicas Fehacientes - Ingreso al Buzón NEF</a></li><li><a href='https://drive.google.com/file/d/1ZpJS78sY8GWrUSe4cFN8xs0QoLaz6N_e/view' target='_blank'>Noticiaciones Electrónicas Fehacientes - Visualizacion de archivos</a></li></ul>" 
     }
   ]
 }

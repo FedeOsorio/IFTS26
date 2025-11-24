@@ -1,7 +1,39 @@
+/**
+ * Componente Publicaciones - Sistema de novedades y noticias del instituto
+ * 
+ * Desarrollé esta página para centralizar todas las publicaciones, novedades
+ * y anuncios del IFTS N°26. El sistema permite mostrar noticias organizadas
+ * por categorías con capacidad de filtrado.
+ * 
+ * Características implementadas:
+ * - Sistema de categorías (Institucional, Académico, Evento, Inscripción)
+ * - Filtrado dinámico de publicaciones
+ * - Publicaciones destacadas
+ * - Formato de fecha legible
+ * - Interfaz TypeScript para tipo seguro
+ * 
+ * Actualmente las publicaciones están hardcodeadas, pero en el futuro
+ * podrían cargarse desde una API o CMS (Content Management System).
+ * 
+ * @author Marcos - IFTS N°26
+ */
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageBannerComponent } from '../../../components/page-banner/page-banner';
 
+/**
+ * Interfaz que define la estructura de una publicación
+ * 
+ * @property id - Identificador único de la publicación
+ * @property titulo - Título principal de la noticia
+ * @property fecha - Fecha de publicación en formato ISO (YYYY-MM-DD)
+ * @property categoria - Categoría de la publicación (tipo estricto con opciones limitadas)
+ * @property resumen - Texto breve que se muestra en las tarjetas de vista previa
+ * @property contenido - Texto completo de la publicación
+ * @property imagen - URL de la imagen destacada (opcional)
+ * @property destacada - Indica si la publicación debe mostrarse en la sección destacada
+ */
 interface Publicacion {
   id: number;
   titulo: string;
@@ -21,10 +53,29 @@ interface Publicacion {
   standalone: true
 })
 export class Publicaciones {
-  // Descripción de la sección
+  /**
+   * Descripción de la sección
+   * 
+   * Texto introductorio que explica el propósito de esta página y ayuda
+   * a los usuarios a entender qué tipo de información encontrarán aquí.
+   */
   descripcion: string = 'Mantente informado sobre las últimas novedades del IFTS Nº26: eventos, inscripciones, actividades académicas y noticias institucionales.';
 
-  // Publicaciones destacadas y recientes
+  /**
+   * Array de publicaciones
+   * 
+   * Almaceno aquí todas las publicaciones del instituto. Cada publicación
+   * incluye información completa: título, fecha, categoría, contenido, etc.
+   * 
+   * En el futuro, esto podría reemplazarse por una llamada a una API:
+   * ```typescript
+   * ngOnInit() {
+   *   this.http.get<Publicacion[]>('/api/publicaciones').subscribe(
+   *     publicaciones => this.publicaciones = publicaciones
+   *   );
+   * }
+   * ```
+   */
   publicaciones: Publicacion[] = [
     {
       id: 1,
@@ -56,11 +107,29 @@ export class Publicaciones {
     }
   ];
 
-  // Filtros de categoría
+  /**
+   * Array de categorías disponibles para filtrado
+   * 
+   * Incluyo 'Todas' como primera opción para permitir ver todas las
+   * publicaciones sin filtro. Las demás coinciden con las categorías
+   * definidas en la interfaz Publicacion.
+   */
   categorias: string[] = ['Todas', 'Institucional', 'Académico', 'Evento', 'Inscripción'];
+  
+  /**
+   * Categoría actualmente seleccionada en el filtro
+   * Por defecto muestra todas las publicaciones.
+   */
   categoriaSeleccionada: string = 'Todas';
 
-  // Método para filtrar publicaciones
+  /**
+   * Getter que retorna publicaciones filtradas por categoría
+   * 
+   * Implementé este getter (propiedad computada) para que Angular actualice
+   * automáticamente la lista cuando cambia la categoría seleccionada.
+   * 
+   * @returns Array de publicaciones filtradas según la categoría seleccionada
+   */
   get publicacionesFiltradas(): Publicacion[] {
     if (this.categoriaSeleccionada === 'Todas') {
       return this.publicaciones;
@@ -68,19 +137,42 @@ export class Publicaciones {
     return this.publicaciones.filter(p => p.categoria === this.categoriaSeleccionada);
   }
 
-  // Método para obtener publicaciones destacadas
+  /**
+   * Getter que retorna solo las publicaciones marcadas como destacadas
+   * 
+   * Útil para mostrar una sección especial con las noticias más importantes
+   * en la parte superior de la página.
+   * 
+   * @returns Array de publicaciones destacadas
+   */
   get publicacionesDestacadas(): Publicacion[] {
     return this.publicaciones.filter(p => p.destacada);
   }
 
-  // Método para formatear fecha
+  /**
+   * Formatea una fecha ISO a un formato legible en español
+   * 
+   * Convierte fechas como "2025-03-15" a "15 Mar 2025" para mejorar
+   * la legibilidad en la interfaz de usuario.
+   * 
+   * @param fecha - Fecha en formato ISO (YYYY-MM-DD)
+   * @returns Fecha formateada en español (ej: "15 Mar 2025")
+   */
   formatearFecha(fecha: string): string {
     const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
     const date = new Date(fecha);
     return `${date.getDate()} ${meses[date.getMonth()]} ${date.getFullYear()}`;
   }
 
-  // Método para seleccionar categoría
+  /**
+   * Cambia la categoría seleccionada para el filtrado
+   * 
+   * Este método se ejecuta cuando el usuario hace clic en un botón de categoría.
+   * Al cambiar categoriaSeleccionada, el getter publicacionesFiltradas se
+   * recalcula automáticamente y Angular actualiza la vista.
+   * 
+   * @param categoria - Nueva categoría a seleccionar
+   */
   seleccionarCategoria(categoria: string): void {
     this.categoriaSeleccionada = categoria;
   }

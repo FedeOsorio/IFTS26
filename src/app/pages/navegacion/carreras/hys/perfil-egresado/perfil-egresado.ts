@@ -1,18 +1,56 @@
+/**
+ * Componente HysPerfilEgresado - Perfil profesional del egresado de HyS
+ * 
+ * Desarrollé esta página para presentar de forma completa y atractiva el perfil
+ * del egresado de la Tecnicatura Superior en Higiene y Seguridad en el Trabajo.
+ * Incluye información sobre:
+ * - Descripción general del perfil profesional
+ * - Áreas de conocimiento que domina el egresado
+ * - Competencias profesionales específicas
+ * - Salidas laborales concretas
+ * - Información sobre matriculación profesional
+ * 
+ * Utilicé interfaces TypeScript para estructurar cada sección y facilitar
+ * futuras actualizaciones del contenido.
+ * 
+ * @author Marcos - IFTS N°26
+ */
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageBannerComponent } from '../../../../../components/page-banner/page-banner';
 
+/**
+ * Interfaz que define un área de conocimiento
+ * 
+ * @property titulo - Nombre del área (ej: "Seguridad Industrial")
+ * @property descripcion - Breve explicación del contenido del área
+ * @property icono - Clase CSS del icono Bootstrap Icons (ej: "bi-shield-check")
+ */
 interface AreaConocimiento {
   titulo: string;
   descripcion: string;
   icono: string;
 }
 
+/**
+ * Interfaz que define una competencia profesional
+ * 
+ * @property titulo - Enunciado de la competencia
+ * @property descripcion - Detalle de qué implica esa competencia en la práctica
+ */
 interface Competencia {
   titulo: string;
   descripcion: string;
 }
 
+/**
+ * Interfaz que define una salida laboral
+ * 
+ * @property titulo - Nombre del ámbito laboral
+ * @property descripcion - Detalle de las tareas en ese ámbito
+ * @property icono - Clase CSS del icono Bootstrap Icons
+ */
 interface Salida {
   titulo: string;
   descripcion: string;
@@ -27,10 +65,21 @@ interface Salida {
   standalone: true
 })
 export class HysPerfilEgresado {
-  // Descripción general
+  /**
+   * Descripción general del perfil profesional
+   * 
+   * Resumen introductorio que define el alcance y capacidades del técnico
+   * egresado de la carrera de Higiene y Seguridad en el Trabajo.
+   */
   descripcionPerfil: string = 'El egresado de la Tecnicatura Superior en Higiene y Seguridad en el Trabajo es un profesional capacitado para prevenir accidentes laborales, proteger la salud de los trabajadores y gestionar sistemas de seguridad en diversos ámbitos laborales.';
 
-  // Áreas de conocimiento
+  /**
+   * Áreas de conocimiento que domina el egresado
+   * 
+   * Agrupé las áreas principales en las que el técnico adquiere experticia
+   * durante la carrera. Cada área incluye un icono representativo para
+   * mejorar la visualización.
+   */
   areasConocimiento: AreaConocimiento[] = [
     {
       titulo: 'Seguridad Industrial',
@@ -54,7 +103,13 @@ export class HysPerfilEgresado {
     }
   ];
 
-  // Competencias profesionales
+  /**
+   * Competencias profesionales específicas
+   * 
+   * Listé las capacidades concretas que el egresado puede desempeñar en el
+   * campo laboral. Cada competencia describe una acción profesional específica
+   * relacionada con la prevención de riesgos y la seguridad laboral.
+   */
   competencias: Competencia[] = [
     {
       titulo: 'Identificar y evaluar riesgos laborales',
@@ -82,7 +137,13 @@ export class HysPerfilEgresado {
     }
   ];
 
-  // Salidas laborales
+  /**
+   * Salidas laborales concretas
+   * 
+   * Identifiqué los principales ámbitos donde el egresado puede insertarse
+   * laboralmente, tanto en relación de dependencia como de forma independiente.
+   * Cada salida incluye un icono representativo.
+   */
   salidasLaborales: Salida[] = [
     {
       titulo: 'Industria y Manufactura',
@@ -111,6 +172,12 @@ export class HysPerfilEgresado {
     }
   ];
 
-  // Matriculación
+  /**
+   * Información sobre matriculación profesional
+   * 
+   * Aclaro que los egresados deben obtener matrícula profesional en el CPHISMA
+   * (Consejo Profesional de Higiene, Seguridad y Medio Ambiente), lo cual
+   * les permite ejercer la profesión de forma legal y con respaldo institucional.
+   */
   infoMatriculacion: string = 'Los egresados de la carrera deben tramitar su matrícula profesional en el Consejo Profesional de Higiene, Seguridad y Medio Ambiente (CPHISMA), lo que les habilitará para ejercer la profesión.';
 }

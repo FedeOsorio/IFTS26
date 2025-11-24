@@ -1,7 +1,32 @@
+/**
+ * Componente ReglamentoOrganico - Reglamento Orgánico del Instituto
+ * 
+ * Desarrollé esta página para que la comunidad educativa tenga acceso al
+ * reglamento orgánico que rige el funcionamiento del IFTS N°26. Este documento
+ * establece la estructura organizativa, funciones del personal, derechos y
+ * obligaciones de estudiantes, régimen académico y demás normativas.
+ * 
+ * El componente presenta:
+ * - Contenido del reglamento organizado por capítulos
+ * - Artículos extraídos del PDF oficial
+ * - Botón para descargar el PDF completo
+ * 
+ * Implemento tanto visualización web como descarga del PDF para que los
+ * usuarios puedan elegir cómo consultar el documento.
+ * 
+ * @author Marcos - IFTS N°26
+ */
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageBannerComponent } from '../../../../components/page-banner/page-banner';
 
+/**
+ * Interfaz que define una sección del reglamento
+ * 
+ * @property titulo - Título del capítulo (ej: "CAPÍTULO I - DISPOSICIONES GENERALES")
+ * @property articulos - Array de artículos que componen el capítulo
+ */
 interface ReglamentoSection {
   titulo: string;
   articulos: { numero: string; contenido: string }[];
@@ -14,10 +39,25 @@ interface ReglamentoSection {
   styleUrl: './reglamento-organico.scss'
 })
 export class ReglamentoOrganico {
-  // URL del PDF para descarga
+  /** URL del PDF del reglamento completo para descarga */
   pdfUrl = '/assets/pdf/reglamento-organico.pdf';
 
-  // Contenido del reglamento extraído del PDF
+  /**
+   * Contenido del reglamento orgánico
+   * 
+   * Estructuré el contenido por capítulos y artículos para facilitar la
+   * consulta. Extraje los artículos más relevantes del PDF oficial para
+   * mostrarlos en la web, permitiendo que los usuarios lean el contenido
+   * directamente sin necesidad de descargar el PDF completo.
+   * 
+   * Capítulos incluidos:
+   * - Disposiciones generales
+   * - Estructura organizativa
+   * - Funciones del personal
+   * - Régimen de estudiantes
+   * - Régimen académico
+   * - Personal docente
+   */
   reglamento: ReglamentoSection[] = [
     {
       titulo: 'CAPÍTULO I - DISPOSICIONES GENERALES',
@@ -111,6 +151,12 @@ export class ReglamentoOrganico {
     }
   ];
 
+  /**
+   * Descarga o abre el PDF del reglamento completo
+   * 
+   * Método que abre el PDF en una nueva pestaña del navegador,
+   * permitiendo al usuario descargar el documento oficial completo.
+   */
   downloadPDF(): void {
     window.open(this.pdfUrl, '_blank');
   }

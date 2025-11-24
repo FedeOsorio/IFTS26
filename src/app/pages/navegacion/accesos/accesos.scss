@@ -1,3 +1,15 @@
+/**
+ * Estilos para la página de Accesos al Sistema
+ * 
+ * Contiene estilos para:
+ * - Tarjetas de acceso a SIU Guaraní y Moodle
+ * - Tutoriales paso a paso con íconos y descripciones
+ * - Sección de ayuda con información de contacto
+ * - FAQ (Preguntas Frecuentes) con acordeón expansible
+ * - Diseño responsive para móviles y tablets
+ * - Efectos hover y transiciones suaves
+ */
+
 .accesos-container { width: 100%; min-height: 100vh; }
 
 .content-wrapper {
@@ -6,7 +18,7 @@
   @media (max-width: 480px) { padding: 30px 12px; }
 }
 
-
+// Texto introductorio de la página
 .intro-text {
   font-size: 20px; color: #666; text-align: center; max-width: 900px; margin: 0 auto 60px auto;
   line-height: 1.8; font-weight: 500;
@@ -165,7 +177,8 @@
 
 .recovery-help,
 .support-section,
-.common-issues {
+.common-issues,
+.tutorials-section {
   margin-top: 60px;
   @media (max-width: 768px) { margin-top: 48px; }
   @media (max-width: 480px) { margin-top: 40px; }
@@ -178,5 +191,507 @@
     background: white; padding: 32px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     @media (max-width: 768px) { padding: 24px; border-radius: 16px; }
     @media (max-width: 480px) { padding: 20px; border-radius: 12px; }
+  }
+}
+
+.tutorials-flex-container {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+  gap: 32px;
+  
+  @media (max-width: 768px) { 
+    grid-template-columns: 1fr; 
+    gap: 24px; 
+  }
+}
+
+.tutorial-card {
+  background: white; 
+  border-radius: 20px; 
+  padding: 32px; 
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+  border: 2px solid #e0e0e0; 
+  display: flex; 
+  gap: 24px; 
+  align-items: flex-start;
+  
+  &:hover { 
+    box-shadow: 0 16px 48px rgba(30, 108, 147, 0.2); 
+    transform: translateY(-8px);
+    border-color: #5fb3f6;
+  }
+  
+  @media (max-width: 768px) { padding: 28px; gap: 20px; }
+  @media (max-width: 480px) { padding: 24px; gap: 16px; flex-direction: column; align-items: center; text-align: center; }
+  
+  > fa-icon {
+    font-size: 48px; 
+    color: #5fb3f6; 
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    
+    @media (max-width: 768px) { font-size: 40px; }
+    @media (max-width: 480px) { font-size: 36px; }
+  }
+  
+  &:hover > fa-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  .tutorial-content {
+    flex: 1;
+    
+    h3 {
+      font-size: 22px; 
+      font-weight: 700; 
+      color: #2c3539; 
+      margin: 0 0 14px 0;
+      
+      @media (max-width: 768px) { font-size: 20px; margin-bottom: 12px; }
+      @media (max-width: 480px) { font-size: 18px; margin-bottom: 10px; }
+    }
+    
+    p {
+      font-size: 16px; 
+      color: #666; 
+      margin: 0 0 18px 0; 
+      line-height: 1.7;
+      
+      @media (max-width: 768px) { font-size: 15px; margin-bottom: 16px; }
+      @media (max-width: 480px) { font-size: 14px; margin-bottom: 14px; }
+    }
+    
+    a {
+      display: inline-flex; 
+      align-items: center; 
+      gap: 10px; 
+      color: #1E6C93; 
+      text-decoration: none;
+      font-weight: 700; 
+      font-size: 16px; 
+      transition: all 0.3s ease;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: rgba(95, 179, 246, 0.1);
+      
+      &:hover {
+        color: white;
+        background: #5fb3f6;
+        transform: translateX(4px);
+        
+        fa-icon { transform: translateX(4px); }
+      }
+      
+      @media (max-width: 768px) { font-size: 15px; padding: 9px 18px; }
+      @media (max-width: 480px) { font-size: 14px; padding: 8px 16px; }
+      
+      fa-icon { transition: transform 0.3s ease; }
+    }
+  }
+}
+
+.section-divider {
+  border: none; 
+  border-top: 3px solid #e0e0e0; 
+  margin: 64px 0;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #1E6C93 0%, #5fb3f6 100%);
+  }
+  
+  @media (max-width: 768px) { margin: 48px 0; }
+  @media (max-width: 480px) { margin: 36px 0; }
+}
+
+.faq-simple-item {
+  background: white; 
+  padding: 32px; 
+  border-radius: 20px; 
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #5fb3f6;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateX(8px);
+    box-shadow: 0 10px 36px rgba(30, 108, 147, 0.15);
+  }
+  
+  @media (max-width: 768px) { padding: 28px; border-radius: 16px; }
+  @media (max-width: 480px) { padding: 24px; border-radius: 14px; }
+  
+  h4 {
+    font-size: 20px; 
+    font-weight: 700; 
+    color: #2c3539; 
+    margin: 0 0 14px 0;
+    
+    @media (max-width: 768px) { font-size: 18px; margin-bottom: 12px; }
+    @media (max-width: 480px) { font-size: 17px; margin-bottom: 10px; }
+  }
+  
+  p {
+    font-size: 16px; 
+    color: #666; 
+    margin: 0; 
+    line-height: 1.8;
+    
+    @media (max-width: 768px) { font-size: 15px; }
+    @media (max-width: 480px) { font-size: 14px; }
+  }
+}
+
+.alert-info {
+  background: linear-gradient(135deg, rgba(95, 179, 246, 0.15) 0%, rgba(30, 108, 147, 0.1) 100%);
+  border-left: 6px solid #5fb3f6;
+  padding: 24px 28px;
+  border-radius: 16px;
+  
+  > fa-icon { color: #1E6C93; font-size: 32px; }
+  .alert-content p { color: #1E6C93; font-weight: 600; font-size: 16px; }
+}
+
+// ============================================
+// CAJA DE AYUDA ("¿Necesitás Ayuda?")
+// ============================================
+.help-box {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  padding: 40px;
+  margin: 48px 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 2px solid #e0e0e0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 12px 32px rgba(30, 108, 147, 0.15);
+    border-color: #5fb3f6;
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 28px;
+    gap: 28px;
+    margin: 40px 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 24px;
+    gap: 24px;
+    margin: 32px 0;
+  }
+}
+
+.help-content {
+  h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1E6C93;
+    margin: 0 0 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &::before {
+      content: "❓";
+      font-size: 32px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+      margin-bottom: 14px;
+
+      &::before {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      font-size: 20px;
+      margin-bottom: 12px;
+
+      &::before {
+        font-size: 24px;
+      }
+    }
+  }
+
+  p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.help-contact {
+  background: linear-gradient(135deg, rgba(30, 108, 147, 0.08) 0%, rgba(95, 179, 246, 0.05) 100%);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 480px) {
+    padding: 20px;
+    gap: 14px;
+  }
+
+  > div {
+    display: flex;
+    align-items: start;
+    gap: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+      gap: 10px;
+    }
+
+    strong {
+      color: #1E6C93;
+      font-weight: 600;
+      white-space: nowrap;
+      display: inline-block;
+      min-width: 130px;
+
+      @media (max-width: 480px) {
+        min-width: 110px;
+        font-size: 13px;
+      }
+    }
+
+    span {
+      color: #2c3539;
+      flex: 1;
+    }
+
+    a {
+      color: #1E6C93;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #5fb3f6;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// ============================================
+// SECCIÓN DE PREGUNTAS FRECUENTES (FAQ)
+// ============================================
+.faq-section {
+  margin: 56px 0;
+
+  @media (max-width: 768px) {
+    margin: 48px 0;
+  }
+
+  @media (max-width: 480px) {
+    margin: 40px 0;
+  }
+
+  > h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1E6C93;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 16px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #1E6C93 0%, #5fb3f6 100%);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+      margin-bottom: 32px;
+      padding-bottom: 14px;
+
+      &::after {
+        width: 60px;
+        height: 3px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      font-size: 24px;
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+    }
+  }
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    gap: 14px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+}
+
+.faq-item {
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #5fb3f6;
+    box-shadow: 0 4px 16px rgba(30, 108, 147, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    border-radius: 10px;
+  }
+
+  @media (max-width: 480px) {
+    border-radius: 8px;
+  }
+}
+
+.faq-question {
+  width: 100%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: none;
+  padding: 20px 24px;
+  text-align: left;
+  font-size: 17px;
+  font-weight: 600;
+  color: #2c3539;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
+    color: #1E6C93;
+  }
+
+  &:focus {
+    outline: 2px solid #5fb3f6;
+    outline-offset: -2px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 18px 20px;
+    font-size: 16px;
+    gap: 14px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px 18px;
+    font-size: 15px;
+    gap: 12px;
+  }
+
+  .faq-icon {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1E6C93;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.open {
+    max-height: 800px;
+  }
+
+  p {
+    padding: 20px 24px;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+
+    @media (max-width: 768px) {
+      padding: 18px 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 16px 18px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #1E6C93;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #5fb3f6;
+        text-decoration: underline;
+      }
+    }
+
+    strong {
+      color: #2c3539;
+      font-weight: 600;
+    }
   }
 }

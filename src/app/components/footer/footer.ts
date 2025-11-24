@@ -1,5 +1,16 @@
-// Componente Footer del sitio IFTS26.
-// Muestro información de contacto, redes sociales y ubicación del instituto.
+/**
+ * Componente Footer - Pie de página del sitio
+ * 
+ * Desarrollé este componente para mostrar toda la información de contacto del
+ * instituto de manera organizada y accesible en todas las páginas. Incluye:
+ * - Dirección física y horarios de atención
+ * - Teléfonos de contacto
+ * - Enlaces a redes sociales (Facebook e Instagram)
+ * - Emails específicos de cada carrera
+ * - Copyright dinámico con el año actual
+ * 
+ * @author Marcos - IFTS N°26
+ */
 
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,7 +23,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./footer.scss']
 })
 export class FooterComponent {
-  // Datos de contacto del instituto
+  /**
+   * Información general de contacto del instituto
+   * Estos datos se muestran en la sección principal del footer
+   */
   contactInfo = {
     address: 'Estados Unidos 3141',
     postalCode: 'C1228ABC - Ciudad Autónoma de Buenos Aires',
@@ -22,6 +36,10 @@ export class FooterComponent {
     instagram: 'https://www.instagram.com/ifts_26/?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExUmxScXptb212ZWVPMkpqYXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR7RdEPGQxQeTuC8xcBxP-q7Wsv2R3JMhKIfjztQ67UnJ3Q9wmqCHeQJ6T82mw_aem_2hg7OXtXB7wwn3QsBl_1Ig'
   };
 
+  /**
+   * Información específica de cada carrera
+   * Cada carrera tiene su propio email de contacto para consultas académicas
+   */
   careers = [
     {
       name: 'Gestión Integral de Riesgo',
@@ -35,5 +53,9 @@ export class FooterComponent {
     }
   ];
 
+  /**
+   * Año actual para el copyright
+   * Utilizo new Date().getFullYear() para que se actualice automáticamente cada año
+   */
   currentYear = new Date().getFullYear();
 }

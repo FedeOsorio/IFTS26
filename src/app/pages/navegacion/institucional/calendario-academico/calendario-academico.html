@@ -1,13 +1,9 @@
+<!-- Banner Hero -->
+<app-page-banner backgroundImage="/assets/img/banner-virtual.jpg" title="Calendario Académico"
+  subtitle="Instituto de Formación Técnica Superior N°26" height="300px">
+</app-page-banner>
+
 <div class="calendar-container">
-
-  <!-- Banner Hero -->
-  <app-page-banner 
-      backgroundImage="/assets/img/banner-virtual.jpg"
-      title="Calendario Académico"
-      subtitle="Instituto de Formación Técnica Superior N°26"
-      height="300px">
-  </app-page-banner>
-
   <section class="semester-section">
     <h3 class="section-title">
       <fa-icon [icon]="iconoCalendario"></fa-icon>
@@ -16,13 +12,13 @@
 
     <div class="date-list">
       @for (evento of primerCuatrimestre; track $index) {
-        <div class="date-item">
-          <div class="date-content">
-            <h4>{{ evento.titulo }}</h4>
-            <p>{{ evento.descripcion }}</p>
-          </div>
-          <span class="date-period">{{ evento.fecha }}</span>
+      <div class="date-item">
+        <div class="date-content">
+          <h4>{{ evento.titulo }}</h4>
+          <p>{{ evento.descripcion }}</p>
         </div>
+        <span class="date-period">{{ evento.fecha }}</span>
+      </div>
       }
     </div>
   </section>
@@ -35,15 +31,15 @@
 
     <div class="date-list">
       @for (evento of segundoCuatrimestre; track $index) {
-        <div class="date-item">
-          <div class="date-content">
-            <h4>{{ evento.titulo }}</h4>
-            <p>{{ evento.descripcion }}</p>
-          </div>
-          <span class="date-period">{{ evento.fecha }}</span>
+      <div class="date-item">
+        <div class="date-content">
+          <h4>{{ evento.titulo }}</h4>
+          <p>{{ evento.descripcion }}</p>
         </div>
+        <span class="date-period">{{ evento.fecha }}</span>
+      </div>
       }
     </div>
   </section>
-  
+
 </div>

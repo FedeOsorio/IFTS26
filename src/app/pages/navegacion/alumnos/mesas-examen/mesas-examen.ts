@@ -1,20 +1,34 @@
+/**
+ * Componente MesasExamen - Visualizador de mesas de exámenes finales
+ * 
+ * Desarrollé esta página para que los alumnos puedan consultar las fechas de
+ * mesas de exámenes finales de ambas carreras. Los documentos se muestran
+ * embebidos desde Google Docs, permitiendo actualizaciones rápidas por parte
+ * de coordinación sin tocar el código del sitio.
+ * 
+ * Características implementadas:
+ * - Información destacada sobre fechas de inscripción (1° y 2° llamado)
+ * - Documentos embebidos con las mesas de cada carrera
+ * - Botón de descarga para cada documento
+ * - DomSanitizer para carga segura de iframes de Google Docs
+ * 
+ * @author Marcos - IFTS N°26
+ */
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { PageBannerComponent } from '../../../../components/page-banner/page-banner';
 
-interface MesaExamen {
-  materia: string;
-  fecha: string;
-  hora: string;
-  aula: string;
-  presidente: string;
-}
-
-interface TurnoExamen {
-  turno: string;
-  mes: string;
-  carrera: string;
-  mesas: MesaExamen[];
+/**
+ * Interfaz que define la estructura de un documento de mesa de examen
+ * 
+ * @property titulo - Nombre descriptivo del documento (ej: "Mesas de Examen GIR")
+ * @property url - URL de Google Docs del documento con las fechas
+ */
+interface DocumentoMesa {
+  titulo: string;
+  url: string;
 }
 
 @Component({
@@ -24,83 +38,61 @@ interface TurnoExamen {
   styleUrl: './mesas-examen.scss'
 })
 export class MesasExamen {
-  // Información general
+  // Ciclo lectivo actual mostrado en el banner
   cicloLectivo: string = '2025';
-  actualizacion: string = 'Última actualización: Marzo 2025';
+  
+  /**
+   * Información destacada sobre inscripción a exámenes
+   * 
+   * Este texto se muestra prominentemente en la parte superior de la página
+   * con las fechas clave de inscripción para ambos llamados. Utilizo <br>
+   * para saltos de línea ya que se renderiza como innerHTML en el template.
+   */
+  informacion: string = 'Inscripción a exámenes finales<br>Turno 2025 (1º y 2º llamado) por SIU GUARANI<br>1ºLLAMADO: Del lunes 14/07 a viernes 18/07<br>2ºLLAMADO: Del lunes 04/08 a viernes 08/08';
 
-  // Turnos de examen GIR
-  mesasGIR: TurnoExamen[] = [
+  /**
+   * Lista de documentos con las fechas de mesas de examen
+   * 
+   * Cada entrada contiene el título y la URL de Google Docs donde se encuentran
+   * las fechas específicas de cada mesa, tribunal y aula.
+   */
+  documentos: DocumentoMesa[] = [
     {
-      turno: 'Julio - Único Llamado',
-      mes: 'Julio 2025',
-      carrera: 'Gestión Integral del Riesgo',
-      mesas: [
-        {
-          materia: 'Introducción a la GIR',
-          fecha: '15/07/2025',
-          hora: '18:00',
-          aula: 'Aula 1',
-          presidente: 'Prof. Juan Pérez'
-        },
-        {
-          materia: 'Matemática',
-          fecha: '17/07/2025',
-          hora: '18:00',
-          aula: 'Aula 2',
-          presidente: 'Prof. María Gómez'
-        },
-        {
-          materia: 'Gestión de Emergencias',
-          fecha: '19/07/2025',
-          hora: '18:00',
-          aula: 'Aula 1',
-          presidente: 'Prof. Carlos Ruiz'
-        }
-      ]
+      titulo: 'Mesas de Examen GIR',
+      url: 'https://docs.google.com/document/d/1fWeqIuYLt7LqFwminYMu1rRa4vjNB9sT/preview'
+    },
+    {
+      titulo: 'Mesas de Examen HyS',
+      url: 'https://docs.google.com/document/d/1Y-sAYydbrYymA5PLK0fqJTiWIurjOqVS/preview'
     }
   ];
 
-  // Turnos de examen HyS
-  mesasHYS: TurnoExamen[] = [
-    {
-      turno: 'Julio-Agosto - 1° y 2° Llamado',
-      mes: 'Julio-Agosto 2025',
-      carrera: 'Higiene y Seguridad en el Trabajo',
-      mesas: [
-        {
-          materia: 'Introducción a la HyS',
-          fecha: '16/07/2025',
-          hora: '18:00',
-          aula: 'Aula 3',
-          presidente: 'Prof. Laura Martínez'
-        },
-        {
-          materia: 'Física Aplicada',
-          fecha: '18/07/2025',
-          hora: '18:00',
-          aula: 'Aula 2',
-          presidente: 'Prof. Roberto Silva'
-        },
-        {
-          materia: 'Higiene Industrial',
-          fecha: '22/07/2025',
-          hora: '18:00',
-          aula: 'Aula 4',
-          presidente: 'Prof. Ana Torres'
-        }
-      ]
-    }
-  ];
+  constructor(private sanitizer: DomSanitizer) {}
 
-  // Requisitos
-  requisitos: string[] = [
-    'Inscripción previa en el sistema SIU Guaraní',
-    'Presentar DNI original el día del examen',
-    'Respetar horarios de presentación',
-    'Tener regularizada la materia',
-    'Verificar fecha, hora y aula asignada'
-  ];
+  /**
+   * Sanitiza URLs para permitir embebido seguro de documentos de Google
+   * 
+   * Utilizo este método para marcar las URLs de Google Docs como seguras,
+   * permitiendo su visualización en iframes dentro del sitio.
+   * 
+   * @param url - URL del documento de Google a sanitizar
+   * @returns URL marcada como segura para el iframe
+   */
+  getSafeUrl(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
-  // Nota importante
-  notaImportante: string = 'Las mesas de examen están sujetas a modificaciones. Es responsabilidad del alumno verificar fechas y horarios en SIU Guaraní y en la cartelera de Bedelía.';
+  /**
+   * Genera la URL para descargar el documento
+   * 
+   * Reemplazo '/preview' por '/edit?rtpof=true&sd=true' para que al hacer clic
+   * en el botón de descarga, el usuario pueda ver/descargar el documento completo.
+   * Los parámetros adicionales optimizan la visualización en Google Docs.
+   * 
+   * @param url - URL base del documento
+   * @returns URL procesada para descarga/visualización completa
+   */
+  getDownloadUrl(url: string): string {
+    return url.replace('/preview', '/edit?rtpof=true&sd=true');
+  }
 }

@@ -1,0 +1,58 @@
+<div class="preguntas-container">
+  <header class="preguntas-header">
+    <h1>Preguntas Frecuentes</h1>
+    <p class="subtitulo">Encontrá respuestas a las consultas más comunes sobre el IFTS26</p>
+  </header>
+
+  <main class="preguntas-content">
+    <div class="intro-info">
+      <p>
+        <strong>¿No encontrás lo que buscás?</strong> 
+        Contactanos a través del 
+        <a href="/contacto">formulario de contacto</a>
+        o escribinos directamente a nuestros correos electrónicos.
+      </p>
+    </div>
+
+    <section class="faq-section">
+      @for (pregunta of preguntas; track $index) {
+        <div class="faq-item" [class.abierta]="pregunta.abierta">
+          <button 
+            class="faq-pregunta" 
+            (click)="togglePregunta($index)"
+            [attr.aria-expanded]="pregunta.abierta">
+            <h3>{{ pregunta.pregunta }}</h3>
+            <fa-icon 
+              [icon]="pregunta.abierta ? iconoArriba : iconoAbajo" 
+              class="icono-toggle">
+            </fa-icon>
+          </button>
+          
+          @if (pregunta.abierta) {
+            <div class="faq-respuesta">
+              <p>{{ pregunta.respuesta }}</p>
+            </div>
+          }
+        </div>
+      }
+    </section>
+
+    <aside class="contacto-rapido">
+      <h2>¿Necesitás más información?</h2>
+      <div class="contacto-opciones">
+        <div class="opcion">
+          <strong>Gestión Integral del Riesgo (GIR)</strong>
+          <a href="mailto:tecnicaturagir@yahoo.com">tecnicaturagir&#64;yahoo.com</a>
+        </div>
+        <div class="opcion">
+          <strong>Higiene y Seguridad (HyS)</strong>
+          <a href="mailto:tecnicaturaenseguridadhigiene@yahoo.com.ar">tecnicaturaenseguridadhigiene&#64;yahoo.com.ar</a>
+        </div>
+        <div class="opcion">
+          <strong>Teléfono</strong>
+          <a href="tel:+541144321893">(011) 4432-1893</a>
+        </div>
+      </div>
+    </aside>
+  </main>
+</div>
