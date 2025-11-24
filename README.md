@@ -1,4 +1,4 @@
-# 🎓 IFTS N°26 - Sitio Web Institucional
+# IFTS N°26 - Sitio Web Institucional
 
 <div align="center">
 
@@ -8,12 +8,12 @@
 
 📍 Estados Unidos 3141, Ciudad Autónoma de Buenos Aires
 
-[🌐 Sitio Web](https://ifts26.netlify.app/) | [📱 Facebook](https://www.facebook.com/ifts26) | [📷 Instagram](https://www.instagram.com/ifts_26/)
+[Sitio Web](https://ifts26.netlify.app/) | [Facebook](https://www.facebook.com/ifts26) | [Instagram](https://www.instagram.com/ifts_26/)
 
 </div>
 
 ---
-## 👥 Trabajo Colaborativo
+## Trabajo Colaborativo
 
 Este proyecto fue desarrollado en equipo por:
 
@@ -32,7 +32,7 @@ Este proyecto fue desarrollado en equipo por:
 
 ---
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Este es el **sitio web institucional renovado** del IFTS N°26, desarrollado como proyecto colaborativo con el objetivo de modernizar la presencia digital del instituto y facilitar el acceso a la información para estudiantes, docentes y aspirantes.
 
@@ -46,38 +46,38 @@ El sitio centraliza toda la información relevante sobre:
 
 ---
 
-## ✨ Características Principales
+## Características Principales
 
-### 🎯 Para Estudiantes
-- ✅ Consulta de horarios de cursada actualizados
-- ✅ Fechas de mesas de examen y turnos de inscripción
-- ✅ Información sobre becas, trámites y constancias
-- ✅ Acceso rápido a SIU Guaraní y plataforma Moodle
-- ✅ Preguntas frecuentes y sistema de tutorías
+### Para Estudiantes
+- Consulta de horarios de cursada actualizados
+- Fechas de mesas de examen y turnos de inscripción
+- Información sobre becas, trámites y constancias
+- Acceso rápido a SIU Guaraní y plataforma Moodle
+- Preguntas frecuentes y sistema de tutorías
 
-### 👨‍🏫 Para Docentes
-- ✅ Planillas de asistencia y notas descargables
-- ✅ Repositorio de programas de cátedra
-- ✅ Enlaces a recursos institucionales (Google Drive)
-- ✅ Material didáctico organizado por materia
+### Para Docentes
+- Planillas de asistencia y notas descargables
+- Repositorio de programas de cátedra
+- Enlaces a recursos institucionales (Google Drive)
+- Material didáctico organizado por materia
 
-### 🏛️ Información Institucional
-- ✅ Calendario académico actualizado
-- ✅ Datos de autoridades y personal
-- ✅ Reglamento orgánico y normativas
-- ✅ Plano de evacuación en caso de emergencias
+### Información Institucional
+- Calendario académico actualizado
+- Datos de autoridades y personal
+- Reglamento orgánico y normativas
+- Plano de evacuación en caso de emergencias
 
-### 🎨 Experiencia de Usuario
-- ✅ Diseño moderno y responsive (mobile, tablet, desktop)
-- ✅ Navegación intuitiva y accesible
-- ✅ Carga rápida de contenido
-- ✅ Compatibilidad con todos los navegadores modernos
-- ✅ Formulario de contacto funcional
-- ✅ Integración con Google Maps para ubicación
+### Experiencia de Usuario
+- Diseño moderno y responsive (mobile, tablet, desktop)
+- Navegación intuitiva y accesible
+- Carga rápida de contenido
+- Compatibilidad con todos los navegadores modernos
+- Formulario de contacto funcional
+- Integración con Google Maps para ubicación
 
 ---
 
-## 🚀 Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 ### Frontend
 - **[Angular 20.3](https://angular.io/)** - Framework principal de desarrollo
@@ -105,7 +105,7 @@ El sitio centraliza toda la información relevante sobre:
 
 ---
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 IFTS26/
@@ -189,20 +189,20 @@ ng generate service services/nuevo-servicio
 ```
 ---
 
-## 📖 Documentación para Desarrolladores
+## Documentación para Desarrolladores
 
 Si eres nuevo en el proyecto o en Angular, **revisa el archivo [GUIA.md](./GUIA.md)** que incluye:
 
-- 📚 Explicación detallada de la arquitectura
-- 🔧 Conceptos clave de Angular y TypeScript
-- 💡 Ejemplos de código comentados línea por línea
-- 📝 Guías paso a paso para agregar nuevas páginas
-- 🎨 Instrucciones para modificar estilos
-- 🐛 Solución a problemas comunes (troubleshooting)
+- Explicación detallada de la arquitectura
+- Conceptos clave de Angular y TypeScript
+- Ejemplos de código comentados línea por línea
+- Guías paso a paso para agregar nuevas páginas
+- Instrucciones para modificar estilos
+- Solución a problemas comunes (troubleshooting)
 
 ---
 
-## 🤝 Cómo Contribuir
+## Cómo Contribuir
 
 ¿Querés ayudar a mejorar el sitio del IFTS26? ¡Toda contribución es bienvenida!
 
@@ -224,7 +224,7 @@ Si eres nuevo en el proyecto o en Angular, **revisa el archivo [GUIA.md](./GUIA.
 
 ---
 
-## 📸 Capturas de Pantalla
+## Capturas de Pantalla
 
 ### Página de Inicio
 ![Home](./docs/screenshots/home.png)
@@ -237,23 +237,23 @@ Si eres nuevo en el proyecto o en Angular, **revisa el archivo [GUIA.md](./GUIA.
 
 ---
 
-## 📜 Licencia
+## Licencia
 
 Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](./LICENSE) para más detalles.
 
 ---
 
-## 📞 Contacto
+## Contacto
 
 **IFTS N°26**
-- 📍 Estados Unidos 3141, C1228ABC, Ciudad Autónoma de Buenos Aires
-- 📞 4931-9843 / 4932-6210
-- ⏰ Horario de atención: 18:30 a 21:00 hs
-- 📧 **GIR:** tecnicaturagir@yahoo.com
-- 📧 **HyS:** tecnicaturaenseguridadhigiene@yahoo.com.ar
-- 🌐 [Sitio Web](https://ifts26.netlify.app/)
-- 📱 [Facebook](https://www.facebook.com/ifts26)
-- 📷 [Instagram](https://www.instagram.com/ifts_26/)
+- Estados Unidos 3141, C1228ABC, Ciudad Autónoma de Buenos Aires
+- 4931-9843 / 4932-6210
+- Horario de atención: 18:30 a 21:00 hs
+- **GIR:** tecnicaturagir@yahoo.com
+- **HyS:** tecnicaturaenseguridadhigiene@yahoo.com.ar
+- [Sitio Web](https://ifts26.netlify.app/)
+- [Facebook](https://www.facebook.com/ifts26)
+- [Instagram](https://www.instagram.com/ifts_26/)
 
 ---
 
@@ -261,6 +261,6 @@ Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](./LICENSE) pa
 
 **Hecho con dedicación para la comunidad del IFTS N°26**
 
-⭐ Si te resultó útil este proyecto, considerá darle una estrella en GitHub
+Si te resultó útil este proyecto, considerá darle una estrella en GitHub
 
 </div>
