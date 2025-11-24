@@ -2,13 +2,13 @@
 
 <div align="center">
 
-![IFTS26 Logo](./public/assets/img/logo-ifts26.png)
+![IFTS26 Logo](./public/assets/img/iftslogo.png)
 
 **Sitio web oficial del Instituto de Formación Técnica Superior N°26**
 
 📍 Estados Unidos 3141, Ciudad Autónoma de Buenos Aires
 
-[🌐 Sitio Web](https://ifts26.netlify.app/) | [📧 Contacto](mailto:tecnicaturagir@yahoo.com) | [📱 Facebook](https://www.facebook.com/ifts26) | [📷 Instagram](https://www.instagram.com/ifts_26/)
+[🌐 Sitio Web](https://ifts26.netlify.app/) | [📱 Facebook](https://www.facebook.com/ifts26) | [📷 Instagram](https://www.instagram.com/ifts_26/)
 
 </div>
 
@@ -296,7 +296,7 @@ Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](./LICENSE) pa
 
 <div align="center">
 
-**Hecho con ❤️ para la comunidad del IFTS N°26**
+**Hecho con dedicación para la comunidad del IFTS N°26**
 
 ⭐ Si te resultó útil este proyecto, considerá darle una estrella en GitHub
 
