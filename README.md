@@ -2,7 +2,7 @@
 
 <div align="center">
 
-!<img src="./public/assets/img/iftslogo.png" width="200" alt="IFTS26 Logo" />
+<img src="./public/assets/img/iftslogo.png" width="200" alt="IFTS26 Logo" />
 
 **Sitio web oficial del Instituto de Formación Técnica Superior N°26**
 
