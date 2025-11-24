@@ -150,7 +150,7 @@ IFTS26/
 
 ---
 
-## 🛠️ Instalación y Uso
+## Instalación y Uso
 
 ### Requisitos Previos
 - Node.js 18 o superior
@@ -221,19 +221,6 @@ Si eres nuevo en el proyecto o en Angular, **revisa el archivo [GUIA.md](./GUIA.
 - **Estilos:** Usar SCSS con variables definidas en `_variables.scss`
 - **Responsive:** Todos los componentes deben funcionar en mobile, tablet y desktop
 - **Accesibilidad:** Seguir estándares WCAG 2.1 (etiquetas alt, contraste de colores, navegación por teclado)
-
----
-
-## Capturas de Pantalla
-
-### Página de Inicio
-![Home](./docs/screenshots/home.png)
-
-### Sección de Carreras
-![Carreras](./docs/screenshots/carreras.png)
-
-### Página de Contacto
-![Contacto](./docs/screenshots/contacto.png)
 
 ---
 
