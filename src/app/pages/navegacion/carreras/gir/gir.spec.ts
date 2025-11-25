@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { Gir } from './gir';
 
 describe('Gir', () => {
@@ -8,7 +8,7 @@ describe('Gir', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Gir]
+      imports: [RouterTestingModule, Gir]
     })
     .compileComponents();
 
