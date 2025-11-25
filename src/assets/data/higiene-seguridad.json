@@ -6,7 +6,8 @@
     {
       "titulo": "Plan de Estudios",
       "tipo": "imagen",
-      "imagenSrc": "assets/images/uploads/plan-nuevo.jpg"
+      "imagenSrc": "assets/images/uploads/plan-nuevo.jpg",
+      "pdfSrc": "assets/images/uploads/diagramas-esquina-literaria-final.pdf"
     },
     {
       "titulo": "Perfil del Egresado",
