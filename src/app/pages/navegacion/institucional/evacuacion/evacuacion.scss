@@ -1,4 +1,4 @@
-.evacuacion-container { width: 100%; min-height: 100vh; }
+﻿.evacuacion-container { width: 100%; min-height: 100vh; }
 
 .content-wrapper {
   max-width: 1200px; margin: 0 auto; padding: 60px 24px;
@@ -26,9 +26,8 @@
 }
 
 .instruccion-card {
-  background: white; padding: 28px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease; position: relative;
-  &:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); }
+  background: white; padding: 28px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); position: relative;
+  &:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); }
 }
 
 .instruccion-numero {
@@ -77,8 +76,7 @@
 .contacto-card {
   background: linear-gradient(135deg, #1E6C93 0%, #5fb3f6 100%); padding: 32px; border-radius: 16px;
   text-align: center; color: white; box-shadow: 0 4px 16px rgba(30, 108, 147, 0.3);
-  transition: all 0.3s ease;
-  &:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(30, 108, 147, 0.4); }
+  &:hover { box-shadow: 0 8px 24px rgba(30, 108, 147, 0.4); }
   i { font-size: 48px; margin-bottom: 16px; display: block; }
   h3 { font-size: 18px; font-weight: 600; margin: 0 0 12px 0; }
   .numero { font-size: 32px; font-weight: 700; margin: 0; letter-spacing: 2px; }

@@ -1,4 +1,4 @@
-:host {
+﻿:host {
   --color-primary: #1E6C93;
   --color-primary-dark: #155a7a;
   --color-secondary: #5fb3f6;
@@ -118,12 +118,10 @@
   border-radius: 16px;
   border-left: 4px solid var(--color-primary);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
 
   &:hover {
     border-left-color: var(--color-secondary);
     box-shadow: 0 8px 24px rgba(30, 108, 147, 0.12);
-    transform: translateX(4px);
   }
 
   @media (max-width: 768px) {

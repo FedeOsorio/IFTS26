@@ -1,4 +1,4 @@
-:host {
+﻿:host {
   --color-primary: #1E6C93;
   --color-primary-dark: #155a7a;
   --color-secondary: #5fb3f6;
@@ -113,20 +113,17 @@
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
     border-left: 4px solid transparent;
 
     &:hover {
       border-left-color: var(--color-secondary);
       box-shadow: 0 8px 24px rgba(30, 108, 147, 0.12);
-      transform: translateX(4px);
 
       .info-icon {
         background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
         
         fa-icon {
           color: white;
-          transform: scale(1.1);
         }
       }
     }
@@ -149,7 +146,6 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      transition: all 0.3s ease;
 
       @media (max-width: 768px) {
         width: 48px;
@@ -164,7 +160,6 @@
       fa-icon {
         font-size: 24px;
         color: var(--color-primary);
-        transition: all 0.3s ease;
 
         @media (max-width: 768px) {
           font-size: 20px;
@@ -235,7 +230,6 @@
     color: white;
     text-decoration: none;
     font-size: 24px;
-    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 
@@ -248,12 +242,10 @@
       bottom: 0;
       background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
       opacity: 0;
-      transition: opacity 0.3s ease;
     }
 
     &:hover {
       background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
-      transform: translateY(-4px) scale(1.05);
       box-shadow: 0 8px 20px rgba(30, 108, 147, 0.4);
 
       &::before {
@@ -351,7 +343,6 @@
       border-radius: 10px;
       font-size: 16px;
       font-family: inherit;
-      transition: all 0.3s ease;
       background: var(--color-bg-light);
 
       &:focus {
@@ -406,7 +397,6 @@
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 6px 20px rgba(30, 108, 147, 0.35);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -417,23 +407,19 @@
 
     fa-icon {
       font-size: 20px;
-      transition: transform 0.3s ease;
     }
 
     &:hover:not(:disabled) {
       background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
       box-shadow: 0 10px 32px rgba(30, 108, 147, 0.45);
-      transform: translateY(-4px);
       
       fa-icon {
-        transform: translateX(4px);
       }
     }
 
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
-      transform: none;
     }
 
     @media (max-width: 768px) {
@@ -522,12 +508,10 @@
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     border: 3px solid var(--color-border);
-    transition: all 0.3s ease;
 
     &:hover {
       box-shadow: 0 12px 48px rgba(30, 108, 147, 0.25);
       border-color: var(--color-secondary);
-      transform: translateY(-4px);
     }
 
     @media (max-width: 768px) {

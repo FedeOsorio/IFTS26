@@ -1,4 +1,4 @@
-:host {
+﻿:host {
     --color-primary: #1E6C93;
     --color-primary-dark: #155a7a;
     --color-secondary: #5fb3f6;
@@ -38,7 +38,6 @@
         position: absolute;
         bottom: 0;
         left: 50%;
-        transform: translateX(-50%);
         width: 120px;
         height: 4px;
         background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
@@ -88,7 +87,6 @@
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.1),
         0 0 0 1px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
 
     &:hover {
         box-shadow: 
@@ -135,13 +133,11 @@
             border-radius: 50px;
             font-size: 15px;
             font-weight: 600;
-            transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
             &:hover {
                 background: var(--color-primary);
                 color: white;
-                transform: translateY(-2px);
                 box-shadow: 0 6px 20px rgba(30, 108, 147, 0.3);
             }
 
@@ -180,7 +176,6 @@
         border-radius: 12px;
         font-weight: 600;
         font-size: 17px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 4px 16px rgba(30, 108, 147, 0.3);
         position: relative;
         overflow: hidden;
@@ -195,11 +190,9 @@
             bottom: 0;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
             opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
         &:hover {
-            transform: translateY(-3px);
             box-shadow: 0 8px 24px rgba(30, 108, 147, 0.4);
 
             &::before {
@@ -207,12 +200,10 @@
             }
 
             .icon-end {
-                transform: translateX(4px);
             }
         }
 
         &:active {
-            transform: translateY(-1px);
         }
 
         @media (max-width: 1024px) {
@@ -225,7 +216,6 @@
 
         .icon-end {
             font-size: 18px;
-            transition: transform 0.3s ease;
         }
     }
 }
@@ -246,7 +236,6 @@
             position: absolute;
             top: -2px;
             left: 50%;
-            transform: translateX(-50%);
             width: 150px;
             height: 3px;
             background: var(--color-secondary);
@@ -267,7 +256,6 @@
         border-radius: 16px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
         overflow: hidden;
-        transition: all 0.3s ease;
 
         &:hover {
             box-shadow: 0 6px 24px rgba(30, 108, 147, 0.12);
@@ -289,7 +277,6 @@
         padding: 24px 28px;
         cursor: pointer;
         color: var(--color-primary);
-        transition: all 0.3s ease;
 
         &:hover {
             background: linear-gradient(135deg, rgba(30, 108, 147, 0.08) 0%, rgba(95, 179, 246, 0.05) 100%);
@@ -299,7 +286,6 @@
             }
 
             fa-icon {
-                transform: scale(1.1);
             }
         }
 
@@ -317,7 +303,6 @@
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 1px;
-            transition: color 0.3s ease;
 
             @media (max-width: 768px) {
                 font-size: 22px;
@@ -330,7 +315,6 @@
 
         fa-icon {
             font-size: 24px;
-            transition: transform 0.3s ease;
 
             @media (max-width: 768px) {
                 font-size: 20px;
@@ -345,7 +329,6 @@
     .accordion-content {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
         &.open {
             max-height: 2000px;
@@ -388,7 +371,6 @@
                     color: var(--color-primary);
                     text-decoration: none;
                     font-weight: 600;
-                    transition: all 0.3s ease;
 
                     &:hover {
                         color: var(--color-secondary);

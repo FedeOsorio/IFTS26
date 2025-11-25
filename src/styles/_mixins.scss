@@ -28,16 +28,14 @@
   }
 }
 
-// Card con sombra y hover
+// Card con sombra
 @mixin card-elevated {
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   
   &:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -55,15 +53,9 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
   
   &:hover {
     background: #1a1f23;
-    transform: translateX(4px);
-  }
-  
-  &:active {
-    transform: translateX(2px);
   }
 }
 
@@ -77,7 +69,6 @@
   &:hover {
     background: #2c3539;
     color: white;
-    transform: translateY(-2px);
   }
 }
 
@@ -123,20 +114,9 @@
   }
 }
 
-// Animación fade in
+// Animación fade in (deshabilitada)
 @mixin fade-in($duration: 0.6s) {
-  animation: fadeIn $duration ease-out;
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  // Mixin deshabilitado para optimizar rendimiento
 }
 
 // Truncar texto

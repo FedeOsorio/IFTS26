@@ -1,4 +1,4 @@
-.horarios-container { width: 100%; min-height: 100vh; }
+﻿.horarios-container { width: 100%; min-height: 100vh; }
 
 .content-wrapper {
   max-width: 1200px; margin: 0 auto; padding: 60px 24px;
@@ -27,7 +27,7 @@
     font-size: 32px; font-weight: 700; color: #1E6C93; margin-bottom: 28px; text-align: center;
     position: relative; padding-bottom: 16px;
     &::after {
-      content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      content: ''; position: absolute; bottom: 0; left: 50%;
       width: 80px; height: 3px; background: linear-gradient(90deg, #1E6C93 0%, #5fb3f6 100%);
       border-radius: 2px;
     }
@@ -50,7 +50,7 @@
   }
   tbody {
     tr {
-      border-bottom: 1px solid #e0e0e0; transition: background 0.2s ease;
+      border-bottom: 1px solid #e0e0e0;
       &:hover { background: #f8f9fa; }
       &:last-child { border-bottom: none; }
       td {

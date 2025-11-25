@@ -1,4 +1,4 @@
-:host {
+﻿:host {
   --color-primary: #1E6C93;
   --color-primary-dark: #155a7a;
   --color-secondary: #5fb3f6;
@@ -41,7 +41,6 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
     width: 150px;
     height: 4px;
     background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
@@ -92,7 +91,6 @@
   border-radius: 16px;
   padding: 28px;
   min-height: 180px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 
@@ -114,7 +112,6 @@
     box-shadow: 
       0 12px 32px rgba(30, 108, 147, 0.15),
       0 0 0 1px rgba(30, 108, 147, 0.1);
-    transform: translateY(-6px);
 
     .card-header {
       h3 {
@@ -122,7 +119,6 @@
       }
 
       fa-icon {
-        transform: scale(1.1) rotate(5deg);
       }
     }
   }
@@ -160,7 +156,6 @@
   fa-icon {
     font-size: 32px;
     color: var(--color-secondary);
-    transition: all 0.3s ease;
 
     @media (max-width: 768px) {
       font-size: 28px;
@@ -176,7 +171,6 @@
     font-weight: 700;
     color: var(--color-primary);
     margin: 0;
-    transition: color 0.3s ease;
 
     @media (max-width: 768px) {
       font-size: 20px;

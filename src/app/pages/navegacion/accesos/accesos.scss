@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Estilos para la página de Accesos al Sistema
  * 
  * Contiene estilos para:
@@ -35,7 +35,7 @@
     font-size: 40px; font-weight: 700; color: #1E6C93; text-align: center; margin-bottom: 48px;
     position: relative; padding-bottom: 20px;
     &::after {
-      content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 120px;
+      content: ''; position: absolute; bottom: 0; left: 50%; width: 120px;
       height: 4px; background: linear-gradient(90deg, #1E6C93 0%, #5fb3f6 100%); border-radius: 2px;
     }
     @media (max-width: 768px) { font-size: 32px; margin-bottom: 40px; }
@@ -51,13 +51,12 @@
 
 
 .access-card {
-  background: white; border-radius: 20px; padding: 36px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease; border: 1px solid #e0e0e0; position: relative; overflow: hidden;
+  background: white; border-radius: 20px; padding: 36px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); border: 1px solid #e0e0e0; position: relative; overflow: hidden;
   &::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
     background: linear-gradient(90deg, #1E6C93 0%, #5fb3f6 100%);
   }
-  &:hover { box-shadow: 0 12px 40px rgba(30, 108, 147, 0.15); transform: translateY(-6px); }
+  &:hover { box-shadow: 0 12px 40px rgba(30, 108, 147, 0.15); }
   @media (max-width: 768px) { padding: 28px; border-radius: 16px; }
   @media (max-width: 480px) { padding: 24px; border-radius: 12px; }
   .card-header {
@@ -86,24 +85,24 @@
   display: flex; align-items: center; justify-content: center; gap: 12px;
   background: linear-gradient(135deg, #1E6C93 0%, #155a7a 100%); color: white; padding: 16px 32px;
   border-radius: 50px; border: none; text-decoration: none; font-weight: 700; font-size: 17px;
-  text-align: center; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(30, 108, 147, 0.3);
+  text-align: center; box-shadow: 0 4px 16px rgba(30, 108, 147, 0.3);
   cursor: pointer; margin-bottom: 24px;
   &:hover {
     background: linear-gradient(135deg, #5fb3f6 0%, #1E6C93 100%);
-    box-shadow: 0 8px 24px rgba(30, 108, 147, 0.4); transform: translateY(-2px);
-    fa-icon { transform: translateX(4px); }
+    box-shadow: 0 8px 24px rgba(30, 108, 147, 0.4);
+    fa-icon { }
   }
   @media (max-width: 768px) { padding: 14px 28px; font-size: 16px; }
   @media (max-width: 480px) { padding: 12px 24px; font-size: 15px; }
-  fa-icon { font-size: 20px; transition: transform 0.3s ease; }
+  fa-icon { font-size: 20px; }
 }
 
 .btn-secondary {
   display: inline-flex; align-items: center; gap: 8px; background: white; color: #1E6C93;
   padding: 12px 24px; border: 2px solid #1E6C93; border-radius: 50px; text-decoration: none;
-  font-weight: 600; font-size: 15px; transition: all 0.3s ease;
+  font-weight: 600; font-size: 15px;
   &:hover {
-    background: #1E6C93; color: white; transform: translateY(-2px);
+    background: #1E6C93; color: white;
     box-shadow: 0 4px 12px rgba(30, 108, 147, 0.3);
   }
   @media (max-width: 768px) { padding: 10px 20px; font-size: 14px; }
@@ -209,16 +208,14 @@
   background: white; 
   border-radius: 20px; 
   padding: 32px; 
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); 
   border: 2px solid #e0e0e0; 
   display: flex; 
   gap: 24px; 
   align-items: flex-start;
   
   &:hover { 
-    box-shadow: 0 16px 48px rgba(30, 108, 147, 0.2); 
-    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(30, 108, 147, 0.2);
     border-color: #5fb3f6;
   }
   
@@ -229,14 +226,12 @@
     font-size: 48px; 
     color: #5fb3f6; 
     flex-shrink: 0;
-    transition: transform 0.3s ease;
     
     @media (max-width: 768px) { font-size: 40px; }
     @media (max-width: 480px) { font-size: 36px; }
   }
   
   &:hover > fa-icon {
-    transform: scale(1.1) rotate(5deg);
   }
   
   .tutorial-content {
@@ -269,8 +264,7 @@
       color: #1E6C93; 
       text-decoration: none;
       font-weight: 700; 
-      font-size: 16px; 
-      transition: all 0.3s ease;
+      font-size: 16px;
       padding: 10px 20px;
       border-radius: 50px;
       background: rgba(95, 179, 246, 0.1);
@@ -278,15 +272,14 @@
       &:hover {
         color: white;
         background: #5fb3f6;
-        transform: translateX(4px);
         
-        fa-icon { transform: translateX(4px); }
+        fa-icon { }
       }
       
       @media (max-width: 768px) { font-size: 15px; padding: 9px 18px; }
       @media (max-width: 480px) { font-size: 14px; padding: 8px 16px; }
       
-      fa-icon { transition: transform 0.3s ease; }
+      fa-icon { }
     }
   }
 }
@@ -302,7 +295,6 @@
     position: absolute;
     top: -3px;
     left: 50%;
-    transform: translateX(-50%);
     width: 100px;
     height: 3px;
     background: linear-gradient(90deg, #1E6C93 0%, #5fb3f6 100%);
@@ -318,10 +310,8 @@
   border-radius: 20px; 
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   border-left: 6px solid #5fb3f6;
-  transition: all 0.3s ease;
   
   &:hover {
-    transform: translateX(8px);
     box-shadow: 0 10px 36px rgba(30, 108, 147, 0.15);
   }
   
@@ -372,7 +362,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  transition: all 0.3s ease;
 
   &:hover {
     box-shadow: 0 12px 32px rgba(30, 108, 147, 0.15);
@@ -494,7 +483,6 @@
     a {
       color: #1E6C93;
       text-decoration: none;
-      transition: color 0.2s ease;
 
       &:hover {
         color: #5fb3f6;
@@ -532,7 +520,6 @@
       position: absolute;
       bottom: 0;
       left: 50%;
-      transform: translateX(-50%);
       width: 80px;
       height: 4px;
       background: linear-gradient(90deg, #1E6C93 0%, #5fb3f6 100%);
@@ -577,7 +564,6 @@
   border-radius: 12px;
   border: 2px solid #e0e0e0;
   overflow: hidden;
-  transition: all 0.3s ease;
 
   &:hover {
     border-color: #5fb3f6;
@@ -607,7 +593,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  transition: all 0.3s ease;
 
   &:hover {
     background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
@@ -636,7 +621,6 @@
     font-weight: 700;
     color: #1E6C93;
     flex-shrink: 0;
-    transition: transform 0.3s ease;
 
     @media (max-width: 768px) {
       font-size: 22px;
@@ -651,7 +635,6 @@
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   &.open {
     max-height: 800px;
@@ -681,7 +664,6 @@
       color: #1E6C93;
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.2s ease;
 
       &:hover {
         color: #5fb3f6;

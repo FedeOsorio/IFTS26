@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Estilos para la página de Mesas de Examen
  * 
  * Incluye diseño para:
@@ -61,7 +61,6 @@
   border-radius: 16px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   border: 2px solid var(--color-border);
-  transition: all 0.3s ease;
 
   &:hover {
     box-shadow: 0 10px 32px rgba(30, 108, 147, 0.12);
@@ -134,7 +133,6 @@
       position: absolute;
       bottom: -3px;
       left: 50%;
-      transform: translateX(-50%);
       width: 80px;
       height: 3px;
       background: var(--color-success);
@@ -202,10 +200,8 @@
   gap: 18px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border-left: 5px solid var(--color-success);
-  transition: all 0.3s ease;
 
   &:hover {
-    transform: translateX(6px);
     box-shadow: 0 6px 20px rgba(76, 175, 80, 0.2);
   }
 
@@ -316,7 +312,6 @@
   padding: 28px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   border: 2px solid var(--color-border);
-  transition: all 0.3s ease;
 
   @media (max-width: 768px) {
     padding: 24px;
@@ -399,7 +394,6 @@
   font-size: 17px;
   font-weight: 700;
   margin-top: 20px;
-  transition: all 0.3s ease;
   box-shadow: 0 6px 20px rgba(30, 108, 147, 0.35);
   letter-spacing: 0.3px;
 
@@ -416,18 +410,15 @@
   }
   
   &:hover {
-    transform: translateY(-4px);
     box-shadow: 0 10px 30px rgba(30, 108, 147, 0.45);
     background: linear-gradient(135deg, var(--color-primary-dark) 0%, #4a9de5 100%);
   }
 
   &:active {
-    transform: translateY(-2px);
   }
   
   fa-icon {
     font-size: 20px;
-    transition: transform 0.3s ease;
 
     @media (max-width: 768px) {
       font-size: 18px;
@@ -439,7 +430,6 @@
   }
 
   &:hover fa-icon {
-    transform: scale(1.1);
   }
 }
 
@@ -468,7 +458,7 @@
   }
   tbody {
     tr {
-      border-bottom: 1px solid #e0e0e0; transition: background 0.2s ease;
+      border-bottom: 1px solid #e0e0e0;
       &:hover { background: #f8f9fa; }
       &:last-child { border-bottom: none; }
       td {

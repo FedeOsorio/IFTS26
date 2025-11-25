@@ -31,6 +31,7 @@ export class Header implements OnInit, AfterViewInit {
   mobileMenuOpen = false;           // Controla el menú hamburguesa en mobile
   openSubmenu: string | null = null; // Almacena qué submenú está abierto actualmente
   moreMenuOpen = false;              // Controla el menú desplegable "Más" en desktop
+  openDesktopSubmenu: string | null = null; // Controla qué submenú desktop está abierto
   
   // Arrays para distribuir botones entre visibles y ocultos (lógica responsive)
   visibleButtons: any[] = [];        // Botones que se muestran directamente en el header
@@ -127,6 +128,20 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   /**
+   * Cerrar menús al hacer clic fuera de ellos
+   */
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    const headerElement = document.querySelector('.header');
+    
+    if (headerElement && !headerElement.contains(target)) {
+      this.openDesktopSubmenu = null;
+      this.moreMenuOpen = false;
+    }
+  }
+
+  /**
    * Calcula qué botones mostrar directamente y cuáles ocultar en el menú "Más"
    * 
    * Esta lógica que implementé permite que el header se adapte dinámicamente:
@@ -187,6 +202,14 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   /**
+   * Alternar visibilidad de un submenú desktop
+   * Se usa para los menús desplegables en la versión desktop
+   */
+  toggleDesktopSubmenu(label: string): void {
+    this.openDesktopSubmenu = this.openDesktopSubmenu === label ? null : label;
+  }
+
+  /**
    * Alternar visibilidad del menú desplegable "Más" en desktop
    */
   toggleMoreMenu(): void {
@@ -201,5 +224,6 @@ export class Header implements OnInit, AfterViewInit {
     this.mobileMenuOpen = false;
     this.openSubmenu = null;
     this.moreMenuOpen = false;
+    this.openDesktopSubmenu = null;
   }
 }

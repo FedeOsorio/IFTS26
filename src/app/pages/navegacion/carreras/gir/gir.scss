@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Estilos para la página de la carrera Gestión de la Información y Redes (GIR)
  * 
  * Incluye estilos para:
@@ -65,7 +65,6 @@
       position: absolute;
       bottom: 0;
       left: 50%;
-      transform: translateX(-50%);
       width: 150px;
       height: 4px;
       background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
@@ -117,10 +116,8 @@
     box-shadow: 
       0 12px 40px rgba(30, 108, 147, 0.2),
       0 0 0 1px rgba(30, 108, 147, 0.1);
-    transition: all 0.4s ease;
 
     &:hover {
-      transform: translateY(-8px);
       box-shadow: 
         0 20px 60px rgba(30, 108, 147, 0.3),
         0 0 0 1px rgba(30, 108, 147, 0.15);
@@ -136,11 +133,9 @@
       height: auto;
       display: block;
       object-fit: cover;
-      transition: transform 0.4s ease;
     }
 
     &:hover .main-image {
-      transform: scale(1.05);
     }
   }
 
@@ -318,7 +313,6 @@
   border-radius: 12px;
   border: 2px solid var(--color-border);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
   
   strong {
     display: block;
@@ -330,7 +324,6 @@
   }
   
   &:hover {
-    transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(30, 108, 147, 0.15);
     border-color: var(--color-secondary);
   }
@@ -374,7 +367,6 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(30, 108, 147, 0.3);
 
   fa-icon {
@@ -382,13 +374,11 @@
   }
 
   &:hover {
-    transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(30, 108, 147, 0.4);
     background: linear-gradient(135deg, var(--color-primary-dark) 0%, #0d3f56 100%);
   }
 
   &:active {
-    transform: translateY(-1px);
   }
 
   @media (max-width: 768px) {
@@ -437,7 +427,6 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
 
   &:hover {
     box-shadow: 0 8px 24px rgba(30, 108, 147, 0.15);
@@ -477,7 +466,6 @@
   align-items: center;
   padding: 24px 28px;
   cursor: pointer;
-  transition: all 0.3s ease;
 
   @media (max-width: 768px) {
     padding: 20px 20px;
@@ -512,7 +500,6 @@
     .section-icon {
       font-size: 28px;
       color: var(--color-secondary);
-      transition: transform 0.3s ease;
 
       @media (max-width: 768px) {
         font-size: 24px;
@@ -526,7 +513,6 @@
 
   .toggle-icon {
     font-size: 24px;
-    transition: transform 0.3s ease;
 
     @media (max-width: 768px) {
       font-size: 20px;
@@ -542,7 +528,6 @@
   max-height: 0;
   overflow: hidden;
   padding: 0 28px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (max-width: 768px) {
     padding: 0 20px;
@@ -560,11 +545,9 @@
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    transition: transform 0.3s ease;
     cursor: pointer;
 
     &:hover {
-      transform: scale(1.02);
       box-shadow: 0 8px 32px rgba(30, 108, 147, 0.2);
     }
   }
