@@ -1,54 +1,72 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core'; // Importar OnInit e inject
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser'; // Importar tipos de seguridad
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faChevronDown, faChevronUp, faHelmetSafety, faClipboardList, faUserGraduate, faClock } from '@fortawesome/free-solid-svg-icons';
-import datosHigiene from '../../../../../assets/data/higiene-seguridad.json'
+import { 
+  faChevronDown, 
+  faChevronUp, 
+  faUserGraduate, 
+  faClock, 
+  faClipboardList, 
+  faHelmetSafety 
+} from '@fortawesome/free-solid-svg-icons';
+import datosHigiene from '../../../../../assets/data/higiene-seguridad.json';
 
 interface SeccionExpandible {
   titulo: string;
-  icono: any;
-  imagenSrc: string;
+  tipo?: string;
+  imagenSrc?: string;
+  pdfSrc?: string;
+  contenidoTexto?: string;
   abierto: boolean;
+  icono: any;
+  porqueEstudiar?: string;
+  pdfSeguro?: SafeResourceUrl; 
 }
 
 @Component({
   selector: 'app-hys',
-  imports: [CommonModule, RouterLink, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './hys.html',
   styleUrl: './hys.scss'
 })
-export class Hys {
-  // Iconos utilizados en el componente
-  iconoExpandir = faChevronDown;        // Ícono para expandir accordion
-  iconoContraer = faChevronUp;          // Ícono para contraer accordion
-  iconoPerfil = faUserGraduate;         // Ícono para perfil del profesional
-  iconoClock = faClock;                  // Ícono para horarios
-  iconoGraduate = faUserGraduate;        // Ícono para perfil del egresado
+export class Hys implements OnInit {
+  
+  private sanitizer = inject(DomSanitizer);
 
-  // Estado del accordion de perfil profesional
-  perfilAbierto = false;
+  iconoExpandir = faChevronDown;
+  iconoContraer = faChevronUp;
   
-  // Datos de la carrera cargados desde JSON
-  data = datosHigiene;
-  
-  secciones = [
-    {
-      titulo: 'Plan de Estudio (Nuevo Plan)',
-      icono: faClipboardList,
-      imagenSrc: '/assets/pdf/plan-hyst.pdf',
-      abierto: false
+  // Datos del JSON
+  tituloPrincipal: string = datosHigiene.titulo;
+  imagenIntro: string = datosHigiene.imgIntro;
+  descripcionIntro: string = datosHigiene.descripcion;
+  // Si tienes los campos nuevos en el JSON, agrégalos aquí
+  porqueEstudiar: string | undefined = (datosHigiene as any).porqueEstudiar; 
+
+  listaSecciones: SeccionExpandible[] = [];
+
+  ngOnInit(): void {
+    if (datosHigiene.secciones) {
+      this.listaSecciones = datosHigiene.secciones.map((seccion: any) => ({
+        ...seccion,
+        abierto: seccion.abierto || false,
+        icono: this.determinarIconoPorTitulo(seccion.titulo),
+        // AQUI ESTA LA CLAVE: Sanitizamos la URL antes de renderizar
+        pdfSeguro: seccion.pdfSrc ? this.sanitizer.bypassSecurityTrustResourceUrl(seccion.pdfSrc) : undefined
+      }));
     }
-  ];
+  }
 
-  // Método para las secciones de imagen
-  toggleSeccion(seccion: any): void {
+  toggleSeccion(seccion: SeccionExpandible): void {
     seccion.abierto = !seccion.abierto;
   }
 
-  // Método específico para el Perfil
-  togglePerfil(): void {
-    this.perfilAbierto = !this.perfilAbierto;
+  private determinarIconoPorTitulo(titulo: string): any {
+    const tituloLower = titulo.toLowerCase();
+    if (tituloLower.includes('plan')) return faClipboardList;
+    if (tituloLower.includes('perfil') || tituloLower.includes('egresado')) return faUserGraduate;
+    if (tituloLower.includes('horario')) return faClock;
+    return faHelmetSafety;
   }
-
 }

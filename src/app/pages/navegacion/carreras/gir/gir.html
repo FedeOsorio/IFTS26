@@ -1,59 +1,67 @@
-<div class="gir-container">
+<div class="career-container">
 
-  <header class="page-header">
-    <div class="icon-container">
-      <fa-icon [icon]="iconoEscudo"></fa-icon>
-    </div>
+  <div class="career-header">
     <h1>{{ data.titulo }}</h1>
-  </header>
+  </div>
 
   <section class="intro-section">
-
     @if (data.imgIntro) {
-    <div class="intro-image-wrapper">
+    <div class="career-image-wrapper">
       <img [src]="data.imgIntro" [alt]="data.titulo" class="main-image">
     </div>
     }
-
-    <div class="intro-text">
-      <div class="markdown-body" [innerHTML]="renderMarkdown(data.descripcion)"></div>
-    </div>
-
+    <div class="career-description" [innerHTML]="renderMarkdown(data.descripcion)"></div>
   </section>
 
-  @if (data.secciones && data.secciones.length > 0) {
+  @if (data.porqueEstudiar) {
+  <section class="why-study-section">
+    <div class="highlight-box">
+      <div [innerHTML]="renderMarkdown(data.porqueEstudiar)"></div>
+    </div>
+  </section>
+  }
+
+  @if (data.queEsSerTecnico) {
+  <section class="why-study-section">
+    <div class="highlight-box">
+      <div [innerHTML]="renderMarkdown(data.queEsSerTecnico)"></div>
+    </div>
+  </section>
+  }
+
+  @if (listaSecciones && listaSecciones.length > 0) {
   <section class="info-accordion">
-    <h2 class="accordion-title">Información Académica</h2>
 
-    <div class="accordion-list">
-      @for (seccion of data.secciones; track $index) {
-      <div class="accordion-item" [class.active]="seccion.abierto">
+    @for (seccion of listaSecciones; track $index) {
+    <div class="accordion-item" [class.active]="seccion.abierto">
 
-        <button class="accordion-header" (click)="toggleSeccion(seccion)">
-          <h3>{{ seccion.titulo }}</h3>
-          <fa-icon [icon]="seccion.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
-        </button>
-
-        <div class="accordion-content">
-          <div class="content-inner">
-
-            @if (seccion.contenidoTexto) {
-            <div class="markdown-body" [innerHTML]="renderMarkdown(seccion.contenidoTexto)"></div>
-            }
-
-            @if (seccion.imagenSrc) {
-            <div class="image-wrapper">
-              <img [src]="seccion.imagenSrc" [alt]="seccion.titulo" class="document-image">
-              <p class="hint">* Clic derecho en la imagen y "Abrir en pestaña nueva" para ver en tamaño completo.</p>
-            </div>
-            }
-
-          </div>
+      <button class="accordion-header" (click)="toggleSeccion(seccion)">
+        <div class="header-title">
+          <fa-icon [icon]="seccion.icono" class="section-icon"></fa-icon>
+          <span>{{ seccion.titulo }}</span>
         </div>
+        <fa-icon [icon]="seccion.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
+      </button>
+
+      <div class="accordion-content" *ngIf="seccion.abierto">
+
+        @if (seccion.contenidoTexto) {
+        <div class="content-text">
+          <div [innerHTML]="renderMarkdown(seccion.contenidoTexto)"></div>
+        </div>
+        }
+
+        @if (seccion.imagenSrc) {
+        <div class="content-inner">
+          <img [src]="seccion.imagenSrc" [alt]="seccion.titulo" class="document-image">
+          <p class="download-hint">* Clic derecho para abrir o descargar imagen.</p>
+        </div>
+        }
 
       </div>
-      }
     </div>
+    }
+
   </section>
   }
 

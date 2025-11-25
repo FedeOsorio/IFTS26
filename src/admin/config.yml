@@ -150,6 +150,9 @@ collections:
           - label: "Descripción Intro"
             name: "descripcion"
             widget: "markdown" # Permite negritas, itálicas, etc.
+          - label: "Por qué estudiar..."
+            name: "porqueEstudiar"
+            widget: "markdown" # Permite negritas, itálicas, etc.
           
           # Lista de Solapas (Plan de estudio, Perfil, etc.)
           - label: "Solapas Informativas"
@@ -177,6 +180,16 @@ collections:
           - label: "Descripción Intro"
             name: "descripcion"
             widget: "markdown" # Permite negritas, itálicas, etc.
+
+          - label: "¿Por qué estudiar esta carrera?"
+            name: "porqueEstudiar"
+            widget: "markdown"
+            required: false
+            
+          - label: "¿Qué es ser un Técnico Superior?"
+            name: "queEsSerTecnico"
+            widget: "markdown"
+            required: false
           
           # Lista de Solapas (Plan de estudio, Perfil, etc.)
           - label: "Solapas Informativas"

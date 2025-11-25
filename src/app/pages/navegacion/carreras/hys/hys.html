@@ -1,39 +1,26 @@
 <div class="career-container">
 
     <div class="career-header">
-        <h1>{{ data.titulo }}</h1>
+        <h1>{{ tituloPrincipal }}</h1>
     </div>
 
     <section class="intro-section">
-        <div class="career-image-wrapper">
-            <img [src]="data.imgIntro" alt="Intro" class="main-image">
+        <div class="career-image-wrapper" *ngIf="imagenIntro">
+            <img [src]="imagenIntro" alt="Intro" class="main-image">
         </div>
-
-        <div class="career-description" [innerHTML]="data.descripcion"></div>
+        <div class="career-description" [innerHTML]="descripcionIntro"></div>
     </section>
 
-    <section class="why-study-section">
+    <section class="why-study-section" *ngIf="porqueEstudiar">
         <div class="highlight-box">
-            <h3>¿Por qué estudiar Higiene y Seguridad en el trabajo?</h3>
-            <p>
-                Es importante estudiar esta Tecnicatura porque brinda una formación integral para asistir en la
-                supervisión, asesoramiento y conducción de equipos de trabajo para promover la seguridad, prevenir
-                accidentes y enfermedades laborales.
-            </p>
-            <p>
-                Esta formación integral se expresa en la adquisición de saberes y habilidades técnicas pertinentes para
-                la gestión de la higiene y seguridad laboral, el conocimiento profundo de los ámbitos laborales, sus
-                características y riesgos inherentes, la sensibilidad respecto del valor social de la higiene y la
-                seguridad, y la disponibilidad de herramientas conceptuales y operativas para asumir plenamente las
-                responsabilidades competentes.
-            </p>
+            <div [innerHTML]="porqueEstudiar"></div>
         </div>
     </section>
 
     <section class="info-accordion">
-
-        @for (seccion of secciones; track $index) {
+        @for (seccion of listaSecciones; track $index) {
         <div class="accordion-item" [class.active]="seccion.abierto">
+
             <button class="accordion-header" (click)="toggleSeccion(seccion)">
                 <div class="header-title">
                     <fa-icon [icon]="seccion.icono" class="section-icon"></fa-icon>
@@ -41,76 +28,34 @@
                 </div>
                 <fa-icon [icon]="seccion.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
             </button>
+
             <div class="accordion-content">
+
+                @if (seccion.contenidoTexto) {
+                <div class="content-text">
+                    <div [innerHTML]="seccion.contenidoTexto"></div>
+                </div>
+                }
+
+                @if (seccion.imagenSrc) {
                 <div class="content-inner">
                     <img [src]="seccion.imagenSrc" [alt]="seccion.titulo" class="document-image">
-                    <p class="download-hint">* Clic derecho para descargar.</p>
                 </div>
+                }
+
+                @if (seccion.pdfSeguro) {
+                <div class="content-inner pdf-container">
+                    <iframe [src]="seccion.pdfSeguro" title="Visor PDF" class="pdf-iframe">
+                    </iframe>
+
+                    <a [href]="seccion.pdfSrc" target="_blank" class="download-link">
+                        ¿No ves el PDF? Descárgalo aquí.
+                    </a>
+                </div>
+                }
+
             </div>
         </div>
         }
-
-        <div class="accordion-item" [class.active]="perfilAbierto">
-
-            <button class="accordion-header" (click)="togglePerfil()">
-                <div class="header-title">
-                    <fa-icon [icon]="iconoPerfil" class="section-icon"></fa-icon>
-                    <span>Perfil del Egresado</span>
-                </div>
-                <fa-icon [icon]="perfilAbierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
-            </button>
-
-            <div class="accordion-content">
-                <div class="content-text">
-
-                    <h4 class="text-subtitle">Higiene y Seguridad en el Trabajo:</h4>
-                    <p>
-                        El Técnico Superior en Higiene y Seguridad en el Trabajo constituye una figura profesional cuyo
-                        rol es de asistente técnico responsable del servicio de higiene y seguridad en cualquier ámbito
-                        involucrado en los alcances de la legislación sobre riesgos del trabajo. Cumple funciones de
-                        supervisión con responsabilidad sobre la actividad de otros trabajadores.
-                    </p>
-                    <p>El egresado estará en condiciones de desempeñar las siguientes funciones:</p>
-
-                    <ul class="main-list">
-                        <li>Promover la prevención de accidentes y enfermedades profesionales a través de la adopción de
-                            medidas apropiadas para cada tipo de actividad e industria.</li>
-                        <li>Supervisar el cumplimiento de normas de higiene y seguridad en el trabajo y la conservación
-                            de instalaciones, herramientas y servicios.</li>
-                        <li>Detectar necesidades y conducir instancias de capacitación y asistencia técnica para el
-                            personal en cuestiones de higiene y seguridad en el trabajo.</li>
-                        <li>
-                            Asistir y asesorar al responsable del servicio de higiene y seguridad en el trabajo con
-                            respecto a:
-                            <ul class="sub-list">
-                                <li>El diagnóstico de situación y la identificación de riesgos ambientales.</li>
-                                <li>La evaluación y análisis de accidentes de trabajo y enfermedades profesionales para
-                                    adoptar medidas correctivas.</li>
-                                <li>El relevamiento de las condiciones de instalaciones, equipos, máquinas y
-                                    herramientas.</li>
-                                <li>El diseño del plan de seguridad e higiene, incluyendo análisis de costos y
-                                    presupuestos.</li>
-                                <li>El desarrollo de programas de capacitación, manuales de higiene y campañas de
-                                    prevención (incendios, emergencias).</li>
-                                <li>Elaborar e interpretar documentación técnica correspondiente a sus funciones.</li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <hr class="divider">
-
-                    <h4 class="text-subtitle">Matrícula Profesional:</h4>
-                    <p>
-                        Una vez iniciado el trámite del título de Técnico Superior en Higiene y Seguridad y con el
-                        certificado de título en trámite ya se puede matricular en colegios profesionales. Sugerimos a
-                        los alumnos informarse con los docentes y compañeros ya recibidos acerca de cuáles son las
-                        mejores opciones, ya que la oferta es variada y se deben considerar los costos y beneficios que
-                        proporciona cada Colegio Profesional, así como su jurisdicción.
-                    </p>
-
-                </div>
-            </div>
-        </div>
-
     </section>
 </div>

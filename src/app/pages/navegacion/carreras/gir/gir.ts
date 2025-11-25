@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -7,49 +7,73 @@ import {
   faChevronUp,
   faBookOpen,
   faListCheck,
-  faShieldHalved
+  faShieldHalved,
+  faUserGraduate,
+  faClipboardList,
+  faClock
 } from '@fortawesome/free-solid-svg-icons';
 import { marked } from 'marked';
-import girData from '../../../../../assets/data/gestion-riesgo.json'
+import girData from '../../../../../assets/data/gestion-riesgo.json';
 
+// Interfaz para el manejo interno
 interface SeccionExpandible {
   titulo: string;
-  icono: any;
-  imagenSrc: string; // La ruta de la imagen que subirá el admin
+  imagenSrc?: string;
+  contenidoTexto?: string;
   abierto: boolean;
+  icono: any; // Agregado para UI
 }
 
 @Component({
   selector: 'app-gir',
-  imports: [FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule], // Agregado CommonModule
   templateUrl: './gir.html',
   styleUrl: './gir.scss'
 })
-export class Gir {
+export class Gir implements OnInit {
   private sanitizer = inject(DomSanitizer);
 
-  // Mapeamos los datos para asegurar que las solapas tengan la propiedad 'abierto'
-  data = {
-    ...girData,
-    secciones: girData.secciones ? girData.secciones.map((s: any) => ({ ...s, abierto: s.abierto || false })) : []
-  };
+  // Datos crudos del JSON
+  data = girData;
 
-  // Íconos
+  // Lista procesada para la vista
+  listaSecciones: SeccionExpandible[] = [];
+
+  // Íconos UI
   iconoExpandir = faChevronDown;
   iconoContraer = faChevronUp;
-  iconoEscudo = faShieldHalved;
-  iconoLibro = faBookOpen;
-  iconoLista = faListCheck;
 
-  // Función para convertir Markdown a HTML seguro
+  ngOnInit(): void {
+    // Procesamos las secciones para agregar estado abierto y el ícono correspondiente
+    if (this.data.secciones) {
+      this.listaSecciones = this.data.secciones.map((s: any) => ({
+        ...s,
+        abierto: s.abierto || false,
+        icono: this.determinarIconoPorTitulo(s.titulo)
+      }));
+    }
+  }
+
+  // Función para asignar íconos automáticamente según el título (Igual que componente Hys)
+  private determinarIconoPorTitulo(titulo: string): any {
+    const tituloLower = titulo.toLowerCase();
+
+    if (tituloLower.includes('plan')) return faClipboardList;
+    if (tituloLower.includes('perfil') || tituloLower.includes('egresado')) return faUserGraduate;
+    if (tituloLower.includes('horario')) return faClock;
+    if (tituloLower.includes('programas') || tituloLower.includes('materias')) return faBookOpen;
+    if (tituloLower.includes('requisitos')) return faListCheck;
+
+    return faShieldHalved; // Ícono por defecto
+  }
+
   renderMarkdown(text: string): SafeHtml {
     if (!text) return '';
     const html = marked.parse(text, { async: false }) as string;
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
-  // Función para abrir/cerrar solapas
-  toggleSeccion(item: any): void {
+  toggleSeccion(item: SeccionExpandible): void {
     item.abierto = !item.abierto;
   }
 }
