@@ -1,5 +1,4 @@
 :host {
-  // --- Variables de Identidad Visual Unificada ---
   --color-primary: #1E6C93;
   --color-primary-dark: #155a7a;
   --color-secondary: #5fb3f6;
@@ -12,7 +11,7 @@
 
 .horarios-container {
   max-width: 1200px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto;
   padding: 0 24px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
@@ -53,7 +52,6 @@
     position: relative;
     z-index: 1;
     font-size: 3rem;
-    margin-bottom: 16px;
     opacity: 1;
     color: white;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
@@ -90,6 +88,10 @@
     ::ng-deep strong {
       font-weight: 700;
       color: #ffeb3b; // Mantenemos el amarillo para resaltar sobre azul
+    }
+
+    ::ng-deep p{
+        margin: 0;
     }
   }
 }
