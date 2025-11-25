@@ -99,8 +99,16 @@
         consulta y no serán compartidos con terceros.
       </p>
 
-      <button type="submit" class="btn-submit" [disabled]="consultaForm.invalid">
-        Enviar Consulta
+      <button type="submit" class="btn-submit" [disabled]="consultaForm.invalid || enviando">
+
+        @if (enviando) {
+        <span>Enviando... </span>
+        <fa-icon [icon]="iconoCargando" [class.fa-spin]="true"></fa-icon>
+        } @else {
+        <span>Enviar Consulta </span>
+        <fa-icon [icon]="iconoEnviar"></fa-icon>
+        }
+
       </button>
 
     </form>

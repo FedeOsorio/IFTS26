@@ -49,11 +49,10 @@ export class Header {
         { text: 'Tutorías', route: '/tutoria' },
         { text: 'Constancias', route: '/alumnos/constancias' },
         { text: 'Becas Progresar', route: '/alumnos/becas' },
-        { text: 'Títulos Extranjeros', route: '/alumnos/titulos-extranjeros' },
-        { text: 'Matrícula Profesional', route: '/alumnos/matricula-profesional' },
         { text: 'Horarios', route: '/alumnos/horarios' },
         { text: 'Mesas de exámen', route: '/alumnos/mesas-examen' },
-        { text: 'Cooperadora', route: '/alumnos/cooperadora' }
+        { text: 'Cooperadora', route: '/alumnos/cooperadora' },
+        { text: 'Preguntas Frecuentes', route: 'alumnos/faq'}
       ]
     },
     {

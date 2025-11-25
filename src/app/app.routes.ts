@@ -11,8 +11,7 @@ import { Carreras } from './pages/navegacion/carreras/carreras';
 import { Docentes } from './pages/navegacion/docentes/docentes';
 import { Constancias } from './pages/navegacion/alumnos/constancias/constancias';
 import { Becas } from './pages/navegacion/alumnos/becas/becas';
-import { TitulosExtranjeros } from './pages/navegacion/alumnos/titulos-extranjeros/titulos-extranjeros';
-import { MatriculaProfesional } from './pages/navegacion/alumnos/matricula-profesional/matricula-profesional';
+import { Faq } from './pages/navegacion/alumnos/preguntas-frecuentes/faq';
 import { Horarios } from './pages/navegacion/alumnos/horarios/horarios';
 import { MesasExamen } from './pages/navegacion/alumnos/mesas-examen/mesas-examen';
 import { Cooperadora } from './pages/navegacion/alumnos/cooperadora/cooperadora';
@@ -40,8 +39,7 @@ export const routes: Routes = [
     { path: 'docentes', component: Docentes },
     { path: 'alumnos/constancias', component: Constancias },
     { path: 'alumnos/becas', component: Becas },
-    { path: 'alumnos/titulos-extranjeros', component: TitulosExtranjeros },
-    { path: 'alumnos/matricula-profesional', component: MatriculaProfesional },
+    { path: 'alumnos/faq', component: Faq },
     { path: 'alumnos/horarios', component: Horarios },
     { path: 'alumnos/mesas-examen', component: MesasExamen },
     { path: 'alumnos/cooperadora', component: Cooperadora },

@@ -1,1 +1,47 @@
-<p>becas works!</p>
+<div class="becas-container">
+  
+  <header class="page-header">
+    <h1>{{ data.titulo }}</h1>
+    
+    @if (data.descripcion) {
+      <div class="intro-box">
+        <div [innerHTML]="renderMarkdown(data.descripcion)"></div>
+      </div>
+    }
+  </header>
+
+  <div class="becas-list">
+    
+    @for (beca of data.becas; track $index) {
+      <div class="accordion-item" [class.active]="beca.abierto">
+        
+        <button class="accordion-header" (click)="toggleBeca(beca)">
+          <div class="header-title">
+            <fa-icon [icon]="iconoBeca" class="main-icon"></fa-icon>
+            <h2>{{ beca.titulo }}</h2>
+          </div>
+          <fa-icon [icon]="beca.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
+        </button>
+        
+        <div class="accordion-content">
+          <div class="content-inner">
+            
+            <div class="markdown-body" [innerHTML]="renderMarkdown(beca.contenido)"></div>
+
+            @if (beca.archivoAdjunto) {
+              <div class="attachment-section">
+                <a [href]="beca.archivoAdjunto" target="_blank" download class="btn-download">
+                  <fa-icon [icon]="iconoDescarga"></fa-icon>
+                  {{ beca.textoBoton || 'Descargar Archivo' }}
+                </a>
+              </div>
+            }
+
+          </div>
+        </div>
+
+      </div>
+    }
+
+  </div>
+</div>

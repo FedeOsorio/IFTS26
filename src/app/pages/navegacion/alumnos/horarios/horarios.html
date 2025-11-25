@@ -1,1 +1,52 @@
-<p>horarios works!</p>
+<div class="horarios-container">
+  
+  <header class="page-header">
+    <div class="icon-container">
+      <fa-icon [icon]="iconoReloj"></fa-icon>
+    </div>
+    <h1>{{ data.titulo }}</h1>
+    
+    @if (data.descripcion) {
+      <div class="description-box">
+        <div [innerHTML]="renderMarkdown(data.descripcion)"></div>
+      </div>
+    }
+  </header>
+
+  <div class="schedules-list">
+    
+    @for (item of data.cronogramas; track $index) {
+      <div class="accordion-item" [class.active]="item.abierto">
+        
+        <button class="accordion-header" (click)="toggleCronograma(item)">
+          <h2>{{ item.titulo }}</h2>
+          <fa-icon [icon]="item.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
+        </button>
+        
+        <div class="accordion-content">
+          <div class="content-inner">
+            
+            @if (item.archivo) {
+              <div class="viewer-frame">
+                <iframe [src]="getSafeUrl(item.archivo)" width="100%" height="100%"></iframe>
+              </div>
+
+              <div class="download-area">
+                <a [href]="item.archivo" target="_blank" download class="btn-download">
+                  <fa-icon [icon]="iconoDescargar"></fa-icon>
+                  Descargar Archivo
+                </a>
+                <p class="help-text">* Si el archivo no se visualiza correctamente, descárguelo.</p>
+              </div>
+            } @else {
+              <p class="no-data">Horarios aún no disponibles para esta sección.</p>
+            }
+
+          </div>
+        </div>
+
+      </div>
+    }
+
+  </div>
+</div>

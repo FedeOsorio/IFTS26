@@ -235,3 +235,86 @@ collections:
               # Opción para adjuntar un archivo (PDF o Imagen) si hiciera falta
               - {label: "Archivo Adjunto (Opcional)", name: "archivoAdjunto", widget: "file", required: false}
               - {label: "Texto del Botón de Descarga", name: "textoBoton", widget: "string", required: false, default: "Descargar Archivo"}
+
+      - name: "becas"
+        label: "Becas y Ayuda Económica"
+        file: "src/assets/data/becas.json"
+        fields:
+          - {label: "Título Principal", name: "titulo", widget: "string", default: "Becas Estudiantiles"}
+          - {label: "Texto Introductorio", name: "descripcion", widget: "markdown", required: false}
+          
+          # LISTA DE BECAS
+          - label: "Listado de Becas"
+            name: "becas"
+            widget: "list"
+            fields:
+              - {label: "Nombre de la Beca", name: "titulo", widget: "string"}
+              
+              # Espacio para requisitos, fechas y links externos
+              - {label: "Información y Requisitos", name: "contenido", widget: "markdown"}
+              
+              # Opción para adjuntar manuales o formularios
+              - {label: "Archivo Adjunto (Opcional)", name: "archivoAdjunto", widget: "file", required: false}
+              - {label: "Texto del Botón", name: "textoBoton", widget: "string", default: "Descargar Instructivo", required: false}
+
+      - name: "equivalencias"
+        label: "Equivalencias"
+        file: "src/assets/data/equivalencias.json"
+        fields:
+          - {label: "Título Principal", name: "titulo", widget: "string", default: "Equivalencias"}
+          - {label: "Subtítulo / Bajada", name: "subtitulo", widget: "string", default: "Trámite para ALUMNOS REGULARES para solicitar equivalencias:"}
+          
+          # Campo principal de texto rico
+          - {label: "Contenido y Requisitos", name: "contenido", widget: "markdown", hint: "Escribí aquí los pasos y la lista de requisitos."}
+
+      - name: "mesas_examen"
+        label: "Mesas de Examen"
+        file: "src/assets/data/mesas-examen.json"
+        fields:
+          - {label: "Título Principal", name: "titulo", widget: "string", default: "Inscripción a exámenes finales"}
+          - {label: "Bajada / Subtítulo", name: "subtitulo", widget: "string", default: "Turno 2025 (1° y 2° llamado) por SIU GUARANI"}
+          
+          # SECCIÓN DE CABECERA (Intro)
+          - label: "Información General (Cabecera)"
+            name: "cabecera"
+            widget: "object"
+            fields:
+              - {label: "Imagen Ilustrativa", name: "imagen", widget: "image"}
+              - {label: "Texto Informativo (Fechas)", name: "texto", widget: "markdown", hint: "Poné aquí las fechas de los llamados."}
+
+          # SECCIÓN DE SOLAPAS (Cronogramas)
+          - label: "Cronogramas por Turno"
+            name: "turnos"
+            widget: "list"
+            fields:
+              - {label: "Título del Turno (Ej: Julio 2025)", name: "titulo", widget: "string"}
+              - {label: "Archivo del Cronograma (PDF/Imagen)", name: "archivo", widget: "file"}
+
+      - name: "faq"
+        label: "Preguntas Frecuentes"
+        file: "src/assets/data/faq.json"
+        fields:
+          - {label: "Título Principal", name: "titulo", widget: "string", default: "Preguntas Frecuentes"}
+          
+          # LISTA DE PREGUNTAS
+          - label: "Preguntas y Respuestas"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Pregunta (Título)", name: "pregunta", widget: "string"}
+              - {label: "Respuesta (Texto Rico)", name: "respuesta", widget: "markdown"}
+
+      - name: "horarios"
+        label: "Horarios de Cursada"
+        file: "src/assets/data/horarios.json"
+        fields:
+          - {label: "Título Principal", name: "titulo", widget: "string", default: "Horarios 2025"}
+          - {label: "Aclaraciones / Bajada", name: "descripcion", widget: "markdown", required: false, hint: "Ej: *1°1° y 1°2° se puede cursar de oyente..."}
+          
+          # LISTA DE HORARIOS
+          - label: "Cronogramas por Carrera/Plan"
+            name: "cronogramas"
+            widget: "list"
+            fields:
+              - {label: "Título (Carrera/Plan)", name: "titulo", widget: "string"}
+              - {label: "Archivo (PDF, Imagen o Excel)", name: "archivo", widget: "file"}

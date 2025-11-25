@@ -33,6 +33,7 @@
     "@coreui/angular": "~5.5.16",
     "@coreui/coreui": "^5.4.3",
     "@coreui/icons-angular": "~5.5.16",
+    "@emailjs/browser": "^4.4.1",
     "@fortawesome/angular-fontawesome": "^3.0.0",
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",

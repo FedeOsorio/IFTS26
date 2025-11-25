@@ -1,0 +1,89 @@
+{
+  "titulo": "Preguntas Frecuentes",
+  "items": [
+    {
+      "pregunta": "¿Quiénes pueden inscribirse en las carreras de los Institutos de Formación Técnica Superior?",
+      "respuesta": "Toda persona que haya cumplimentado la educación secundaria.\n\nAquellos aspirantes que adeuden materias del secundario podrán inscribirse en forma provisoria debiendo presentar constancia del respectivo título en trámite antes del **1º de abril** para efectivizar su inscripción definitiva para las inscripciones marzo-marzo. En aquellas inscripciones correspondientes al ciclo lectivo agosto-agosto, podrán presentar la constancia del título en trámite antes del **1° de septiembre**.\n\nY las excepciones establecidas en los artículos 7° de la Ley 24.521 y 10° del Anexo II del Reglamento Orgánico de los Institutos de Formación Técnica Superior."
+    },
+    {
+      "pregunta": "¿Cómo se realiza la preinscripción?",
+      "respuesta": "La preinscripción y carga de documentación se hace mediante el sistema **SIU-Guaraní**, luego se realiza un curso de preparación para los exámenes obligatorios y finalmente se rinde en el aula virtual para completar la inscripción."
+    },
+    {
+      "pregunta": "¿Dónde consultar dudas sobre el proceso de inscripción?",
+      "respuesta": "Mail: [preingreso.ifts@bue.edu.ar](mailto:preingreso.ifts@bue.edu.ar)"
+    },
+    {
+      "pregunta": "¿Cómo se realiza la inscripción a las materias?",
+      "respuesta": "Los/as estudiantes mediante el **sistema SIU-Guaraní** deberán inscribirse expresamente en los espacios curriculares que deseen cursar o rendir.\n\nPara que la inscripción tenga validez, deberá concretarse por las vías institucionales habilitadas para ello, respetando los plazos establecidos, el sistema de correlatividades y de cursado simultáneo establecido por el plan de estudios correspondiente."
+    },
+    {
+      "pregunta": "¿Cómo ver las asignaturas aprobadas en el SIU- Guaraní?",
+      "respuesta": "Los/as estudiantes mediante el sistema SIU-Guaraní ingresando por autogestión en el siguiente link: [SIU Guaraní Autogestión](https://guarani-autogestionagencia.bue.edu.ar/), podrán ver la cantidad de materias aprobadas, seleccionando **“Reportes”** y a continuación, seleccionar **“Historia Académica”**."
+    },
+    {
+      "pregunta": "¿Cómo anotarse a los exámenes finales?",
+      "respuesta": "Para inscribirte a los exámenes finales, debes ingresar por el **Sistema SIU- Guaraní**, a través de autogestión en el siguiente link: [SIU Guaraní](https://guarani-autogestionagencia.bue.edu.ar/).\n\nA continuación debes seleccionar **“Inscripción a Exámenes”**. Recordá que vas a tener habilitados los finales de las materias que regularizaste. Además vas a poder inscribirte durante los períodos habilitados para la “Inscripción de Exámenes Finales\", según el calendario académico."
+    },
+    {
+      "pregunta": "¿En qué materias me puedo inscribir si soy ingresante a la carrera Tecnicatura en Higiene y Seguridad en el Trabajo?",
+      "respuesta": "Si sos ingresante a la carrera, debes ingresar por el Sistema SIU- Guaraní e inscribirte a las siguientes materias:\n\n* Inglés Técnico.\n* Factores Psicosociales y de Organización.\n* Introducción a la Higiene y Seguridad.\n* Organización Laboral.\n* Conocimiento y Estudio de los materiales."
+    },
+    {
+      "pregunta": "¿En qué materias me puedo inscribir si soy ingresante a la carrera Tecnicatura en Gestión Integral del Riesgo?",
+      "respuesta": "Si sos ingresante a la carrera, debes ingresar por el Sistema SIU- Guaraní e inscribirte a las siguientes materias:\n\n* Sociología del Riesgo.\n* Fenómenos Ambientales\n* Bases Conceptuales de la GIR.\n* Comunicación Social del Riesgo I.\n* Amenazas y Desastres de Origen Hidrometeorológico."
+    },
+    {
+      "pregunta": "¿Dónde buscar los días y horarios de cursada?",
+      "respuesta": "Los horarios de las materias estarán subidos a la web del instituto, al Facebook de este y en la plataforma Moodle. Están separados por carreras y por año de cursada."
+    },
+    {
+      "pregunta": "¿Ante quién se gestionan los trámites administrativos?",
+      "respuesta": "**Bedelía** es la encargada de los trámites administrativos: solicitud de certificados, constancias, etc."
+    },
+    {
+      "pregunta": "¿Cuál es el régimen de cursada?",
+      "respuesta": "La condición de estudiante regular en los espacios curriculares está sujeta al cumplimiento del setenta y cinco por ciento (**75%**) de asistencia o participación en el espacio curricular y la aprobación con un mínimo de cuatro (**4**) puntos en cada una de las instancias evaluativas establecidas institucionalmente y que los/las profesores/as explicitan en los respectivos programas y/o planificaciones, contemplando al menos una (1) instancia de recuperatorio por cada evaluación estipulada."
+    },
+    {
+      "pregunta": "¿Las materias son promocionales?",
+      "respuesta": "**Sí.** La aprobación de cada espacio curricular se podrá efectuar por promoción directa o con examen final.\n\nLa promoción directa está condicionada a obtener un mínimo de siete (**7**) puntos en cada una de las instancias de evaluación establecidas institucionalmente y que los/las profesores/as explicitan en los respectivos programas/o planificaciones, y acreditar el setenta y cinco por ciento (**75%**) de asistencia o participación en el desarrollo del espacio curricular."
+    },
+    {
+      "pregunta": "¿Se puede rendir libre?",
+      "respuesta": "**Sí.** En caso de no haber cumplido con el porcentaje mínimo de asistencia o participación requerida para la cursada, no haber alcanzado los requisitos de aprobación o de optar por no cursar, el/la estudiante podrá solicitar al rectorado una autorización para rendir el examen final en condición de estudiante libre. Es obligatorio cumplimentar una instancia escrita y una instancia oral."
+    },
+    {
+      "pregunta": "¿Cómo se conserva la condición de alumno regular?",
+      "respuesta": "Para mantener la condición de regular el/la estudiante debe aprobar, como mínimo el cursado de un espacio curricular o en caso de ser libre haber aprobado un espacio curricular, en ambos casos, de la carrera y por ciclo lectivo."
+    },
+    {
+      "pregunta": "¿Si se pierde la condición de regular es posible reincorporarse a la carrera?",
+      "respuesta": "El/la estudiante que haya perdido la condición de regular deberá solicitar su readmisión en los períodos habilitados a tal fin. Se podrá solicitar la readmisión hasta un máximo de tres (**3**) veces y siempre que el/la estudiante no hubiera interrumpido sus estudios por un período mayor a diez (10) años consecutivos.\n\nAquellos/as estudiantes que soliciten la readmisión, cuyos planes de estudio no se encuentren vigentes para su cohorte, se regirán por lo establecido en la normativa del plan de estudios actual."
+    },
+    {
+      "pregunta": "¿Cuándo y cómo solicitar equivalencias?",
+      "respuesta": "Las equivalencias podrán ser solicitadas hasta el **15 de abril** de cada año para las inscripciones del ciclo lectivo marzo-marzo. En aquellas inscripciones correspondientes al ciclo lectivo agosto-agosto, podrán presentar la solicitud hasta el **15 de septiembre**.\n\nA tal fin, el alumno deberá:\n\n1. Dirigir nota de solicitud al Rectorado.\n2. Acompañar constancia de los espacios curriculares aprobados, indicando la fecha de aprobación expedida por la institución correspondiente.\n3. Acompañar los programas analíticos autenticados de los referidos espacios curriculares, los que deberán estar autenticados por las autoridades pedagógicas de la institución correspondiente.\n\nEl otorgamiento de la/s equivalencia/s solicitadas por el/la estudiante estará sujeto a los requerimientos y procedimientos establecidos por reglamento. Mientras dure el trámite de reconocimiento de equivalencias, el/la estudiante solo podrá cursar y/o rendir el examen final de aquellos espacios curriculares a los que esté habilitado/a, conforme al régimen de correlatividades existentes."
+    },
+    {
+      "pregunta": "En caso de ausencia por enfermedad ¿cómo se justifican los días?",
+      "respuesta": "Se debe presentar certificado médico y avisar al docente."
+    },
+    {
+      "pregunta": "¿Hay condiciones especiales por estar embarazada?",
+      "respuesta": "**Sí**, la Ley 709/2001 crea un Régimen Especial de Inasistencias Justificadas no computables a los fines de la reincorporación para estudiantes embarazadas y estudiantes en condición de paternidad.\n\n* **Estudiantes embarazadas:** gozarán de un plazo máximo de inasistencias justificadas de cuarenta y cinco (**45**) días (antes o después del parto).\n* **Paternidad:** contarán con cinco (**5**) inasistencias justificadas continuas a partir del nacimiento.\n* **Lactancia:** incluye el derecho de retirarse del establecimiento educativo durante una (1) hora diaria durante el primer año de lactancia."
+    },
+    {
+      "pregunta": "Convalidar título secundario de países con convenio",
+      "respuesta": "Si terminaste tus estudios de educación secundaria en un país con el que la Argentina tiene convenio educativo y querés realizar estudios de nivel superior en una institución nacional, tenés que convalidar tu título. (Solicitar hoja de convalidación)\n\n👉 [Link para el trámite](https://www.argentina.gob.ar/educacion/tramites/convalidar-titulo-secundario-de-paises-con-convenio)\n\n**IMPORTANTE:** DEBEN ENTRAR DE LUNES A VIERNES A LAS 9:00HS QUE ES CUANDO HABILITAN LOS TURNOS, DEBEN INGRESAR PUNTUAL YA QUE LOS TURNOS SON ESCASOS Y SE RENUEVAN POR DÍA."
+    },
+    {
+      "pregunta": "Matrícula Profesional",
+      "respuesta": "Una vez iniciado el trámite del título de Técnico Superior en Higiene y Seguridad y con el certificado de título en trámite el egresado ya se puede matricular en colegios profesionales.\n\nSugerimos informarse con docentes y compañeros ya recibidos acerca de cuáles son las mejores opciones, ya que la oferta es variada y se deben considerar los costos y beneficios que proporciona cada colegio profesional. Esta evaluación personal debe considerar el lugar de desempeño profesional, ya que cada colegio tiene una jurisdicción asignada."
+    },
+    {
+      "pregunta": "Trámite para ALUMNOS REGULARES para solicitar equivalencias (Detalle)",
+      "respuesta": "En general, los ingresantes suelen solicitar el trámite de equivalencias de aquellas materias con nombres similares, luego son los/as docentes a cargo de las materias que se dictan en nuestra institución los que evalúan si las materias son equivalentes o no.\n\nEste trámite se realiza una vez sean alumnos regulares de nuestro instituto, habiendo realizado la preinscripción online y siendo adjudicados con la vacante mediante un sorteo que se realiza dos veces al año.\n\n**Para ello deben presentar:**\n\n* **Certificado/analítico de materias aprobadas** legalizado por una autoridad competente de la Institución de origen. El mismo debe indicar la carrera cursada, calificación, fecha de aprobación de la asignatura y número de registro (N.º de libro y acta/folio).\n* Copia del **plan de estudio**, emitido y legalizado por una autoridad competente de la Institución de origen.\n* Copias de los **programas** de materias que solicita equivalencia, emitidos, foliados y legalizados por una autoridad competente de la Institución de origen.\n* **Carta** dirigida al rector del IFTS N° 26 explicando la solicitud."
+    }
+  ]
+}

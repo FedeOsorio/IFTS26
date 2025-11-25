@@ -1,0 +1,29 @@
+<div class="faq-container">
+  
+  <header class="page-header">
+    <div class="icon-header">
+      <fa-icon [icon]="iconoPregunta"></fa-icon>
+    </div>
+    <h1>{{ data.titulo }}</h1>
+  </header>
+
+  <div class="faq-list">
+    @for (item of data.items; track $index) {
+      <div class="accordion-item" [class.active]="item.abierto">
+        
+        <button class="accordion-header" (click)="toggleItem(item)">
+          <h2>{{ item.pregunta }}</h2>
+          <fa-icon [icon]="item.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
+        </button>
+        
+        <div class="accordion-content">
+          <div class="content-inner">
+            <div class="markdown-body" [innerHTML]="renderMarkdown(item.respuesta)"></div>
+          </div>
+        </div>
+
+      </div>
+    }
+  </div>
+
+</div>

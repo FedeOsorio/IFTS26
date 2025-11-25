@@ -1,0 +1,18 @@
+{
+  "titulo": "Becas Progresar",
+  "descripcion": "",
+  "becas": [
+    {
+      "titulo": "Becas Progresar (Nivel Superior)",
+      "contenido": "**Progresar** es el programa de respaldo a estudiantes de Argentina.\n\n**Requisitos principales:**\n* Ser argentino nativo; naturalizado o extranjero, con residencia legal de 2 años en el país y contar con DNI.\n* Ser alumno regular de una institución educativa.\n* Tener entre 17 y 24 años de edad cumplidos.\n* Estudiantes avanzados en la carrera, hasta 30 años cumplidos.\n* Los ingresos de tu grupo familiar no deben superar tres veces el Salario Mínimo, Vital y Móvil.\n\n👉 **Inscripción:** [Web oficial de Progresar](https://www.argentina.gob.ar/educacion/progresar)",
+      "archivoAdjunto": "",
+      "textoBoton": ""
+    },
+    {
+      "titulo": "Becas Estratégicas Manuel Belgrano",
+      "contenido": "Becas para carreras científicas y técnicas consideradas estratégicas.\n\n**Áreas alcanzadas:** Alimentos, Ambiente, Computación e Informática, Energía, Petróleo y Gas, Minería, Movilidad y Transporte, Ciencias Básicas.\n\nPara más información sobre fechas de inscripción, visitá el sitio oficial.",
+      "archivoAdjunto": "/assets/images/uploads/reglamento_belgrano.pdf",
+      "textoBoton": "Descargar Reglamento"
+    }
+  ]
+}

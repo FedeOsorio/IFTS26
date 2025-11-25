@@ -1,0 +1,18 @@
+{
+  "titulo": "Horarios 2025",
+  "descripcion": "**ATENCIÓN:** 1°1° y 1°2° se puede cursar de oyente con las materias correspondientes al nuevo plan. Dado que las materias de 1° año del plan viejo ya no se dictan.",
+  "cronogramas": [
+    {
+      "titulo": "Higiene y Seguridad - PLAN NUEVO",
+      "archivo": "/assets/images/uploads/horarios_hys_nuevo.pdf"
+    },
+    {
+      "titulo": "Higiene y Seguridad - PLAN ANTIGUO",
+      "archivo": ""
+    },
+    {
+      "titulo": "Gestión Integral del Riesgo",
+      "archivo": ""
+    }
+  ]
+}

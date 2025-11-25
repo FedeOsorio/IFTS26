@@ -1,0 +1,22 @@
+{
+  "titulo": "Inscripción a exámenes finales",
+  "subtitulo": "Turno 2025 (1° y 2° llamado) por SIU GUARANI",
+  "cabecera": {
+    "imagen": "/assets/images/uploads/mesas-intro.jpg",
+    "texto": "**1° LLAMADO:** Del lunes 14/07 a viernes 18/07\n\n**2° LLAMADO:** Del lunes 04/08 a viernes 08/08"
+  },
+  "turnos": [
+    {
+      "titulo": "Mesas de Examen JULIO/AGOSTO 2025",
+      "archivo": "/assets/images/uploads/cronograma_julio.pdf"
+    },
+    {
+      "titulo": "Mesas de Examen DICIEMBRE 2025",
+      "archivo": ""
+    },
+    {
+      "titulo": "Mesas de Examen FEBRERO 2026",
+      "archivo": ""
+    }
+  ]
+}

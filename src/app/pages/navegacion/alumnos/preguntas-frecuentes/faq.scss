@@ -10,8 +10,8 @@
   --color-border: rgba(0, 0, 0, 0.08);
 }
 
-.horarios-container {
-  max-width: 1200px;
+.faq-container {
+  max-width: 1200px; // Estandarizado con las otras páginas
   margin: 0 auto 40px auto;
   padding: 0 24px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -27,13 +27,15 @@
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   padding: 48px 40px;
   text-align: center;
-  border-radius: 24px; // Bordes redondeados completos
+  border-radius: 24px;
   margin: 20px 0 40px 0;
   box-shadow: 
     0 8px 32px rgba(30, 108, 147, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   overflow: hidden;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   // Patrón decorativo
   &::before {
@@ -49,93 +51,76 @@
     pointer-events: none;
   }
 
-  .icon-container {
+  .icon-header {
     position: relative;
     z-index: 1;
-    font-size: 3rem;
-    margin-bottom: 16px;
-    opacity: 1;
-    color: white;
+    font-size: 2.5rem;
+    color: white; // Icono blanco para contrastar
+    opacity: 0.9;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
   }
 
   h1 {
     position: relative;
     z-index: 1;
-    font-size: 32px;
+    color: white;
     font-weight: 700;
     text-transform: uppercase;
+    font-size: 32px;
+    margin: 0;
     letter-spacing: 1px;
-    margin-bottom: 24px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
     @media (max-width: 768px) {
       font-size: 26px;
     }
   }
-
-  .description-box {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.15); // Glassmorphism
-    padding: 24px;
-    border-radius: 16px;
-    font-size: 16px;
-    line-height: 1.6;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-
-    ::ng-deep strong {
-      font-weight: 700;
-      color: #ffeb3b; // Mantenemos el amarillo para resaltar sobre azul
-    }
-  }
 }
 
-/* --- Lista de Horarios (Acordeón Tarjetas) --- */
-.schedules-list {
+/* --- Acordeón (Estilo Tarjetas) --- */
+.faq-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 0; // Padding manejado por el contenedor padre
 }
 
 .accordion-item {
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  border: none;
+  border: none; // Sin borde completo
   border-left: 5px solid var(--color-primary); // Borde lateral
   box-shadow: 
     0 4px 24px rgba(0, 0, 0, 0.06),
     0 0 0 1px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 
-  // Estado Activo
+  // Estado Activo (Abierto)
   &.active {
-    transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(30, 108, 147, 0.12);
     border-left-color: var(--color-secondary);
-
+    
     .accordion-header {
       background-color: rgba(30, 108, 147, 0.05);
-      color: var(--color-primary);
+      
+      h2 { 
+        color: var(--color-primary); 
+      }
       
       .toggle-icon {
         transform: rotate(180deg);
         color: var(--color-primary);
       }
     }
-
+    
+    // IMPORTANTE: Permite ver el contenido
     .accordion-content {
-      max-height: 1500px;
+      max-height: 2000px;
       opacity: 1;
     }
   }
 
-  // Hover cerrado
+  // Hover en estado cerrado
   &:not(.active):hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   }
@@ -150,6 +135,7 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  text-align: left;
   transition: background 0.3s;
 
   @media (max-width: 768px) {
@@ -159,14 +145,16 @@
   h2 {
     margin: 0;
     font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: 600;
     color: var(--color-text-dark);
-    letter-spacing: 0.5px;
+    padding-right: 16px;
+    line-height: 1.5;
+    transition: color 0.3s;
   }
 
   .toggle-icon {
     color: #ccc;
+    min-width: 16px; // Para evitar que se aplaste
     transition: transform 0.3s ease, color 0.3s ease;
   }
 }
@@ -180,66 +168,50 @@
 
   .content-inner {
     padding: 24px 32px 32px 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
   }
+}
 
-  .viewer-frame {
-    width: 100%;
-    height: 600px;
-    background: var(--color-bg-light);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 24px;
+/* --- Estilos Markdown --- */
+.markdown-body {
+  color: var(--color-text-dark);
+  line-height: 1.7;
+  font-size: 16px;
 
-    iframe {
-      border: none;
-      display: block;
-      width: 100%;
-      height: 100%;
+  ::ng-deep {
+    p { margin-bottom: 1.2rem; }
+    
+    strong { 
+      color: var(--color-primary-dark); 
+      font-weight: 700; 
     }
-  }
-
-  .download-area {
-    text-align: center;
-    width: 100%;
-
-    .btn-download {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background-color: var(--color-primary);
-      color: white;
-      padding: 12px 32px;
-      border-radius: 50px;
+    
+    a {
+      color: var(--color-primary);
       text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(30, 108, 147, 0.3);
-
-      &:hover {
-        background-color: var(--color-primary-dark);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(30, 108, 147, 0.4);
+      font-weight: 600;
+      word-break: break-word;
+      transition: color 0.2s;
+      
+      &:hover { 
+        color: var(--color-secondary);
+        text-decoration: underline; 
       }
     }
 
-    .help-text {
-      margin-top: 12px;
-      font-size: 14px;
-      color: var(--color-text-light);
-    }
-  }
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      
+      li { 
+        margin-bottom: 0.8rem;
+        padding-left: 0.5rem;
+        color: var(--color-text-light);
 
-  .no-data {
-    padding: 24px;
-    color: var(--color-text-light);
-    font-style: italic;
-    text-align: center;
+        &::marker {
+          color: var(--color-primary);
+        }
+      }
+    }
   }
 }
