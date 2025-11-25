@@ -1,28 +1,24 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { ButtonDirective, DropdownComponent, DropdownItemDirective, DropdownMenuDirective, DropdownToggleDirective } from "@coreui/angular";
-import { routes } from '../../app.routes';
+import { Component, HostListener, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [
-    DropdownComponent,
-    ButtonDirective,
-    DropdownToggleDirective,
-    DropdownMenuDirective,
-    DropdownItemDirective,
-    RouterLink
-  ],
+  standalone: true,
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './header.html',
-  styleUrl: './header.scss'
+  styleUrls: ['./header.scss']
 })
-export class Header {
-  public isMenuOpen = false;
+export class Header implements OnInit, AfterViewInit {
+  @ViewChild('desktopMenu') desktopMenu!: ElementRef;
+  
+  mobileMenuOpen = false;
+  openSubmenu: string | null = null;
+  moreMenuOpen = false;
+  visibleButtons: any[] = [];
+  hiddenButtons: any[] = [];
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
-
+  // NavButtons originales de IFTS26 con todos sus links
   public navButtons = [
     {
       label: 'Inicio',
@@ -38,7 +34,6 @@ export class Header {
         { text: 'Calendario Académico', route: '/institucional/calendario-academico' },
         { text: 'Datos Institucionales', route: '/institucional/autoridades' },
         { text: 'Reglamento Orgánico', route: '/institucional/reglamento-organico' },
-      //  { text: 'Repositorio', route: '/institucional/repositorio' },
         { text: 'Plano de Evacuación', route: '/institucional/evacuacion' }
       ]
     },
@@ -79,4 +74,66 @@ export class Header {
       route: '/contacto'
     }
   ];
+
+  ngOnInit(): void {
+    this.calculateVisibleButtons();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => this.calculateVisibleButtons(), 100);
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.calculateVisibleButtons();
+  }
+
+  calculateVisibleButtons(): void {
+    const screenWidth = window.innerWidth;
+    
+    // En mobile/tablet, mostrar todos en hamburguesa
+    if (screenWidth < 1024) {
+      this.visibleButtons = this.navButtons;
+      this.hiddenButtons = [];
+      return;
+    }
+
+    // Lógica responsive para desktop
+    let maxVisible = this.navButtons.length;
+    
+    if (screenWidth < 1400) {
+      maxVisible = 6; // Mostrar 6 + botón Más
+    } else if (screenWidth < 1600) {
+      maxVisible = 8; // Mostrar 8 + botón Más
+    }
+
+    if (maxVisible < this.navButtons.length) {
+      this.visibleButtons = this.navButtons.slice(0, maxVisible);
+      this.hiddenButtons = this.navButtons.slice(maxVisible);
+    } else {
+      this.visibleButtons = this.navButtons;
+      this.hiddenButtons = [];
+    }
+  }
+
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+    if (!this.mobileMenuOpen) {
+      this.openSubmenu = null;
+    }
+  }
+
+  toggleSubmenu(label: string): void {
+    this.openSubmenu = this.openSubmenu === label ? null : label;
+  }
+
+  toggleMoreMenu(): void {
+    this.moreMenuOpen = !this.moreMenuOpen;
+  }
+
+  closeMenus(): void {
+    this.mobileMenuOpen = false;
+    this.openSubmenu = null;
+    this.moreMenuOpen = false;
+  }
 }

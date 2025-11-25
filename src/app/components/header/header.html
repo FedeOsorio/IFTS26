@@ -1,37 +1,146 @@
-<nav class="navbar">
-    <div class="navContainer">
-        <img class="logoIFTS" src="/assets/img/iftslogo.png" alt="Logo IFTS26">
-        <div class="titleContainer">
-            <h1>IFTS N° 26</h1>
-            <h3>Tecnicatura Superior en Gestión Integral del Riesgo</h3>
-            <h3>Tecnicatura Superior en Higiene y Seguridad en el Trabajo</h3>
+<!-- Header mejorado con responsive inteligente -->
+<header class="header">
+  <div class="header-container">
+    <div class="header-content">
+      <!-- Logo mejorado -->
+      <a [routerLink]="['/']" class="logo" (click)="closeMenus()">
+        <img src="/assets/img/iftslogo.png" alt="Logo IFTS26" class="logo-image">
+        <div class="logo-text">
+          <div class="logo-title">IFTS N°26</div>
+          <div class="logo-subtitle">Instituto de Formación Técnica Superior</div>
         </div>
-    </div>
-    <div class="hamburger">
-        <button (click)="toggleMenu()">&#9776;</button>
-    </div>
-    <div class="navList" [class.show]="isMenuOpen">
-        @for (button of navButtons; track button.label) {
-          @if (button.items && button.items.length > 0) {
-            <c-dropdown variant="btn-group" class="m-1">
-                <button cButton cDropdownToggle>
-                    {{ button.label }}
-                </button>
-                <ul cDropdownMenu class="ulMenu">
-                    @for (item of button.items; track item.text) {
-                    <li>
-                        <button class="secButton" [routerLink]="item.route" cDropdownItem>{{ item.text }}</button>
-                    </li>
-                    }
-                </ul>
-            </c-dropdown>
-          } @else {
-            <button cButton class="m-1" [routerLink]="button.route">
-                {{ button.label }}
+      </a>
+
+      <!-- Menú Desktop con botón Más -->
+      <nav class="desktop-menu" #desktopMenu>
+        <!-- Botones visibles -->
+        <div *ngFor="let button of visibleButtons" class="menu-item-wrapper">
+          <!-- Items sin submenú -->
+          <a
+            *ngIf="!button.items"
+            [routerLink]="button.route"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: button.route === '/'}"
+            class="menu-item"
+            (click)="closeMenus()"
+          >
+            {{ button.label }}
+          </a>
+          
+          <!-- Items con submenú -->
+          <div *ngIf="button.items" class="submenu-container">
+            <button class="menu-item">
+              {{ button.label }}
             </button>
-          }
-        }
+            
+            <div class="submenu">
+              <a
+                *ngFor="let subItem of button.items"
+                [routerLink]="subItem.route"
+                routerLinkActive="active"
+                class="submenu-item"
+                (click)="closeMenus()"
+              >
+                {{ subItem.text }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón Más (solo si hay items ocultos) -->
+        <div *ngIf="hiddenButtons.length > 0" class="menu-item-wrapper more-menu-wrapper">
+          <button class="menu-item more-button" (click)="toggleMoreMenu()">
+            Más
+            <i class="bi" [class.bi-chevron-down]="!moreMenuOpen" [class.bi-chevron-up]="moreMenuOpen"></i>
+          </button>
+          
+          <div class="submenu more-submenu" [class.show]="moreMenuOpen">
+            <ng-container *ngFor="let button of hiddenButtons">
+              <!-- Items sin submenú en Más -->
+              <a
+                *ngIf="!button.items"
+                [routerLink]="button.route"
+                routerLinkActive="active"
+                class="submenu-item"
+                (click)="closeMenus()"
+              >
+                {{ button.label }}
+              </a>
+              
+              <!-- Items con submenú en Más -->
+              <div *ngIf="button.items" class="submenu-nested">
+                <div class="submenu-item submenu-title">{{ button.label }}</div>
+                <a
+                  *ngFor="let subItem of button.items"
+                  [routerLink]="subItem.route"
+                  routerLinkActive="active"
+                  class="submenu-item submenu-nested-item"
+                  (click)="closeMenus()"
+                >
+                  {{ subItem.text }}
+                </a>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Botón menú mobile mejorado -->
+      <button
+        class="mobile-menu-button"
+        (click)="toggleMobileMenu()"
+        [attr.aria-label]="mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'"
+      >
+        <span class="hamburger-icon" [class.open]="mobileMenuOpen">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
     </div>
 
-
-</nav>
+    <!-- Menú Mobile mejorado -->
+    <nav *ngIf="mobileMenuOpen" class="mobile-menu" [@slideDown]>
+      <div class="mobile-menu-scroll">
+        <div *ngFor="let button of navButtons" class="mobile-menu-group">
+          <!-- Items sin submenú -->
+          <a
+            *ngIf="!button.items"
+            [routerLink]="button.route"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: button.route === '/'}"
+            class="mobile-menu-item"
+            (click)="closeMenus()"
+          >
+            <span>{{ button.label }}</span>
+            <i class="bi bi-chevron-right"></i>
+          </a>
+          
+          <!-- Items con submenú en mobile -->
+          <div *ngIf="button.items" class="mobile-submenu-wrapper">
+            <button
+              class="mobile-menu-item"
+              [class.active]="openSubmenu === button.label"
+              (click)="toggleSubmenu(button.label)"
+            >
+              <span>{{ button.label }}</span>
+              <i class="bi" [class.bi-chevron-down]="openSubmenu !== button.label" [class.bi-chevron-up]="openSubmenu === button.label"></i>
+            </button>
+            
+            <div *ngIf="openSubmenu === button.label" class="mobile-submenu">
+              <a
+                *ngFor="let subItem of button.items"
+                [routerLink]="subItem.route"
+                routerLinkActive="active"
+                class="mobile-submenu-item"
+                (click)="closeMenus()"
+              >
+                {{ subItem.text }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

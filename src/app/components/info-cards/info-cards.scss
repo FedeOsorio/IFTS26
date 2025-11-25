@@ -1,101 +1,105 @@
 :host {
-  --color-primary: #3f51b5;
+  --color-primary: #3f51b5; // Azul del banner
   --color-primary-dark: #303f9f;
-  --color-bg-light: #f7f9ff;
+  --color-bg-light: #ffffff; // Fondo blanco puro para la tarjeta
   --color-text-dark: #212529;
-  --color-text-light: #5a5a5a;
-  --color-border: #e0e0e0;
+  --color-text-light: #6c757d; // Un gris un poco más suave
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08); // Sombra elegante
+  --shadow-hover: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
 }
 
 .info-container {
-  margin: 20px;
+  position: relative; // Necesario para que el z-index funcione sobre el banner
+  z-index: 10;
+  margin: 10px;
   background-color: var(--color-bg-light);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 10px;
-  max-width: 1200px;
+  border-radius: 12px; // Bordes redondeados más suaves
+  box-shadow: var(--shadow-soft); // Sombra en vez de borde
+  border: none; // Eliminamos el borde gris antiguo
+
+  padding: 1rem;
   text-align: center;
 
   @media (max-width: 768px) {
-    padding: 1.5rem;
+    margin: 20px; // En móviles quitamos el efecto overlap
+    padding: 2rem 1.5rem;
   }
 
   .welcome-text {
+    
     h2 {
-      font-size: 1.75rem;
-      font-weight: 600;
+      font-size: 2rem;
+      font-weight: 700;
       color: var(--color-text-dark);
       margin-bottom: 1rem;
-
-      @media (max-width: 768px) {
-        font-size: 1.5rem;
-      }
+      letter-spacing: -0.5px;
     }
 
     p {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--color-text-light);
-      max-width: 800px;
-      margin: 0 auto 2.5rem auto;
-      line-height: 1.6;
-
-      @media (max-width: 768px) {
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
-      }
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
     }
   }
 
   .features-grid {
     display: flex;
-    justify-content: space-around;
-    gap: 2rem;
+    justify-content: center; // Centrado
+    gap: 2.5rem;
     flex-wrap: wrap;
 
     .feature-item {
       flex: 1;
-      min-width: 260px;
-      max-width: 340px;
-      border: 1px solid var(--color-border);
-      padding: 16px;
-      border-radius: 8px;
+      min-width: 280px;
+      max-width: 320px;
+
+      // CAMBIO IMPORTANTE: Quitamos el borde de cada ítem
+      border: none;
+      padding: 18px;
       box-sizing: border-box;
+      margin: 1px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: transparent;
+
+      // Efecto hover sutil
+      &:hover {
+        transform: translateY(-5px);
+        background: #f8faff; // Un azul muy muy clarito al pasar el mouse
+      }
 
       .icon-wrapper {
-        width: 60px;
-        height: 60px;
-        background-color: var(--color-primary);
+        width: 70px; // Iconos un poco más grandes
+        height: 70px;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); // Gradiente sutil
         border-radius: 50%;
-        margin: 0 auto 1.25rem auto;
+        margin: 0 auto 1.5rem auto;
         display: grid;
         place-items: center;
         color: white;
-        font-size: 1.4rem;
-      }
-
-      .icon-placeholder {
-        width: 28px;
-        height: 28px;
-        border: 2px solid white;
-        border-radius: 4px;
+        font-size: 1.6rem;
+        box-shadow: 0 4px 10px rgba(63, 81, 181, 0.3); // Sombra brillante al icono
       }
 
       h3 {
-        font-size: 1.25rem;
-        font-weight: 600;
+        font-size: 1.35rem;
+        font-weight: 700;
         color: var(--color-text-dark);
-        margin-bottom: 0.5rem;
       }
 
       p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         color: var(--color-text-light);
-        line-height: 1.5;
+        line-height: 1.6;
         margin: 0;
       }
     }
   }
 }
+
+// ... El resto del código (.careers-section) se mantiene igual ...
 
 .careers-section {
   max-width: 1200px;

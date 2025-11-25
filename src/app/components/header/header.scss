@@ -1,166 +1,370 @@
-.navbar {
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-    position: relative;
+// Estilos del Header Simplificado (Static High Performance)
+// ============================================
+.header {
+  background: #2c3539;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.logoIFTS {
-    height: 120px;
+.header-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @media (min-width: 768px) { padding: 0 40px; }
+  @media (min-width: 1024px) { padding: 0 60px; }
 }
 
-.navContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 10px;
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  gap: 20px;
+
+  @media (min-width: 768px) { min-height: 80px; }
 }
 
-.titleContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
+// Logo (Estático)
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 8px 0;
 
-    h1 {
-        font-size: 44px;
+  // Hover simple de opacidad
+  &:hover { opacity: 0.9; }
+}
+
+.logo-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  @media (min-width: 768px) { width: 56px; height: 56px; }
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  @media (max-width: 480px) { display: none; }
+}
+
+.logo-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+  @media (min-width: 768px) { font-size: 22px; }
+}
+
+.logo-subtitle {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.2;
+  @media (min-width: 768px) { font-size: 12px; }
+  @media (max-width: 640px) { display: none; }
+}
+
+// Menú Desktop
+.desktop-menu {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: flex-end;
+
+  @media (min-width: 1024px) { display: flex; }
+  @media (min-width: 1200px) { gap: 8px; }
+}
+
+.menu-item-wrapper {
+  position: relative;
+}
+
+.menu-item {
+  padding: 10px 14px;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  // Hover simple, sin desplazamiento
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 10px 16px;
+    font-size: 16px;
+  }
+}
+
+.more-button i {
+  font-size: 12px;
+  // Sin transición de rotación, cambio inmediato si rota
+}
+
+// Lógica de Submenú (Sin efectos de slide/fade complejos)
+.more-menu-wrapper:hover .more-submenu,
+.more-menu-wrapper .more-submenu.show,
+.submenu-container:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  // Se eliminó transform
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  min-width: 240px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 8px 0;
+  // Estado inicial oculto
+  opacity: 0;
+  visibility: hidden;
+  z-index: 100;
+  overflow: hidden;
+
+  // Sin transition de transform
+  transition: opacity 0.2s ease, visibility 0.2s; 
+
+  &.more-submenu {
+    right: 0;
+    left: auto;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+}
+
+.submenu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 12px; // Padding fijo
+  font-size: 14px;
+  color: #2c3539;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+
+  // Hover simplificado: Solo color de fondo, SIN padding-left extra
+  &:hover {
+    background: #f8f9fa;
+    border-left-color: #2c3539;
+    // Padding se mantiene igual, evitando el salto
+  }
+
+  &.active {
+    background: #e9ecef;
+    color: #1a1f23;
+    font-weight: 600;
+    border-left-color: #2c3539;
+  }
+
+  &.submenu-title {
+    font-weight: 600;
+    color: #1a1f23;
+    background: #f0f0f0;
+    cursor: default;
+    
+    // Anula el borde en hover para títulos
+    &:hover {
+      border-left-color: transparent;
     }
+  }
 
-    h3 {
-        font-size: 14px;
-    }
-}
-
-.hamburger {
-    display: none; // Hidden by default
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    button {
-        font-size: 24px;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-}
-
-.navList {
-    width: 100%;
-    display: flex;
+  &.submenu-nested-item {
+    padding-left: 32px; // Indentación fija
     font-size: 14px;
-    gap: 20px;
-    justify-content: space-between;
-    background-color: #2c3539;
-    color: #ffffff;
-    align-items: center;
-    height: 42px;
-    padding: 0 80px;
-
-    .ulMenu {
-        min-width: 160px;
-        box-sizing: border-box;
-        padding: 0;
-    }
-
-    li {
-        cursor: pointer;
-        padding: 0;
-    }
-
-    button {
-        background-color: inherit;
-        border: none;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        min-width: fit-content;
-    }
-
-    .secButton {
-        padding: 12px 14px;
-        width: 100%;
-        font-size: 13px;
-        font-weight: 400;
-        border-radius: 4px;
-    }
-
-    .secButton:hover {
-        background-color: #e4e4e4;
-    }
+    
+    // Sin aumento de padding en hover
+  }
 }
 
-@media (max-width: 1200px) {
-    .titleContainer {
-        h1 {
-            font-size: 36px;
-        }
-        h3 {
-            font-size: 12px;
-        }
-    }
-    .navList {
-        padding: 0 20px;
-        gap: 10px;
-        button {
-            font-size: 12px;
-        }
-    }
+.submenu-nested {
+  border-bottom: 1px solid #e9ecef;
+  &:last-child { border-bottom: none; }
 }
 
-@media (max-width: 768px) {
-    .titleContainer {
-        text-align: center;
-        h1 {
-            font-size: 30px;
-        }
-        h3 {
-            font-size: 11px;
-        }
+// Botón Mobile
+.mobile-menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 1001;
+
+  @media (min-width: 1024px) { display: none; }
+}
+
+// Icono Hamburguesa (Transiciones rápidas/inmediatas)
+.hamburger-icon {
+  width: 28px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+    left: 0;
+    // Transición muy rápida solo para suavizar el cambio de estado
+    transition: all 0.2s ease; 
+
+    &:nth-child(1) { top: 0px; }
+    &:nth-child(2) { top: 9px; }
+    &:nth-child(3) { top: 18px; }
+  }
+
+  &.open span {
+    &:nth-child(1) {
+      top: 9px;
+      transform: rotate(135deg);
     }
-    .navbar {
-        align-items: flex-start;
+    &:nth-child(2) {
+      opacity: 0;
+      left: -20px;
     }
-
-    .hamburger {
-        display: block; // Show hamburger on smaller screens
+    &:nth-child(3) {
+      top: 9px;
+      transform: rotate(-135deg);
     }
+  }
+}
 
-    .navList {
-        display: none; // Hide navList by default
-        flex-direction: column;
-        width: 100%;
-        background-color: #2c3539;
-        position: absolute;
-        top: 140px; 
-        left: 0;
-        padding: 10px 0;
-        height: auto;
-        
+// Menú Mobile (Sin slideDown animation)
+.mobile-menu {
+  background: #1a1f23;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  max-height: calc(100vh - 70px);
+  overflow: hidden;
+  // Animación eliminada, el display lo manejará JS o una clase .open
+  
+  @media (min-width: 1024px) { display: none; }
+}
 
-        &.show {
-            display: flex; // Show navList when menu is open
-        }
+.mobile-menu-scroll {
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  padding: 8px 0 16px;
 
-        c-dropdown, button {
-            width: 100%;
-        }
+  &::-webkit-scrollbar { width: 6px; }
+  &::-webkit-scrollbar-track { background: #2c3539; }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    &:hover { background: rgba(255, 255, 255, 0.3); }
+  }
+}
 
-        .ulMenu {
-            width: 100%;
-        }
+.mobile-menu-group {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  &:last-child { border-bottom: none; }
+}
 
-        button {
-            justify-content: center;
-            font-size: 14px; // Reset font size for vertical menu
-        }
-    }
+.mobile-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  padding: 16px 24px; // Padding fijo
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+  span { flex: 1; }
+  
+  i {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+  }
 
-    .navContainer {
-        flex-direction: column;
-        align-items: center;
-    }
+  // Hover sin desplazamiento a la izquierda
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    // padding-left: 24px; // Se mantiene igual
+  }
 
-    .navList.show {
-        top: 220px; // Adjust position based on new navContainer height
-    }
+  &.active {
+    background: rgba(255, 255, 255, 0.12);
+    font-weight: 600;
+    i { color: white; }
+  }
+}
+
+.mobile-submenu-wrapper .mobile-menu-item {
+  i {
+    transform: rotate(0deg);
+    transition: transform 0.2s ease; // Rotación rápida
+  }
+  &.active i { transform: rotate(180deg); }
+}
+
+.mobile-submenu {
+  background: #0f1417;
+  // Sin animación de entrada
+}
+
+.mobile-submenu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 14px 24px 14px 44px; // Padding fijo
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+
+  // Hover sin desplazamiento
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-left-color: white;
+    // Padding se mantiene igual
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-weight: 600;
+    border-left-color: white;
+  }
 }

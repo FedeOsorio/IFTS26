@@ -1,32 +1,107 @@
-<div class="foot">
+<!-- Template del Footer -->
+<footer class="footer">
   <div class="footer-container">
-    <h3 class="titulo">INFORMACIÓN DE CONTACTO:</h3>
-    <div class="footer-contact">
-      <div class="hyg">
-        <p>Higiene y Seguridad en el Trabajo</p>
-        <a href="mailto:tecnicaturaenseguridadehigiene@yahoo.com.ar">tecnicaturaenseguridadehigiene@yahoo.com.ar</a>
+    <div class="footer-inner">
+      <!-- Grid principal: 2 columnas (2fr | 1fr) -->
+      <div class="footer-main-grid">
+        <!-- Columna izquierda -->
+        <div class="left-column">
+          <!-- Elemento 1: Título -->
+          <h2 class="footer-main-title">INFORMACIÓN DE CONTACTO:</h2>
+          
+          <!-- Elemento 2: Grid con dos contenedores -->
+          <div class="info-grid">
+            <!-- Contenedor 1: Dirección + Teléfono + Horario -->
+            <div class="contact-basic-info">
+              <!-- Dirección -->
+              <div class="info-item">
+                <i class="bi bi-geo-alt icon"></i>
+                <div class="info-text">
+                  <p>{{ contactInfo.address }}</p>
+                  <p>{{ contactInfo.postalCode }}</p>
+                </div>
+              </div>
+
+              <!-- Teléfono -->
+              <div class="info-item">
+                <i class="bi bi-telephone icon"></i>
+                <div class="info-text">
+                  <p>{{ contactInfo.phones }}</p>
+                </div>
+              </div>
+
+              <!-- Horario -->
+              <div class="info-item">
+                <i class="bi bi-clock icon"></i>
+                <div class="info-text">
+                  <p>{{ contactInfo.schedule }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contenedor 2: Emails de carreras -->
+            <div class="careers-emails">
+              <div class="info-item emails-group">
+                <i class="bi bi-envelope icon"></i>
+                <div class="info-text">
+                  <div class="career-email-item" *ngFor="let career of careers">
+                    <span class="career-label">{{ career.label }}</span>
+                    <a [href]="'mailto:' + career.email" class="career-email">
+                      {{ career.email }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Elemento 3: Redes sociales -->
+          <div class="social-links">
+            <a
+              [href]="contactInfo.facebook"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="Facebook"
+            >
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a
+              [href]="contactInfo.instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="Instagram"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Mapa -->
+        <div class="right-column">
+          <div class="map-section">
+            <div class="map-placeholder">
+              <div class="map-responsive">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.692276890829!2d-58.39542492347178!3d-34.59207267295732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacb7a67d78f%3A0x8a4e6c47e3e02f3e!2sEstados%20Unidos%203141%2C%2C%20C1228ABC%20CABA!5e0!3m2!1ses!2sar!4v1732228800000!5m2!1ses!2sar"
+                  width="600"
+                  height="450"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="gir">
-        <p>Gestión Integral de Riesgo</p>
-        <a href="mailto:tecnicaturagir@yahoo.com">tecnicaturagir@yahoo.com</a>
-      </div>
-
-      <div class="redes">
-        <a href="https://www.facebook.com/Ifts26/?fref=tag"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/ifts_26/"><i class="bi bi-instagram"></i></a>
+      <!-- Copyright abajo de todo -->
+      <div class="copyright">
+        <p>© {{ currentYear }} Instituto de Formación Técnica Superior N°26. Todos los derechos reservados.</p>
       </div>
     </div>
   </div>
-  <div>
-    <h3>UBICACIÓN</h3>
-    <div class="footer-location">
-      <div>
-
-      </div>
-      <div>
-
-      </div>
-    </div>
-  </div>
-</div>
+</footer>
