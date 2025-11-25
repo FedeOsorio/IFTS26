@@ -1,18 +1,25 @@
-// Componente Footer del sitio IFTS26.
-// Muestro información de contacto, redes sociales y ubicación del instituto.
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faLocationDot, faPhone, faClock, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './footer.html',
   styleUrls: ['./footer.scss']
 })
+
 export class FooterComponent {
-  // Datos de contacto del instituto
+  faLocationDot = faLocationDot;
+  faPhone = faPhone;
+  faClock = faClock;
+  faEnvelope = faEnvelope;
+  faFacebook = faFacebook;
+  faInstagram = faInstagram;
+
   contactInfo = {
     address: 'Estados Unidos 3141',
     postalCode: 'C1228ABC - Ciudad Autónoma de Buenos Aires',
