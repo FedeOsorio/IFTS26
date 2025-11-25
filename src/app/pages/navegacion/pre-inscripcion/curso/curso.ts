@@ -16,10 +16,12 @@
  */
 
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PageBannerComponent } from '../../../../components/page-banner/page-banner';
 
 @Component({
   selector: 'app-curso',
-  imports: [],
+  imports: [CommonModule, PageBannerComponent],
   templateUrl: './curso.html',
   styleUrl: './curso.scss'
 })

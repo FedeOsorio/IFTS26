@@ -21,13 +21,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLocationDot, faPhone, faEnvelope, faClock } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { CommonModule } from '@angular/common';
+import { PageBannerComponent } from '../../../components/page-banner/page-banner';
 
 @Component({
   selector: 'app-contacto',
   imports: [
     CommonModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PageBannerComponent
   ],
   templateUrl: './contacto.html',
   styleUrl: './contacto.scss'

@@ -1,0 +1,18 @@
+:host {
+  --color-text: #2c3539;
+}
+
+.curso-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text);
+
+  @media (max-width: 768px) {
+    margin: 28px auto;
+    padding: 0 16px;
+    font-size: 16px;
+  }
+}

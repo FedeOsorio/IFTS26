@@ -24,6 +24,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { PageBannerComponent } from '../../../../components/page-banner/page-banner';
 
 /**
  * Interfaz que define una pregunta frecuente
@@ -42,7 +43,8 @@ interface PreguntaFrecuente {
   selector: 'app-preguntas',
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    PageBannerComponent
   ],
   templateUrl: './preguntas.html',
   styleUrl: './preguntas.scss'

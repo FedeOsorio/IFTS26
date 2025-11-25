@@ -22,10 +22,11 @@
  */
 
 import { Component } from '@angular/core';
+import { PageBannerComponent } from '../../../components/page-banner/page-banner';
 
 @Component({
   selector: 'app-alumnos',
-  imports: [],
+  imports: [PageBannerComponent],
   templateUrl: './alumnos.html',
   styleUrl: './alumnos.scss'
 })

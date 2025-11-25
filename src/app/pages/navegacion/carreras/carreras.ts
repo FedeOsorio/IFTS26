@@ -17,10 +17,11 @@
  */
 
 import { Component } from '@angular/core';
+import { PageBannerComponent } from '../../../components/page-banner/page-banner';
 
 @Component({
   selector: 'app-carreras',
-  imports: [],
+  imports: [PageBannerComponent],
   templateUrl: './carreras.html',
   styleUrl: './carreras.scss'
 })

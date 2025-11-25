@@ -19,10 +19,11 @@
  */
 
 import { Component } from '@angular/core';
+import { PageBannerComponent } from '../../../components/page-banner/page-banner';
 
 @Component({
   selector: 'app-institucional',
-  imports: [],
+  imports: [PageBannerComponent],
   templateUrl: './institucional.html',
   styleUrl: './institucional.scss'
 })

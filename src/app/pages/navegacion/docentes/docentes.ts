@@ -20,13 +20,14 @@ import { Component, inject } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronDown, faChevronUp, faExternalLinkAlt, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { PageBannerComponent } from '../../../components/page-banner/page-banner';
 
 // Importo los datos de docentes desde archivo JSON
 import docentesData from '../../../../assets/data/docentes.json';
 
 @Component({
   selector: 'app-docentes',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, PageBannerComponent],
   templateUrl: './docentes.html',
   styleUrl: './docentes.scss'
 })
