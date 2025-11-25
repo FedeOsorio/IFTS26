@@ -1,8 +1,19 @@
-// Estilos del Header Simplificado (Static High Performance)
-// ============================================
+$bg-header: #2c3539;
+$bg-mobile-sub: #0f1417;
+$text-light: white;
+$border-light: rgba(255, 255, 255, 0.1);
+
+@mixin nav-item-reset {
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-light;
+}
+
 .header {
-  background: #2c3539;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: $bg-header;
+  border-bottom: 1px solid $border-light;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -13,7 +24,6 @@
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 24px;
-
   @media (min-width: 768px) { padding: 0 40px; }
   @media (min-width: 1024px) { padding: 0 60px; }
 }
@@ -24,116 +34,82 @@
   justify-content: space-between;
   min-height: 70px;
   gap: 20px;
-
   @media (min-width: 768px) { min-height: 80px; }
 }
 
-// Logo (Estático)
+// --- Logo ---
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  cursor: pointer;
   flex-shrink: 0;
   padding: 8px 0;
-
-  // Hover simple de opacidad
   &:hover { opacity: 0.9; }
+
+  &-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    @media (min-width: 768px) { width: 56px; height: 56px; }
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    @media (max-width: 480px) { display: none; }
+  }
+
+  &-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: $text-light;
+    line-height: 1.1;
+    @media (min-width: 768px) { font-size: 22px; }
+  }
+
+  &-subtitle {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.2;
+    @media (min-width: 768px) { font-size: 12px; }
+    @media (max-width: 640px) { display: none; }
+  }
 }
 
-.logo-image {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  @media (min-width: 768px) { width: 56px; height: 56px; }
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  @media (max-width: 480px) { display: none; }
-}
-
-.logo-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: white;
-  line-height: 1.1;
-  letter-spacing: 0.3px;
-  @media (min-width: 768px) { font-size: 22px; }
-}
-
-.logo-subtitle {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.2;
-  @media (min-width: 768px) { font-size: 12px; }
-  @media (max-width: 640px) { display: none; }
-}
-
-// Menú Desktop
+// --- Desktop Menu ---
 .desktop-menu {
   display: none;
   align-items: center;
+  justify-content: flex-end;
   gap: 4px;
   flex: 1;
-  justify-content: flex-end;
 
   @media (min-width: 1024px) { display: flex; }
   @media (min-width: 1200px) { gap: 8px; }
-}
 
-.menu-item-wrapper {
-  position: relative;
-}
+  .menu-item-wrapper { position: relative; }
 
-.menu-item {
-  padding: 10px 14px;
-  font-size: 15px;
-  font-weight: 500;
-  color: white;
-  text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  .menu-item {
+    @include nav-item-reset;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 
-  // Hover simple, sin desplazamiento
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
+    @media (min-width: 1200px) { padding: 10px 16px; font-size: 16px; }
 
-  &.active {
-    background: rgba(255, 255, 255, 0.15);
-    font-weight: 600;
-  }
-
-  @media (min-width: 1200px) {
-    padding: 10px 16px;
-    font-size: 16px;
+    &:hover { background: $border-light; }
+    &.active { background: rgba(255, 255, 255, 0.15); font-weight: 600; }
   }
 }
 
-.more-button i {
-  font-size: 12px;
-  // Sin transición de rotación, cambio inmediato si rota
-}
-
-// Lógica de Submenú (Sin efectos de slide/fade complejos)
-.more-menu-wrapper:hover .more-submenu,
-.more-menu-wrapper .more-submenu.show,
-.submenu-container:hover .submenu {
-  opacity: 1;
-  visibility: visible;
-  // Se eliminó transform
-}
-
+// --- Submenus (Desktop) ---
 .submenu {
   position: absolute;
   top: 100%;
@@ -144,14 +120,16 @@
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   padding: 8px 0;
-  // Estado inicial oculto
   opacity: 0;
   visibility: hidden;
   z-index: 100;
-  overflow: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s;
 
-  // Sin transition de transform
-  transition: opacity 0.2s ease, visibility 0.2s; 
+  // Trigger visibilidad
+  .menu-item-wrapper:hover &, .more-menu-wrapper:hover &, &.show {
+    opacity: 1;
+    visibility: visible;
+  }
 
   &.more-submenu {
     right: 0;
@@ -159,58 +137,44 @@
     max-height: 500px;
     overflow-y: auto;
   }
-}
 
-.submenu-item {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 12px 12px; // Padding fijo
-  font-size: 14px;
-  color: #2c3539;
-  text-decoration: none;
-  border-left: 3px solid transparent;
-
-  // Hover simplificado: Solo color de fondo, SIN padding-left extra
-  &:hover {
-    background: #f8f9fa;
-    border-left-color: #2c3539;
-    // Padding se mantiene igual, evitando el salto
-  }
-
-  &.active {
-    background: #e9ecef;
-    color: #1a1f23;
-    font-weight: 600;
-    border-left-color: #2c3539;
-  }
-
-  &.submenu-title {
-    font-weight: 600;
-    color: #1a1f23;
-    background: #f0f0f0;
-    cursor: default;
-    
-    // Anula el borde en hover para títulos
-    &:hover {
-      border-left-color: transparent;
-    }
-  }
-
-  &.submenu-nested-item {
-    padding-left: 32px; // Indentación fija
+  &-item {
+    display: block;
+    width: 100%;
+    padding: 12px;
     font-size: 14px;
-    
-    // Sin aumento de padding en hover
+    color: $bg-header;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    text-align: left;
+
+    &:hover:not(.submenu-title) {
+      background: #f8f9fa;
+      border-left-color: $bg-header;
+    }
+
+    &.active {
+      background: #e9ecef;
+      font-weight: 600;
+      border-left-color: $bg-header;
+    }
+
+    &.submenu-title {
+      font-weight: 600;
+      background: #f0f0f0;
+      cursor: default;
+    }
+
+    &.submenu-nested-item { padding-left: 32px; }
+  }
+  
+  &-nested {
+    border-bottom: 1px solid #e9ecef;
+    &:last-child { border-bottom: none; }
   }
 }
 
-.submenu-nested {
-  border-bottom: 1px solid #e9ecef;
-  &:last-child { border-bottom: none; }
-}
-
-// Botón Mobile
+// --- Mobile Trigger ---
 .mobile-menu-button {
   display: flex;
   align-items: center;
@@ -220,151 +184,102 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  position: relative;
   z-index: 1001;
-
   @media (min-width: 1024px) { display: none; }
-}
 
-// Icono Hamburguesa (Transiciones rápidas/inmediatas)
-.hamburger-icon {
-  width: 28px;
-  height: 22px;
-  position: relative;
-  cursor: pointer;
-
-  span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background: white;
-    border-radius: 3px;
-    left: 0;
-    // Transición muy rápida solo para suavizar el cambio de estado
-    transition: all 0.2s ease; 
-
-    &:nth-child(1) { top: 0px; }
-    &:nth-child(2) { top: 9px; }
-    &:nth-child(3) { top: 18px; }
-  }
-
-  &.open span {
-    &:nth-child(1) {
-      top: 9px;
-      transform: rotate(135deg);
+  .hamburger-icon {
+    width: 28px;
+    height: 22px;
+    position: relative;
+    
+    span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: $text-light;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+      
+      &:nth-child(1) { top: 0; }
+      &:nth-child(2) { top: 9px; }
+      &:nth-child(3) { top: 18px; }
     }
-    &:nth-child(2) {
-      opacity: 0;
-      left: -20px;
-    }
-    &:nth-child(3) {
-      top: 9px;
-      transform: rotate(-135deg);
+
+    &.open span {
+      &:nth-child(1) { top: 9px; transform: rotate(135deg); }
+      &:nth-child(2) { opacity: 0; left: -20px; }
+      &:nth-child(3) { top: 9px; transform: rotate(-135deg); }
     }
   }
 }
 
-// Menú Mobile (Sin slideDown animation)
+// --- Mobile Menu ---
 .mobile-menu {
   background: #1a1f23;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid $border-light;
   max-height: calc(100vh - 70px);
   overflow: hidden;
-  // Animación eliminada, el display lo manejará JS o una clase .open
-  
   @media (min-width: 1024px) { display: none; }
-}
 
-.mobile-menu-scroll {
-  max-height: calc(100vh - 70px);
-  overflow-y: auto;
-  padding: 8px 0 16px;
-
-  &::-webkit-scrollbar { width: 6px; }
-  &::-webkit-scrollbar-track { background: #2c3539; }
-  &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-    &:hover { background: rgba(255, 255, 255, 0.3); }
-  }
-}
-
-.mobile-menu-group {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  &:last-child { border-bottom: none; }
-}
-
-.mobile-menu-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  text-align: left;
-  padding: 16px 24px; // Padding fijo
-  font-size: 16px;
-  font-weight: 500;
-  color: white;
-  text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  
-  span { flex: 1; }
-  
-  i {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.6);
+  &-scroll {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    padding: 8px 0 16px;
   }
 
-  // Hover sin desplazamiento a la izquierda
-  &:hover {
-    background: rgba(255, 255, 255, 0.08);
-    // padding-left: 24px; // Se mantiene igual
+  &-group {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    &:last-child { border-bottom: none; }
   }
 
-  &.active {
-    background: rgba(255, 255, 255, 0.12);
-    font-weight: 600;
-    i { color: white; }
-  }
-}
+  &-item {
+    @include nav-item-reset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
 
-.mobile-submenu-wrapper .mobile-menu-item {
-  i {
-    transform: rotate(0deg);
-    transition: transform 0.2s ease; // Rotación rápida
+    span { flex: 1; }
+    i { font-size: 18px; color: rgba(255, 255, 255, 0.6); transition: transform 0.2s ease; }
+
+    &:hover { background: rgba(255, 255, 255, 0.08); }
+    
+    &.active {
+      background: rgba(255, 255, 255, 0.12);
+      font-weight: 600;
+      i { color: $text-light; transform: rotate(180deg); }
+    }
   }
-  &.active i { transform: rotate(180deg); }
 }
 
 .mobile-submenu {
-  background: #0f1417;
-  // Sin animación de entrada
-}
+  background: $bg-mobile-sub;
 
-.mobile-submenu-item {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 14px 24px 14px 44px; // Padding fijo
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  border-left: 3px solid transparent;
+  &-item {
+    display: block;
+    width: 100%;
+    padding: 14px 24px 14px 44px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    text-align: left;
 
-  // Hover sin desplazamiento
-  &:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-left-color: white;
-    // Padding se mantiene igual
-  }
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-left-color: $text-light;
+    }
 
-  &.active {
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
-    font-weight: 600;
-    border-left-color: white;
+    &.active {
+      background: rgba(255, 255, 255, 0.12);
+      color: $text-light;
+      font-weight: 600;
+      border-left-color: $text-light;
+    }
   }
 }

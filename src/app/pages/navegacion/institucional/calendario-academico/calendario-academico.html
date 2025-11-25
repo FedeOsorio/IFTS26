@@ -8,13 +8,13 @@
 
     <div class="date-list">
       @for (evento of primerCuatrimestre; track $index) {
-        <div class="date-item">
-          <div class="date-content">
-            <h4>{{ evento.titulo }}</h4>
-            <p>{{ evento.descripcion }}</p>
-          </div>
-          <span class="date-period">{{ evento.fecha }}</span>
+      <div class="date-item">
+        <div class="date-content">
+          <h4>{{ evento.titulo }}</h4>
+          <p>{{ evento.descripcion }}</p>
         </div>
+        <span class="date-period">{{ evento.fecha }}</span>
+      </div>
       }
     </div>
   </section>
@@ -27,15 +27,15 @@
 
     <div class="date-list">
       @for (evento of segundoCuatrimestre; track $index) {
-        <div class="date-item">
-          <div class="date-content">
-            <h4>{{ evento.titulo }}</h4>
-            <p>{{ evento.descripcion }}</p>
-          </div>
-          <span class="date-period">{{ evento.fecha }}</span>
+      <div class="date-item">
+        <div class="date-content">
+          <h4>{{ evento.titulo }}</h4>
+          <p>{{ evento.descripcion }}</p>
         </div>
+        <span class="date-period">{{ evento.fecha }}</span>
+      </div>
       }
     </div>
   </section>
-  
+
 </div>

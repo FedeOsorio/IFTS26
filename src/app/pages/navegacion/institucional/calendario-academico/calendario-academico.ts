@@ -17,7 +17,7 @@ export interface CalendarioData {
 
 @Component({
   selector: 'app-calendario-academico',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [FontAwesomeModule],
   templateUrl: './calendario-academico.html',
   styleUrl: './calendario-academico.scss'
 })

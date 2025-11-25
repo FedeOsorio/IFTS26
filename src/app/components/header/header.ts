@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -9,16 +9,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './header.html',
   styleUrls: ['./header.scss']
 })
-export class Header implements OnInit, AfterViewInit {
-  @ViewChild('desktopMenu') desktopMenu!: ElementRef;
+export class Header {
   
   mobileMenuOpen = false;
   openSubmenu: string | null = null;
-  moreMenuOpen = false;
-  visibleButtons: any[] = [];
-  hiddenButtons: any[] = [];
 
-  // NavButtons originales de IFTS26 con todos sus links
   public navButtons = [
     {
       label: 'Inicio',
@@ -51,7 +46,7 @@ export class Header implements OnInit, AfterViewInit {
     {
       label: 'Alumnos',
       items: [
-        { text: 'Tutorías', route: '/tutoria'},
+        { text: 'Tutorías', route: '/tutoria' },
         { text: 'Constancias', route: '/alumnos/constancias' },
         { text: 'Becas Progresar', route: '/alumnos/becas' },
         { text: 'Títulos Extranjeros', route: '/alumnos/titulos-extranjeros' },
@@ -75,47 +70,6 @@ export class Header implements OnInit, AfterViewInit {
     }
   ];
 
-  ngOnInit(): void {
-    this.calculateVisibleButtons();
-  }
-
-  ngAfterViewInit(): void {
-    setTimeout(() => this.calculateVisibleButtons(), 100);
-  }
-
-  @HostListener('window:resize')
-  onResize(): void {
-    this.calculateVisibleButtons();
-  }
-
-  calculateVisibleButtons(): void {
-    const screenWidth = window.innerWidth;
-    
-    // En mobile/tablet, mostrar todos en hamburguesa
-    if (screenWidth < 1024) {
-      this.visibleButtons = this.navButtons;
-      this.hiddenButtons = [];
-      return;
-    }
-
-    // Lógica responsive para desktop
-    let maxVisible = this.navButtons.length;
-    
-    if (screenWidth < 1400) {
-      maxVisible = 6; // Mostrar 6 + botón Más
-    } else if (screenWidth < 1600) {
-      maxVisible = 8; // Mostrar 8 + botón Más
-    }
-
-    if (maxVisible < this.navButtons.length) {
-      this.visibleButtons = this.navButtons.slice(0, maxVisible);
-      this.hiddenButtons = this.navButtons.slice(maxVisible);
-    } else {
-      this.visibleButtons = this.navButtons;
-      this.hiddenButtons = [];
-    }
-  }
-
   toggleMobileMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
     if (!this.mobileMenuOpen) {
@@ -127,13 +81,8 @@ export class Header implements OnInit, AfterViewInit {
     this.openSubmenu = this.openSubmenu === label ? null : label;
   }
 
-  toggleMoreMenu(): void {
-    this.moreMenuOpen = !this.moreMenuOpen;
-  }
-
   closeMenus(): void {
     this.mobileMenuOpen = false;
     this.openSubmenu = null;
-    this.moreMenuOpen = false;
   }
 }

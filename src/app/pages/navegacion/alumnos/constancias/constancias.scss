@@ -1,64 +1,137 @@
 :host {
-  --color-primary: #3f51b5;
-  --color-text: #333;
+  // --- Variables de la Identidad Visual ---
+  --color-primary: #1E6C93;
+  --color-primary-dark: #155a7a;
+  --color-secondary: #5fb3f6;
+  --color-text-dark: #2c3539;
+  --color-text-light: #666;
   --color-bg-light: #f8f9fa;
-  --color-border: #dee2e6;
-  --color-highlight: #e8f0fe; // Fondo azul muy clarito para la alerta
+  --color-white: #ffffff;
+  --color-accent: #ffc107;
 }
 
 .constancias-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding: 0 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+    margin-bottom: 30px;
+  }
 }
 
+/* --- Header estilo Banner --- */
 .page-header {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  padding: 48px 40px;
   text-align: center;
-  margin-bottom: 3rem;
+  border-radius: 24px;
+  margin: 20px 0 40px 0;
+  box-shadow: 
+    0 8px 32px rgba(30, 108, 147, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  overflow: hidden;
+
+  // Patrón de fondo (burbujas decorativas)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
 
   h1 {
-    font-size: 2.5rem;
-    color: var(--color-primary);
-    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 32px;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+    @media (max-width: 768px) {
+      font-size: 26px;
+    }
   }
 
   .alert-info {
-    background-color: var(--color-highlight);
-    color: #0d47a1;
-    padding: 1rem;
-    border-radius: 8px;
-    border-left: 5px solid var(--color-primary);
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     display: inline-block;
     font-weight: 600;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    line-height: 1.5;
+
+    p {
+      margin: 0;
+    }
   }
 }
 
-/* --- Acordeón --- */
+/* --- Lista de Trámites (Acordeón) --- */
 .tramites-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 20px;
 }
 
 .accordion-item {
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  overflow: hidden;
   background: white;
-  transition: box-shadow 0.2s;
+  border-radius: 16px;
+  overflow: hidden;
+  border: none;
+  border-left: 5px solid var(--color-primary); // Borde de color lateral
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 
+  // --- ESTADO ACTIVO (ABIERTO) ---
   &.active {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-color: var(--color-primary);
-    
+    box-shadow: 0 8px 30px rgba(30, 108, 147, 0.12);
+    border-left-color: var(--color-secondary); // Cambia color de borde
+
     .accordion-header {
-      background-color: var(--color-bg-light);
-      color: var(--color-primary);
+      background-color: rgba(30, 108, 147, 0.05);
+      
+      .header-title h2 {
+        color: var(--color-primary);
+      }
+
+      .toggle-icon {
+        transform: rotate(180deg); // Rota la flecha
+        color: var(--color-primary);
+      }
     }
-    
+
+    // !! IMPORTANTE: Esto permite que se vea el contenido al abrirse
     .accordion-content {
-      max-height: 2000px; /* Altura suficiente para contenido largo */
+      max-height: 2000px; 
+      opacity: 1;
     }
+  }
+
+  // Hover en la tarjeta cerrada
+  &:not(.active):hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -66,78 +139,98 @@
   width: 100%;
   border: none;
   background: white;
-  padding: 1.2rem 1.5rem;
+  padding: 24px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   transition: background 0.3s;
 
-  &:hover {
-    background-color: var(--color-bg-light);
+  @media (max-width: 768px) {
+    padding: 20px 24px;
   }
 
   .header-title {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 16px;
+    text-align: left;
 
     h2 {
       margin: 0;
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-text-dark);
+      transition: color 0.3s;
     }
 
     .main-icon {
-      font-size: 1.4rem;
-      color: var(--color-primary);
+      font-size: 24px;
+      color: var(--color-secondary);
+      background: rgba(95, 179, 246, 0.1);
+      padding: 10px;
+      border-radius: 50%;
     }
   }
 
   .toggle-icon {
-    color: #999;
+    color: #ccc;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-size: 14px;
   }
 }
 
 .accordion-content {
-  max-height: 0;
+  max-height: 0; // Oculto por defecto
+  opacity: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
   background-color: #fff;
 
   .content-inner {
-    padding: 1.5rem 2rem;
-    border-top: 1px solid var(--color-border);
+    padding: 24px 32px 32px 32px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
   }
 }
 
-/* --- Estilos para el Markdown (Texto Rico) --- */
+/* --- Markdown Body (Texto Rico) --- */
 .markdown-body {
-  color: var(--color-text);
-  line-height: 1.6;
-  font-size: 1rem;
+  color: var(--color-text-dark);
+  line-height: 1.7;
+  font-size: 16px;
 
-  /* Estilos profundos (ng-deep) para afectar el HTML inyectado */
   ::ng-deep {
     p { margin-bottom: 1rem; }
     
-    strong { font-weight: 700; color: #000; }
+    strong { 
+      font-weight: 700; 
+      color: var(--color-primary-dark); 
+    }
     
     a {
       color: var(--color-primary);
-      text-decoration: underline;
+      text-decoration: none;
       font-weight: 600;
-      &:hover { color: #1a237e; }
+      transition: color 0.2s;
+      
+      &:hover { 
+        color: var(--color-secondary);
+        text-decoration: underline;
+      }
     }
 
-    /* Listas numeradas y con viñetas */
     ol, ul {
       margin-bottom: 1.5rem;
       padding-left: 1.5rem;
       
       li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.8rem;
         padding-left: 0.5rem;
+        color: var(--color-text-light);
+        
+        &::marker {
+          color: var(--color-primary);
+        }
       }
     }
   }
@@ -145,24 +238,33 @@
 
 /* --- Botón de Descarga --- */
 .attachment-section {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px dashed var(--color-border);
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 2px dashed rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: flex-start;
 
   .btn-download {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background-color: var(--color-primary);
+    gap: 12px;
+    background: var(--color-primary);
     color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
+    padding: 14px 28px;
+    border-radius: 50px; // Estilo Píldora
     text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(30, 108, 147, 0.3);
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: #303f9f;
+      background: var(--color-primary-dark);
+      box-shadow: 0 6px 16px rgba(30, 108, 147, 0.4);
+    }
+
+    fa-icon {
+      font-size: 18px;
     }
   }
 }
