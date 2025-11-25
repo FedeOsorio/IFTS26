@@ -1,4 +1,3 @@
-// Variables Globales SCSS
 $color-primary: #1E6C93;
 $color-primary-dark: #155a7a;
 $color-text: #2c3539;
@@ -6,15 +5,10 @@ $color-text-light: #666;
 $color-bg-light: #f8f9fa;
 $white: #ffffff;
 
-// Sombras
 $shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
 $shadow-hover: 0 15px 40px rgba(30, 108, 147, 0.15);
 
-/* =========================================
-   VARIABLES LOCALES (Adaptadas al Azul)
-   ========================================= */
 :host {
-  /* Reemplacé los violetas por el Azul del IFTS */
   --color-primary: #1E6C93; 
   --color-primary-dark: #155a7a;
   --color-bg-light: #ffffff; 
@@ -25,9 +19,6 @@ $shadow-hover: 0 15px 40px rgba(30, 108, 147, 0.15);
   --shadow-hover: 0 15px 35px rgba(30, 108, 147, 0.15), 0 5px 15px rgba(0, 0, 0, 0.07);
 }
 
-/* =========================================
-   LO QUE YA ESTABA (Info Container)
-   ========================================= */
 .info-container {
   position: relative; 
   z-index: 10;
@@ -115,12 +106,9 @@ $shadow-hover: 0 15px 40px rgba(30, 108, 147, 0.15);
   }
 }
 
-/* =========================================
-   LO NUEVO (Careers Section)
-   ========================================= */
 .careers-section {
   padding: 80px 24px;
-  background-color: transparent; /* Eliminado el fondo gris */
+  background-color: transparent;
   min-width: 320px; 
   width: 100%;
 }
@@ -148,22 +136,14 @@ $shadow-hover: 0 15px 40px rgba(30, 108, 147, 0.15);
   height: 100%;
   border: 1px solid rgba(0,0,0,0.03);
 
+  /* HOVER DE LA TARJETA (Solo levanta la caja, no toca la imagen) */
   &:hover {
     box-shadow: $shadow-hover;
-
-    img {
-      transform: scale(1.05);
-    }
-    
-    .btn-ver-mas {
-      background-color: $color-primary;
-      color: white;
-      border-color: $color-primary;
-    }
+    /* transform: translateY(-5px); // Opcional: si quieres que la tarjeta suba un poco */
   }
 
   .image-wrapper { 
-     overflow: hidden; /* Asegura el recorte en el zoom */
+     overflow: hidden;
   }
 
   img {
@@ -172,6 +152,12 @@ $shadow-hover: 0 15px 40px rgba(30, 108, 147, 0.15);
     object-fit: cover;
     transition: transform 0.5s ease;
     display: block;
+    cursor: pointer; /* Indica que la imagen es interactiva */
+
+    /* HOVER ESPECÍFICO DE LA IMAGEN (Solo zoom cuando tocas la imagen) */
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   .card-content {
@@ -197,6 +183,7 @@ $shadow-hover: 0 15px 40px rgba(30, 108, 147, 0.15);
       flex-grow: 1;
     }
 
+    /* HOVER DEL BOTÓN (Independiente) */
     .btn-ver-mas {
       align-self: flex-start;
       display: inline-flex;
@@ -212,6 +199,8 @@ $shadow-hover: 0 15px 40px rgba(30, 108, 147, 0.15);
 
       &:hover {
         padding-right: 28px;
+        border-color: #1E6C93;
+        background-color: rgba(30, 108, 147, 0.05); /* Sutil feedback en botón */
       }
     }
   }
