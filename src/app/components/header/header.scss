@@ -59,6 +59,7 @@ $border-light: rgba(255, 255, 255, 0.1);
 
   @media (min-width: 1024px) {
     min-height: 80px;
+    justify-content: center;
   }
 }
 
@@ -129,10 +130,9 @@ $border-light: rgba(255, 255, 255, 0.1);
 
   @media (min-width: 1024px) {
     display: flex;
-  }
-
-  @media (min-width: 1200px) {
-    gap: 8px;
+    justify-content: center;
+    flex: initial;
+    margin-left: 20px;
   }
 
   .menu-item-wrapper {
