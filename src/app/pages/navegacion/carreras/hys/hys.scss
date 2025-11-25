@@ -325,7 +325,6 @@
       }
     }
 
-    // Contenido Texto (Markdown)
     .content-text {
       padding: 24px 32px 32px;
       color: var(--color-text-dark);
@@ -333,10 +332,8 @@
       border-top: 1px solid var(--color-border);
       text-align: left;
 
-      /* ADAPTACIÓN MARKDOWN para el acordeón */
       ::ng-deep {
         
-        /* Títulos (antiguo .text-subtitle) */
         h3, h4 {
           color: var(--color-primary);
           font-size: 18px;
@@ -352,7 +349,6 @@
           margin-bottom: 16px;
         }
 
-        /* Listas Principales (antiguo .main-list) */
         ul {
           padding-left: 20px;
           margin-bottom: 24px;
@@ -367,7 +363,6 @@
             }
           }
 
-          /* Listas Anidadas (antiguo .sub-list) */
           ul {
             padding-left: 20px;
             margin-top: 8px;
@@ -391,7 +386,6 @@
     }
   }
 
-  /* Estilos específicos para el contenedor PDF */
   .pdf-container {
     width: 100%;
     display: flex;

@@ -7,7 +7,13 @@
   --color-text-light: #666;
   --color-bg-light: #f8f9fa;
   --color-white: #ffffff;
-  --color-accent: #ffc107;
+  
+  // --- Variables para la Alerta Amarilla ---
+  --color-alert-bg: #fff3cd;       /* Fondo Amarillo Típico de Alerta */
+  --color-alert-border: #ffecb5;   /* Borde sutil */
+  --color-alert-text: #664d03;     /* Texto marrón oscuro para contraste */
+  --color-alert-icon: #856404;     /* Icono oscuro */
+  --color-accent: #ffc107;         /* Amarillo fuerte para el borde lateral */
 }
 
 .constancias-container {
@@ -22,20 +28,20 @@
   }
 }
 
-/* --- Header estilo Banner --- */
+/* --- Header estilo Banner (Solo Título) --- */
 .page-header {
   position: relative;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   padding: 48px 40px;
   text-align: center;
   border-radius: 24px;
-  margin: 20px 0 40px 0;
+  margin: 20px 0 30px 0;
   box-shadow: 
     0 8px 32px rgba(30, 108, 147, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   overflow: hidden;
 
-  // Patrón de fondo (burbujas decorativas)
+  // Patrón de fondo
   &::before {
     content: '';
     position: absolute;
@@ -56,7 +62,7 @@
     font-weight: 700;
     text-transform: uppercase;
     font-size: 32px;
-    margin-bottom: 24px;
+    margin: 0;
     letter-spacing: 1px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
@@ -64,29 +70,55 @@
       font-size: 26px;
     }
   }
+}
+
+.reminder-section {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
 
   .alert-info {
     position: relative;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    padding: 16px 24px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    display: inline-block;
-    font-weight: 600;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    line-height: 1.5;
+    
+    background-color: var(--color-alert-bg); 
+    color: var(--color-alert-text);
+    border: 1px solid var(--color-alert-border);
+    border-left: 5px solid var(--color-accent);
+    
+    padding: 20px 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 900px;
+    width: 100%;
+    line-height: 1.6;
+
+    .icon-wrapper {
+      font-size: 24px;
+      color: var(--color-alert-icon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+    }
 
     p {
       margin: 0;
     }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      gap: 12px;
+      padding: 20px;
+    }
   }
 }
 
-/* --- Lista de Trámites (Acordeón) --- */
 .tramites-list {
   display: flex;
   flex-direction: column;
@@ -98,16 +130,15 @@
   border-radius: 16px;
   overflow: hidden;
   border: none;
-  border-left: 5px solid var(--color-primary); // Borde de color lateral
+  border-left: 5px solid var(--color-primary);
   box-shadow: 
     0 4px 24px rgba(0, 0, 0, 0.06),
     0 0 0 1px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 
-  // --- ESTADO ACTIVO (ABIERTO) ---
   &.active {
     box-shadow: 0 8px 30px rgba(30, 108, 147, 0.12);
-    border-left-color: var(--color-secondary); // Cambia color de borde
+    border-left-color: var(--color-secondary);
 
     .accordion-header {
       background-color: rgba(30, 108, 147, 0.05);
@@ -117,19 +148,18 @@
       }
 
       .toggle-icon {
-        transform: rotate(180deg); // Rota la flecha
+        transform: rotate(180deg);
         color: var(--color-primary);
       }
     }
 
-    // !! IMPORTANTE: Esto permite que se vea el contenido al abrirse
     .accordion-content {
       max-height: 2000px; 
       opacity: 1;
+      visibility: visible;
     }
   }
 
-  // Hover en la tarjeta cerrada
   &:not(.active):hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   }
@@ -164,12 +194,16 @@
       transition: color 0.3s;
     }
 
-    .main-icon {
-      font-size: 24px;
-      color: var(--color-secondary);
-      background: rgba(95, 179, 246, 0.1);
-      padding: 10px;
-      border-radius: 50%;
+    .main-icon-wrapper {
+        font-size: 24px;
+        color: var(--color-secondary);
+        background: rgba(95, 179, 246, 0.1);
+        width: 48px; 
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
     }
   }
 
@@ -181,10 +215,11 @@
 }
 
 .accordion-content {
-  max-height: 0; // Oculto por defecto
+  max-height: 0;
   opacity: 0;
+  visibility: hidden;
   overflow: hidden;
-  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s;
   background-color: #fff;
 
   .content-inner {
@@ -193,7 +228,6 @@
   }
 }
 
-/* --- Markdown Body (Texto Rico) --- */
 .markdown-body {
   color: var(--color-text-dark);
   line-height: 1.7;
@@ -236,7 +270,6 @@
   }
 }
 
-/* --- Botón de Descarga --- */
 .attachment-section {
   margin-top: 32px;
   padding-top: 24px;
@@ -251,7 +284,7 @@
     background: var(--color-primary);
     color: white;
     padding: 14px 28px;
-    border-radius: 50px; // Estilo Píldora
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
     font-size: 15px;

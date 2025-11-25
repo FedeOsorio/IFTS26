@@ -8,7 +8,8 @@
     {
       "titulo": "Plan de Estudios",
       "imagenSrc": "/assets/images/uploads/plan-estudios-gir.jpg",
-      "abierto": false
+      "abierto": false,
+      "pdfSrc": "assets/images/uploads/diagramas-esquina-literaria-final.pdf"
     },
     {
       "titulo": "Régimen de Correlatividades",

@@ -2,12 +2,18 @@
   
   <header class="page-header">
     <h1>{{ data.titulo }}</h1>
-    @if (data.descripcion) {
+  </header>
+
+  @if (data.descripcion) {
+    <section class="reminder-section">
       <div class="alert-info">
+        <div class="icon-wrapper">
+          <fa-icon [icon]="iconoLampara"></fa-icon>
+        </div>
         <p>{{ data.descripcion }}</p>
       </div>
-    }
-  </header>
+    </section>
+  }
 
   <div class="tramites-list">
     
@@ -16,7 +22,9 @@
         
         <button class="accordion-header" (click)="toggleTramite(tramite)">
           <div class="header-title">
-            <fa-icon [icon]="iconoTramite" class="main-icon"></fa-icon>
+            <div class="main-icon-wrapper">
+                <fa-icon [icon]="iconoTramite"></fa-icon>
+            </div>
             <h2>{{ tramite.titulo }}</h2>
           </div>
           <fa-icon [icon]="tramite.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>

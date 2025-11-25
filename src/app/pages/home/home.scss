@@ -5,6 +5,11 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  min-width: 1400px;
+  
+    @media (max-width: 1023px) {
+    min-width: 320px;
+  }
 }
 
 @keyframes fadeInUp {

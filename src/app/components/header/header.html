@@ -1,6 +1,7 @@
 <header class="header">
   <div class="header-container">
     <div class="header-content">
+
       <a [routerLink]="['/']" class="logo" (click)="closeMenus()">
         <img src="/assets/img/iftslogo.png" alt="Logo IFTS26" class="logo-image">
         <div class="logo-text">
@@ -12,7 +13,6 @@
       <nav class="desktop-menu">
         @for (button of navButtons; track button.label) {
         <div class="menu-item-wrapper">
-
           @if (!button.items) {
           <a [routerLink]="button.route" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: button.route === '/'}" class="menu-item" (click)="closeMenus()">
@@ -23,7 +23,6 @@
             <button class="menu-item">
               {{ button.label }}
             </button>
-
             <div class="submenu">
               @for (subItem of button.items; track subItem.route) {
               <a [routerLink]="subItem.route" routerLinkActive="active" class="submenu-item" (click)="closeMenus()">
@@ -33,62 +32,52 @@
             </div>
           </div>
           }
-
         </div>
         }
       </nav>
 
-      <button class="mobile-menu-button" (click)="toggleMobileMenu()"
-        [attr.aria-label]="mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'">
-        <span class="hamburger-icon" [class.open]="mobileMenuOpen">
+      <button class="mobile-menu-button" (click)="toggleMobileMenu()" aria-label="Menu">
+        <div class="hamburger-icon" [class.open]="mobileMenuOpen">
           <span></span>
           <span></span>
           <span></span>
-        </span>
+        </div>
       </button>
     </div>
-
-    @if (mobileMenuOpen) {
-    <nav class="mobile-menu" [@slideDown]>
-      <div class="mobile-menu-scroll">
-
-        @for (button of navButtons; track button.label) {
-        <div class="mobile-menu-group">
-
-          @if (!button.items) {
-          <a [routerLink]="button.route" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: button.route === '/'}" class="mobile-menu-item" (click)="closeMenus()">
-            <span>{{ button.label }}</span>
-            <i class="bi bi-chevron-right"></i>
-          </a>
-          } @else {
-          <div class="mobile-submenu-wrapper">
-            <button class="mobile-menu-item" [class.active]="openSubmenu === button.label"
-              (click)="toggleSubmenu(button.label)">
-              <span>{{ button.label }}</span>
-              <i class="bi" [class.bi-chevron-down]="openSubmenu !== button.label"
-                [class.bi-chevron-up]="openSubmenu === button.label">
-              </i>
-            </button>
-
-            @if (openSubmenu === button.label) {
-            <div class="mobile-submenu">
-              @for (subItem of button.items; track subItem.route) {
-              <a [routerLink]="subItem.route" routerLinkActive="active" class="mobile-submenu-item"
-                (click)="closeMenus()">
-                {{ subItem.text }}
-              </a>
-              }
-            </div>
-            }
-          </div>
-          }
-
-        </div>
-        }
-
-      </div>
-    </nav>
-    }
   </div>
+  <nav class="mobile-menu" [class.open]="mobileMenuOpen">
+
+    @for (button of navButtons; track button.label) {
+    <div class="mobile-menu-group">
+
+      @if (!button.items) {
+      <a [routerLink]="button.route" routerLinkActive="active" [routerLinkActiveOptions]="{exact: button.route === '/'}"
+        class="mobile-menu-item" (click)="closeMenus()">
+        <span>{{ button.label }}</span>
+      </a>
+      } @else {
+      <div class="mobile-submenu-wrapper">
+        <button class="mobile-menu-item" [class.active]="openSubmenu === button.label"
+          (click)="toggleSubmenu(button.label)">
+          <span>{{ button.label }}</span>
+          <i class="bi bi-chevron-down toggle-arrow"></i>
+        </button>
+
+        <div class="mobile-submenu" [class.open]="openSubmenu === button.label">
+          @for (subItem of button.items; track subItem.route) {
+          <a [routerLink]="subItem.route" routerLinkActive="active" class="mobile-submenu-item" (click)="closeMenus()">
+            {{ subItem.text }}
+          </a>
+          }
+        </div>
+      </div>
+      }
+
+    </div>
+    }
+
+  </nav>
+
+  <div class="mobile-backdrop" [class.open]="mobileMenuOpen" (click)="closeMenus()"></div>
+
 </header>

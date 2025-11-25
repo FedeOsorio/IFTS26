@@ -43,7 +43,7 @@
         <fa-icon [icon]="seccion.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
       </button>
 
-      <div class="accordion-content" *ngIf="seccion.abierto">
+      <div class="accordion-content">
 
         @if (seccion.contenidoTexto) {
         <div class="content-text">
@@ -54,7 +54,20 @@
         @if (seccion.imagenSrc) {
         <div class="content-inner">
           <img [src]="seccion.imagenSrc" [alt]="seccion.titulo" class="document-image">
-          <p class="download-hint">* Clic derecho para abrir o descargar imagen.</p>
+        </div>
+        }
+
+        @if (seccion.pdfSeguro) {
+        <div class="content-inner pdf-container">
+            <iframe 
+                [src]="seccion.pdfSeguro" 
+                title="Visor PDF"
+                class="pdf-iframe">
+            </iframe>
+            
+            <a [href]="seccion.pdfSrc" target="_blank" class="download-hint" style="margin-top: 10px; cursor: pointer; text-decoration: underline;">
+                ¿No ves el PDF? Descárgalo aquí.
+            </a>
         </div>
         }
 

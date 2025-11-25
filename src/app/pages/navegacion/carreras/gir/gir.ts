@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, SafeResourceUrl } from '@angular/platform-browser'; // Importamos SafeResourceUrl
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faChevronDown,
@@ -15,56 +15,52 @@ import {
 import { marked } from 'marked';
 import girData from '../../../../../assets/data/gestion-riesgo.json';
 
-// Interfaz para el manejo interno
+// Interfaz actualizada
 interface SeccionExpandible {
   titulo: string;
   imagenSrc?: string;
+  pdfSrc?: string;          // Ruta cruda del JSON
+  pdfSeguro?: SafeResourceUrl; // Ruta segura procesada
   contenidoTexto?: string;
   abierto: boolean;
-  icono: any; // Agregado para UI
+  icono: any;
 }
 
 @Component({
   selector: 'app-gir',
-  imports: [CommonModule, FontAwesomeModule], // Agregado CommonModule
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './gir.html',
   styleUrl: './gir.scss'
 })
 export class Gir implements OnInit {
   private sanitizer = inject(DomSanitizer);
 
-  // Datos crudos del JSON
   data = girData;
-
-  // Lista procesada para la vista
   listaSecciones: SeccionExpandible[] = [];
 
-  // Íconos UI
   iconoExpandir = faChevronDown;
   iconoContraer = faChevronUp;
 
   ngOnInit(): void {
-    // Procesamos las secciones para agregar estado abierto y el ícono correspondiente
     if (this.data.secciones) {
       this.listaSecciones = this.data.secciones.map((s: any) => ({
         ...s,
         abierto: s.abierto || false,
-        icono: this.determinarIconoPorTitulo(s.titulo)
+        icono: this.determinarIconoPorTitulo(s.titulo),
+        // LÓGICA DE PDF: Sanitizamos aquí una sola vez
+        pdfSeguro: s.pdfSrc ? this.sanitizer.bypassSecurityTrustResourceUrl(s.pdfSrc) : undefined
       }));
     }
   }
 
-  // Función para asignar íconos automáticamente según el título (Igual que componente Hys)
   private determinarIconoPorTitulo(titulo: string): any {
     const tituloLower = titulo.toLowerCase();
-
     if (tituloLower.includes('plan')) return faClipboardList;
     if (tituloLower.includes('perfil') || tituloLower.includes('egresado')) return faUserGraduate;
     if (tituloLower.includes('horario')) return faClock;
     if (tituloLower.includes('programas') || tituloLower.includes('materias')) return faBookOpen;
     if (tituloLower.includes('requisitos')) return faListCheck;
-
-    return faShieldHalved; // Ícono por defecto
+    return faShieldHalved;
   }
 
   renderMarkdown(text: string): SafeHtml {

@@ -1,5 +1,4 @@
 :host {
-  // --- Variables de Identidad Visual (Unificadas) ---
   --color-primary: #1E6C93;
   --color-primary-dark: #155a7a;
   --color-secondary: #5fb3f6;
@@ -21,7 +20,6 @@
   }
 }
 
-/* --- Header estilo Banner --- */
 .page-header {
   position: relative;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
@@ -29,17 +27,15 @@
   text-align: center;
   border-radius: 24px;
   margin: 20px 0 40px 0;
-  box-shadow: 
+  box-shadow:
     0 8px 32px rgba(30, 108, 147, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   overflow: hidden;
-  
-  // Flex para alinear el icono y el texto verticalmente
+
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  // Patrón de fondo
   &::before {
     content: '';
     position: absolute;
@@ -47,20 +43,19 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
+    background-image:
       radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
       radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
     pointer-events: none;
   }
 
-  /* Adaptación del Icono Circular dentro del Banner */
   .icon-circle {
     position: relative;
     z-index: 2;
     width: 70px;
     height: 70px;
-    background-color: white; // Blanco para contrastar con el fondo azul
-    color: var(--color-primary); // Icono azul
+    background-color: white;
+    color: var(--color-primary);
     border-radius: 50%;
     display: grid;
     place-items: center;
@@ -89,14 +84,13 @@
     position: relative;
     z-index: 1;
     max-width: 800px;
-    color: rgba(255, 255, 255, 0.95); // Texto claro con ligera transparencia
+    color: rgba(255, 255, 255, 0.95);
     font-size: 1.1rem;
     line-height: 1.6;
     font-weight: 500;
   }
 }
 
-/* --- Lista de Becas (Acordeón estilo Tarjeta) --- */
 .becas-list {
   display: flex;
   flex-direction: column;
@@ -108,38 +102,35 @@
   border-radius: 16px;
   overflow: hidden;
   border: none;
-  border-left: 5px solid var(--color-primary); // Borde de acento
-  box-shadow: 
+  border-left: 5px solid var(--color-primary);
+  box-shadow:
     0 4px 24px rgba(0, 0, 0, 0.06),
     0 0 0 1px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 
-  // Estado Activo
   &.active {
-    transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(30, 108, 147, 0.12);
     border-left-color: var(--color-secondary);
 
     .accordion-header {
       background-color: rgba(30, 108, 147, 0.05);
-      
+
       .header-title h2 {
         color: var(--color-primary);
       }
-      
+
       .toggle-icon {
         transform: rotate(180deg);
         color: var(--color-primary);
       }
     }
-    
+
     .accordion-content {
       max-height: 2000px;
       opacity: 1;
     }
   }
 
-  // Hover en estado cerrado
   &:not(.active):hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   }
@@ -203,46 +194,48 @@
   }
 }
 
-/* --- Texto Rico (Markdown) --- */
 .markdown-body {
   color: var(--color-text-dark);
   line-height: 1.7;
   font-size: 16px;
 
   ::ng-deep {
-    p { margin-bottom: 1.2rem; }
+    p {
+      margin-bottom: 1.2rem;
+    }
 
     img {
-    max-width: 100%;       /* Que nunca sea más ancha que la pantalla */
-    height: auto;          /* Que mantenga la proporción */
-    display: block;        /* Para que ocupe su propia línea */
-    margin: 1.5rem auto;   /* Centrada y con espacio arriba/abajo */
-    border-radius: 8px;    /* Bordes redondeados estéticos */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombrita suave */
-     }
-    
-    strong { 
-      font-weight: 700; 
-      color: var(--color-primary-dark); 
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1.5rem auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    
+
+    strong {
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+
     a {
       color: var(--color-primary);
       text-decoration: none;
       font-weight: 600;
       transition: color 0.2s;
-      
-      &:hover { 
+
+      &:hover {
         color: var(--color-secondary);
-        text-decoration: underline; 
+        text-decoration: underline;
       }
     }
 
-    ul, ol {
+    ul,
+    ol {
       margin-bottom: 1.5rem;
       padding-left: 1.5rem;
-      
-      li { 
+
+      li {
         margin-bottom: 0.8rem;
         padding-left: 0.5rem;
         color: var(--color-text-light);
@@ -255,7 +248,6 @@
   }
 }
 
-/* --- Botón Descarga --- */
 .attachment-section {
   margin-top: 32px;
   padding-top: 24px;
@@ -279,11 +271,9 @@
 
     &:hover {
       background-color: var(--color-primary-dark);
-      transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(30, 108, 147, 0.4);
     }
 
-    // Ajuste si hay icono dentro del botón
     fa-icon {
       font-size: 18px;
     }
