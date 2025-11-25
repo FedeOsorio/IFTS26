@@ -55,7 +55,7 @@
     position: relative;
     z-index: 1;
     font-size: 2.5rem;
-    color: white; // Icono blanco para contrastar
+    color: white;
     opacity: 0.9;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
   }
@@ -77,7 +77,6 @@
   }
 }
 
-/* --- Acordeón (Estilo Tarjetas) --- */
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -88,14 +87,13 @@
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  border: none; // Sin borde completo
-  border-left: 5px solid var(--color-primary); // Borde lateral
+  border: none;
+  border-left: 5px solid var(--color-primary);
   box-shadow: 
     0 4px 24px rgba(0, 0, 0, 0.06),
     0 0 0 1px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 
-  // Estado Activo (Abierto)
   &.active {
     box-shadow: 0 8px 30px rgba(30, 108, 147, 0.12);
     border-left-color: var(--color-secondary);
@@ -113,14 +111,12 @@
       }
     }
     
-    // IMPORTANTE: Permite ver el contenido
     .accordion-content {
       max-height: 2000px;
       opacity: 1;
     }
   }
 
-  // Hover en estado cerrado
   &:not(.active):hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   }
@@ -154,7 +150,7 @@
 
   .toggle-icon {
     color: #ccc;
-    min-width: 16px; // Para evitar que se aplaste
+    min-width: 16px;
     transition: transform 0.3s ease, color 0.3s ease;
   }
 }
@@ -172,7 +168,6 @@
   }
 }
 
-/* --- Estilos Markdown --- */
 .markdown-body {
   color: var(--color-text-dark);
   line-height: 1.7;

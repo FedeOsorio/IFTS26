@@ -1,186 +1,202 @@
 :host {
-  --color-primary: #3f51b5;
-  --color-primary-dark: #303f9f;
-  --color-text-dark: #212529;
-  --color-text-light: #5a5a5a;
-  --color-bg-light: #f7f9ff;
-  --color-border: #e0e0e0;
+  --color-primary: #2c3e50; // Azul oscuro / grisáceo profesional
+  --color-accent: #3498db;  // Azul claro para destacar
+  --color-text: #333;
+  --color-bg-light: #ecf0f1;
+  --color-border: #bdc3c7;
 }
 
-.career-container {
+.gir-container {
   max-width: 1100px;
-  margin: 2rem auto;
+  margin: 0 auto 4rem auto;
   padding: 0 1.5rem;
 }
 
-.career-header {
+/* --- Cabecera --- */
+.page-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin: 3rem 0;
+  
+  .icon-container {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
 
   h1 {
-    font-size: 2rem;
-    color: var(--color-primary);
+    font-size: 2.5rem;
     font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1.2;
   }
 }
 
-/* --- Sección de Introducción --- */
+/* --- Sección Intro --- */
 .intro-section {
   display: flex;
-  gap: 3rem;
+  flex-direction: column;
+  gap: 2.5rem;
   margin-bottom: 4rem;
-  align-items: flex-start;
 
-  @media (max-width: 992px) {
-    flex-direction: column;
+  @media (min-width: 992px) {
+    flex-direction: row;
+    align-items: flex-start;
   }
 
-  .career-image-wrapper {
+  .intro-image-wrapper {
     flex: 1;
-    width: 100%;
     
     .main-image {
       width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       object-fit: cover;
     }
   }
 
-  .career-description {
+  .intro-text {
     flex: 1.5;
+  }
+}
 
+/* --- Estilos Markdown (Texto Rico) --- */
+.markdown-body {
+  color: var(--color-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+
+  ::ng-deep {
     h2, h3 {
-      color: var(--color-text-dark);
-      font-weight: 600;
-    }
-    h2 { font-size: 1.5rem; margin-bottom: 1rem; }
-    h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem 0; }
-
-    p, li {
-      color: var(--color-text-light);
-      line-height: 1.6;
-      font-size: 1rem;
+      color: var(--color-primary);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
 
-    .skills-list {
-      padding-left: 1.2rem;
+    p { margin-bottom: 1rem; }
+
+    ul, ol {
       margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
       li { margin-bottom: 0.5rem; }
     }
 
-    .highlight-box {
-      background-color: var(--color-bg-light);
-      border-left: 4px solid var(--color-primary);
-      padding: 1.5rem;
-      border-radius: 0 8px 8px 0;
-      
-      h3 { margin-top: 0; color: var(--color-primary); }
-      p { margin-bottom: 0; }
+    strong { font-weight: 700; color: #000; }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      &:hover { text-decoration: none; }
     }
   }
 }
 
-/* --- Acordeón (Estilo similar a FAQ) --- */
+/* --- Acordeón --- */
 .info-accordion {
   max-width: 900px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+
+  .accordion-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: var(--color-accent);
+      margin: 0.5rem auto 0;
+    }
+  }
+
+  .accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
   .accordion-item {
     border: 1px solid var(--color-border);
     border-radius: 8px;
     overflow: hidden;
-    background-color: white;
+    background: white;
     transition: box-shadow 0.3s ease;
 
     &.active {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border-color: var(--color-primary); // Borde azul cuando está abierto
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-color: var(--color-accent);
+      
+      .accordion-header {
+        background-color: var(--color-bg-light);
+        h3 { color: var(--color-accent); }
+      }
+      
+      .accordion-content {
+        max-height: 2000px;
+      }
     }
   }
 
   .accordion-header {
     width: 100%;
-    background: white;
     border: none;
-    padding: 1.25rem 1.5rem;
+    background: white;
+    padding: 1.2rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background 0.2s;
 
-    &:hover {
-      background-color: var(--color-bg-light);
+    &:hover { background-color: #fcfcfc; }
+
+    h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-transform: uppercase;
     }
 
-    .header-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      
-      .section-icon {
-        color: var(--color-primary);
-        font-size: 1.2rem;
-      }
-
-      span {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--color-text-dark);
-      }
-    }
-
-    .toggle-icon {
-      color: var(--color-text-light);
-    }
+    .toggle-icon { color: #7f8c8d; }
   }
 
   .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-out;
-    background-color: #fafafa;
-    border-top: 1px solid transparent; // Truco para evitar doble borde
+    transition: max-height 0.5s ease-in-out;
+    background-color: #fff;
 
     .content-inner {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid #eee;
     }
 
-    .document-image {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      border: 1px solid var(--color-border);
-      border-radius: 4px;
-      margin-bottom: 0.5rem;
-    }
-
-    .download-hint {
-      font-size: 0.85rem;
-      color: #888;
-      font-style: italic;
-      margin-top: 0.5rem;
+    .image-wrapper {
+      margin-top: 1rem;
       text-align: center;
-    }
-  }
 
-  // Lógica de apertura
-  .accordion-item.active {
-    .accordion-content {
-      max-height: 2000px; // Un valor alto suficiente para contener la imagen
-      border-top-color: var(--color-border);
-    }
-    
-    .accordion-header {
-      background-color: var(--color-bg-light);
-      color: var(--color-primary);
+      .document-image {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+
+      .hint {
+        font-size: 0.85rem;
+        color: #7f8c8d;
+        margin-top: 0.5rem;
+        font-style: italic;
+      }
     }
   }
 }

@@ -1,5 +1,4 @@
-// Estilos del Footer simplificado (Static High Performance)
-// ============================================
+
 .footer {
   background: linear-gradient(180deg, #2c3539 0%, #1a1f23 100%);
   color: white;
@@ -7,7 +6,7 @@
   padding: 0;
   position: relative;
 
-  // Decoración superior
+  
   &::before {
     content: '';
     position: absolute;
@@ -21,13 +20,13 @@
   @media (max-width: 768px) { margin-top: 80px; }
   @media (max-width: 480px) { margin-top: 60px; }
 
-  // Contenedor full-bleed
+  
   .footer-container {    
     width: 100%;
     box-sizing: border-box;
   }
 
-  // Contenedor interno
+  
   .footer-inner {
     max-width: 1600px;
     margin: 0 auto;
@@ -36,7 +35,7 @@
     @media (max-width: 1200px) { padding: 36px 40px 28px; }
     @media (max-width: 768px) { padding: 32px 20px 24px; }
 
-    // Grid principal
+    
     .footer-main-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -55,7 +54,7 @@
         align-items: start;
       }
 
-      // Columna izquierda
+      
       .left-column {
         display: flex;
         flex-direction: column;
@@ -114,14 +113,14 @@
           }
         }
 
-        // Redes sociales
+        
         .social-links {
           display: flex;
           gap: 24px;
           justify-content: center;
 
           .social-link {
-            width: 48px; // Reduje un poco el tamaño para que sea más sutil
+            width: 48px; 
             height: 48px;
             background: #1a1f23;
             border-radius: 50%;
@@ -137,7 +136,7 @@
               color: white;
             }
 
-            // Ajuste específico para fa-icon dentro del link
+            
             fa-icon {
               font-size: 24px;
               line-height: 1;
@@ -149,7 +148,7 @@
         }
       }
 
-      // Columna derecha
+      
       .right-column {
         display: flex;
         align-items: center;
@@ -212,33 +211,33 @@
       }
     }
 
-    // ============================================
-    // CORRECCIÓN DE ALINEACIÓN DE ICONOS
-    // ============================================
+    
+    
+    
     .info-item {
       display: flex;
-      align-items: flex-start; // Necesario para textos largos
-      gap: 16px; // Un poco más de espacio
+      align-items: flex-start; 
+      gap: 16px; 
 
       .icon {
-        // Aseguramos que el contenedor del icono tenga ancho fijo
-        width: 24px; 
-        min-width: 24px; // Evita que se aplaste
         
-        // Flex para centrar el SVG dentro del contenedor del icono
+        width: 24px; 
+        min-width: 24px; 
+        
+        
         display: flex;
         justify-content: center;
         
-        // Ajuste CLAVE: Color y Tamaño
+        
         color: white; 
         font-size: 18px; 
         
-        // Ajuste CLAVE: Empuja el icono hacia abajo para alinearse con la primera línea de texto
+        
         margin-top: 4px; 
 
         @media (min-width: 768px) {
           font-size: 20px;
-          margin-top: 3px; // Ajuste fino para desktop
+          margin-top: 3px; 
         }
       }
 
@@ -248,12 +247,12 @@
 
       .info-text {
         flex: 1;
-        // Quitamos padding-top que podría causar desalineación
+        
         
         p {
           margin: 0;
           font-size: 15px;
-          line-height: 1.6; // Altura de línea cómoda
+          line-height: 1.6; 
 
           @media (min-width: 768px) { font-size: 16px; }
 
@@ -264,7 +263,7 @@
       }
 
       &.emails-group {
-        // El icono de email suele necesitar menos ajuste vertical
+        
         .icon { 
             margin-top: 5px; 
         }
@@ -285,7 +284,7 @@
       .career-label {
         font-size: 15px;
         font-weight: 500;
-        color: rgba(255, 255, 255, 0.8); // Un poco más suave para diferenciar
+        color: rgba(255, 255, 255, 0.8); 
         @media (min-width: 768px) { font-size: 16px; }
       }
     }

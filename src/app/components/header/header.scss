@@ -24,8 +24,14 @@ $border-light: rgba(255, 255, 255, 0.1);
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 24px;
-  @media (min-width: 768px) { padding: 0 40px; }
-  @media (min-width: 1024px) { padding: 0 60px; }
+
+  @media (min-width: 768px) {
+    padding: 0 40px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 60px;
+  }
 }
 
 .header-content {
@@ -34,10 +40,12 @@ $border-light: rgba(255, 255, 255, 0.1);
   justify-content: space-between;
   min-height: 70px;
   gap: 20px;
-  @media (min-width: 768px) { min-height: 80px; }
+
+  @media (min-width: 768px) {
+    min-height: 80px;
+  }
 }
 
-// --- Logo ---
 .logo {
   display: flex;
   align-items: center;
@@ -45,20 +53,30 @@ $border-light: rgba(255, 255, 255, 0.1);
   text-decoration: none;
   flex-shrink: 0;
   padding: 8px 0;
-  &:hover { opacity: 0.9; }
+
+  &:hover {
+    opacity: 0.9;
+  }
 
   &-image {
     width: 50px;
     height: 50px;
     object-fit: contain;
-    @media (min-width: 768px) { width: 56px; height: 56px; }
+
+    @media (min-width: 768px) {
+      width: 56px;
+      height: 56px;
+    }
   }
 
   &-text {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    @media (max-width: 480px) { display: none; }
+
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
 
   &-title {
@@ -66,19 +84,27 @@ $border-light: rgba(255, 255, 255, 0.1);
     font-weight: 700;
     color: $text-light;
     line-height: 1.1;
-    @media (min-width: 768px) { font-size: 22px; }
+
+    @media (min-width: 768px) {
+      font-size: 22px;
+    }
   }
 
   &-subtitle {
     font-size: 11px;
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.2;
-    @media (min-width: 768px) { font-size: 12px; }
-    @media (max-width: 640px) { display: none; }
+
+    @media (min-width: 768px) {
+      font-size: 12px;
+    }
+
+    @media (max-width: 640px) {
+      display: none;
+    }
   }
 }
 
-// --- Desktop Menu ---
 .desktop-menu {
   display: none;
   align-items: center;
@@ -86,10 +112,17 @@ $border-light: rgba(255, 255, 255, 0.1);
   gap: 4px;
   flex: 1;
 
-  @media (min-width: 1024px) { display: flex; }
-  @media (min-width: 1200px) { gap: 8px; }
+  @media (min-width: 1024px) {
+    display: flex;
+  }
 
-  .menu-item-wrapper { position: relative; }
+  @media (min-width: 1200px) {
+    gap: 8px;
+  }
+
+  .menu-item-wrapper {
+    position: relative;
+  }
 
   .menu-item {
     @include nav-item-reset;
@@ -102,14 +135,22 @@ $border-light: rgba(255, 255, 255, 0.1);
     align-items: center;
     gap: 6px;
 
-    @media (min-width: 1200px) { padding: 10px 16px; font-size: 16px; }
+    @media (min-width: 1200px) {
+      padding: 10px 16px;
+      font-size: 16px;
+    }
 
-    &:hover { background: $border-light; }
-    &.active { background: rgba(255, 255, 255, 0.15); font-weight: 600; }
+    &:hover {
+      background: $border-light;
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.15);
+      font-weight: 600;
+    }
   }
 }
 
-// --- Submenus (Desktop) ---
 .submenu {
   position: absolute;
   top: 100%;
@@ -125,8 +166,9 @@ $border-light: rgba(255, 255, 255, 0.1);
   z-index: 100;
   transition: opacity 0.2s ease, visibility 0.2s;
 
-  // Trigger visibilidad
-  .menu-item-wrapper:hover &, .more-menu-wrapper:hover &, &.show {
+  .menu-item-wrapper:hover &,
+  .more-menu-wrapper:hover &,
+  &.show {
     opacity: 1;
     visibility: visible;
   }
@@ -165,16 +207,20 @@ $border-light: rgba(255, 255, 255, 0.1);
       cursor: default;
     }
 
-    &.submenu-nested-item { padding-left: 32px; }
+    &.submenu-nested-item {
+      padding-left: 32px;
+    }
   }
-  
+
   &-nested {
     border-bottom: 1px solid #e9ecef;
-    &:last-child { border-bottom: none; }
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 }
 
-// --- Mobile Trigger ---
 .mobile-menu-button {
   display: flex;
   align-items: center;
@@ -185,13 +231,16 @@ $border-light: rgba(255, 255, 255, 0.1);
   border: none;
   cursor: pointer;
   z-index: 1001;
-  @media (min-width: 1024px) { display: none; }
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
 
   .hamburger-icon {
     width: 28px;
     height: 22px;
     position: relative;
-    
+
     span {
       display: block;
       position: absolute;
@@ -200,27 +249,48 @@ $border-light: rgba(255, 255, 255, 0.1);
       background: $text-light;
       border-radius: 3px;
       transition: all 0.2s ease;
-      
-      &:nth-child(1) { top: 0; }
-      &:nth-child(2) { top: 9px; }
-      &:nth-child(3) { top: 18px; }
+
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 9px;
+      }
+
+      &:nth-child(3) {
+        top: 18px;
+      }
     }
 
     &.open span {
-      &:nth-child(1) { top: 9px; transform: rotate(135deg); }
-      &:nth-child(2) { opacity: 0; left: -20px; }
-      &:nth-child(3) { top: 9px; transform: rotate(-135deg); }
+      &:nth-child(1) {
+        top: 9px;
+        transform: rotate(135deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        left: -20px;
+      }
+
+      &:nth-child(3) {
+        top: 9px;
+        transform: rotate(-135deg);
+      }
     }
   }
 }
 
-// --- Mobile Menu ---
 .mobile-menu {
   background: #1a1f23;
   border-top: 1px solid $border-light;
   max-height: calc(100vh - 70px);
   overflow: hidden;
-  @media (min-width: 1024px) { display: none; }
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
 
   &-scroll {
     max-height: calc(100vh - 70px);
@@ -230,7 +300,10 @@ $border-light: rgba(255, 255, 255, 0.1);
 
   &-group {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    &:last-child { border-bottom: none; }
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   &-item {
@@ -244,15 +317,28 @@ $border-light: rgba(255, 255, 255, 0.1);
     font-weight: 500;
     text-align: left;
 
-    span { flex: 1; }
-    i { font-size: 18px; color: rgba(255, 255, 255, 0.6); transition: transform 0.2s ease; }
+    span {
+      flex: 1;
+    }
 
-    &:hover { background: rgba(255, 255, 255, 0.08); }
-    
+    i {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.6);
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
     &.active {
       background: rgba(255, 255, 255, 0.12);
       font-weight: 600;
-      i { color: $text-light; transform: rotate(180deg); }
+
+      i {
+        color: $text-light;
+        transform: rotate(180deg);
+      }
     }
   }
 }

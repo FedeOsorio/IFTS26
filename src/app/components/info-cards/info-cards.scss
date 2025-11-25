@@ -1,27 +1,27 @@
 :host {
-  --color-primary: #3f51b5; // Azul del banner
+  --color-primary: #3f51b5; 
   --color-primary-dark: #303f9f;
-  --color-bg-light: #ffffff; // Fondo blanco puro para la tarjeta
+  --color-bg-light: #ffffff; 
   --color-text-dark: #212529;
-  --color-text-light: #6c757d; // Un gris un poco más suave
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08); // Sombra elegante
+  --color-text-light: #6c757d; 
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08); 
   --shadow-hover: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
 }
 
 .info-container {
-  position: relative; // Necesario para que el z-index funcione sobre el banner
+  position: relative; 
   z-index: 10;
   margin: 10px;
   background-color: var(--color-bg-light);
-  border-radius: 12px; // Bordes redondeados más suaves
-  box-shadow: var(--shadow-soft); // Sombra en vez de borde
-  border: none; // Eliminamos el borde gris antiguo
+  border-radius: 12px; 
+  box-shadow: var(--shadow-soft); 
+  border: none; 
 
   padding: 1rem;
   text-align: center;
 
   @media (max-width: 768px) {
-    margin: 20px; // En móviles quitamos el efecto overlap
+    margin: 20px; 
     padding: 2rem 1.5rem;
   }
 
@@ -46,7 +46,7 @@
 
   .features-grid {
     display: flex;
-    justify-content: center; // Centrado
+    justify-content: center; 
     gap: 2.5rem;
     flex-wrap: wrap;
 
@@ -55,7 +55,7 @@
       min-width: 280px;
       max-width: 320px;
 
-      // CAMBIO IMPORTANTE: Quitamos el borde de cada ítem
+      
       border: none;
       padding: 18px;
       box-sizing: border-box;
@@ -64,22 +64,22 @@
       transition: all 0.2s ease;
       background: transparent;
 
-      // Efecto hover sutil
+      
       &:hover {
         transform: scale(1.03);
       }
 
       .icon-wrapper {
-        width: 70px; // Iconos un poco más grandes
+        width: 70px; 
         height: 70px;
-        background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); // Gradiente sutil
+        background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); 
         border-radius: 50%;
         margin: 0 auto 1.5rem auto;
         display: grid;
         place-items: center;
         color: white;
         font-size: 1.6rem;
-        box-shadow: 0 4px 10px rgba(63, 81, 181, 0.3); // Sombra brillante al icono
+        box-shadow: 0 4px 10px rgba(63, 81, 181, 0.3); 
       }
 
       h3 {
@@ -98,7 +98,7 @@
   }
 }
 
-// ... El resto del código (.careers-section) se mantiene igual ...
+
 
 .careers-section {
   max-width: 1200px;

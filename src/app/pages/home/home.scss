@@ -18,7 +18,7 @@
   }
 }
 
-// Hero Banner
+
 .hero-banner {
   position: relative;
   min-height: 410px;
@@ -63,9 +63,9 @@
   }
 }
 
-// Elementos con animación restaurada
-// Se usa 'forwards' para que el elemento se quede visible al final
-// -------------------------------------------------------------
+
+
+
 
 .hero-title {
   font-size: 80px;
@@ -76,7 +76,7 @@
   letter-spacing: -1px;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 
-  // Animación: Aparece de inmediato
+  
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
 
@@ -93,7 +93,7 @@
   text-transform: uppercase;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
-  // Animación: Delay de 0.2s
+  
   opacity: 0;
   animation: fadeInUp 0.8s ease-out 0.2s forwards;
 
@@ -109,7 +109,7 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font-weight: 400;
 
-  // Animación: Delay de 0.4s
+  
   opacity: 0;
   animation: fadeInUp 0.8s ease-out 0.4s forwards;
 
@@ -124,7 +124,7 @@
   gap: 20px;
   align-items: center;
 
-  // Animación: Delay de 0.6s
+  
   opacity: 0;
   animation: fadeInUp 0.8s ease-out 0.6s forwards;
 
@@ -139,14 +139,14 @@
   display: none;
 }
 
-// Botones Generales
+
 .btn-primary,
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 18px 36px; // Desktop
+  padding: 18px 36px; 
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
@@ -156,12 +156,12 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   
-  // Transición solo de color (muy ligera)
+  
   transition: background-color 0.2s ease;
 
   @media (max-width: 768px) {
     padding: 16px 32px;
-    width: 100%; // Botones full width en móvil
+    width: 100%; 
     box-sizing: border-box;
   }
 
@@ -173,7 +173,7 @@
 .btn-primary {
   background: #5fb3f6;
   color: white;
-  // Sombra fija, no cambia en hover
+  
   box-shadow: 0 6px 20px rgba(95, 179, 246, 0.5);
 
   &:hover {
@@ -191,15 +191,15 @@
   }
 }
 
-// CTA Section
+
 .cta-section {
-  // Desktop
+  
   padding: 120px 40px;
   background: linear-gradient(135deg, #1E6C93 0%, #155a7a 100%);
   position: relative;
   overflow: hidden;
 
-  // Decoración estática (sin animaciones ni eventos)
+  
   &::before {
     content: '';
     position: absolute;
@@ -230,7 +230,7 @@
 }
 
 .cta-title {
-  // Desktop
+  
   font-size: 42px;
   font-weight: 700;
   color: white;
@@ -244,7 +244,7 @@
 }
 
 .cta-text {
-  // Desktop
+  
   font-size: 20px;
   color: rgba(255, 255, 255, 0.9);
   margin: 0 0 48px 0;
@@ -260,7 +260,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 20px 48px; // Desktop
+  padding: 20px 48px; 
   background: white;
   color: #1E6C93;
   text-decoration: none;
@@ -271,14 +271,14 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   
-  // Transición rápida solo para color
+  
   transition: background-color 0.2s ease, color 0.2s ease;
 
   i {
     font-size: 24px;
   }
 
-  // Hover simple (sin transform)
+  
   &:hover {
     background: #5fb3f6;
     color: white;

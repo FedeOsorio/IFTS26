@@ -37,19 +37,18 @@ export class Contacto {
     asunto: ['', Validators.required],
     mensaje: ['', Validators.required]
   });
-  
+
 
   constructor() { }
 
- async enviarConsulta() {
+  async enviarConsulta() {
     if (this.consultaForm.invalid) {
       this.consultaForm.markAllAsTouched();
       return;
     }
 
-    this.enviando = true; // Activa el spinner
+    this.enviando = true;
 
-    // Preparamos los datos para que coincidan con las variables {{...}} de tu Template en EmailJS
     const templateParams = {
       nombre: this.consultaForm.value.nombre,
       email: this.consultaForm.value.email,
@@ -59,13 +58,11 @@ export class Contacto {
     };
 
     try {
-      // 3. Llamada a EmailJS
-      // Reemplazá con TUS datos reales
       await emailjs.send(
-        'service_o1vnw6m',     // Ej: service_xyz
-        'template_ewwjhrs',    // Ej: template_abc
+        'service_o1vnw6m',
+        'template_ewwjhrs',
         templateParams,
-        'HNFT8qRwufsUZgNsJ'      // Ej: aBcdEfG12345
+        'HNFT8qRwufsUZgNsJ'
       );
 
       alert('¡Consulta enviada con éxito! Te responderemos a la brevedad.');
@@ -75,7 +72,7 @@ export class Contacto {
       console.error('Error al enviar:', error);
       alert('Hubo un error al enviar el mensaje. Por favor intentá nuevamente o escribinos al mail directo.');
     } finally {
-      this.enviando = false; // Reactiva el botón
+      this.enviando = false;
     }
   }
 }

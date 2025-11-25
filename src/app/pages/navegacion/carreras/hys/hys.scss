@@ -1,289 +1,352 @@
 :host {
-    --color-primary: #3f51b5;
-    --color-primary-dark: #303f9f;
-    --color-text-dark: #212529;
-    --color-text-light: #5a5a5a;
-    --color-bg-light: #f7f9ff;
-    --color-border: #e0e0e0;
-    --color-accent: #ff9800; // Color naranja opcional para detalles de seguridad (cascos)
+  --color-primary: #1E6C93;
+  --color-primary-dark: #155a7a;
+  --color-secondary: #5fb3f6;
+  --color-text-dark: #2c3539;
+  --color-text-light: #666;
+  --color-bg-light: #f8f9fa;
+  --color-white: #ffffff;
+  --color-border: rgba(0, 0, 0, 0.08);
 }
 
 .career-container {
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
 }
 
+/* --- HEADER --- */
 .career-header {
-    text-align: center;
-    margin-bottom: 3rem;
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
 
-    h1 {
-        font-size: 2rem;
-        color: var(--color-primary);
-        font-weight: 700;
-        line-height: 1.3;
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    font-size: 36px;
+    color: var(--color-primary);
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+    padding: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 150px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+      border-radius: 2px;
     }
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+      padding-bottom: 20px;
+    }
+  }
 }
 
-/* --- Introducción --- */
+/* --- INTRODUCCIÓN --- */
 .intro-section {
-    display: flex;
-    gap: 3rem;
-    margin-bottom: 3rem;
-    align-items: center; // Centrado verticalmente con la imagen
+  display: flex;
+  gap: 48px;
+  margin-bottom: 48px;
+  align-items: center;
 
-    @media (max-width: 992px) {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .career-image-wrapper {
-        flex: 1;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-
-        .main-image {
-            width: 100%;
-            max-width: 400px; // Limitamos el ancho para que no sea gigante
-            height: auto;
-            object-fit: contain;
-        }
-    }
-
-    .career-description {
-        flex: 1.5;
-
-        h2,
-        h3 {
-            color: var(--color-text-dark);
-            font-weight: 600;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        h3 {
-            font-size: 1.15rem;
-            margin: 1.5rem 0 0.75rem 0;
-        }
-
-        p {
-            color: var(--color-text-light);
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        .skills-list {
-            list-style: none; // Quitamos viñetas default
-            padding: 0;
-
-            li {
-                position: relative;
-                padding-left: 1.5rem;
-                margin-bottom: 1rem;
-                color: var(--color-text-light);
-                line-height: 1.5;
-
-                // Flechita personalizada (→) usando CSS
-                &::before {
-                    content: '➜';
-                    position: absolute;
-                    left: 0;
-                    color: var(--color-primary);
-                    font-size: 0.9rem;
-                    top: 2px;
-                }
-
-                strong {
-                    color: var(--color-text-dark);
-                }
-            }
-        }
-    }
-}
-
-/* --- Sección "¿Por qué estudiar?" --- */
-.why-study-section {
-    margin-bottom: 4rem;
-
-    .highlight-box {
-        background-color: var(--color-bg-light);
-        border-left: 5px solid var(--color-primary);
-        padding: 2rem;
-        border-radius: 0 8px 8px 0;
-
-        h3 {
-            margin-top: 0;
-            color: var(--color-primary);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            color: var(--color-text-light);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-    }
-}
-
-/* --- Acordeón (Reutilizado) --- */
-.info-accordion {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
+  @media (max-width: 900px) {
     flex-direction: column;
-    gap: 1rem;
+    gap: 32px;
+  }
 
-    .accordion-item {
-        border: 1px solid var(--color-border);
-        border-radius: 8px;
-        overflow: hidden;
-        background-color: white;
-        transition: box-shadow 0.3s ease;
+  .career-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
-        &.active {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border-color: var(--color-primary);
-        }
+    .main-image {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+    }
+  }
+
+  .career-description {
+    flex: 1.5;
+
+    h2 {
+      color: var(--color-primary);
+      font-size: 24px;
+      margin-bottom: 16px;
+      font-weight: 700;
     }
 
-    .accordion-header {
-        width: 100%;
-        background: white;
-        border: none;
-        padding: 1.25rem 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
+    h3 {
+      font-size: 18px;
+      margin: 24px 0 12px;
+      color: var(--color-text-dark);
+      font-weight: 600;
+    }
 
-        &:hover {
-            background-color: var(--color-bg-light);
+    p {
+      color: var(--color-text-light);
+      line-height: 1.7;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .skills-list {
+      list-style: none;
+      padding: 0;
+
+      li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 12px;
+        color: var(--color-text-light);
+        line-height: 1.5;
+
+        &::before {
+          content: '➜';
+          position: absolute;
+          left: 0;
+          color: var(--color-secondary);
+          font-size: 14px;
+          top: 2px;
         }
+
+        strong {
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
+}
+
+/* --- POR QUÉ ESTUDIAR --- */
+.why-study-section {
+  margin-bottom: 48px;
+
+  .highlight-box {
+    background: var(--color-white);
+    border-left: 5px solid var(--color-primary);
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, .06);
+
+    @media (max-width: 768px) {
+      padding: 24px;
+    }
+
+    h3 {
+      margin: 0 0 16px;
+      color: var(--color-primary);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    p {
+      color: var(--color-text-light);
+      line-height: 1.7;
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+/* --- ACORDEÓN --- */
+.info-accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .accordion-item {
+    background: var(--color-white);
+    border-radius: 16px;
+    overflow: hidden;
+    border-left: 5px solid var(--color-primary);
+    box-shadow: 0 4px 24px var(--color-border);
+    transition: .3s ease;
+
+    &.active {
+      box-shadow: 0 8px 30px rgba(30, 108, 147, .12);
+      border-left-color: var(--color-secondary);
+
+      .accordion-header {
+        background: rgba(30, 108, 147, .05);
 
         .header-title {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
 
-            .section-icon {
-                color: var(--color-primary);
-                font-size: 1.3rem;
-            }
-
-            span {
-                font-size: 1.1rem;
-                font-weight: 600;
-                color: var(--color-text-dark);
-                text-transform: uppercase; // Título en mayúsculas como en la imagen
-            }
+          .section-icon,
+          span {
+            color: var(--color-primary);
+          }
         }
 
         .toggle-icon {
-            color: var(--color-text-light);
+          transform: rotate(180deg);
+          color: var(--color-primary);
         }
+      }
+
+      .accordion-content {
+        max-height: 2000px;
+        opacity: 1;
+      }
     }
 
-    .accordion-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-out;
-        background-color: #fafafa;
+    &:not(.active):hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .08);
+    }
+  }
 
-        .content-inner {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+  .accordion-header {
+    width: 100%;
+    border: none;
+    background: var(--color-white);
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
 
-        .document-image {
-            width: 100%;
-            height: auto;
-            border: 1px solid var(--color-border);
-            border-radius: 4px;
-            margin-bottom: 0.5rem;
-        }
-
-        .download-hint {
-            font-size: 0.85rem;
-            color: #888;
-            font-style: italic;
-        }
-
-        .content-text {
-            padding: 1.5rem 2rem;
-            color: var(--color-text-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
-
-            .text-subtitle {
-                color: var(--color-primary);
-                font-size: 1.1rem;
-                font-weight: 600;
-                margin-top: 1.5rem;
-                margin-bottom: 0.75rem;
-
-                &:first-child {
-                    margin-top: 0;
-                }
-            }
-
-            p {
-                margin-bottom: 1rem;
-            }
-
-            .main-list {
-                padding-left: 1.2rem;
-                margin-bottom: 1.5rem;
-
-                li {
-                    margin-bottom: 0.5rem;
-                    position: relative;
-                    /* Opcional: bullet personalizado */
-                }
-            }
-
-            .sub-list {
-                padding-left: 1.5rem;
-                margin-top: 0.5rem;
-                list-style-type: circle;
-                /* Diferente estilo de viñeta */
-
-                li {
-                    margin-bottom: 0.25rem;
-                    color: #666;
-                    font-style: italic;
-                }
-            }
-
-            .divider {
-                border: 0;
-                border-top: 1px solid var(--color-border);
-                margin: 2rem 0;
-            }
-        }
+    @media (max-width: 768px) {
+      padding: 20px 24px;
     }
 
-    .accordion-item.active {
-        .accordion-content {
-            max-height: 2000px;
-            border-top: 1px solid var(--color-border);
-        }
+    .header-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
 
-        .accordion-header {
-            background-color: var(--color-bg-light);
+      .section-icon {
+        color: var(--color-secondary);
+        font-size: 20px;
+        transition: .3s;
+      }
+
+      span {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--color-text-dark);
+        text-transform: uppercase;
+        transition: .3s;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .toggle-icon {
+      color: #ccc;
+      transition: .3s;
+    }
+  }
+
+  .accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height .4s ease, opacity .3s ease;
+    background: var(--color-white);
+
+    // Contenido Imagen
+    .content-inner {
+      padding: 24px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-top: 1px solid var(--color-border);
+
+      .document-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+        margin-bottom: 12px;
+      }
+
+      .download-hint {
+        font-size: 14px;
+        color: var(--color-text-light);
+        font-style: italic;
+      }
+    }
+
+    // Contenido Texto
+    .content-text {
+      padding: 24px 32px 32px;
+      color: var(--color-text-dark);
+      line-height: 1.7;
+      border-top: 1px solid var(--color-border);
+      text-align: left;
+
+      .text-subtitle {
+        color: var(--color-primary);
+        font-size: 18px;
+        font-weight: 700;
+        margin: 24px 0 12px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      p {
+        margin-bottom: 16px;
+      }
+
+      .main-list {
+        padding-left: 20px;
+        margin-bottom: 24px;
+
+        li {
+          margin-bottom: 8px;
+          position: relative;
+          color: var(--color-text-light);
+
+          &::marker {
             color: var(--color-primary);
+          }
         }
+      }
+
+      .sub-list {
+        padding-left: 20px;
+        margin-top: 8px;
+        list-style-type: circle;
+
+        li {
+          margin-bottom: 4px;
+          color: var(--color-text-light);
+          font-style: italic;
+        }
+      }
+
+      .divider {
+        border: 0;
+        border-top: 2px dashed var(--color-border);
+        margin: 32px 0;
+      }
     }
+  }
 }

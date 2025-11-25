@@ -14,13 +14,11 @@ import faqData from '../../../../../assets/data/faq.json'
 export class Faq {
   private sanitizer = inject(DomSanitizer);
 
-  // Mapeamos para el estado 'abierto'
   data = {
     ...faqData,
     items: faqData.items.map((i: any) => ({ ...i, abierto: false }))
   };
 
-  // Íconos
   iconoExpandir = faChevronDown;
   iconoContraer = faChevronUp;
   iconoPregunta = faCircleQuestion;
@@ -32,7 +30,7 @@ export class Faq {
   }
 
   toggleItem(item: any): void {
-    // Si querés que se cierre el anterior al abrir uno nuevo:
+    // Para cerrar el anterior al abrir uno nuevo:
     // this.data.items.forEach(i => { if (i !== item) i.abierto = false; });
     item.abierto = !item.abierto;
   }

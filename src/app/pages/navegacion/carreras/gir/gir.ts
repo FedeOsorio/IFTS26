@@ -1,12 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faChevronDown,
   faChevronUp,
-  faTableList,      // Para Plan de Estudio
-  faDiagramProject  // Para Correlatividades
+  faBookOpen,
+  faListCheck,
+  faShieldHalved
 } from '@fortawesome/free-solid-svg-icons';
+import { marked } from 'marked';
+import girData from '../../../../../assets/data/gestion-riesgo.json'
 
 interface SeccionExpandible {
   titulo: string;
@@ -17,32 +21,35 @@ interface SeccionExpandible {
 
 @Component({
   selector: 'app-gir',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [FontAwesomeModule],
   templateUrl: './gir.html',
   styleUrl: './gir.scss'
 })
 export class Gir {
+  private sanitizer = inject(DomSanitizer);
+
+  // Mapeamos los datos para asegurar que las solapas tengan la propiedad 'abierto'
+  data = {
+    ...girData,
+    secciones: girData.secciones ? girData.secciones.map((s: any) => ({ ...s, abierto: s.abierto || false })) : []
+  };
+
+  // Íconos
   iconoExpandir = faChevronDown;
   iconoContraer = faChevronUp;
+  iconoEscudo = faShieldHalved;
+  iconoLibro = faBookOpen;
+  iconoLista = faListCheck;
 
-  // Definición de las solapas expandibles
-  secciones: SeccionExpandible[] = [
-    {
-      titulo: 'Plan de Estudios y Carga Horaria',
-      icono: faTableList,
-      // Esta imagen la subirá el admin. De momento usamos un placeholder.
-      imagenSrc: 'assets/images/plan-estudios-gir.jpg',
-      abierto: false
-    },
-    {
-      titulo: 'Régimen de Correlatividades',
-      icono: faDiagramProject,
-      imagenSrc: 'assets/images/correlatividades-gir.jpg',
-      abierto: false
-    }
-  ];
+  // Función para convertir Markdown a HTML seguro
+  renderMarkdown(text: string): SafeHtml {
+    if (!text) return '';
+    const html = marked.parse(text, { async: false }) as string;
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
 
-  toggleSeccion(seccion: SeccionExpandible): void {
-    seccion.abierto = !seccion.abierto;
+  // Función para abrir/cerrar solapas
+  toggleSeccion(item: any): void {
+    item.abierto = !item.abierto;
   }
 }
