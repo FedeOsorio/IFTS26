@@ -214,3 +214,24 @@ collections:
               - {label: "Nombre del Profesor", name: "nombre", widget: "string"}
               - {label: "Email", name: "email", widget: "string"}
               - {label: "Descripción y Links", name: "texto", widget: "markdown", hint: "Material de interés, link de acceso y código."}
+
+      - name: "constancias"
+        label: "Constancias y Trámites"
+        file: "src/assets/data/constancias.json"
+        fields:
+          - {label: "Título Principal", name: "titulo", widget: "string", default: "Constancias"}
+          - {label: "Bajada / Descripción", name: "descripcion", widget: "text", required: false}
+          
+          # LISTA DE TRÁMITES
+          - label: "Lista de Trámites"
+            name: "tramites"
+            widget: "list"
+            fields:
+              - {label: "Título del Trámite", name: "titulo", widget: "string"}
+              
+              # Campo de texto libre para instrucciones, links y listas
+              - {label: "Instrucciones y Pasos", name: "contenido", widget: "markdown"}
+              
+              # Opción para adjuntar un archivo (PDF o Imagen) si hiciera falta
+              - {label: "Archivo Adjunto (Opcional)", name: "archivoAdjunto", widget: "file", required: false}
+              - {label: "Texto del Botón de Descarga", name: "textoBoton", widget: "string", required: false, default: "Descargar Archivo"}

@@ -1,1 +1,46 @@
-<p>constancias works!</p>
+<div class="constancias-container">
+  
+  <header class="page-header">
+    <h1>{{ data.titulo }}</h1>
+    @if (data.descripcion) {
+      <div class="alert-info">
+        <p>{{ data.descripcion }}</p>
+      </div>
+    }
+  </header>
+
+  <div class="tramites-list">
+    
+    @for (tramite of data.tramites; track $index) {
+      <div class="accordion-item" [class.active]="tramite.abierto">
+        
+        <button class="accordion-header" (click)="toggleTramite(tramite)">
+          <div class="header-title">
+            <fa-icon [icon]="iconoTramite" class="main-icon"></fa-icon>
+            <h2>{{ tramite.titulo }}</h2>
+          </div>
+          <fa-icon [icon]="tramite.abierto ? iconoContraer : iconoExpandir" class="toggle-icon"></fa-icon>
+        </button>
+        
+        <div class="accordion-content">
+          <div class="content-inner">
+            
+            <div class="markdown-body" [innerHTML]="renderMarkdown(tramite.contenido)"></div>
+
+            @if (tramite.archivoAdjunto) {
+              <div class="attachment-section">
+                <a [href]="tramite.archivoAdjunto" target="_blank" download class="btn-download">
+                  <fa-icon [icon]="iconoDescarga"></fa-icon>
+                  {{ tramite.textoBoton || 'Descargar Archivo' }}
+                </a>
+              </div>
+            }
+
+          </div>
+        </div>
+
+      </div>
+    }
+
+  </div>
+</div>

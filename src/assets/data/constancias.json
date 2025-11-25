@@ -1,0 +1,18 @@
+{
+  "titulo": "Constancias y Certificados",
+  "descripcion": "Se deben TRAER IMPRESAS Y COMPLETAS a Bedelía para ser firmadas según corresponda.",
+  "tramites": [
+    {
+      "titulo": "Alumno Regular",
+      "contenido": "**Generar Certificado de Alumno Regular desde SIU GUARANI**.\n\nPara descargar un certificado de alumno regular desde la plataforma SIU Guaraní, deberás ingresar al sistema de gestión académica en el siguiente link: [SIU Guaraní Autogestión](https://guarani-autogestionagencia.bue.edu.ar/).\n\nLuego te diriges a la sección \"Trámites\" o \"Solicitud de certificados\", donde se selecciona \"Certificado de Alumno Regular\" y se genera el documento en PDF.\n\n**Pasos generales para descargar el certificado:**\n\n1. **Ingresar al sistema:** Deberás ingresar al [link de autogestión](https://guarani-autogestionagencia.bue.edu.ar/) con tus datos.\n2. **Localizar la sección:** Buscar la opción \"Trámites\", \"Solicitud de certificados\".\n3. **Seleccionar:** Elegir la opción \"Certificado de Alumno Regular\".\n4. **Generar:** Confirmar y descargar el PDF.",
+      "archivoAdjunto": "",
+      "textoBoton": ""
+    },
+    {
+      "titulo": "Constancia de Examen",
+      "contenido": "Para solicitar la constancia de examen, debe descargar el formulario adjunto, completarlo y presentarlo al profesor el día de la mesa evaluadora.",
+      "archivoAdjunto": "/assets/images/uploads/modelo_examen.pdf",
+      "textoBoton": "Descargar Modelo de Constancia"
+    }
+  ]
+}

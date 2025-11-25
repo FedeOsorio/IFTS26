@@ -3,6 +3,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { faChalkboardTeacher, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import tutoriasData from '../../../../../assets/data/tutorias.json'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { marked } from 'marked';
 
 @Component({
   selector: 'app-tutoria',
@@ -19,9 +20,12 @@ export class Tutoria {
   iconoTutor = faChalkboardTeacher;
   iconoEmail = faEnvelope;
 
-  // Función para sanitizar el Markdown (asumimos que el CMS lo convierte a HTML)
-  getSafeHtml(html: string): SafeHtml {
-    // Si el CMS devuelve HTML limpio, lo sanitizamos para permitir su renderizado
+  renderMarkdown(markdownString: string): SafeHtml {
+    if (!markdownString) return this.sanitizer.bypassSecurityTrustHtml('');
+
+    // CAMBIO AQUÍ: Agregamos {async: false} y 'as string'
+    const html = marked.parse(markdownString, { async: false }) as string;
+
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 }

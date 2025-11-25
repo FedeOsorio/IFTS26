@@ -1,0 +1,168 @@
+:host {
+  --color-primary: #3f51b5;
+  --color-text: #333;
+  --color-bg-light: #f8f9fa;
+  --color-border: #dee2e6;
+  --color-highlight: #e8f0fe; // Fondo azul muy clarito para la alerta
+}
+
+.constancias-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .alert-info {
+    background-color: var(--color-highlight);
+    color: #0d47a1;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--color-primary);
+    display: inline-block;
+    font-weight: 600;
+  }
+}
+
+/* --- Acordeón --- */
+.tramites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordion-item {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  transition: box-shadow 0.2s;
+
+  &.active {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-color: var(--color-primary);
+    
+    .accordion-header {
+      background-color: var(--color-bg-light);
+      color: var(--color-primary);
+    }
+    
+    .accordion-content {
+      max-height: 2000px; /* Altura suficiente para contenido largo */
+    }
+  }
+}
+
+.accordion-header {
+  width: 100%;
+  border: none;
+  background: white;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: var(--color-bg-light);
+  }
+
+  .header-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .main-icon {
+      font-size: 1.4rem;
+      color: var(--color-primary);
+    }
+  }
+
+  .toggle-icon {
+    color: #999;
+  }
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+  background-color: #fff;
+
+  .content-inner {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+/* --- Estilos para el Markdown (Texto Rico) --- */
+.markdown-body {
+  color: var(--color-text);
+  line-height: 1.6;
+  font-size: 1rem;
+
+  /* Estilos profundos (ng-deep) para afectar el HTML inyectado */
+  ::ng-deep {
+    p { margin-bottom: 1rem; }
+    
+    strong { font-weight: 700; color: #000; }
+    
+    a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      font-weight: 600;
+      &:hover { color: #1a237e; }
+    }
+
+    /* Listas numeradas y con viñetas */
+    ol, ul {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      
+      li {
+        margin-bottom: 0.5rem;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+}
+
+/* --- Botón de Descarga --- */
+.attachment-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--color-border);
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: #303f9f;
+    }
+  }
+}
