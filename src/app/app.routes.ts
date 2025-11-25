@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
 import { NotFound } from './pages/not-found/not-found';
-import { Curso } from './pages/navegacion/pre-inscripcion/curso/curso';
 import { CalendarioAcademico } from './pages/navegacion/institucional/calendario-academico/calendario-academico';
 import { Autoridades } from './pages/navegacion/institucional/autoridades/autoridades';
 import { ReglamentoOrganico } from './pages/navegacion/institucional/reglamento-organico/reglamento-organico';
@@ -28,7 +27,6 @@ export const routes: Routes = [
     { path: '', component: Home },
     { path: 'inicio', component: Home },
     { path: 'pre-inscripcion', component: PreInscripcion },
-    { path: 'pre-inscripcion/curso', component: Curso },
     { path: 'institucional/calendario-academico', component: CalendarioAcademico },
     { path: 'institucional/autoridades', component: Autoridades },
     { path: 'institucional/reglamento-organico', component: ReglamentoOrganico },

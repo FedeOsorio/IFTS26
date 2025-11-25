@@ -11,22 +11,11 @@
 
 .inscripcion-container {
   max-width: 1200px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 40px;
   padding: 0 24px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-  @media (max-width: 768px) {
-    margin: 0 auto 40px auto;
-    padding: 0 16px;
-  }
-
-  @media (max-width: 480px) {
-    margin: 0 auto 30px auto;
-    padding: 0 12px;
-  }
 }
 
-/* --- Banner Gradiente --- */
 .info-banner {
   position: relative;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
@@ -34,35 +23,16 @@
   text-align: center;
   border-radius: 24px;
   margin: 20px 0;
-  box-shadow: 
-    0 8px 32px rgba(30, 108, 147, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 8px 32px rgba(30, 108, 147, .3), 0 0 0 1px rgba(255, 255, 255, .1) inset;
   overflow: hidden;
 
-  // Patrón decorativo
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    inset: 0;
     pointer-events: none;
-  }
-
-  @media (max-width: 768px) {
-    padding: 40px 24px;
-    margin-bottom: 40px;
-    border-radius: 0 0 16px 16px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 32px 20px;
-    margin-bottom: 32px;
-    border-radius: 0 0 12px 12px;
+    background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, .08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255, 255, 255, .08) 0%, transparent 50%);
   }
 }
 
@@ -77,17 +47,7 @@
     font-size: 32px;
     margin-bottom: 12px;
     letter-spacing: 1px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-
-    @media (max-width: 768px) {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .3);
   }
 
   .highlight {
@@ -95,17 +55,7 @@
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 32px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
-    @media (max-width: 768px) {
-      font-size: 18px;
-      margin-bottom: 24px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
+    text-shadow: 0 2px 4px rgba(0, 0, 0, .2);
   }
 }
 
@@ -117,16 +67,6 @@
   margin-bottom: 24px;
   flex-wrap: wrap;
 
-  @media (max-width: 768px) {
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    gap: 16px;
-  }
-
   .detail-item {
     display: flex;
     align-items: center;
@@ -134,46 +74,28 @@
     font-size: 28px;
     font-weight: 800;
     color: white;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, .15);
     padding: 16px 32px;
     border-radius: 50px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
+    transition: all .3s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, .25);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    @media (max-width: 768px) {
-      font-size: 22px;
-      padding: 12px 24px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .3);
     }
 
-    @media (max-width: 480px) {
-      font-size: 20px;
-      padding: 10px 20px;
-    }
-    
-    fa-icon { 
+    fa-icon {
       font-size: 32px;
-
-      @media (max-width: 768px) {
-        font-size: 26px;
-      }
-
-      @media (max-width: 480px) {
-        font-size: 24px;
-      }
     }
   }
 }
 
 .location-text {
   font-size: 17px;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, .95);
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
@@ -181,46 +103,18 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  
+
   fa-icon {
     font-size: 20px;
   }
-
-  @media (max-width: 768px) {
-    font-size: 15px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 14px;
-    flex-direction: column;
-    gap: 4px;
-  }
 }
-
-// ============================================
-// Cronograma Section
-// ============================================
 
 .cronograma-section {
   background: white;
   border-radius: 20px;
   padding: 48px 40px;
   margin-bottom: 48px;
-  box-shadow: 
-    0 4px 24px rgba(0, 0, 0, 0.08),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
-
-  @media (max-width: 768px) {
-    padding: 32px 24px;
-    margin-bottom: 32px;
-    border-radius: 16px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 24px 20px;
-    margin-bottom: 24px;
-    border-radius: 12px;
-  }
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .08), 0 0 0 1px rgba(0, 0, 0, .05);
 }
 
 .section-header {
@@ -241,16 +135,6 @@
     background: var(--color-secondary);
   }
 
-  @media (max-width: 768px) {
-    margin-bottom: 32px;
-    padding-bottom: 20px;
-  }
-
-  @media (max-width: 480px) {
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-  }
-
   h3 {
     font-size: 16px;
     color: var(--color-text-light);
@@ -258,14 +142,6 @@
     letter-spacing: 2px;
     margin-bottom: 8px;
     font-weight: 600;
-
-    @media (max-width: 768px) {
-      font-size: 14px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 13px;
-    }
   }
 
   .term-title {
@@ -273,14 +149,6 @@
     color: var(--color-primary);
     font-weight: 800;
     margin: 0;
-
-    @media (max-width: 768px) {
-      font-size: 26px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 22px;
-    }
   }
 }
 
@@ -289,16 +157,6 @@
   flex-direction: column;
   gap: 20px;
   margin-bottom: 40px;
-
-  @media (max-width: 768px) {
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
-  @media (max-width: 480px) {
-    gap: 12px;
-    margin-bottom: 24px;
-  }
 }
 
 .timeline-item {
@@ -309,23 +167,13 @@
   background: var(--color-bg-light);
   border-radius: 12px;
   border-left: 4px solid var(--color-primary);
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 
   &:hover {
-    background: rgba(30, 108, 147, 0.05);
+    background: rgba(30, 108, 147, .05);
     border-left-color: var(--color-secondary);
     transform: translateX(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  }
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 8px;
-    padding: 16px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
   }
 }
 
@@ -334,45 +182,20 @@
   color: var(--color-primary);
   min-width: 200px;
   font-size: 16px;
-
-  @media (max-width: 768px) {
-    min-width: unset;
-    font-size: 15px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 14px;
-  }
 }
 
 .timeline-value {
   font-size: 15px;
   color: var(--color-text-dark);
   line-height: 1.6;
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 13px;
-  }
 }
 
 .contact-support {
   text-align: center;
   padding: 24px;
-  background: linear-gradient(135deg, rgba(30, 108, 147, 0.1) 0%, rgba(95, 179, 246, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(30, 108, 147, .1) 0%, rgba(95, 179, 246, .1) 100%);
   border-radius: 12px;
-  border: 2px solid rgba(30, 108, 147, 0.2);
-
-  @media (max-width: 768px) {
-    padding: 20px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 16px;
-  }
+  border: 2px solid rgba(30, 108, 147, .2);
 
   p {
     margin: 0;
@@ -380,20 +203,11 @@
     color: var(--color-text-dark);
     font-weight: 600;
 
-    @media (max-width: 768px) {
-      font-size: 14px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
     a {
       color: var(--color-primary);
       text-decoration: none;
       font-weight: 700;
-      transition: all 0.3s ease;
+      transition: all .3s ease;
 
       &:hover {
         color: var(--color-secondary);
@@ -403,20 +217,8 @@
   }
 }
 
-// ============================================
-// Google Slides Section
-// ============================================
-
 .google-slides-section {
   margin-bottom: 48px;
-
-  @media (max-width: 768px) {
-    margin-bottom: 32px;
-  }
-
-  @media (max-width: 480px) {
-    margin-bottom: 24px;
-  }
 }
 
 .slides-wrapper {
@@ -424,19 +226,7 @@
   height: 600px;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
-
-  @media (max-width: 768px) {
-    height: 500px;
-    border-radius: 16px;
-  }
-
-  @media (max-width: 480px) {
-    height: 400px;
-    border-radius: 12px;
-  }
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .12), 0 0 0 1px rgba(0, 0, 0, .05);
 
   iframe {
     border: none;
@@ -444,63 +234,31 @@
   }
 }
 
-// ============================================
-// Cursos Section
-// ============================================
 
-.cursos-section {
-  .section-header {
-    margin-bottom: 40px;
 
-    @media (max-width: 768px) {
-      margin-bottom: 32px;
-    }
-
-    @media (max-width: 480px) {
-      margin-bottom: 24px;
-    }
-  }
-}
-
-.cursos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
-
-  @media (max-width: 768px) {
-    gap: 24px;
-    grid-template-columns: 1fr;
-  }
-
-  @media (max-width: 480px) {
-    gap: 20px;
-  }
-}
-
-/* --- Texto Rico (Instrucciones) --- */
 .instructions-content {
   padding: 0 1.5rem;
   max-width: 900px;
   margin: 0 auto;
 
-  /* Estilos para el HTML inyectado */
   ::ng-deep .rich-text {
     font-size: 1rem;
     line-height: 1.6;
     color: var(--color-text-dark);
 
-    h3, h4 {
+    h3,
+    h4 {
       color: var(--color-primary);
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
+      margin: 1.5rem 0 1rem;
     }
 
-    ol, ul {
+    ol,
+    ul {
       margin-bottom: 1.5rem;
       padding-left: 1.5rem;
 
       li {
-        margin-bottom: 0.75rem;
+        margin-bottom: .75rem;
       }
     }
 
@@ -508,11 +266,214 @@
       color: var(--color-primary);
       font-weight: 600;
       text-decoration: none;
-      &:hover { text-decoration: underline; }
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     strong {
       color: #000;
     }
   }
+}
+
+/* --- Responsive Styles --- */
+
+@media (max-width: 768px) {
+  .inscripcion-container {
+    margin-bottom: 40px;
+    padding: 0 16px;
+  }
+
+  .info-banner {
+    padding: 40px 24px;
+    margin-bottom: 40px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .banner-content h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .banner-content .highlight {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .banner-details {
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .banner-details .detail-item {
+    font-size: 22px;
+    padding: 12px 24px;
+
+    fa-icon {
+      font-size: 26px;
+    }
+  }
+
+  .location-text {
+    font-size: 15px;
+  }
+
+  .cronograma-section {
+    padding: 32px 24px;
+    margin-bottom: 32px;
+    border-radius: 16px;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+
+    h3 {
+      font-size: 14px;
+    }
+
+    .term-title {
+      font-size: 26px;
+    }
+  }
+
+  .timeline-list {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .timeline-label {
+    min-width: unset;
+    font-size: 15px;
+  }
+
+  .timeline-value {
+    font-size: 14px;
+  }
+
+  .contact-support {
+    padding: 20px;
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .google-slides-section {
+    margin-bottom: 32px;
+  }
+
+  .slides-wrapper {
+    height: 500px;
+    border-radius: 16px;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .inscripcion-container {
+    margin-bottom: 30px;
+    padding: 0 12px;
+  }
+
+  .info-banner {
+    padding: 32px 20px;
+    margin-bottom: 32px;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .banner-content h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .banner-content .highlight {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .banner-details {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .banner-details .detail-item {
+    font-size: 20px;
+    padding: 10px 20px;
+
+    fa-icon {
+      font-size: 24px;
+    }
+  }
+
+  .location-text {
+    font-size: 14px;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cronograma-section {
+    padding: 24px 20px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+  }
+
+  .section-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+
+    h3 {
+      font-size: 13px;
+    }
+
+    .term-title {
+      font-size: 22px;
+    }
+  }
+
+  .timeline-list {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .timeline-item {
+    padding: 14px;
+  }
+
+  .timeline-label {
+    font-size: 14px;
+  }
+
+  .timeline-value {
+    font-size: 13px;
+  }
+
+  .contact-support {
+    padding: 16px;
+
+    p {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+  }
+
+  .google-slides-section {
+    margin-bottom: 24px;
+  }
+
+  .slides-wrapper {
+    height: 400px;
+    border-radius: 12px;
+  }
+
+
 }
