@@ -6,7 +6,7 @@
   align-items: center;
   width: 100%;
   min-width: 1400px;
-  
+
     @media (max-width: 1023px) {
     min-width: 320px;
   }
@@ -68,10 +68,6 @@
   }
 }
 
-
-
-
-
 .hero-title {
   font-size: 80px;
   font-weight: 900;
@@ -80,8 +76,6 @@
   line-height: 1;
   letter-spacing: -1px;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-
-  
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
 

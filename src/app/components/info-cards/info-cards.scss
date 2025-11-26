@@ -107,7 +107,7 @@ $shadow-hover: 0 15px 40px rgba(30, 108, 147, 0.15);
 }
 
 .careers-section {
-  padding: 80px 24px;
+  padding: 20px 0;
   background-color: transparent;
   min-width: 320px; 
   width: 100%;
@@ -183,7 +183,6 @@ $shadow-hover: 0 15px 40px rgba(30, 108, 147, 0.15);
       flex-grow: 1;
     }
 
-    /* HOVER DEL BOTÓN (Independiente) */
     .btn-ver-mas {
       align-self: flex-start;
       display: inline-flex;
