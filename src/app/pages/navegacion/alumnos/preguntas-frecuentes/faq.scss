@@ -1,5 +1,4 @@
 :host {
-  // --- Variables de Identidad Visual Unificada ---
   --color-primary: #1E6C93;
   --color-primary-dark: #155a7a;
   --color-secondary: #5fb3f6;
@@ -11,9 +10,10 @@
 }
 
 .faq-container {
-  max-width: 1200px; // Estandarizado con las otras páginas
-  margin: 0 auto 40px auto;
+  max-width: 1200px;
   padding: 0 24px;
+  margin: 0 auto;
+  margin-bottom: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   @media (max-width: 768px) {
@@ -21,14 +21,14 @@
   }
 }
 
-/* --- Header estilo Banner --- */
 .page-header {
   position: relative;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  padding: 48px 40px;
+  padding: 36px;
   text-align: center;
   border-radius: 24px;
-  margin: 20px 0 40px 0;
+  margin: 20px auto;
+  margin-bottom: 40px;
   box-shadow: 
     0 8px 32px rgba(30, 108, 147, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.1) inset;
