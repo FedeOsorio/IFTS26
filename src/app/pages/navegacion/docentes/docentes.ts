@@ -3,7 +3,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronDown, faChevronUp, faExternalLinkAlt, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 
-// Importamos datos
 import docentesData from '../../../../assets/data/docentes.json';
 
 @Component({

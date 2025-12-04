@@ -1,1 +1,67 @@
-<p>publicaciones works!</p>
+<div class="publications-container">
+
+  <header class="page-header">
+    <h1>{{ data.tituloPrincipal }}</h1>
+    <p *ngIf="data.descripcionIntro">{{ data.descripcionIntro }}</p>
+  </header>
+
+  <div class="posts-list">
+    
+    @for (post of items; track $index) {
+      <article class="post-item" [class.active]="post.abierto">
+        
+        <div class="post-header" (click)="togglePublicacion(post)">
+          
+          <div class="thumbnail-wrapper" *ngIf="post.imagenPortada">
+            <img [src]="post.imagenPortada" [alt]="post.titulo">
+          </div>
+
+          <div class="header-info">
+            <div class="meta-data">
+              <span class="date" *ngIf="post.fecha">
+                <fa-icon [icon]="iconoFecha"></fa-icon> {{ post.fecha }}
+              </span>
+              <span class="gallery-badge" *ngIf="post.galeria && post.galeria.length > 0">
+                <fa-icon [icon]="iconoGaleria"></fa-icon> {{ post.galeria.length }} Fotos
+              </span>
+            </div>
+            
+            <h2>{{ post.titulo }}</h2>
+            <p class="summary">{{ post.resumen }}</p>
+          </div>
+
+          <div class="toggle-btn">
+            <fa-icon [icon]="post.abierto ? iconoContraer : iconoExpandir"></fa-icon>
+          </div>
+        </div>
+
+        <div class="post-content">
+          <div class="content-inner">
+            
+            <div class="markdown-body" *ngIf="post.cuerpoTexto" 
+                 [innerHTML]="renderMarkdown(post.cuerpoTexto)">
+            </div>
+
+            @if (post.galeria && post.galeria.length > 0) {
+              <div class="gallery-grid">
+                @for (foto of post.galeria; track $index) {
+                  <div class="gallery-item">
+                    <img [src]="foto.src" [alt]="foto.descripcion || post.titulo" loading="lazy">
+                    @if (foto.descripcion) {
+                      <div class="caption">
+                        <p>{{ foto.descripcion }}</p>
+                      </div>
+                    }
+                  </div>
+                }
+              </div>
+            }
+
+          </div>
+        </div>
+
+      </article>
+    }
+
+  </div>
+</div>

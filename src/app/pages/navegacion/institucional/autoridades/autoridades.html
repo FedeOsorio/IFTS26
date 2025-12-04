@@ -1,13 +1,17 @@
 <div class="authorities-container">
   
-  <h2 class="main-title">Autoridades</h2>
+  <div class="page-title">
+    <h1>Autoridades</h1>
+  </div>
 
   <div class="authorities-grid">
     
     @for (item of autoridades; track $index) {
       <div class="authority-card">
         <div class="card-header">
-          <fa-icon [icon]="iconoAutoridad"></fa-icon>
+          <div class="icon-wrapper">
+            <fa-icon [icon]="iconoAutoridad"></fa-icon>
+          </div>
           <h3>{{ item.cargo }}</h3>
         </div>
         

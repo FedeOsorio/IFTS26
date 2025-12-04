@@ -1,88 +1,198 @@
+/* =========================================
+   VARIABLES
+   ========================================= */
 :host {
-  --color-primary: #3f51b5;
-  --color-text-dark: #212529;
-  --color-text-light: #5a5a5a;
-  --color-border: #e0e0e0;
-  --color-bg-light: #f7f9ff;
+  --color-primary: #1E6C93;
+  --color-primary-dark: #155a7a;
+  --color-text-dark: #2c3539;
+  --color-text-light: #666;
+  --color-bg-light: #f8f9fa;
+  --color-white: #ffffff;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .calendar-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
+  max-width: 1000px;
+  margin: 0 auto 60px auto;
+  padding: 0 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-width: 320px;
 
-.semester-section {
-  margin-bottom: 3rem;
-}
-
-.section-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--color-primary);
-  
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  fa-icon {
-    font-size: 1.5rem;
+  @media (max-width: 768px) {
+    padding: 0 16px;
   }
 }
 
+.page-title {
+  text-align: center;
+  margin: 20px 0;
+  
+  /* Limpiamos estilos */
+  background: transparent;
+  padding: 0;
+  border: none;
+  
+  /* IMPORTANTE: Asegura que la raya no se recorte */
+  overflow: visible; 
+
+  h1 {
+    font-size: 36px;
+    font-weight: 900; 
+    color: #1E6C93; /* Color directo */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.2;
+    
+    /* Configuración para la raya */
+    position: relative; 
+    display: inline-block; /* Se ajusta al ancho del texto */
+    padding-bottom: 15px;  /* Espacio reservado para la raya */
+
+    /* LA RAYA */
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%); /* Centrado perfecto */
+      
+      width: 120px; /* Ancho de la raya */
+      height: 5px;  /* Grosor */
+      
+      /* Color sólido de respaldo + Degradado */
+      background-color: #1E6C93; 
+      background: linear-gradient(90deg, #1E6C93, #5fb3f6);
+      
+      border-radius: 4px;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+      padding-bottom: 12px;
+      
+      &::after {
+        width: 100px;
+        height: 4px;
+      }
+    }
+  }
+}
+
+/* =========================================
+   SECCIÓN CUATRIMESTRE
+   ========================================= */
+.semester-section {
+  margin-bottom: 3rem;
+  background: var(--color-white);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(30, 108, 147, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  fa-icon {
+    font-size: 1.4rem;
+    color: var(--color-primary-dark);
+  }
+}
+
+/* =========================================
+   LISTA DE FECHAS
+   ========================================= */
 .date-list {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
 .date-item {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--color-border);
-  gap: 1.5rem;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background-color: var(--color-bg-light); /* Fondo gris muy suave */
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  gap: 20px;
 
-  &:last-child {
-    border-bottom: none;
+  /* Efecto Hover */
+  &:hover {
+    background-color: var(--color-white);
+    //border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(30, 108, 147, 0.1);
+
+    .date-period {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
   }
 
   .date-content {
+    flex: 1;
+
     h4 {
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-text-dark);
-      margin: 0 0 0.25rem 0;
+      margin: 0 0 6px 0;
     }
     
     p {
       font-size: 0.95rem;
       color: var(--color-text-light);
       margin: 0;
+      line-height: 1.5;
     }
   }
 
+  /* Estilo Badge/Píldora para la fecha */
   .date-period {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--color-text-dark);
-    text-align: right;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background-color: rgba(30, 108, 147, 0.1);
+    padding: 8px 16px;
+    border-radius: 50px;
     white-space: nowrap;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-width: 120px; /* Ancho mínimo para uniformidad */
   }
 
-  @media (max-width: 576px) {
+  /* Adaptación Móvil */
+  @media (max-width: 600px) {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 12px;
+    padding: 16px;
 
     .date-period {
-      text-align: left;
-      font-weight: 600;
-      color: var(--color-primary);
-      padding-top: 0.25rem;
+      align-self: flex-start;
+      min-width: auto;
+      font-size: 0.85rem;
+      padding: 6px 12px;
     }
   }
 }

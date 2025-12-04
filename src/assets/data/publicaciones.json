@@ -1,0 +1,35 @@
+{
+  "tituloPrincipal": "Novedades y Actividades",
+  "descripcionIntro": "Enterate de las últimas actividades, visitas técnicas y eventos realizados por el instituto.",
+  "items": [
+    {
+      "titulo": "Visita a la Planta Industrial Toyota",
+      "fecha": "20 de Octubre, 2025",
+      "imagenPortada": "assets/images/toyota-cover.jpg",
+      "resumen": "Los alumnos de 2do año realizaron una visita técnica para conocer los procesos de seguridad e higiene en planta.",
+      "cuerpoTexto": "La visita tuvo como objetivo principal observar en campo la aplicación de las normas ISO 45001. Los alumnos pudieron recorrer la línea de montaje...",
+      "galeria": [
+        { 
+          "src": "assets/images/toyota-1.jpg", 
+          "descripcion": "Charla de inducción de seguridad." 
+        },
+        { 
+          "src": "assets/images/toyota-2.jpg", 
+          "descripcion": "Recorrida por el sector de estampado." 
+        },
+        { 
+          "src": "assets/images/toyota-3.jpg", 
+          "descripcion": "" 
+        }
+      ]
+    },
+    {
+      "titulo": "Charla sobre RCP y Primeros Auxilios",
+      "fecha": "15 de Septiembre, 2025",
+      "imagenPortada": "assets/images/rcp-cover.jpg",
+      "resumen": "Jornada de capacitación abierta a la comunidad educativa.",
+      "cuerpoTexto": "Se realizaron prácticas con muñecos de simulación y uso de desfibrilador automático (DEA).",
+      "galeria": [] 
+    }
+  ]
+}

@@ -359,3 +359,62 @@ collections:
             fields:
               - {label: "Título (Carrera/Plan)", name: "titulo", widget: "string"}
               - {label: "Archivo (PDF, Imagen o Excel)", name: "archivo", widget: "file"}
+
+  - name: "publicaciones"
+    label: "Publicaciones y Novedades"
+    file: "src/assets/data/publicaciones.json"
+    fields:
+      # Cabecera de la página
+      - label: "Título Principal de la Página"
+        name: "tituloPrincipal"
+        widget: "string"
+      - label: "Descripción Introductoria"
+        name: "descripcionIntro"
+        widget: "text"
+        required: false
+
+      # Lista de Artículos
+      - label: "Artículos / Novedades"
+        name: "items"
+        widget: "list"
+        collapsed: false
+        summary: "{{titulo}} - {{fecha}}"
+        fields:
+          - label: "Título de la Publicación"
+            name: "titulo"
+            widget: "string"
+          
+          - label: "Fecha (Texto)"
+            name: "fecha"
+            widget: "string"
+            hint: "Ej: 20 de Octubre, 2025"
+          
+          - label: "Imagen de Portada (Miniatura)"
+            name: "imagenPortada"
+            widget: "image"
+            required: false
+
+          - label: "Resumen Corto"
+            name: "resumen"
+            widget: "text"
+            hint: "Texto que se ve antes de abrir la solapa."
+
+          - label: "Cuerpo del Texto (Detalle)"
+            name: "cuerpoTexto"
+            widget: "markdown"
+            hint: "Texto completo que aparece al abrir. Soporta negritas, listas, etc."
+
+          # Galería de Fotos interna de cada post
+          - label: "Galería de Fotos"
+            name: "galeria"
+            widget: "list"
+            collapsed: true
+            summary: "{{descripcion}}"
+            fields:
+              - label: "Imagen"
+                name: "src"
+                widget: "image"
+              - label: "Descripción / Pie de foto"
+                name: "descripcion"
+                widget: "string"
+                required: false
