@@ -360,6 +360,8 @@ collections:
               - {label: "Título (Carrera/Plan)", name: "titulo", widget: "string"}
               - {label: "Archivo (PDF, Imagen o Excel)", name: "archivo", widget: "file"}
 
+
+  # == GRUPO: Publicaciones == 
   - name: "publicaciones"
     label: "Publicaciones y Novedades"
     file: "src/assets/data/publicaciones.json"
