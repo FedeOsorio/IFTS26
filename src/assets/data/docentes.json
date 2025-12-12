@@ -2,20 +2,35 @@
   "titulo": "Docentes",
   "pdfSrc": "/assets/images/uploads/mesa-ayuda-ejemplo.pdf",
   "botones": [
-    { "texto": "Instructivo Declaración Jurada", "url": "https://google.com" },
-    { "texto": "Bonificación de Antigüedad", "url": "https://google.com" },
-    { "texto": "Oferta de Cargos", "url": "https://google.com" },
-    { "texto": "Ficha Censal", "url": "https://google.com" },
-    { "texto": "Biblioteca Digital", "url": "https://google.com" }
+    {
+      "texto": "Instructivo Declaración Jurada",
+      "url": "https://drive.google.com/file/d/10sE2mrCspd-ZtBHgGXXfATveTIR4eltO/view"
+    },
+    {
+      "texto": "Bonificación de Antigüedad",
+      "url": "https://google.com"
+    },
+    {
+      "texto": "Oferta de Cargos",
+      "url": "https://google.com"
+    },
+    {
+      "texto": "Ficha Censal",
+      "url": "https://google.com"
+    },
+    {
+      "texto": "Biblioteca Digital",
+      "url": "https://google.com"
+    }
   ],
   "secciones": [
-    { 
-      "titulo": "MIA", 
-      "contenido": "Información sobre el Módulo de Información Administrativa..." 
+    {
+      "titulo": "MIA",
+      "contenido": "Información sobre el Módulo de Información Administrativa..."
     },
-    { 
-      "titulo": "CAPACITACION", 
-      "contenido": "Listado de cursos disponibles para docentes..." 
+    {
+      "titulo": "CAPACITACION",
+      "contenido": "Listado de cursos disponibles para docentes..."
     }
   ]
 }
