@@ -6,6 +6,11 @@
       "fecha": "1 al 15 de febrero"
     },
     {
+      "titulo": "Receso de Verano",
+      "fecha": "24 de diciembre al 20 de febrero",
+      "descripcion": "Periodo Vacacional"
+    },
+    {
       "titulo": "Inicio de Clases",
       "descripcion": "Comienzo del ciclo lectivo",
       "fecha": "3 de marzo"
