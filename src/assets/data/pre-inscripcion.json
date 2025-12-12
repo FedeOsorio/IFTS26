@@ -2,16 +2,25 @@
   "banner": {
     "titulo": "TE ESPERAMOS EN LA CHARLA INFORMATIVA",
     "subtitulo": "Inscripción Tecnicaturas 2026",
-    "fechaHora": "Miércoles 03/12/2025 - 18:30 hs",
+    "fechaHora": "Miércoles 03/12/2025 - 20:30 hs",
     "infoExtra": "Información del perfil de las carreras y modalidad de inscripción. Estados Unidos 3141 - CABA"
   },
   "cronograma": {
     "titulo": "Cronograma de ingreso para Tecnicaturas",
     "subtitulo": "Primer cuatrimestre 2026",
     "fechas": [
-      { "etapa": "Preinscripción", "detalle": "01/11/2025 al 15/12/2025 (inclusive)" },
-      { "etapa": "Curso de Preingreso", "detalle": "A partir del 24/11/2025" },
-      { "etapa": "Examen preingreso", "detalle": "16/02/2026 al 06/03/2026 (son dos exámenes obligatorios)" }
+      {
+        "etapa": "Preinscripción",
+        "detalle": "01/11/2025 al 15/12/2025 (inclusive)"
+      },
+      {
+        "etapa": "Curso de Preingreso",
+        "detalle": "A partir del 24/11/2025"
+      },
+      {
+        "etapa": "Examen preingreso",
+        "detalle": "16/02/2026 al 06/03/2026 (son dos exámenes obligatorios)"
+      }
     ]
   },
   "presentacion": {
