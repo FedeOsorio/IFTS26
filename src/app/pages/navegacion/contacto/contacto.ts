@@ -59,10 +59,10 @@ export class Contacto {
 
     try {
       await emailjs.send(
-        'service_o1vnw6m',
-        'template_ewwjhrs',
+        'service_3ae54zb',
+        'template_1k4ln7l',
         templateParams,
-        'HNFT8qRwufsUZgNsJ'
+        'sURBGYg5IwJ_RPrUw'
       );
 
       alert('¡Consulta enviada con éxito! Te responderemos a la brevedad.');
