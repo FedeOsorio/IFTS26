@@ -24,7 +24,6 @@ import { Gir } from './pages/navegacion/carreras/gir/gir';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/inicio', pathMatch: 'full' },
-    { path: '', component: Home },
     { path: 'inicio', component: Home },
     { path: 'pre-inscripcion', component: PreInscripcion },
     { path: 'institucional/calendario-academico', component: CalendarioAcademico },
